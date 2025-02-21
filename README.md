@@ -14,11 +14,11 @@
 
 O projeto ainda está em desenvolvimento e as próximas atualizações serão voltadas para as seguintes tarefas:
 
-- [x] Tarefa 1
-- [x] Tarefa 2
-- [x] Tarefa 3
-- [ ] Tarefa 4
-- [ ] Tarefa 5
+- [ ] Layout Base
+- [ ] Publicação dos produtos
+- [ ] Páginas Iniciais
+- [ ] Política de Privacidade e Termos de Condições
+- [ ] Design e Elementos Gráficos
 
 ## 💻 Pré-requisitos
 
