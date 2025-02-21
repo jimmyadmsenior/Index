@@ -126,7 +126,7 @@ Em breve ainda iremos colocar (Site ainda em construção)
 
 # Como clonar o repositório para sua máquina local
 Para clonar o repositório para sua máquina local basta você mandar
-uma solicitação para nós, propondo ser um afiliado ou ajudante para
+uma solicitação para nós (Pull Request) propondo ser um afiliado ou ajudante para
 o nosso projeto, lembre-se de enviar uma mensagem relatando o por quê
 que você gostaria de ajudar e como você pode contribuir para o nosso projeto.
 
