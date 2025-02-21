@@ -17,7 +17,7 @@ O projeto ainda está em desenvolvimento e as próximas atualizações serão vo
 - [ ] Layout Base
 - [ ] Publicação dos produtos
 - [ ] Páginas Iniciais
-- [ ] Política de Privacidade e Termos de Condições
+- [ ] BackEnd
 - [ ] Design e Elementos Gráficos
 
 ## 💻 Pré-requisitos
