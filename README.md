@@ -114,3 +114,22 @@ Quer fazer parte desse projeto? Clique [AQUI](CONTRIBUTING.md) e leia como contr
 ## 📝 Licença
 
 Esse projeto está sob licença. Veja o arquivo [LICENÇA](LICENSE.md) para mais detalhes.
+
+
+## Instalação
+
+Instruções sobre como acessar e utilizar o nosso site
+
+```bash
+# URL do site para ser acessada via navegador
+Em breve ainda iremos colocar (Site ainda em construção)
+
+# Como clonar o repositório para sua máquina local
+Para clonar o repositório para sua máquina local basta você mandar
+uma solicitação para nós, propondo ser um afiliado ou ajudante para
+o nosso projeto, lembre-se de enviar uma mensagem relatando o por quê
+que você gostaria de ajudar e como você pode contribuir para o nosso projeto.
+
+# Como clonar o repositório para seu perfil do GitHub
+Aperte no botão Fork na parte de cima dos arquivos,
+ao lado esquerdo da seção de favoritar o repositório
