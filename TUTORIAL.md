@@ -18,7 +18,7 @@ Para contribuir, você precisará criar uma cópia do repositório:
 Clone o repositório forkado para a sua máquina local:
 
 ```bash
-git clone https://github.com/seu-usuario/nome-do-repositorio.git
+git clone https://github.com/jimmyadmsenior/index.git
 ```
 
 ## 4. **Crie uma Nova Branch**
