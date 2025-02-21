@@ -109,7 +109,7 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
 
 ## 😄 Seja um dos contribuidores
 
-Quer fazer parte desse projeto? Clique [AQUI](CONTRIBUTING.md) e leia como contribuir.
+Quer fazer parte desse projeto? Clique [AQUI](TUTORIAL.md) e leia como contribuir.
 
 ## 📝 Licença
 

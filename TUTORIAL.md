@@ -18,7 +18,7 @@ Para contribuir, você precisará criar uma cópia do repositório:
 Clone o repositório forkado para a sua máquina local:
 
 ```bash
-git clone https://github.com/seu-usuario/nome-do-repositorio.git
+git clone https://github.com/jimmyadmsenior/index.git
 ```
 
 ## 4. **Crie uma Nova Branch**
@@ -60,7 +60,7 @@ Após enviar o pull request, eu ou outros colaboradores revisaremos suas altera�
 
 ## Dicas Finais
 
-- **Leia as Diretrizes:** Verifique se há um arquivo `CONTRIBUTING.md` no repositório, que pode conter diretrizes específicas para contribuições.
+- **Leia as Diretrizes:** Verifique se há um arquivo `EXPLANATION.md` no repositório, que pode conter diretrizes específicas para contribuições.
 - **Seja Respeitoso:** Sempre mantenha um tom respeitoso e colaborativo nas suas interações com outros contribuidores.
 
 Agradeço seu interesse em contribuir! Sua ajuda é muito valiosa para o crescimento do projeto.
