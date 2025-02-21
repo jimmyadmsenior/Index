@@ -34,6 +34,6 @@ Reservamo-nos o direito de alterar esta política de privacidade a qualquer mome
 
 ## Contato
 
-Se você tiver alguma dúvida sobre nossa política de privacidade ou sobre a proibição de venda do nosso site, entre em contato conosco através do e-mail [seu-email@dominio.com].
+Se você tiver alguma dúvida sobre nossa política de privacidade ou sobre a proibição de venda do nosso site, entre em contato conosco através do e-mail [jimmycastilho@aluno.senai.br.
 
 Agradecemos pela sua compreensão e apoio!

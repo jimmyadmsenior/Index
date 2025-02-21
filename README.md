@@ -1,24 +1,24 @@
 # INDEX
 
-![GitHub repo size](https://img.shields.io/github/repo-size/iuricode/README-template?style=for-the-badge)
-![GitHub language count](https://img.shields.io/github/languages/count/iuricode/README-template?style=for-the-badge)
-![GitHub forks](https://img.shields.io/github/forks/iuricode/README-template?style=for-the-badge)
-![Bitbucket open issues](https://img.shields.io/bitbucket/issues/iuricode/README-template?style=for-the-badge)
-![Bitbucket open pull requests](https://img.shields.io/bitbucket/pr-raw/iuricode/README-template?style=for-the-badge)
+![GitHub repo size](https://img.shields.io/github/repo-size/jimmyadmsenior/Index?style=for-the-badge)
+![GitHub language count](https://img.shields.io/github/languages/count/jimmyadmsenior/Index?style=for-the-badge)
+![GitHub forks](https://img.shields.io/github/forks/jimmyadmsenior/Index?style=for-the-badge)
+![Bitbucket open issues](https://img.shields.io/bitbucket/issues/jimmyadmsenior/Index?style=for-the-badge)
+![Bitbucket open pull requests](https://img.shields.io/bitbucket/pr-raw/jimmyadmsenior/Index?style=for-the-badge)
 
-<img src="" alt="Logo do site">
+<img src="https://github.com/user-attachments/assets/b518b347-90f9-4936-918b-443cdacc9197" alt="Logo do site">
 
-> Linha adicional de texto informativo sobre o que o projeto faz. Sua introdução deve ter cerca de 2 ou 3 linhas. Não exagere, as pessoas não vão ler.
+> Nosso site realiza a venda de eletrônicos, mais especificamente smartphones, fones de ouvido bluetooh, headsets, relógios digitais e powerbanks. Ele foi criado com o intuito de simplicar a escolha de eletrônicos, utilizando de recursos gráficos e apresentações intuitivas.
 
 ### Ajustes e melhorias
 
 O projeto ainda está em desenvolvimento e as próximas atualizações serão voltadas para as seguintes tarefas:
 
-- [x] Tarefa 1
-- [x] Tarefa 2
-- [x] Tarefa 3
-- [ ] Tarefa 4
-- [ ] Tarefa 5
+- [ ] Layout Base
+- [ ] Publicação dos produtos
+- [ ] Páginas Iniciais
+- [ ] Política de Privacidade e Termos de Condições
+- [ ] Design e Elementos Gráficos
 
 ## 💻 Pré-requisitos
 
@@ -126,7 +126,7 @@ Em breve ainda iremos colocar (Site ainda em construção)
 
 # Como clonar o repositório para sua máquina local
 Para clonar o repositório para sua máquina local basta você mandar
-uma solicitação para nós, propondo ser um afiliado ou ajudante para
+uma solicitação para nós (Pull Request) propondo ser um afiliado ou ajudante para
 o nosso projeto, lembre-se de enviar uma mensagem relatando o por quê
 que você gostaria de ajudar e como você pode contribuir para o nosso projeto.
 
