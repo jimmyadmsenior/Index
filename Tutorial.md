@@ -64,3 +64,5 @@ Após enviar o pull request, eu ou outros colaboradores revisaremos suas altera�
 - **Seja Respeitoso:** Sempre mantenha um tom respeitoso e colaborativo nas suas interações com outros contribuidores.
 
 Agradeço seu interesse em contribuir! Sua ajuda é muito valiosa para o crescimento do projeto.
+
+fe
