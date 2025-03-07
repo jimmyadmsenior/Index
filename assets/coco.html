@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CreativeHub - Plataforma de Conteúdo Criativo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #f0f0f0;
+            color: #333333;
+        }
+
+        .navbar {
+            background-color: #ffffff;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #e0e0e0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #000000;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .logo:hover {
+            color: #ff6347;
+        }
+
+        .search-bar {
+            flex-grow: 1;
+            margin: 0 2rem;
+        }
+
+        .search-bar input {
+            width: 100%;
+            padding: 0.8rem;
+            border-radius: 25px;
+            border: 1px solid #e0e0e0;
+            background-color: #ffffff;
+            color: #333333;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: box-shadow 0.3s;
+        }
+
+        .search-bar input:focus {
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        .login-icon {
+            font-size: 1.2rem;
+            cursor: pointer;
+            color: #000000;
+            transition: color 0.3s;
+        }
+
+        .login-icon:hover {
+            color: #ff6347;
+        }
+
+        .sidebar {
+            width: 250px;
+            background-color: #ffffff;
+            position: fixed;
+            height: 100%;
+            padding: 1rem;
+            top: 60px;
+            left: -250px;
+            transition: left 0.3s;
+            border-right: 1px solid #e0e0e0;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+        }
+
+        .sidebar.active {
+            left: 0;
+        }
+
+        .sidebar a {
+            color: #333333;
+            text-decoration: none;
+            display: block;
+            padding: 0.8rem 0;
+            transition: color 0.3s, background-color 0.3s;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .sidebar a:hover {
+            color: #ffffff;
+            background-color: #ff6347;
+        }
+
+        .main-content {
+            margin-top: 80px;
+            padding: 2rem 5%;
+            margin-left: 0;
+            transition: margin-left 0.3s;
+        }
+
+        .main-content.active {
+            margin-left: 250px;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: #333333;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            width: 50px;
+            height: 3px;
+            background-color: #ff6347;
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .btn-primary {
+            background: #ff6347;
+            color: #ffffff;
+            border: none;
+            border-radius: 25px;
+            padding: 0.8rem 2rem;
+            cursor: pointer;
+            transition: opacity 0.3s, transform 0.3s;
+        }
+
+        .btn-primary:hover {
+            opacity: 0.8;
+            transform: scale(1.05);
+        }
+
+        .footer {
+            background: #ffffff;
+            padding: 3rem 5%;
+            margin-top: 4rem;
+            box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 1.5rem;
+            color: #333333;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-section a {
+            color: #666666;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: #ff6347;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-icons a {
+            color: #333333;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: #ff6347;
+        }
+
+        .copyright {
+            text-align: center;
+            padding: 2rem;
+            color: #666666;
+            border-top: 1px solid #e0e0e0;
+            margin-top: 3rem;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo" onclick="toggleSidebar()">CreativeHub</div>
+        <div class="search-bar">
+            <input type="text" placeholder="Pesquisar...">
+        </div>
+        <div class="login-icon">
+            <i class="fas fa-user"></i>
+        </div>
+    </nav>
+
+    <div class="sidebar" id="sidebar">
+        <a href="#ideias">Ideias</a>
+        <a href="#personagens">Personagens</a>
+        <a href="#adaptacoes">Adaptações</a>
+        <a href="#foruns">Fóruns</a>
+        <a href="#concorrencias">Concorrências</a>
+        <a href="#roteiros">Roteiros</a>
+        <a href="#premios">Prêmios</a>
+    </div>
+
+    <main class="main-content" id="mainContent">
+        <!-- Seção Sobre Nós -->
+        <section>
+            <h2 class="section-title">Sobre Nós</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto;">Bem-vindo ao CreativeHub, a plataforma onde criatividade e inovação se encontram. Nossa missão é fornecer um espaço para criativos compartilharem suas ideias, personagens, roteiros e muito mais. Aqui, você pode publicar, colaborar e competir em um ambiente seguro e inspirador.</p>
+        </section>
+
+        <!-- Seção Parcerias -->
+        <section style="margin-top: 3rem;">
+            <h2 class="section-title">Nossas Parcerias</h2>
+            <div style="text-align: center; max-width: 800px; margin: 0 auto;">
+                <p>Trabalhamos em conjunto com os principais órgãos de direitos autorais para garantir que seu trabalho seja protegido. Nossas parcerias incluem:</p>
+                <ul style="list-style: none; padding: 0;">
+                    <li style="margin: 1rem 0;">
+                        <a href="https://www.gov.br/turismo/pt-br/secretaria-especial-da-cultura/assuntos/direitos-autorais/cnda-conselho-nacional-de-direitos-autorais" target="_blank" style="color: #000000; text-decoration: underline;">
+                            CNDA - Conselho Nacional de Direitos Autorais
+                        </a>
+                    </li>
+                    <li>Parceiros internacionais de direitos autorais</li>
+                    <li>Estúdios criativos associados</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Seção Pagamento -->
+        <section style="margin-top: 3rem; text-align: center;">
+            <h2 class="section-title">Pagamento</h2>
+            <p style="max-width: 800px; margin: 0 auto;">Oferecemos planos flexíveis para atender às suas necessidades. Você pode escolher entre publicar conteúdo exclusivo, não exclusivo ou assinar nosso plano de armazenamento mensal por apenas R$ 9,90.</p>
+        </section>
+
+        <!-- Rodapé Complexo -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Sobre Nós</h4>
+                    <ul>
+                        <li><a href="#historia">Nossa História</a></li>
+                        <li><a href="#equipe">Equipe</a></li>
+                        <li><a href="#carreiras">Carreiras</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Suporte</h4>
+                    <ul>
+                        <li><a href="#ajuda">Central de Ajuda</a></li>
+                        <li><a href="#contato">Contato</a></li>
+                        <li><a href="#termos">Termos de Uso</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Conectar</h4>
+                    <div class="social-icons">
+                        <a href="#facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#linkedin"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>Todos os direitos reservados © 2024 CreativeHub</p>
+                <p>Parceria oficial com o CNDA e órgãos reguladores</p>
+            </div>
+        </footer>
+    </main>
+
+    <script>
+        // Funções JavaScript
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const mainContent = document.getElementById('mainContent');
+            sidebar.classList.toggle('active');
+            mainContent.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
+
