@@ -1,0 +1,18 @@
+CREATE DATABASE 
+
+CREATE TABLE usuarios (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    senha VARCHAR(100) NOT NULL,
+    telefone VARCHAR(15)
+);
+
+CREATE TABLE celulares (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    modelo VARCHAR(100) NOT NULL,
+    marca VARCHAR(50) NOT NULL,
+    preco DECIMAL(10, 2) NOT NULL,
+    estoque INT NOT NULL,
+    descricao TEXT
+);
