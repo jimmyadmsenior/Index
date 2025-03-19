@@ -1,0 +1,90 @@
+@font-face {
+    font-family: 'Geoform';
+    src: url('Geoform-Regular.woff2') format('woff2'),
+         url('Geoform-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Geoform';
+    src: url('Geoform-Medium.woff2') format('woff2'),
+         url('Geoform-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Geoform';
+    src: url('Geoform-ExtraBold.woff2') format('woff2'),
+         url('Geoform-ExtraBold.woff') format('woff');
+    font-weight: 800;
+    font-style: normal;
+}
+
+body {
+    margin: 0;
+    font-family: 'Geoform', sans-serif;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #111;
+    padding: 10px 20px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links li a {
+    color: white;
+    text-decoration: none;
+    font-family: 'Geoform', sans-serif;
+    font-weight: 500; /* Medium */
+}
+
+.hero {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+.hero img {
+    width: 100%;
+    height: auto;
+}
+
+.hero h1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 36px;
+    font-weight: 800; /* Extra Bold */
+}
+
+.links {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    padding: 40px 20px;
+}
+
+.link-item {
+    text-align: center;
+}
+
+.link-item img {
+    height: 50px;
+}
+
+.link-item p {
+    margin-top: 10px;
+    font-family: 'Geoform', sans-serif;
+    font-weight: normal;
+}
