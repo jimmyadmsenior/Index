@@ -50,8 +50,8 @@ Pedimos que você:
 
 Para quaisquer dúvidas relacionadas à segurança ou para relatar uma vulnerabilidade, entre em contato conosco:
 
-- **E-mail**: [security@ourwebsite.com](mailto:security@ourwebsite.com)
-- **Telefone**: +1-800-SECURE (732-873)
+- **E-mail**: [security@ourwebsite.com](jimmy.castilho@aluno.senai.br)
+- **Repositório**: [Index](https://github.com/jimmyadmsenior/Index)
 
 Agradecemos seus esforços para nos ajudar a manter a segurança do nosso site e serviços.
 
