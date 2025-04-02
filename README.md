@@ -8,7 +8,7 @@
 
 <img src="https://github.com/user-attachments/assets/b518b347-90f9-4936-918b-443cdacc9197" alt="Logo do site">
 
-> Nosso site realiza a venda de eletrônicos, mais especificamente smartphones, fones de ouvido bluetooh, headsets, relógios digitais e powerbanks. Ele foi criado com o intuito de simplicar a escolha de eletrônicos, utilizando de recursos gráficos e apresentações intuitivas.
+> Nosso site realiza a venda de eletrônicos, mais especificamente smartphones, fones de ouvido, relógios, tablets e notebooks. Ele foi criado com o intuito de simplicar a escolha de eletrônicos, utilizando de recursos gráficos e apresentações intuitivas.
 
 ### Ajustes e melhorias
 
@@ -18,7 +18,7 @@ O projeto ainda está em desenvolvimento e as próximas atualizações serão vo
 - [ ] Publicação dos produtos
 - [ ] Páginas Iniciais
 - [ ] BackEnd
-- [ ] Design e Elementos Gráficos
+- [x] Design e Elementos Gráficos
 
 ## 📫 Contribuindo para o Index
 
