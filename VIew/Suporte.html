@@ -68,7 +68,7 @@
 
         // Carrega o modelo FBX
         const loader = new THREE.FBXLoader();
-        loader.load('../VIew/Media/Modelo3D.fb', (object) => {
+        loader.load('../Modelos-3D/airpods-max/source/Airpods.fbx', (object) => {
             scene.add(object);
             object.position.set(0, 0, 0); // Ajuste a posição do modelo
             object.scale.set(0.01, 0.01, 0.01); // Ajuste o tamanho do modelo
