@@ -5,8 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Index Suporte</title>
     <link rel="stylesheet" href="../VIew/Media/Suporte.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/FBXLoader.js"></script>
 </head>
 <body>
     <header>
@@ -51,38 +49,13 @@
     <!-- Seção para o modelo 3D -->
     <section id="model-3d" style="width: 100%; height: 500px; margin-top: 20px;">
         <h2 style="text-align: center;">Visualização do Modelo 3D</h2>
-        <div id="3d-container" style="width: 100%; height: 500px;"></div>
+        <iframe 
+            src="https://prod.spline.design/bzpWZeX31WBj7aBq/scene.splinecode" 
+            frameborder="0" 
+            width="100%" 
+            height="500px" 
+            style="border: none;">
+        </iframe>
     </section>
-
-    <script>
-        // Configuração básica da cena
-        const scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / 500, 0.1, 1000);
-        const renderer = new THREE.WebGLRenderer();
-        renderer.setSize(window.innerWidth, 500);
-        document.getElementById('3d-container').appendChild(renderer.domElement);
-
-        // Adiciona luz à cena
-        const light = new THREE.AmbientLight(0xffffff, 1);
-        scene.add(light);
-
-        // Carrega o modelo FBX
-        const loader = new THREE.FBXLoader();
-        loader.load('../Modelos-3D/airpods-max/source/Airpods.fbx', (object) => {
-            scene.add(object);
-            object.position.set(0, 0, 0); // Ajuste a posição do modelo
-            object.scale.set(0.01, 0.01, 0.01); // Ajuste o tamanho do modelo
-        });
-
-        // Configuração da câmera
-        camera.position.z = 5;
-
-        // Função de animação
-        function animate() {
-            requestAnimationFrame(animate);
-            renderer.render(scene, camera);
-        }
-        animate();
-    </script>
 </body>
 </html>
