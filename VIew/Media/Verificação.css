@@ -1,0 +1,84 @@
+@font-face {
+    font-family: 'Goeform';
+    src: url('fonts/Goeform.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  /* Se tiver arquivos separados para cada peso, eu ajusto também, me avisa! */
+  
+  body {
+    margin: 0;
+    padding: 0;
+    background: #1a1a1a;
+    color: white;
+    font-family: 'Goeform', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  header {
+    width: 100%;
+    padding: 15px 30px;
+    background: black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 14px;
+    font-weight: 700; /* Bold */
+  }
+  
+  .logo img {
+    height: 40px; /* Ajuste conforme o tamanho da sua logo */
+  }
+  
+  .verification-container {
+    margin-top: 80px;
+    background: black;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+  }
+  
+  .verification-container h1 {
+    font-weight: 500; /* Medium */
+  }
+  
+  .verification-container p {
+    font-weight: 500; /* Medium */
+    margin-top: 10px;
+  }
+  
+  input[type="text"] {
+    padding: 10px;
+    width: 200px;
+    font-size: 18px;
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 5px;
+  }
+  
+  button {
+    background: white;
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: 800; /* Extra Bold */
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background: #ddd;
+  }
+  
