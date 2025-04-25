@@ -1,0 +1,115 @@
+@font-face {
+    font-family: 'Geoform';
+    src: url('Geoform-Regular.ttf') format('truetype');
+  }
+  
+  body {
+    margin: 0;
+    font-family: 'Geoform', sans-serif;
+    background-color: #fff;
+    color: #000;
+  }
+  
+  .topbar {
+    background-color: #2c2c2c;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 40px;
+    color: white;
+  }
+  
+  .topbar .logo {
+    height: 20px;
+  }
+  
+  .menu a {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
+    font-size: 12px;
+  }
+  
+  .icons img {
+    height: 14px;
+    margin-left: 15px;
+  }
+  
+  .container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 80px 40px;
+    flex-wrap: wrap;
+  }
+  
+  .left {
+    max-width: 400px;
+  }
+  
+  .left h1 {
+    font-size: 45px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .left p {
+    font-size: 18px;
+    line-height: 1.5;
+  }
+  
+  .left button {
+    background-color: black;
+    color: white;
+    padding: 15px 40px;
+    border: none;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 30px;
+    margin-top: 30px;
+    cursor: pointer;
+    letter-spacing: 2px;
+  }
+  
+  .right .qrcode {
+    max-width: 240px;
+    height: auto;
+  }
+  
+  footer {
+    background-color: #f9f9f9;
+    padding: 40px 60px;
+    font-size: 12px;
+  }
+  
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  
+  .footer-section {
+    margin: 10px 30px;
+  }
+  
+  .footer-section h4 {
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .footer-section p {
+    margin: 2px 0;
+  }
+  
+  .github-icon {
+    width: 30px;
+    margin-bottom: 5px;
+  }
+  
+  .copy {
+    text-align: center;
+    font-size: 10px;
+    color: #999;
+    padding-top: 20px;
+  }
