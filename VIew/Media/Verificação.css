@@ -1,84 +1,123 @@
 @font-face {
-    font-family: 'Goeform';
-    src: url('fonts/Goeform.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-  }
-  
-  /* Se tiver arquivos separados para cada peso, eu ajusto também, me avisa! */
-  
-  body {
-    margin: 0;
-    padding: 0;
-    background: #1a1a1a;
-    color: white;
-    font-family: 'Goeform', sans-serif;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  header {
-    width: 100%;
-    padding: 15px 30px;
-    background: black;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  nav a {
-    color: white;
-    text-decoration: none;
-    margin: 0 10px;
-    font-size: 14px;
-    font-weight: 700; /* Bold */
-  }
-  
-  .logo img {
-    height: 40px; /* Ajuste conforme o tamanho da sua logo */
-  }
-  
-  .verification-container {
-    margin-top: 80px;
-    background: black;
-    padding: 30px;
-    border-radius: 10px;
-    text-align: center;
-  }
-  
-  .verification-container h1 {
-    font-weight: 500; /* Medium */
-  }
-  
-  .verification-container p {
-    font-weight: 500; /* Medium */
-    margin-top: 10px;
-  }
-  
-  input[type="text"] {
-    padding: 10px;
-    width: 200px;
-    font-size: 18px;
-    text-align: center;
-    margin-top: 15px;
-    margin-bottom: 20px;
-    border: none;
-    border-radius: 5px;
-  }
-  
-  button {
-    background: white;
-    color: black;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    font-weight: 800; /* Extra Bold */
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background: #ddd;
-  }
-  
+  font-family: 'Goeform';
+  src: url('fonts/Goeform.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Goeform', sans-serif;
+  color: white;
+}
+
+header {
+  width: 100%;
+  padding: 10px 30px;
+  background: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.logo {
+  position: absolute;
+  left: 30px;
+}
+
+.logo img {
+  height: 40px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 40px;
+  padding: 0;
+  margin: 0;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.20em; /* Adiciona o espaçamento entre as letras */
+  transition: color 0.3s;
+}
+
+
+nav ul li a:hover {
+  color: #00bfff; /* cor de destaque no hover */
+}
+
+.background {
+  background-color: #181818;
+  background-size: cover;
+  background-position: center;
+  height: calc(100vh - 70px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.verification-container {
+  background: rgba(0, 0, 0, 0.92);
+  padding: 70px; /* Maior */
+  border-radius: 12px;
+  text-align: center;
+  max-width: 600px;
+  width: 100%;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.verification-container h1 {
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.verification-container p {
+  font-size: 20px;
+  font-weight: 400;
+  margin-bottom: 30px;
+}
+
+.verification-container input {
+  padding: 18px;
+  width: 90%;
+  font-size: 20px;
+  border-radius: 10px;
+  border: none;
+  margin-bottom: 25px;
+  font-family: 'Goeform', sans-serif;
+  text-align: center;
+  outline: none;
+}
+
+.verification-container button {
+  padding: 18px 40px;
+  font-size: 20px;
+  font-weight: 700;
+  background: white; /* fundo branco */
+  color: black; /* texto preto */
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-family: 'Goeform', sans-serif;
+  transition: background 0.3s, color 0.3s, transform 0.2s;
+}
+
+.verification-container button:hover {
+  background: #f0f0f0; /* leve escurecida no hover */
+  transform: scale(1.05);
+}
+
+.verification-container button:active {
+  background: #e0e0e0;
+  transform: scale(0.98);
+}
