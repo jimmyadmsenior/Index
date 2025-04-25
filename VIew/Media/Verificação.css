@@ -4,6 +4,13 @@
   font-weight: normal;
   font-style: normal;
 }
+@font-face {
+  font-family: 'Goeform Medium';
+  src: url('../Media/geoform/Geoform-Medium.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 
 body {
   margin: 0;
@@ -45,11 +52,12 @@ nav ul.menu {
 }
 
 nav ul.menu li a {
+  font-family: 'Goeform Medium', sans-serif;
   color: white;
   text-decoration: none;
   font-size: 16px;
-  font-weight: 700;
-  letter-spacing: 0.29em; /* Espaçamento entre letras como pediu */
+  font-weight: 500;
+  letter-spacing: 0.11em;
   transition: color 0.3s;
 }
 
@@ -140,4 +148,29 @@ html, body {
   padding: 0;
   overflow: hidden;
   background-color: black; /* deixa o fundo totalmente preto */
+}
+@font-face {
+  font-family: 'Goeform Bold';
+  src: url('../Media/geoform/Geoform-Bold.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.verification-container h1 {
+  font-family: 'Goeform Bold', sans-serif;
+  font-size: 36px;
+  font-weight: normal;
+  margin-bottom: 20px;
+}
+@font-face {
+  font-family: 'Goeform ExtraBold';
+  src: url('../Media/geoform/Geoform-ExtraBold.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.verification-container button {
+  font-family: 'Goeform ExtraBold', sans-serif;
+  font-size: 20px;
+  font-weight: normal;
 }
