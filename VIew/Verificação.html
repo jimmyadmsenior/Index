@@ -6,6 +6,60 @@
   <title>Verificação Cadastro</title>
   <link rel="stylesheet" href="../VIew/Media/Verificação.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <style>
+    /* Estilo do input Uiverse */
+    .input-container {
+      position: relative;
+      width: 250px;
+      margin: 20px auto;
+    }
+
+    .input-field {
+      width: 100%;
+      padding: 10px 10px;
+      font-size: 16px;
+      border: 2px solid #ccc;
+      border-radius: 5px;
+      background: none;
+      outline: none;
+      color: #333;
+    }
+
+    .input-label {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      font-size: 16px;
+      color: #aaa;
+      pointer-events: none;
+      transition: 0.2s ease all;
+    }
+
+    .input-field:focus ~ .input-label,
+    .input-field:not(:placeholder-shown) ~ .input-label {
+      top: -10px;
+      left: 8px;
+      font-size: 12px;
+      color: #555;
+      background: white;
+      padding: 0 4px;
+    }
+
+    .input-highlight {
+      position: absolute;
+      height: 2px;
+      width: 100%;
+      bottom: 0;
+      left: 0;
+      background: #333;
+      transform: scaleX(0);
+      transition: transform 0.3s;
+    }
+
+    .input-field:focus ~ .input-highlight {
+      transform: scaleX(1);
+    }
+  </style>
 </head>
 <body>
 
@@ -39,8 +93,14 @@
   <div class="verification-container">
     <h1>Verificação</h1>
     <p>Um código foi enviado para o seu e-mail para verificação.<br>Por favor, insira-o abaixo:</p>
-    <input type="text" placeholder="XXX-XXX">
-    <br>
+
+    <!-- Campo estilizado da Uiverse -->
+    <div class="input-container">
+      <input placeholder=" " class="input-field" type="text" id="input-field">
+      <label for="input-field" class="input-label">Código de Verificação</label>
+      <span class="input-highlight"></span>
+    </div>
+
     <button>ENVIAR</button>
   </div>
 </main>
