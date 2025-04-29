@@ -1,4 +1,4 @@
-# INDEd
+# INDEX
 
 ![GitHub repo size](https://img.shields.io/github/repo-size/jimmyadmsenior/Index?style=for-the-badge)
 ![GitHub language count](https://img.shields.io/github/languages/count/jimmyadmsenior/Index?style=for-the-badge)
