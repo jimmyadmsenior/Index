@@ -33,13 +33,13 @@ html, body {
   overflow: hidden;
   background-color: black;
   font-family: 'Goeform', sans-serif;
-  color: white;
+  color: rgb(0, 0, 0);
 }
 
 /* Header */
 header {
   width: 100%;
-  background: black;
+  background: rgb(0, 0, 0);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -64,7 +64,7 @@ nav ul.menu {
 }
 nav ul.menu li a {
   font-family: 'Goeform Medium', sans-serif;
-  color: white;
+  color: rgb(249, 249, 249);
   text-decoration: none;
   font-size: 16px;
   font-weight: 500;
@@ -84,7 +84,7 @@ nav ul.menu li a:hover {
 
 /* Background geral */
 .background {
-  background-color: #181818;
+  background-color: #cecece;
   background-size: cover;
   background-position: center;
   height: calc(100vh - 70px);
@@ -96,13 +96,13 @@ nav ul.menu li a:hover {
 
 /* Container de verificação */
 .verification-container {
-  background: rgba(15, 15, 15, 0.92); /* Um tom mais claro */
+  background: rgba(255, 255, 255, 0.92); /* Um tom mais claro */
   padding: 70px;
   border-radius: 12px;
   text-align: center;
   max-width: 600px;
   width: 100%;
-  box-shadow: 0 0 20px rgb(255, 255, 255);
+  box-shadow: 0 0 20px rgb(0, 0, 0);
   transition: all 0.3s ease;
 }
 .verification-container h1 {
@@ -120,8 +120,8 @@ nav ul.menu li a:hover {
   padding: 18px 40px;
   font-size: 20px;
   font-weight: 700; /* Mantido */
-  background: white;
-  color: black;
+  background: rgb(232, 232, 232);
+  color: rgb(0, 0, 0);
   border: none;
   border-radius: 10px;
   cursor: pointer;
