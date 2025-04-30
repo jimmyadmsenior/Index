@@ -36,7 +36,6 @@
     color: rgb(255, 255, 255); /* Cor do texto preta */
   }
   
-  /* Header */
   header {
     width: 100%; /* Largura total */
     background: rgb(0, 0, 0); /* Fundo preto */
@@ -44,25 +43,25 @@
     justify-content: center; /* Centraliza horizontalmente */
     align-items: center; /* Centraliza verticalmente */
     padding: 10px 20px; /* Espaçamento interno */
-  }
-  .header-content {
+}
+.header-content {
     width: 100%; /* Largura total */
     max-width: 1300px; /* Largura máxima */
     display: flex; /* Layout flexível */
     align-items: center; /* Centraliza verticalmente */
     justify-content: space-between; /* Espaçamento entre os itens */
-  }
-  .logo img {
+}
+.logo img {
     height: 30px; /* Altura da imagem do logo */
-  }
-  nav ul.menu {
+}
+nav ul.menu {
     list-style: none; /* Remove marcadores da lista */
     display: flex; /* Layout flexível */
     gap: 30px; /* Espaçamento entre itens */
     margin: 0; /* Remove margens */
     padding: 0; /* Remove espaçamento interno */
-  }
-  nav ul.menu li a {
+}
+nav ul.menu li a {
     font-family: 'Goeform Medium', sans-serif; /* Fonte personalizada */
     color: rgb(249, 249, 249); /* Cor do texto */
     text-decoration: none; /* Remove sublinhado */
@@ -70,17 +69,17 @@
     font-weight: 500; /* Peso da fonte */
     letter-spacing: 0.11em; /* Espaçamento entre letras */
     transition: color 0.3s; /* Transição suave para a cor */
-  }
-  nav ul.menu li a:hover {
+}
+nav ul.menu li a:hover {
     color: #00bfff; /* Cor ao passar o mouse */
-  }
-  .icons {
+}
+.icons {
     display: flex; /* Layout flexível */
     align-items: center; /* Centraliza verticalmente */
     gap: 20px; /* Espaçamento entre ícones */
     font-size: 18px; /* Tamanho da fonte */
     color: white; /* Cor dos ícones */
-  }
+}
   
   /* Background geral */
   .background {
