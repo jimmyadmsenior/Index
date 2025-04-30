@@ -84,7 +84,7 @@ Esse projeto está sob licença. Veja o arquivo [LICENÇA](LICENSE) para mais de
 
 ## Instalação
 
-Instruções sobre como acessar e utilizar o nosso sitee
+Instruções sobre como acessar e utilizar o nosso site
 
 ```bash
 # URL do site para ser acessada via navegador
