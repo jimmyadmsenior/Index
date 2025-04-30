@@ -1,0 +1,170 @@
+/* Fontes personalizadas */
+@font-face {
+    font-family: 'Goeform';
+    src: url('../Media/geoform/Geoform.otf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Goeform Medium';
+    src: url('../Media/geoform/Geoform-Medium.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Goeform Bold';
+    src: url('../Media/geoform/Geoform-Bold.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Goeform ExtraBold';
+    src: url('../Media/geoform/Geoform-ExtraBold.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Reseta a margem e o padding do body */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Estilo para o container de fundo */
+.background {
+    background-color: #1a1a1a;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Wrapper para o título */
+.titulo-wrapper {
+    margin-top: -160px; /* Suba o título ajustando a margem superior */
+    margin-bottom: 50px; /* Adicione espaçamento entre o título e o container */
+}
+
+
+/* Estilo para o título de confirmação */
+.titulo-confirmacao {
+    font-family: 'Goeform ExtraBold', sans-serif;
+    font-size: 36px;
+    letter-spacing: 2px;
+    color: white;
+    text-align: center;
+}
+
+/* Container para o conteúdo de verificação */
+.verification-container {
+    background: rgba(32, 32, 32, 0.92);
+    color: #fff;
+    padding: 50px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0px 0px 10px rgba(172, 168, 168, 0.5);
+    max-width: 450px;
+    width: 90%;
+    margin-top: -20px; /* Suba mais a caixa */
+}
+
+/* Estilo para o ícone de check */
+.check-icon {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 20px;
+}
+
+/* Estilo para os parágrafos dentro do container de verificação */
+.verification-container p {
+    font-size: 25px;
+    margin-bottom: 30px;
+    margin-top: -10px; /* Suba a frase dentro da caixa */
+}
+
+/* Estilo para o botão dentro do container de verificação */
+.verification-container button {
+    padding: 18px 40px;
+    font-size: 20px;
+    font-weight: 700;
+    background: rgb(236, 236, 236);
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-family: 'GoeformE', sans-serif;
+    transition: background 0.3s, color 0.3s, transform 0.2s;
+}
+
+/* Efeito de hover para o botão */
+.verification-container button:hover {
+    background: #f0f0f0;
+    transform: scale(1.05);
+}
+
+/* Efeito ativo (clicado) para o botão */
+.verification-container button:active {
+    background: #e0e0e0;
+    transform: scale(0.98);
+}
+
+/* Header */
+header {
+    width: 100%; /* Largura total */
+    background: rgb(0, 0, 0); /* Fundo preto */
+    display: flex; /* Layout flexível */
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    padding: 10px 20px; /* Espaçamento interno */
+}
+.header-content {
+    width: 100%; /* Largura total */
+    max-width: 1300px; /* Largura máxima */
+    display: flex; /* Layout flexível */
+    align-items: center; /* Centraliza verticalmente */
+    justify-content: space-between; /* Espaçamento entre os itens */
+}
+.logo img {
+    height: 30px; /* Altura da imagem do logo */
+}
+nav ul.menu {
+    list-style: none; /* Remove marcadores da lista */
+    display: flex; /* Layout flexível */
+    gap: 30px; /* Espaçamento entre itens */
+    margin: 0; /* Remove margens */
+    padding: 0; /* Remove espaçamento interno */
+}
+nav ul.menu li a {
+    font-family: 'Goeform Medium', sans-serif; /* Fonte personalizada */
+    color: rgb(249, 249, 249); /* Cor do texto */
+    text-decoration: none; /* Remove sublinhado */
+    font-size: 16px; /* Tamanho da fonte */
+    font-weight: 500; /* Peso da fonte */
+    letter-spacing: 0.11em; /* Espaçamento entre letras */
+    transition: color 0.3s; /* Transição suave para a cor */
+}
+nav ul.menu li a:hover {
+    color: #00bfff; /* Cor ao passar o mouse */
+}
+.icons {
+    display: flex; /* Layout flexível */
+    align-items: center; /* Centraliza verticalmente */
+    gap: 20px; /* Espaçamento entre ícones */
+    font-size: 18px; /* Tamanho da fonte */
+    color: white; /* Cor dos ícones */
+}
+html, body {
+    height: 100%;
+    margin: 0;
+    overflow: hidden; /* Impede o scroll */
+}
+.container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
