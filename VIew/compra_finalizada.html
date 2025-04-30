@@ -3,42 +3,118 @@
 <head>
   <meta charset="UTF-8">
   <title>Compra Finalizada</title>
+
+  <!-- Estilo externo (opcional) -->
   <link rel="stylesheet" href="../VIew/Media/compra_finalizada.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"> <!-- Link do Font Awesome -->
+
+  <!-- Font Awesome para ícones -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    /* Confete básico: cada pedaço terá animação de queda */
+    [class^="confetti-"] {
+      position: absolute;
+      width: 8px;
+      height: 3px;
+      background-color: red;
+      opacity: 0.7;
+      top: -10px;
+      animation: fall linear infinite;
+      pointer-events: none;
+    }
+
+    /* Animação de queda */
+    @keyframes fall {
+      0% {
+        transform: translateY(0) rotate(0deg);
+      }
+      100% {
+        transform: translateY(110vh) rotate(360deg);
+      }
+    }
+
+    /* Estilização geral do corpo */
+    body {
+      margin: 0;
+      overflow: hidden;
+    }
+
+    /* Envolve toda a página, serve para conter os confetes */
+    .wrapper {
+      position: relative;
+      min-height: 100vh;
+    }
+  </style>
 </head>
 <body>
-  <header>
-    <div class="header-content">
-      <div class="logo">
-        <img src="../VIew/Media/Logo_Branca.png" alt="Logo">
+  <div class="wrapper">
+    <!-- Cabeçalho com logo, menu e ícones -->
+    <header>
+      <div class="header-content">
+        <div class="logo">
+          <img src="../VIew/Media/Logo_Branca.png" alt="Logo">
+        </div>
+        <nav>
+          <ul class="menu">
+            <li><a href="#">Smartphones</a></li>
+            <li><a href="#">Tablets</a></li>
+            <li><a href="#">Fones</a></li>
+            <li><a href="#">Relógios</a></li>
+            <li><a href="#">Notebooks</a></li>
+          </ul>
+        </nav>
+        <div class="icons">
+          <i class="fas fa-search"></i>
+          <i class="fas fa-user"></i>
+          <i class="fas fa-shopping-bag"></i>
+          <i class="fas fa-box"></i>
+        </div>
       </div>
-      <nav>
-        <ul class="menu">
-          <li><a href="#">Smartphones</a></li>
-          <li><a href="#">Tablets</a></li>
-          <li><a href="#">Fones</a></li>
-          <li><a href="#">Relógios</a></li>
-          <li><a href="#">Notebooks</a></li>
-        </ul>
-      </nav>
-      <div class="icons">
-        <i class="fas fa-search"></i>
-        <i class="fas fa-user"></i>
-        <i class="fas fa-shopping-bag"></i>
-        <i class="fas fa-box"></i> <!-- Ícone de Pedidos -->
-      </div>
-    </div>
-  </header>
+    </header>
 
-  <div class="background">
-    <div class="confirmation-container">
-      <h1>Compra Finalizada</h1>
-      <img src="../VIew/Media/Check.png" alt="Check" class="check-icon">
-      <p>Seu pagamento foi aprovado e sua compra foi concluída com sucesso.<br>
-        Em breve, você receberá um e-mail com todas as informações e o código de rastreamento assim que o pedido for enviado.<br>
-        Caso tenha dúvidas ou precise de suporte, entre em contato. Obrigado por comprar conosco.</p>
-      <button class="btn-ver">VER</button>
+    <!-- Conteúdo de confirmação da compra -->
+    <div class="background">
+      <div class="confirmation-container">
+        <h1>Compra Finalizada</h1>
+        <img src="../VIew/Media/Check.png" alt="Check" class="check-icon">
+        <p>Seu pagamento foi aprovado e sua compra foi concluída com sucesso.<br>
+          Em breve, você receberá um e-mail com todas as informações e o código de rastreamento assim que o pedido for enviado.<br>
+          Caso tenha dúvidas ou precise de suporte, entre em contato. Obrigado por comprar conosco.</p>
+        <button class="btn-ver">VER</button>
+      </div>
     </div>
   </div>
+
+  <!-- Script para gerar os confetes e parar após 5 segundos -->
+  <script>
+    const wrapper = document.querySelector('.wrapper'); // Container principal
+    const colors = ['#d13447', '#ffbf00', '#263672'];   // Cores possíveis para os confetes
+    const confettiList = [];                            // Lista para guardar os elementos criados
+
+    // Cria 150 confetes com propriedades aleatórias
+    for (let i = 0; i < 150; i++) {
+      const confetti = document.createElement('div');
+      confetti.className = 'confetti-' + i;
+
+      const size = Math.floor(Math.random() * 8) + 4; // tamanho entre 4 e 11px
+      confetti.style.width = size + 'px';
+      confetti.style.height = (size * 0.4) + 'px';
+
+      confetti.style.left = Math.random() * 100 + 'vw'; // posição horizontal aleatória
+      confetti.style.top = '-10px';                     // começa fora da tela
+      confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+      confetti.style.opacity = Math.random();
+      confetti.style.animationDuration = (4 + Math.random() * 2) + 's'; // duração da animação
+      confetti.style.animationDelay = Math.random() + 's';              // atraso de início
+
+      wrapper.appendChild(confetti);
+      confettiList.push(confetti); // guarda o confete na lista
+    }
+
+    // Remove os confetes após 5 segundos
+    setTimeout(() => {
+      confettiList.forEach(conf => conf.remove());
+    }, 5000); // 5000 milissegundos = 5 segundos
+  </script>
 </body>
 </html>

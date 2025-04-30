@@ -1,122 +1,139 @@
+/* Fonte personalizada */
 @font-face {
-    font-family: 'Goeform';
-    src: url('../Media/geoform/Geoform.otf') format('truetype');
+  font-family: 'Goeform';
+  src: url('../Media/geoform/Geoform.otf') format('truetype');
+}
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* HTML e body */
+html, body {
+  width: 100%;
+  height: 100%;
+  background-color: #cecece;
+  font-family: 'Goeform', sans-serif;
+  color: rgb(255, 255, 255);
+  overflow: hidden;
+}
+
+/* Cabeçalho */
+header {
+  width: 100%;
+  background: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 20px;
+}
+.header-content {
+  width: 100%;
+  max-width: 1300px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.logo img {
+  height: 30px;
+}
+nav ul.menu {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+nav ul.menu li a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0.29em;
+  transition: color 0.3s;
+}
+nav ul.menu li a:hover {
+  color: #00bfff;
+}
+.icons {
+  display: flex;
+  gap: 20px;
+  font-size: 18px;
+}
+
+/* Fundo */
+.background {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 70px);
+  padding: 20px;
+}
+
+/* Container de confirmação */
+.confirmation-container {
+  background-color: #ffffff;
+  color: #000000;
+  padding: 60px;
+  border-radius: 12px;
+  max-width: 700px;
+  text-align: center;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+  position: relative;
+}
+.confirmation-container h1 {
+  font-size: 36px;
+  font-weight: 800;
+  margin-bottom: 30px;
+}
+.confirmation-container p {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.6;
+  margin-bottom: 40px;
+}
+.check-icon {
+  width: 60px;
+  margin: 20px 0;
+}
+.btn-ver {
+  padding: 15px 50px;
+  font-size: 18px;
+  font-weight: 900;
+  background: rgb(226, 226, 226);
+  color: rgb(0, 0, 0);
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-family: 'Goeform', sans-serif;
+  letter-spacing: 0.2em;
+  transition: background 0.3s, transform 0.2s;
+}
+.btn-ver:hover {
+  background: #d6d6d6;
+  transform: scale(1.05);
+}
+
+/* Confetes */
+.wrapper {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+}
+[class^="confetti-"] {
+  position: absolute;
+  width: 8px;
+  height: 3px;
+  background-color: red;
+  opacity: 0.7;
+  animation: fall linear infinite;
+}
+@keyframes fall {
+  0% {
+    transform: translateY(-10%) rotate(0deg);
   }
-  
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  100% {
+    transform: translateY(110vh) rotate(360deg);
   }
-  
-  html, body {
-    width: 100%;
-    height: 100%;
-    background-color: black;
-    font-family: 'Goeform', sans-serif;
-    color: white;
-    overflow: hidden;
-  }
-  
-  header {
-    width: 100%;
-    background: black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10px 20px;
-  }
-  
-  .header-content {
-    width: 100%;
-    max-width: 1300px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  
-  .logo img {
-    height: 30px;
-  }
-  
-  nav ul.menu {
-    list-style: none;
-    display: flex;
-    gap: 30px;
-  }
-  
-  nav ul.menu li a {
-    color: white;
-    text-decoration: none;
-    font-size: 16px;
-    font-weight: 500;
-    letter-spacing: 0.29em;
-    transition: color 0.3s;
-  }
-  
-  nav ul.menu li a:hover {
-    color: #00bfff;
-  }
-  
-  .icons {
-    display: flex;
-    gap: 20px;
-    font-size: 18px;
-  }
-  
-  .background {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: calc(100vh - 70px);
-    padding: 20px;
-  }
-  
-  .confirmation-container {
-    background-color: #121212; /* Mantendo o fundo preto */
-    padding: 60px;
-    border-radius: 12px;
-    max-width: 700px;
-    text-align: center;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5); /* Sombra mais forte e difusa para dar o efeito flutuante */
-    position: relative;
-  }
-      
-  
-  .confirmation-container h1 {
-    font-size: 36px;
-    font-weight: 800;
-    margin-bottom: 30px;
-  }
-  
-  .confirmation-container p {
-    font-size: 18px;
-    font-weight: 400;
-    line-height: 1.6;
-    margin-bottom: 40px;
-  }
-  
-  .check-icon {
-    width: 60px;
-    margin: 20px 0;
-  }
-  
-  .btn-ver {
-    padding: 15px 50px;
-    font-size: 18px;
-    font-weight: 900;
-    background: white;
-    color: black;
-    border: none;
-    border-radius: 30px;
-    cursor: pointer;
-    font-family: 'Goeform', sans-serif;
-    letter-spacing: 0.2em;
-    transition: background 0.3s, transform 0.2s;
-  }
-  
-  .btn-ver:hover {
-    background: #e0e0e0;
-    transform: scale(1.05);
-  }
-  
+}
