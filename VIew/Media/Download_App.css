@@ -81,6 +81,11 @@
     padding: 40px 60px;
     font-size: 12px;
   }
+
+  footer a {
+    color: inherit;
+    text-decoration: none;
+  }
   
   .footer-content {
     display: flex;
@@ -90,6 +95,7 @@
   
   .footer-section {
     margin: 10px 30px;
+    text-align: left; /* Alinha os textos à esquerda */
   }
   
   .footer-section h4 {
@@ -98,8 +104,10 @@
     margin-bottom: 10px;
   }
   
-  .footer-section p {
-    margin: 2px 0;
+  .footer-section a, .footer-section p {
+    display: block; /* Faz com que cada link ou texto ocupe uma linha */
+    margin: 5px 0; /* Adiciona espaçamento entre os itens */
+    font-size: 12px; /* Ajusta o tamanho da fonte */
   }
   
   .github-icon {
