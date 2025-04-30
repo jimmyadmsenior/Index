@@ -78,7 +78,8 @@
   
   footer {
     background-color: #f9f9f9;
-    padding: 40px 60px;
+    padding: 40px 60px 0  ;
+    margin: 0;
     font-size: 12px;
   }
 
@@ -87,38 +88,83 @@
     text-decoration: none;
   }
   
+  /* Centraliza o rodapé */
   .footer-content {
     display: flex;
-    justify-content: space-between;
+    justify-content: center; /* Centraliza as seções horizontalmente */
+    align-items: flex-start; /* Alinha as seções no topo */
     flex-wrap: wrap;
+    gap: 20px; /* Espaço entre as seções */
+    text-align: left; /* Alinha o texto à esquerda */
   }
   
-  .footer-section {
-    margin: 10px 30px;
+  /* Estiliza o título e os itens das seções */
+  .footer-section h4 {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: left; /* Alinha o título à esquerda */
+  }
+  
+  .footer-section a {
+    display: block; /* Mantém os textos um embaixo do outro */
+    margin: 0; /* Remove margens extras */
+    padding: 0; /* Remove qualquer padding extra */
+    text-decoration: none; /* Remove o sublinhado padrão */
+    color: #555555; /* Substitua pelo código da cor desejada */
+    width: fit-content; /* Faz o link ocupar apenas o espaço do texto */
+  }
+
+  .footer-section a:hover {
+    text-decoration: inherit; /* Adiciona sublinhado ao passar o cursor */
+  }
+
+  .footer-section p {
+    display: block; /* Faz com que cada link ou texto ocupe uma linha */
+    margin: 5px 0;
+    font-size: 12px;
     text-align: left; /* Alinha os textos à esquerda */
   }
   
-  .footer-section h4 {
-    font-size: 12px;
-    font-weight: bold;
-    margin-bottom: 10px;
+  /* Espaçamento entre as seções do rodapé */
+  .footer-section {
+    margin: 0 50px; /* Adiciona espaçamento horizontal entre as seções */
   }
   
-  .footer-section a, .footer-section p {
-    display: block; /* Faz com que cada link ou texto ocupe uma linha */
-    margin: 5px 0; /* Adiciona espaçamento entre os itens */
-    font-size: 12px; /* Ajusta o tamanho da fonte */
+  /* Estiliza a seção do GitHub */
+  .footer-logo {
+    text-align: center;
+    margin-bottom: 20px;
+    width: 100%; /* Ocupa toda a largura para centralizar */
   }
-  
+
+  .footer-logo a {
+    display: inline-block; /* Faz o link ocupar apenas o espaço da imagem */
+    width: auto; /* Ajusta a largura ao conteúdo */
+    height: auto; /* Ajusta a altura ao conteúdo */
+    text-align: center; /* Centraliza o conteúdo dentro do link */
+  }
+
   .github-icon {
     width: 30px;
+    margin: 10px auto 0; /* Adiciona margem acima e centraliza */
+    display: block;
+    cursor: pointer; /* Garante que o cursor seja clicável apenas na imagem */
+  }
+
+  .footer-logo p {
+    font-size: 14px;
+    font-weight: bold;
     margin-bottom: 5px;
   }
 
+  /* Ajusta o texto de copyright */
   .copy {
     text-align: center;
     font-size: 10px;
     color: #888888;
-    padding-top: 50px;
+    padding-top: 20px;
+    padding-bottom: 0; /* Remove qualquer padding inferior */
+    margin-bottom: 0; /* Remove qualquer margem inferior */
     font-weight: lighter;
   }
