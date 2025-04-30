@@ -104,13 +104,17 @@
     <p>Um código foi enviado para o seu e-mail para recuperação.<br> Por favor, insira-o abaixo:</p>
 
     <!-- Campo estilizado da Uiverse -->
-    <div class="input-container">
-      <input placeholder=" " class="input-field" type="text" id="input-field">
-      <label for="input-field" class="input-label">Digite o código enviado</label>
-      <span class="input-highlight"></span>
-    </div>
-
-    <button>ENVIAR</button>
+    
+   
+    <form onsubmit="return validarCampo()">
+        <div class="input-container">
+          <input placeholder=" " class="input-field" type="text" id="input-field" required>
+          <label for="input-field" class="input-label">Digite o código enviado</label>
+          <span class="input-highlight"></span>
+        </div>
+      
+        <button type="submit">ENVIAR</button>
+      </form>
   </div>
 </main>
 
