@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <!-- Declaração do tipo de documento e idioma da página -->
+  <meta charset="UTF-8"> <!-- Define a codificação de caracteres como UTF-8 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Configura a página para ser responsiva -->
+  <title>Recuperação de senha </title> <!-- Título da página -->
+  
+  <!-- Link para o arquivo CSS externo -->
+  <link rel="stylesheet" href="../VIew/Media/recuperacao_senha.css">
+  
+  <!-- Link para a biblioteca de ícones Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  
+  <style>
+    /* Estilo do input Uiverse */
+    .input-container {
+      position: relative; /* Define o posicionamento relativo para o container */
+      width: 250px; /* Largura do container */
+      margin: 20px auto; /* Centraliza o container horizontalmente */
+    }
+
+    .input-field {
+      width: 100%; /* Largura total do campo de entrada */
+      padding: 10px 10px; /* Espaçamento interno */
+      font-size: 16px; /* Tamanho da fonte */
+      border: 2px solid #ffffff; /* Borda do campo */
+      border-radius: 5px; /* Arredondamento das bordas */
+      background: none; /* Sem fundo */
+      outline: none; /* Remove o contorno padrão */
+      color: #ffffff; /* Cor do texto */
+    }
+
+    .input-label {
+      position: absolute; /* Posicionamento absoluto para o rótulo */
+      top: 10px; /* Posição inicial do rótulo */
+      left: 10px; /* Posição inicial do rótulo */
+      font-size: 16px; /* Tamanho da fonte */
+      color: #aaa; /* Cor do texto */
+      pointer-events: none; /* Impede interação com o rótulo */
+      transition: 0.2s ease all; /* Transição suave para animações */
+    }
+
+    .input-field:focus ~ .input-label,
+    .input-field:not(:placeholder-shown) ~ .input-label {
+      top: -10px; /* Move o rótulo para cima */
+      left: 8px; /* Ajusta a posição horizontal */
+      font-size: 12px; /* Reduz o tamanho da fonte */
+      color: #555; /* Altera a cor do texto */
+      background: white; /* Adiciona fundo branco */
+      padding: 0 4px; /* Adiciona espaçamento interno */
+    }
+
+    .input-highlight {
+      position: absolute; /* Posicionamento absoluto para o destaque */
+      height: 2px; /* Altura da linha de destaque */
+      width: 100%; /* Largura total */
+      bottom: 0; /* Posicionado na parte inferior */
+      left: 0; /* Alinhado à esquerda */
+      background: #333; /* Cor do destaque */
+      transform: scaleX(0); /* Inicialmente invisível */
+      transition: transform 0.3s; /* Transição suave */
+    }
+
+    .input-field:focus ~ .input-highlight {
+      transform: scaleX(1); /* Exibe o destaque ao focar no campo */
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <!-- Cabeçalho da página -->
+  <div class="header-content">
+    <div class="logo">
+      <!-- Logo da empresa -->
+      <img src="../VIew/Media/Logo_Branca.png" alt="Logo da empresa">
+    </div>
+
+    <nav>
+      <!-- Menu de navegação -->
+      <ul class="menu">
+        <li><a href="../VIew/Smartphone.html">Smartphones</a></li>
+        <li><a href="../VIew/Tablets.html">Tablets</a></li>
+        <li><a href="../VIew/Fones.html">Fones</a></li>
+        <li><a href="../VIew/Relógios.html">Relógios</a></li>
+        <li><a href="../VIew/Notebooks.html">Notebooks</a></li>
+      </ul>
+    </nav>
+
+    <div class="icons">
+      <i class="fas fa-search"></i>
+      <i class="fas fa-user"></i>
+      <i class="fas fa-shopping-bag"></i>
+      <i class="fas fa-box"></i> <!-- Ícone de Pedidos -->
+    </div>
+    
+  </div>
+</header>
+
+<main class="background">
+  <div class="verification-container">
+    <h1>Recuperação de senha </h1>
+    <p>Informe o seu-mail para verificação.<br>Por favor, insira-o abaixo:</p>
+
+    <!-- Campo estilizado da Uiverse -->
+    <div class="input-container">
+      <input placeholder=" " class="input-field" type="text" id="input-field">
+      <label for="input-field" class="input-label">Digite seu e-mail</label>
+      <span class="input-highlight"></span>
+    </div>
+
+    <button>ENVIAR</button>
+  </div>
+</main>
+
+</body>
+</html>
