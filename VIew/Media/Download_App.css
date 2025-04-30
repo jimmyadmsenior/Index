@@ -168,3 +168,55 @@
     margin-bottom: 0; /* Remove qualquer margem inferior */
     font-weight: lighter;
   }
+
+  /* Estilos para a navbar */
+  header {
+    width: 100%;
+    background: rgb(0, 0, 0); /* Fundo preto */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+  }
+
+  .header-content {
+    width: 100%;
+    max-width: 1300px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .logo img {
+    height: 30px;
+  }
+
+  nav ul.menu {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+  }
+
+  nav ul.menu li a {
+    font-family: 'Goeform Medium', sans-serif;
+    color: rgb(249, 249, 249);
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0.11em;
+    transition: color 0.3s;
+  }
+
+  nav ul.menu li a:hover {
+    color: #00bfff;
+  }
+
+  .icons {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-size: 18px;
+    color: white;
+  }
