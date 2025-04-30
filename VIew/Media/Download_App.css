@@ -53,9 +53,9 @@
   }
   
   .left h1 {
-    font-size: 45px;
+    font-size: 60px;
     font-weight: bold;
-    margin-bottom: 20px;
+    margin-bottom: 50px;
   }
   
   .left p {
@@ -113,11 +113,13 @@
   
   .footer-section a {
     display: block; /* Mantém os textos um embaixo do outro */
-    margin: 0; /* Remove margens extras */
+    margin: 5px 0; /* Reduz o espaçamento vertical entre os links */
     padding: 0; /* Remove qualquer padding extra */
     text-decoration: none; /* Remove o sublinhado padrão */
     color: #555555; /* Substitua pelo código da cor desejada */
     width: fit-content; /* Faz o link ocupar apenas o espaço do texto */
+    letter-spacing: 0.03em; /* Reduz o espaçamento entre as letras */
+    line-height: 1.5; /* Reduz o espaçamento vertical entre as linhas */
   }
 
   .footer-section a:hover {
@@ -126,9 +128,11 @@
 
   .footer-section p {
     display: block; /* Faz com que cada link ou texto ocupe uma linha */
-    margin: 5px 0;
+    margin: 5px 0; /* Reduz o espaçamento vertical entre os parágrafos */
     font-size: 12px;
     text-align: left; /* Alinha os textos à esquerda */
+    letter-spacing: 0.03em; /* Reduz o espaçamento entre letras */
+    line-height: 1.5; /* Reduz o espaçamento vertical entre as linhas */
   }
   
   /* Espaçamento entre as seções do rodapé */
