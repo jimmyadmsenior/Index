@@ -106,10 +106,11 @@
     width: 30px;
     margin-bottom: 5px;
   }
-  
+
   .copy {
     text-align: center;
     font-size: 10px;
-    color: #999;
-    padding-top: 20px;
+    color: #888888;
+    padding-top: 50px;
+    font-weight: lighter;
   }
