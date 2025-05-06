@@ -7,6 +7,8 @@ html, body {
   margin: 0;
   padding: 0;
   overflow-x: hidden; /* Remove a rolagem horizontal */
+  overflow-y: hidden; /* Remove a rolagem vertical */
+  height: 100vh; /* Define altura para 100% da viewport */
 }
 
 /* Variáveis para tema claro (padrão) */
@@ -46,6 +48,9 @@ body {
   background-color: var(--bg-color);
   color: var(--text-color);
   transition: background-color 0.3s, color 0.3s;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .topbar {
@@ -77,8 +82,9 @@ body {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding: 80px 40px;
+  padding: 30px 40px; /* Reduzido de 80px para 30px */
   flex-wrap: wrap;
+  flex: 1; /* Faz o container crescer para ocupar espaço disponível */
 }
 
 .left {
@@ -86,25 +92,25 @@ body {
 }
 
 .left h1 {
-  font-size: 60px;
+  font-size: 48px; /* Reduzido de 60px para 48px */
   font-weight: bold;
-  margin-bottom: 50px;
+  margin-bottom: 20px; /* Reduzido de 50px para 20px */
 }
 
 .left p {
-  font-size: 18px;
-  line-height: 1.5;
+  font-size: 16px; /* Reduzido de 18px para 16px */
+  line-height: 1.4; /* Reduzido de 1.5 para 1.4 */
 }
 
 .left button {
   background-color: var(--button-bg);
   color: var(--button-text);
-  padding: 15px 40px;
+  padding: 12px 30px; /* Reduzido de 15px 40px para 12px 30px */
   border: none;
-  font-size: 18px;
+  font-size: 16px; /* Reduzido de 18px para 16px */
   font-weight: bold;
   border-radius: 30px;
-  margin-top: 30px;
+  margin-top: 20px; /* Reduzido de 30px para 20px */
   cursor: pointer;
   letter-spacing: 2px;
   transition: background-color 0.3s;
@@ -115,13 +121,13 @@ body {
 }
 
 .right .qrcode {
-  max-width: 240px;
+  max-width: 200px; /* Reduzido de 240px para 200px */
   height: auto;
 }
 
 footer {
   background-color: var(--footer-bg);
-  padding: 40px 60px 0;
+  padding: 20px 60px 0; /* Reduzido de 40px para 20px no topo */
   margin: 0;
   font-size: 12px;
   transition: background-color 0.3s;
@@ -135,78 +141,78 @@ footer a {
 /* Centraliza o rodapé */
 .footer-content {
   display: flex;
-  justify-content: center; /* Centraliza as seções horizontalmente */
-  align-items: flex-start; /* Alinha as seções no topo */
+  justify-content: center;
+  align-items: flex-start;
   flex-wrap: wrap;
-  gap: 20px; /* Espaço entre as seções */
-  text-align: left; /* Alinha o texto à esquerda */
+  gap: 15px; /* Reduzido de 20px para 15px */
+  text-align: left;
 }
 
 /* Estiliza o título e os itens das seções */
 .footer-section h4 {
-  font-size: 14px;
+  font-size: 13px; /* Reduzido de 14px para 13px */
   font-weight: bold;
-  margin-bottom: 10px;
-  text-align: left; /* Alinha o título à esquerda */
+  margin-bottom: 8px; /* Reduzido de 10px para 8px */
+  text-align: left;
 }
 
 .footer-section a {
-  display: block; /* Mantém os textos um embaixo do outro */
-  margin: 5px 0; /* Reduz o espaçamento vertical entre os links */
-  padding: 0; /* Remove qualquer padding extra */
-  text-decoration: none; /* Remove o sublinhado padrão */
-  color: var(--footer-text); /* Usa a variável para a cor do texto */
-  width: fit-content; /* Faz o link ocupar apenas o espaço do texto */
-  letter-spacing: 0.03em; /* Reduz o espaçamento entre as letras */
-  line-height: 1.5; /* Reduz o espaçamento vertical entre as linhas */
+  display: block;
+  margin: 3px 0; /* Reduzido de 5px para 3px */
+  padding: 0;
+  text-decoration: none;
+  color: var(--footer-text);
+  width: fit-content;
+  letter-spacing: 0.03em;
+  line-height: 1.4; /* Reduzido de 1.5 para 1.4 */
   transition: color 0.3s;
 }
 
 .footer-section a:hover {
-  text-decoration: inherit; /* Adiciona sublinhado ao passar o cursor */
+  text-decoration: inherit;
   color: var(--hover-color);
 }
 
 .footer-section p {
-  display: block; /* Faz com que cada link ou texto ocupe uma linha */
-  margin: 5px 0; /* Reduz o espaçamento vertical entre os parágrafos */
+  display: block;
+  margin: 3px 0; /* Reduzido de 5px para 3px */
   font-size: 12px;
-  text-align: left; /* Alinha os textos à esquerda */
-  letter-spacing: 0.03em; /* Reduz o espaçamento entre letras */
-  line-height: 1.5; /* Reduz o espaçamento vertical entre as linhas */
+  text-align: left;
+  letter-spacing: 0.03em;
+  line-height: 1.4; /* Reduzido de 1.5 para 1.4 */
   color: var(--footer-text);
 }
 
 /* Espaçamento entre as seções do rodapé */
 .footer-section {
-  margin: 0 50px; /* Adiciona espaçamento horizontal entre as seções */
+  margin: 0 30px; /* Reduzido de 50px para 30px */
 }
 
 /* Estiliza a seção do GitHub */
 .footer-logo {
   text-align: center;
-  margin-bottom: 20px;
-  width: 100%; /* Ocupa toda a largura para centralizar */
+  margin-bottom: 10px; /* Reduzido de 20px para 10px */
+  width: 100%;
 }
 
 .footer-logo a {
-  display: inline-block; /* Faz o link ocupar apenas o espaço da imagem */
-  width: auto; /* Ajusta a largura ao conteúdo */
-  height: auto; /* Ajusta a altura ao conteúdo */
-  text-align: center; /* Centraliza o conteúdo dentro do link */
+  display: inline-block;
+  width: auto;
+  height: auto;
+  text-align: center;
 }
 
 .github-icon {
-  width: 30px;
-  margin: 10px auto 0; /* Adiciona margem acima e centraliza */
+  width: 25px; /* Reduzido de 30px para 25px */
+  margin: 5px auto 0; /* Reduzido de 10px para 5px */
   display: block;
-  cursor: pointer; /* Garante que o cursor seja clicável apenas na imagem */
+  cursor: pointer;
 }
 
 .footer-logo p {
-  font-size: 14px;
+  font-size: 13px; /* Reduzido de 14px para 13px */
   font-weight: bold;
-  margin-bottom: 5px;
+  margin-bottom: 3px; /* Reduzido de 5px para 3px */
   color: var(--text-color);
 }
 
@@ -215,20 +221,20 @@ footer a {
   text-align: center;
   font-size: 10px;
   color: var(--copy-color);
-  padding-top: 20px;
-  padding-bottom: 0; /* Remove qualquer padding inferior */
-  margin-bottom: 0; /* Remove qualquer margem inferior */
+  padding-top: 10px; /* Reduzido de 20px para 10px */
+  padding-bottom: 5px; /* Adicionado um pequeno padding inferior */
+  margin-bottom: 0;
   font-weight: lighter;
 }
 
 /* Estilos para a navbar */
 header {
   width: 100%;
-  background: var(--header-bg); /* Usa a variável para a cor de fundo */
+  background: var(--header-bg);
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 10px 20px;
+  padding: 8px 20px; /* Reduzido de 10px para 8px */
   transition: background-color 0.3s;
 }
 
@@ -241,22 +247,22 @@ header {
 }
 
 .logo img {
-  height: 30px;
+  height: 25px; /* Reduzido de 30px para 25px */
 }
 
 nav ul.menu {
   list-style: none;
   display: flex;
-  gap: 30px;
+  gap: 25px; /* Reduzido de 30px para 25px */
   margin: 0;
   padding: 0;
 }
 
 nav ul.menu li a {
   font-family: 'Geoform', sans-serif;
-  color: var(--header-text); /* Usa a variável para a cor do texto */
+  color: var(--header-text);
   text-decoration: none;
-  font-size: 16px;
+  font-size: 14px; /* Reduzido de 16px para 14px */
   font-weight: 500;
   letter-spacing: 0.11em;
   transition: color 0.3s;
@@ -269,8 +275,8 @@ nav ul.menu li a:hover {
 .icons {
   display: flex;
   align-items: center;
-  gap: 20px;
-  font-size: 18px;
+  gap: 15px; /* Reduzido de 20px para 15px */
+  font-size: 16px; /* Reduzido de 18px para 16px */
   color: var(--header-text);
 }
 
@@ -278,9 +284,9 @@ nav ul.menu li a:hover {
 .theme-toggle {
   position: relative;
   display: inline-block;
-  width: 60px;
-  height: 30px;
-  margin-left: 20px;
+  width: 50px; /* Reduzido de 60px para 50px */
+  height: 25px; /* Reduzido de 30px para 25px */
+  margin-left: 15px; /* Reduzido de 20px para 15px */
   cursor: pointer;
 }
 
@@ -298,34 +304,34 @@ nav ul.menu li a:hover {
   bottom: 0;
   background-color: var(--toggle-bg);
   transition: 0.4s;
-  border-radius: 30px;
+  border-radius: 25px; /* Ajustado para manter proporção */
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 6px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  padding: 0 5px; /* Reduzido de 6px para 5px */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .slider:before {
   position: absolute;
   content: "";
-  height: 22px;
-  width: 22px;
-  left: 4px;
-  bottom: 4px;
+  height: 19px; /* Reduzido de 22px para 19px */
+  width: 19px; /* Reduzido de 22px para 19px */
+  left: 3px; /* Reduzido de 4px para 3px */
+  bottom: 3px; /* Reduzido de 4px para 3px */
   background-color: var(--toggle-circle);
   transition: 0.4s;
   border-radius: 50%;
   z-index: 2;
-  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 input:checked + .slider:before {
-  transform: translateX(30px);
+  transform: translateX(25px); /* Ajustado de 30px para 25px para match com o tamanho menor */
 }
 
 .slider .sun, .slider .moon {
-  font-size: 14px;
+  font-size: 12px; /* Reduzido de 14px para 12px */
   color: var(--header-text);
   z-index: 1;
 }
