@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br" data-theme="light">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -31,6 +31,15 @@
         <i class="fas fa-user"></i>
         <i class="fas fa-shopping-bag"></i>
         <i class="fas fa-box"></i> <!-- Ícone de Pedidos -->
+        
+        <!-- Toggle Switch para Light/Dark Mode -->
+        <label class="theme-toggle">
+          <input type="checkbox" id="theme-toggle">
+          <span class="slider">
+            <i class="fas fa-sun sun"></i>
+            <i class="fas fa-moon moon"></i>
+          </span>
+        </label>
       </div>
     </div>
   </header>
@@ -82,5 +91,65 @@
         <p>Copyright © 2025 Index Inc. Todos os direitos reservados.</p>
     </div>
   </footer>
+
+  <script>
+    // Script para alternar entre os temas claro e escuro
+    document.addEventListener('DOMContentLoaded', function() {
+      // Verificar se há uma preferência de tema salva no localStorage
+      const savedTheme = localStorage.getItem('theme') || 'light';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+      
+      // Definir o estado inicial do checkbox com base no tema atual
+      document.getElementById('theme-toggle').checked = savedTheme === 'dark';
+      
+      // Adicionar evento de mudança ao toggle
+      document.getElementById('theme-toggle').addEventListener('change', function(e) {
+        if(e.target.checked) {
+          // Mudar para o tema escuro
+          document.documentElement.setAttribute('data-theme', 'dark');
+          localStorage.setItem('theme', 'dark');
+          
+          // Animação suave para a transição do tema
+          document.body.classList.add('theme-transition');
+          setTimeout(() => {
+            document.body.classList.remove('theme-transition');
+          }, 1000);
+        } else {
+          // Mudar para o tema claro
+          document.documentElement.setAttribute('data-theme', 'light');
+          localStorage.setItem('theme', 'light');
+          
+          // Animação suave para a transição do tema
+          document.body.classList.add('theme-transition');
+          setTimeout(() => {
+            document.body.classList.remove('theme-transition');
+          }, 1000);
+        }
+      });
+      
+      // Verificar preferência do sistema operacional do usuário
+      const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+      
+      // Função para sincronizar o tema com a preferência do sistema
+      function syncWithSystemTheme(e) {
+        // Somente altera automaticamente se o usuário não definiu uma preferência manualmente
+        if (!localStorage.getItem('theme')) {
+          if (e.matches) {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            document.getElementById('theme-toggle').checked = true;
+          } else {
+            document.documentElement.setAttribute('data-theme', 'light');
+            document.getElementById('theme-toggle').checked = false;
+          }
+        }
+      }
+      
+      // Verificar a preferência inicial
+      syncWithSystemTheme(prefersDarkScheme);
+      
+      // Escutar por mudanças na preferência do sistema
+      prefersDarkScheme.addEventListener('change', syncWithSystemTheme);
+    });
+  </script>
 </body>
 </html>
