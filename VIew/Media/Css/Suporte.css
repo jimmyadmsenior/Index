@@ -1,90 +1,387 @@
 @font-face {
     font-family: 'Geoform';
-    src: url('Geoform-Regular.woff2') format('woff2'),
-         url('Geoform-Regular.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Geoform';
-    src: url('Geoform-Medium.woff2') format('woff2'),
-         url('Geoform-Medium.woff') format('woff');
-    font-weight: 500;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Geoform';
-    src: url('Geoform-ExtraBold.woff2') format('woff2'),
-         url('Geoform-ExtraBold.woff') format('woff');
-    font-weight: 800;
-    font-style: normal;
-}
-
-body {
+    src: url('Geoform-Regular.ttf') format('truetype');
+  }
+  
+  * {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
     font-family: 'Geoform', sans-serif;
-}
-
-.navbar {
+    line-height: 1.6;
+    color: #333;
+    overflow-x: hidden;
+  }
+  
+  /* Cabeçalho */
+  header {
+    background-color: #1a1a1a;
+    padding: 10px 40px;
+    width: 100%;
+  }
+  
+  .header-content {
+    width: 100%;
+    max-width: 1300px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #111;
-    padding: 10px 20px;
-}
-
-.nav-links {
+  }
+  
+  .logo {
+    font-family: 'Geoform', sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+  }
+  
+  nav ul.menu {
     list-style: none;
     display: flex;
-    gap: 20px;
-}
-
-.nav-links li a {
+    gap: 25px;
+  }
+  
+  nav ul.menu li a {
     color: white;
     text-decoration: none;
-    font-family: 'Geoform', sans-serif;
-    font-weight: 500; /* Medium */
-}
-
-.hero {
-    position: relative;
-    text-align: center;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.11em;
+    transition: color 0.3s;
+  }
+  
+  nav ul.menu li a:hover {
+    color: #00bfff;
+  }
+  
+  .icons {
+    display: flex;
+    align-items: center;
+    gap: 15px;
     color: white;
-}
-
-.hero img {
+  }
+  
+  .icons i {
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  /* Banner Principal */
+  .hero-banner {
+    position: relative;
+    height: 400px;
+    background-image: url('images/banner-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .hero-banner h1 {
+    color: white;
+    font-size: 48px;
+    font-family: 'Geoform', sans-serif;
+    font-weight: bold;
+  }
+  
+  /* Links Rápidos */
+  .quick-links {
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+    padding: 50px 0;
+    text-align: center;
+  }
+  
+  .quick-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .quick-link img {
+    width: 60px;
+    margin-bottom: 10px;
+  }
+  
+  .quick-link p {
+    font-family: 'Geoform', sans-serif;
+    font-size: 14px;
+  }
+  
+  /* Diretrizes */
+  .guidelines {
+    display: flex;
+    align-items: center;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    border-top: 1px solid #eee;
+  }
+  
+  .guidelines-img {
+    flex: 1;
+    max-width: 250px;
+  }
+  
+  .guidelines-img img {
     width: 100%;
     height: auto;
-}
-
-.hero h1 {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 36px;
-    font-weight: 800; /* Extra Bold */
-}
-
-.links {
+  }
+  
+  .guidelines-content {
+    flex: 2;
+    padding-left: 30px;
+  }
+  
+  .guidelines h2 {
+    font-family: 'Geoform', sans-serif;
+    margin-bottom: 15px;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .guidelines p {
+    margin-bottom: 15px;
+  }
+  
+  .link-highlight {
+    color: #0089d6;
+    text-decoration: none;
+    font-family: 'Geoform', sans-serif;
+  }
+  
+  /* Seção de Suporte */
+  .support-section {
+    position: relative;
+    height: 400px;
+    background-image: url('images/support-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+  }
+  
+  .support-content {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 30px;
+    margin-left: 50px;
+    max-width: 400px;
+  }
+  
+  .support-content h2 {
+    font-family: 'Geoform', sans-serif;
+    margin-bottom: 15px;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .support-content p {
+    margin-bottom: 20px;
+  }
+  
+  .btn-primary {
+    display: inline-block;
+    background-color: #0089d6;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    margin-bottom: 15px;
+    font-family: 'Geoform', sans-serif;
+    border-radius: 4px;
+  }
+  
+  /* Seção de Modelos */
+  .models-section {
+    display: flex;
+    max-width: 1000px;
+    margin: 60px auto;
+    align-items: center;
+  }
+  
+  .models-content {
+    flex: 2;
+    padding-right: 30px;
+  }
+  
+  .models-img {
+    flex: 1;
+  }
+  
+  .models-img img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .models-section h2 {
+    font-family: 'Geoform', sans-serif;
+    margin-bottom: 15px;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  /* Seção Oficial */
+  .official-section {
+    display: flex;
+    max-width: 1000px;
+    margin: 60px auto;
+    align-items: center;
+  }
+  
+  .official-img {
+    flex: 1;
+    max-width: 250px;
+  }
+  
+  .official-img img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .official-content {
+    flex: 2;
+    padding-left: 30px;
+  }
+  
+  .official-section h2 {
+    font-family: 'Geoform', sans-serif;
+    margin-bottom: 15px;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  /* Rodapé - Baseado no código que você já possui */
+  footer {
+    background-color: #f9f9f9;
+    padding: 50px 20px 10px;
+    text-align: center;
+  }
+  
+  .footer-logo {
+    margin-bottom: 20px;
+  }
+  
+  .repository {
+    margin-bottom: 30px;
+  }
+  
+  .repository a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    text-decoration: none;
+    color: #333;
+    font-family: 'Geoform', sans-serif;
+  }
+  
+  .github-icon {
+    width: 25px;
+    margin: 5px auto 0;
+    display: block;
+  }
+  
+  .footer-content {
     display: flex;
     justify-content: center;
     gap: 50px;
-    padding: 40px 20px;
-}
-
-.link-item {
-    text-align: center;
-}
-
-.link-item img {
-    height: 50px;
-}
-
-.link-item p {
-    margin-top: 10px;
+    margin: 30px 0;
+    text-align: left;
+  }
+  
+  .footer-section h4 {
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 8px;
+    text-align: left;
     font-family: 'Geoform', sans-serif;
-    font-weight: normal;
-}
+  }
+  
+  .footer-section a {
+    display: block;
+    margin: 3px 0;
+    padding: 0;
+    text-decoration: none;
+    color: #555555;
+    width: fit-content;
+    letter-spacing: 0.03em;
+    line-height: 1.4;
+    transition: color 0.3s;
+  }
+  
+  .footer-section a:hover {
+    text-decoration: inherit;
+    color: #00bfff;
+  }
+  
+  .footer-section p {
+    display: block;
+    margin: 3px 0;
+    font-size: 12px;
+    text-align: left;
+    letter-spacing: 0.03em;
+    line-height: 1.4;
+    color: #555555;
+  }
+  
+  .copy {
+    text-align: center;
+    font-size: 10px;
+    color: #888888;
+    padding-top: 10px;
+    padding-bottom: 5px;
+    margin-bottom: 0;
+    font-weight: lighter;
+  }
+  
+  /* Responsividade */
+  @media screen and (max-width: 768px) {
+    header {
+      padding: 10px 20px;
+    }
+    
+    .header-content {
+      flex-direction: column;
+      gap: 10px;
+    }
+    
+    .quick-links {
+      flex-direction: column;
+      gap: 30px;
+    }
+    
+    .guidelines, .models-section, .official-section {
+      flex-direction: column;
+      text-align: center;
+    }
+    
+    .guidelines-content, .models-content, .official-content {
+      padding: 20px 0 0 0;
+    }
+    
+    .guidelines-img, .official-img {
+      margin: 0 auto;
+    }
+    
+    .support-content {
+      margin: 0 auto;
+    }
+    
+    .footer-content {
+      flex-direction: column;
+      gap: 20px;
+      align-items: center;
+    }
+    
+    .footer-section {
+      text-align: center;
+    }
+    
+    .footer-section a {
+      margin: 5px auto;
+    }
+  }

@@ -1,59 +1,150 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Index Suporte</title>
     <link rel="stylesheet" href="../VIew/Media/Css/Suporte.css">
-    <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.82/build/spline-viewer.js"></script>
 </head>
 <body>
+    <!-- Cabeçalho -->
     <header>
-        <nav class="navbar">
-            <div class="logo">
-                <img src="../VIew/Media/INDEX.png" alt="Logo Index">
-            </div>
-            <ul class="nav-links">
-                <li><a href="#">Smartphones</a></li>
-                <li><a href="#">Tablets</a></li>
-                <li><a href="#">Fones</a></li>
-                <li><a href="#">Capinhas</a></li>
-                <li><a href="#">Notebook</a></li>
-            </ul>
-            <div class="icons">
-                <img src="../VIew/Media/Search.png" alt="Buscar">
-                <img src="../VIew/Media/Shopping Bag.png" alt="Carrinho">
-            </div>
-        </nav>
-    </header>
+        <div class="header-content">
+          <div class="logo">
+            <!-- Logo da empresa -->
+            <img src="../VIew/Media/Logo_Branca.png" alt="Logo da empresa">
+          </div>
     
-    <section class="hero">
-        <img src="../VIew/Media/Plano de Fundo - Suporte.png" alt="Fundo">
+          <nav>
+            <!-- Menu de navegação -->
+            <ul class="menu">
+              <li><a href="../VIew/Smartphone.html">Smartphones</a></li>
+              <li><a href="../VIew/Tablets.html">Tablets</a></li>
+              <li><a href="../VIew/Fones.html">Fones</a></li>
+              <li><a href="../VIew/Relógios.html">Relógios</a></li>
+              <li><a href="../VIew/Notebooks.html">Notebooks</a></li>
+            </ul>
+          </nav>
+    
+          <div class="icons">
+            <i class="fas fa-search"></i>
+            <i class="fas fa-user"></i>
+            <i class="fas fa-shopping-bag"></i>
+            <i class="fas fa-box"></i> <!-- Ícone de Pedidos -->
+            
+            <!-- Toggle Switch para Light/Dark Mode -->
+            <label class="theme-toggle">
+              <input type="checkbox" id="theme-toggle">
+              <span class="slider">
+                <i class="fas fa-sun sun"></i>
+                <i class="fas fa-moon moon"></i>
+              </span>
+            </label>
+          </div>
+        </div>
+      </header>
+
+    <!-- Banner Principal -->
+    <section class="hero-banner">
         <h1>Index Suporte</h1>
     </section>
 
-    <section class="links">
-        <div class="link-item">
-            <img src="../VIew/Media/Esconder senha.png" alt="Esqueci a senha">
-            <p>Esqueci a senha</p>
-        </div>
-        <div class="link-item">
-            <img src="../VIew/Media/Política de Privacidade - Suporte.png" alt="Política de Privacidade">
+    <!-- Links Rápidos -->
+    <section class="quick-links">
+        <div class="quick-link">
+            <img src="icons/privacy-icon.png" alt="Ícone Privacidade">
             <p>Política de Privacidade</p>
         </div>
-        <div class="link-item">
-            <img src="../VIew/Media/Termos e Condições - Suporte.png" alt="Termos e Condições">
+        <div class="quick-link">
+            <img src="icons/terms-icon.png" alt="Ícone Termos">
             <p>Termos e Condições</p>
         </div>
     </section>
 
-    <!-- Seção para o modelo 3D -->
-    <section id="model-3d" style="width: 100%; height: 500px; margin-top: 20px;">
-        <h2 style="text-align: center;">Visualização do Modelo 3D</h2>
-        <spline-viewer 
-            url="https://prod.spline.design/bzpWZeX31WBj7aBq/scene.splinecode" 
-            style="width: 100%; height: 500px;">
-        </spline-viewer>
+    <!-- Diretrizes -->
+    <section class="guidelines">
+        <div class="guidelines-img">
+            <img src="images/devices.jpg" alt="Dispositivos eletrônicos">
+        </div>
+        <div class="guidelines-content">
+            <h2>Saiba nossas diretrizes</h2>
+            <p>Clique no link abaixo para saber como nosso site utiliza de seus dados para fins empresariais.</p>
+            <a href="#" class="link-highlight">Diretrizes</a>
+        </div>
     </section>
+
+    <!-- Seção de Suporte -->
+    <section class="support-section">
+        <div class="support-content">
+            <h2>Obtenha suporte</h2>
+            <p>Entre em contato com nossos funcionários para ajudarem você!</p>
+            <a href="#" class="btn-primary">Comece agora</a>
+            <p>Faça o Download do nosso App</p>
+        </div>
+    </section>
+
+    <!-- Seção de Modelos -->
+    <section class="models-section">
+        <div class="models-content">
+            <h2>Diversos modelos no Index</h2>
+            <p>Se estiver com dúvida em qual opção de eletrônico pegar, consulte nosso assistente virtual para uma pesquisa rápida.</p>
+        </div>
+        <div class="models-img">
+            <img src="images/devices-showcase.jpg" alt="Dispositivos Index">
+        </div>
+    </section>
+
+    <!-- Seção de Oficiais -->
+    <section class="official-section">
+        <div class="official-img">
+            <img src="images/handshake.jpg" alt="Aperto de mãos">
+        </div>
+        <div class="official-content">
+            <h2>Nossos eletrônicos são oficiais e licenciados</h2>
+            <p>A confiabilidade, segurança e qualidade são pontos que a Index carrega em seu nome.</p>
+        </div>
+    </section>
+
+    <!-- Rodapé -->
+    <footer>
+        <div class="footer-logo">
+            <div class="logo">index</div>
+        </div>
+        <div class="repository">
+            <a href="#">
+                <span>Conheça nosso Repositório</span>
+                <img src="icons/github-logo.png" alt="GitHub logo" class="github-icon">
+            </a>
+        </div>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Nossos tópicos</h4>
+                <a href="#">Suporte</a>
+                <a href="#">Sobre nós</a>
+                <a href="#">Política de Privacidade</a>
+                <a href="#">Termos e Condições</a>
+                <a href="#">Sobre</a>
+            </div>
+            <div class="footer-section">
+                <h4>Produtos</h4>
+                <a href="#">Smartphones</a>
+                <a href="#">Tablets</a>
+                <a href="#">Fones</a>
+                <a href="#">Relógios</a>
+                <a href="#">Notebooks</a>
+            </div>
+            <div class="footer-section">
+                <h4>Contate-nos</h4>
+                <p>Email: email@dominio.com</p>
+                <a href="#">Redes Sociais</a>
+            </div>
+        </div>
+        <div class="copy">
+            Copyright © 2024 Index Inc. Todos os direitos reservados.
+        </div>
+    </footer>
+
+    <!-- Font Awesome para ícones -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"></script>
 </body>
 </html>
