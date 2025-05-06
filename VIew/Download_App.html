@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Baixe Nosso App</title>
-  <link rel="stylesheet" href="../VIew/Media/Download_App.css" />
+  <link rel="stylesheet" href="../VIew/Media/Css/Download_App.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body>
@@ -51,7 +51,13 @@
         Escaneie o QrCode ou clique no botão abaixo para baixar. Se o download
         não iniciar, recarregue a página e tente novamente.
       </p>
-      <button>BAIXAR</button>
+      <!-- Opção 1: Botão com link direto para download -->
+      <a href="../VIew/Media/Arquivo Test.pdf" download="index-app.apk" class="download-button" id="download-link">
+        <button>BAIXAR</button>
+      </a>
+      
+      <!-- Opção 2: Botão com JavaScript para download (descomente se preferir esta opção) -->
+      <!-- <button id="download-button">BAIXAR</button> -->
     </div>
     <div class="right">
       <img src="../VIew/Media/Qr_Code_test.png" alt="QR Code" class="qrcode"/>
@@ -149,6 +155,33 @@
       
       // Escutar por mudanças na preferência do sistema
       prefersDarkScheme.addEventListener('change', syncWithSystemTheme);
+
+      // Script para download usando JavaScript (Opção 2)
+      /* Descomente o código abaixo se estiver usando a Opção 2 com o botão JavaScript */
+      /*
+      document.getElementById('download-button').addEventListener('click', function() {
+        // URL do arquivo para download (substitua pelo caminho correto do seu arquivo)
+        const fileUrl = '../caminho/para/seu/arquivo.apk';
+        
+        // Nome que será dado ao arquivo baixado
+        const fileName = 'index-app.apk';
+        
+        // Criar um elemento de link invisível
+        const link = document.createElement('a');
+        link.href = fileUrl;
+        link.download = fileName;
+        link.style.display = 'none';
+        
+        // Adicionar ao DOM, clicar nele e depois remover
+        document.body.appendChild(link);
+        link.click();
+        
+        // Pequeno delay antes de remover o elemento
+        setTimeout(() => {
+          document.body.removeChild(link);
+        }, 100);
+      });
+      */
     });
   </script>
 </body>
