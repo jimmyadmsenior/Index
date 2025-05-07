@@ -135,33 +135,6 @@
       
       // Escutar por mudanças na preferência do sistema
       prefersDarkScheme.addEventListener('change', syncWithSystemTheme);
-
-      // Script para download usando JavaScript (Opção 2)
-      /* Descomente o código abaixo se estiver usando a Opção 2 com o botão JavaScript */
-      /*
-      document.getElementById('download-button').addEventListener('click', function() {
-        // URL do arquivo para download (substitua pelo caminho correto do seu arquivo)
-        const fileUrl = '../caminho/para/seu/arquivo.apk';
-        
-        // Nome que será dado ao arquivo baixado
-        const fileName = 'index-app.apk';
-        
-        // Criar um elemento de link invisível
-        const link = document.createElement('a');
-        link.href = fileUrl;
-        link.download = fileName;
-        link.style.display = 'none';
-        
-        // Adicionar ao DOM, clicar nele e depois remover
-        document.body.appendChild(link);
-        link.click();
-        
-        // Pequeno delay antes de remover o elemento
-        setTimeout(() => {
-          document.body.removeChild(link);
-        }, 100);
-      });
-      */
     });
   </script>
 </body>
