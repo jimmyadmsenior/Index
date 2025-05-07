@@ -151,7 +151,9 @@ function validarCodigo() {
     return false;
   } else {
     wrapper.classList.remove("erro");
-    return true;
+    // Redireciona para outra página (altere o caminho conforme necessário)
+    window.location.href = "../VIew/Confirmacao_cadastro.html";
+    return false; // impede envio real do formulário
   }
 }
 </script>
