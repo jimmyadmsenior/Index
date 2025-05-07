@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recuperação de senha</title>
+
+  <link rel="stylesheet" href="../VIew/Media/Css/Recuperacao_senha2.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+
+<header>
+  <div class="header-content">
+    <div class="logo">
+      <img src="../VIew/Media/Logo_Branca.png" alt="Logo da empresa">
+    </div>
+
+    <nav>
+      <ul class="menu">
+        <li><a href="../VIew/Smartphone.html">Smartphones</a></li>
+        <li><a href="../VIew/Tablets.html">Tablets</a></li>
+        <li><a href="../VIew/Fones.html">Fones</a></li>
+        <li><a href="../VIew/Relógios.html">Relógios</a></li>
+        <li><a href="../VIew/Notebooks.html">Notebooks</a></li>
+      </ul>
+    </nav>
+
+    <div class="icons">
+      <i class="fas fa-search"></i>
+      <i class="fas fa-user"></i>
+      <i class="fas fa-shopping-bag"></i>
+      <i class="fas fa-box"></i>
+    </div>
+  </div>
+</header>
+
+<main class="background">
+  <div class="verification-container">
+    <h1>Recuperação de senha</h1>
+    <p>Insira sua nova senha:</p>
+
+    <form onsubmit="return validarFormulario()">
+      <!-- Campo para nova senha -->
+      <div class="input-container" id="senha-wrapper">
+        <div class="senha-inner-container">
+          <i class="fas fa-lock senha-icone"></i>
+          <input placeholder=" " class="input-field senha-field" type="password" id="senha-field">
+          <i class="fas fa-eye senha-toggle" onclick="toggleSenhaVisibilidade('senha-field')"></i>
+          <label for="senha-field" class="input-label">Digite sua senha</label>
+          <span class="input-highlight"></span>
+        </div>
+        <div id="mensagem-erro-senha" class="erro-mensagem">Este campo é obrigatório</div>
+      </div>
+
+      <!-- Campo para confirmação de senha -->  
+      <div class="input-container" id="confirma-senha-wrapper">
+        <div class="senha-inner-container">
+          <i class="fas fa-lock senha-icone"></i>
+          <input placeholder=" " class="input-field senha-field" type="password" id="confirma-senha-field">
+          <i class="fas fa-eye senha-toggle" onclick="toggleSenhaVisibilidade('confirma-senha-field')"></i>
+          <label for="confirma-senha-field" class="input-label">Digite novamente sua senha</label>
+          <span class="input-highlight"></span>
+        </div>
+        <div id="mensagem-erro-confirma" class="erro-mensagem">Este campo é obrigatório</div>
+      </div>
+
+      <!-- Botão confirmar -->
+      <button type="submit" class="btn-confirmar">Confirmar</button>
+    </form>
+  </div>
+</main>
+
+<script>
+// Função para validar o formulário
+function validarFormulario() {
+  const senha = document.getElementById("senha-field");
+  const confirmaSenha = document.getElementById("confirma-senha-field");
+  const senhaWrapper = document.getElementById("senha-wrapper");
+  const confirmaSenhaWrapper = document.getElementById("confirma-senha-wrapper");
+  const mensagemErroSenha = document.getElementById("mensagem-erro-senha");
+  const mensagemErroConfirma = document.getElementById("mensagem-erro-confirma");
+  
+  let isValido = true;
+
+  // Validar se senha está preenchida
+  if (senha.value.trim() === "") {
+    senhaWrapper.classList.add("erro");
+    mensagemErroSenha.textContent = "Este campo é obrigatório";
+    isValido = false;
+  } else {
+    senhaWrapper.classList.remove("erro");
+  }
+
+  // Validar se confirmação está preenchida
+  if (confirmaSenha.value.trim() === "") {
+    confirmaSenhaWrapper.classList.add("erro");
+    mensagemErroConfirma.textContent = "Este campo é obrigatório";
+    isValido = false;
+  } else if (senha.value !== confirmaSenha.value) {
+    confirmaSenhaWrapper.classList.add("erro");
+    mensagemErroConfirma.textContent = "As senhas não coincidem";
+    isValido = false;
+  } else {
+    confirmaSenhaWrapper.classList.remove("erro");
+  }
+
+  return isValido;
+}
+
+// Função para alternar visibilidade da senha
+function toggleSenhaVisibilidade(fieldId) {
+  const field = document.getElementById(fieldId);
+  const icon = field.nextElementSibling;
+  
+  if (field.type === "password") {
+    field.type = "text";
+    icon.classList.remove("fa-eye");
+    icon.classList.add("fa-eye-slash");
+  } else {
+    field.type = "password";
+    icon.classList.remove("fa-eye-slash");
+    icon.classList.add("fa-eye");
+  }
+}
+</script>
+
+</body>
+</html>

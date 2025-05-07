@@ -1,0 +1,63 @@
+/* Estilos adicionais para incluir no arquivo Recuperacao_senha2.css */
+
+/* Estilo para os campos de senha */
+.senha-inner-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  
+  .senha-icone {
+    position: absolute;
+    left: -30px;
+    color: #ffffff;
+    font-size: 18px;
+  }
+  
+  .senha-field {
+    width: 100%;
+    padding: 10px 35px 10px 10px;
+    font-size: 16px;
+    border: 2px solid #ffffff;
+    border-radius: 5px;
+    background: none;
+    outline: none;
+    color: #ffffff;
+    transition: border-color 0.3s, box-shadow 0.3s;
+  }
+  
+  .senha-toggle {
+    position: absolute;
+    right: 10px;
+    color: #aaa;
+    cursor: pointer;
+    z-index: 10;
+  }
+  
+  /* Estilo para o botão confirmar */
+  .btn-confirmar {
+    display: block;
+    width: 100%;
+    margin: 40px auto 0;
+    padding: 15px 0;
+    border: none;
+    background-color: #FFFFFF;
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-family: 'Goeform Bold', sans-serif;
+    letter-spacing: 0.1em;
+    transition: background-color 0.3s, transform 0.2s;
+  }
+  
+  .btn-confirmar:hover {
+    background-color: #f0f0f0;
+    transform: scale(1.02);
+  }
+  
+  .btn-confirmar:active {
+    transform: scale(0.98);
+  }
