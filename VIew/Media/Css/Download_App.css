@@ -202,6 +202,23 @@ footer a {
   text-align: center;
 }
 
+/* Estilo padrão para o ícone do GitHub */
+.github-icon {
+  width: 25px;
+  margin: 5px auto 0;
+  display: block;
+  cursor: pointer;
+  background-image: url('../VIew/Media/Github_Logo.png'); /* Caminho da logo padrão */
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* Alterar a logo no tema escuro */
+[data-theme="dark"] .github-icon {
+  background-image: url('../Github_Logo_Branca.png'); /* Caminho da logo branca */
+}
+
 .github-icon {
   width: 25px; /* Reduzido de 30px para 25px */
   margin: 5px auto 0; /* Reduzido de 10px para 5px */
@@ -330,7 +347,7 @@ input:checked + .slider:before {
   transform: translateX(25px); /* Ajustado de 30px para 25px para match com o tamanho menor */
 }
 
-.slider .sun, .slider .moon {
+slider .sun, .slider .moon {
   font-size: 12px; /* Reduzido de 14px para 12px */
   color: var(--header-text);
   z-index: 1;
