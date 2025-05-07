@@ -6,9 +6,9 @@
 html, body {
   margin: 0;
   padding: 0;
-  overflow-x: hidden;
-  overflow-y: hidden;
-  height: 100vh;
+  overflow-x: hidden; /* Mantém a rolagem horizontal desativada */
+  overflow-y: auto; /* Permite a rolagem vertical */
+  min-height: 100vh; /* Garante que o conteúdo ocupe pelo menos a altura da janela */
 }
 
 
@@ -50,7 +50,8 @@ body {
   transition: background-color 0.3s, color 0.3s;
   display: flex;
   flex-direction: column;
-  height: 100%;
+  min-height: 100vh; /* Garante que o conteúdo ocupe pelo menos a altura da janela */
+  overflow-y: auto; /* Permite rolagem vertical */
 }
 
 .topbar {
@@ -148,9 +149,13 @@ body {
   height: auto;
 }
 
+/* ===========================
+   Footer (tema claro e escuro)
+   =========================== */
+
 footer {
   background-color: var(--footer-bg);
-  padding: 20px 60px 0;
+  padding: 20px 60px 0; /* topo 20px, laterais 60px */
   margin: 0;
   font-size: 12px;
   transition: background-color 0.3s;
@@ -166,8 +171,12 @@ footer a {
   justify-content: center;
   align-items: flex-start;
   flex-wrap: wrap;
-  gap: 15px;
+  gap: 15px; /* espaçamento entre seções */
   text-align: left;
+}
+
+.footer-section {
+  margin: 0 30px; /* espaçamento lateral */
 }
 
 .footer-section h4 {
@@ -203,10 +212,7 @@ footer a {
   color: var(--footer-text);
 }
 
-.footer-section {
-  margin: 0 30px;
-}
-
+/* Logo do GitHub no footer */
 .footer-logo {
   text-align: center;
   margin-bottom: 10px;
@@ -229,12 +235,14 @@ footer a {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
+  transition: background-image 0.3s;
 }
 
 [data-theme="dark"] .github-icon {
   background-image: url('../Github_Logo_Branca.png');
 }
 
+/* Texto de descrição abaixo da logo */
 .footer-logo p {
   font-size: 13px;
   font-weight: bold;
@@ -242,6 +250,7 @@ footer a {
   color: var(--text-color);
 }
 
+/* Copyright */
 .copy {
   text-align: center;
   font-size: 10px;
@@ -250,6 +259,18 @@ footer a {
   padding-bottom: 5px;
   margin-bottom: 0;
   font-weight: lighter;
+}
+
+/* Transições gerais para tema */
+* {
+  transition-property: color, background-color, border-color;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+}
+
+/* Animação suave ao trocar tema */
+.theme-transition {
+  transition: background-color 0.5s ease, color 0.5s ease;
 }
 
 header {
@@ -353,18 +374,8 @@ input:checked + .slider:before {
   transform: translateX(25px);
 }
 
-.slider .sun, .slider .moon {
+slider .sun, .slider .moon {
   font-size: 12px;
   color: var(--header-text);
   z-index: 1;
-}
-
-* {
-  transition-property: color, background-color, border-color;
-  transition-duration: 0.3s;
-  transition-timing-function: ease;
-}
-
-.theme-transition {
-  transition: background-color 0.5s ease, color 0.5s ease;
 }
