@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @font-face {
   font-family: 'Geoform';
   src: url('Geoform-Regular.ttf') format('truetype');
