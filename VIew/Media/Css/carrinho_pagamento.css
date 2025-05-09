@@ -1,0 +1,375 @@
+@font-face {
+  font-family: 'Geoform';
+  src: url('Geoform-Regular.ttf') format('truetype');
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Remove a rolagem horizontal */
+  overflow-y: hidden; /* Remove a rolagem vertical */
+  height: 100vh; /* Define altura para 100% da viewport */
+}
+
+/* Variáveis para tema claro (padrão) */
+:root {
+  --bg-color: #fff;
+  --text-color: #000;
+  --header-bg: #000;
+  --header-text: #f9f9f9;
+  --footer-bg: #f9f9f9;
+  --button-bg: #000;
+  --button-text: #fff;
+  --footer-text: #555555;
+  --hover-color: #00bfff;
+  --copy-color: #888888;
+  --toggle-bg: #f0f0f0;
+  --toggle-circle: #333;
+}
+
+/* Variáveis para tema escuro */
+[data-theme="dark"] {
+  --bg-color: #121212;
+  --text-color: #f0f0f0;
+  --header-bg: #1a1a1a;
+  --header-text: #ffffff;
+  --footer-bg: #1a1a1a;
+  --button-bg: #3d3d3d;
+  --button-text: #ffffff;
+  --footer-text: #cccccc;
+  --hover-color: #4db5ff;
+  --copy-color: #aaaaaa;
+  --toggle-bg: #333;
+  --toggle-circle: #f0f0f0;
+}
+
+body {
+  font-family: 'Geoform', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s, color 0.3s;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.topbar {
+  background-color: var(--header-bg);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 40px;
+  color: var(--header-text);
+}
+
+.topbar .logo {
+  height: 20px;
+}
+
+.menu a {
+  color: var(--header-text);
+  margin: 0 10px;
+  text-decoration: none;
+  font-size: 12px;
+}
+
+.icons img {
+  height: 14px;
+  margin-left: 15px;
+}
+
+.container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 30px 40px; /* Reduzido de 80px para 30px */
+  flex-wrap: wrap;
+  flex: 1; /* Faz o container crescer para ocupar espaço disponível */
+}
+
+.left {
+  max-width: 400px;
+}
+
+.left h1 {
+  font-size: 48px; /* Reduzido de 60px para 48px */
+  font-weight: bold;
+  margin-bottom: 20px; /* Reduzido de 50px para 20px */
+}
+
+.left p {
+  font-size: 16px; /* Reduzido de 18px para 16px */
+  line-height: 1.4; /* Reduzido de 1.5 para 1.4 */
+}
+
+.left button {
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  padding: 12px 30px; /* Reduzido de 15px 40px para 12px 30px */
+  border: none;
+  font-size: 16px; /* Reduzido de 18px para 16px */
+  font-weight: bold;
+  border-radius: 30px;
+  margin-top: 20px; /* Reduzido de 30px para 20px */
+  cursor: pointer;
+  letter-spacing: 2px;
+  transition: background-color 0.3s;
+}
+
+.left button:hover {
+  opacity: 0.9;
+}
+
+.right .qrcode {
+  max-width: 200px; /* Reduzido de 240px para 200px */
+  height: auto;
+}
+
+footer {
+  background-color: var(--footer-bg);
+  padding: 20px 60px 0; /* Reduzido de 40px para 20px no topo */
+  margin: 0;
+  font-size: 12px;
+  transition: background-color 0.3s;
+}
+
+footer a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Centraliza o rodapé */
+.footer-content {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 15px; /* Reduzido de 20px para 15px */
+  text-align: left;
+}
+
+/* Estiliza o título e os itens das seções */
+.footer-section h4 {
+  font-size: 13px; /* Reduzido de 14px para 13px */
+  font-weight: bold;
+  margin-bottom: 8px; /* Reduzido de 10px para 8px */
+  text-align: left;
+}
+
+.footer-section a {
+  display: block;
+  margin: 3px 0; /* Reduzido de 5px para 3px */
+  padding: 0;
+  text-decoration: none;
+  color: var(--footer-text);
+  width: fit-content;
+  letter-spacing: 0.03em;
+  line-height: 1.4; /* Reduzido de 1.5 para 1.4 */
+  transition: color 0.3s;
+}
+
+.footer-section a:hover {
+  text-decoration: inherit;
+  color: var(--hover-color);
+}
+
+.footer-section p {
+  display: block;
+  margin: 3px 0; /* Reduzido de 5px para 3px */
+  font-size: 12px;
+  text-align: left;
+  letter-spacing: 0.03em;
+  line-height: 1.4; /* Reduzido de 1.5 para 1.4 */
+  color: var(--footer-text);
+}
+
+/* Espaçamento entre as seções do rodapé */
+.footer-section {
+  margin: 0 30px; /* Reduzido de 50px para 30px */
+}
+
+/* Estiliza a seção do GitHub */
+.footer-logo {
+  text-align: center;
+  margin-bottom: 10px; /* Reduzido de 20px para 10px */
+  width: 100%;
+}
+
+.footer-logo a {
+  display: inline-block;
+  width: auto;
+  height: auto;
+  text-align: center;
+}
+
+/* Estilo padrão para o ícone do GitHub */
+.github-icon {
+  width: 25px;
+  margin: 5px auto 0;
+  display: block;
+  cursor: pointer;
+  background-image: url('../VIew/Media/Github_Logo.png'); /* Caminho da logo padrão */
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* Alterar a logo no tema escuro */
+[data-theme="dark"] .github-icon {
+  background-image: url('../Github_Logo_Branca.png'); /* Caminho da logo branca */
+}
+
+.github-icon {
+  width: 25px; /* Reduzido de 30px para 25px */
+  margin: 5px auto 0; /* Reduzido de 10px para 5px */
+  display: block;
+  cursor: pointer;
+}
+
+.footer-logo p {
+  font-size: 13px; /* Reduzido de 14px para 13px */
+  font-weight: bold;
+  margin-bottom: 3px; /* Reduzido de 5px para 3px */
+  color: var(--text-color);
+}
+
+/* Ajusta o texto de copyright */
+.copy {
+  text-align: center;
+  font-size: 10px;
+  color: var(--copy-color);
+  padding-top: 10px; /* Reduzido de 20px para 10px */
+  padding-bottom: 5px; /* Adicionado um pequeno padding inferior */
+  margin-bottom: 0;
+  font-weight: lighter;
+}
+
+/* Estilos para a navbar */
+header {
+  width: 100%;
+  background: var(--header-bg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 20px; /* Reduzido de 10px para 8px */
+  transition: background-color 0.3s;
+}
+
+.header-content {
+  width: 100%;
+  max-width: 1300px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo img {
+  height: 25px; /* Reduzido de 30px para 25px */
+}
+
+nav ul.menu {
+  list-style: none;
+  display: flex;
+  gap: 25px; /* Reduzido de 30px para 25px */
+  margin: 0;
+  padding: 0;
+}
+
+nav ul.menu li a {
+  font-family: 'Geoform', sans-serif;
+  color: var(--header-text);
+  text-decoration: none;
+  font-size: 14px; /* Reduzido de 16px para 14px */
+  font-weight: 500;
+  letter-spacing: 0.11em;
+  transition: color 0.3s;
+}
+
+nav ul.menu li a:hover {
+  color: var(--hover-color);
+}
+
+.icons {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* Reduzido de 20px para 15px */
+  font-size: 16px; /* Reduzido de 18px para 16px */
+  color: var(--header-text);
+}
+
+/* Estilo para o toggle switch inspirado em uiverse */
+.theme-toggle {
+  position: relative;
+  display: inline-block;
+  width: 50px; /* Reduzido de 60px para 50px */
+  height: 25px; /* Reduzido de 30px para 25px */
+  margin-left: 15px; /* Reduzido de 20px para 15px */
+  cursor: pointer;
+}
+
+.theme-toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--toggle-bg);
+  transition: 0.4s;
+  border-radius: 25px; /* Ajustado para manter proporção */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5px; /* Reduzido de 6px para 5px */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 19px; /* Reduzido de 22px para 19px */
+  width: 19px; /* Reduzido de 22px para 19px */
+  left: 3px; /* Reduzido de 4px para 3px */
+  bottom: 3px; /* Reduzido de 4px para 3px */
+  background-color: var(--toggle-circle);
+  transition: 0.4s;
+  border-radius: 50%;
+  z-index: 2;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+input:checked + .slider:before {
+  transform: translateX(25px); /* Ajustado de 30px para 25px para match com o tamanho menor */
+}
+
+slider .sun, .slider .moon {
+  font-size: 12px; /* Reduzido de 14px para 12px */
+  color: var(--header-text);
+  z-index: 1;
+}
+
+/* Adiciona uma transição suave para todos os elementos que mudam de cor */
+* {
+  transition-property: color, background-color, border-color;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+}
+
+/* Estilo para a animação de transição do tema */
+.theme-transition {
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+/* Estilo para o divisor */
+.divider {
+  border: none; /* Remove borda padrão */
+  height: 2px; /* Altura da linha */
+  background-color: #ccc; /* Cor da linha */
+  margin: 20px auto; /* Espaçamento vertical e centralização */
+  width: 100%; /* Largura da linha */
+}
