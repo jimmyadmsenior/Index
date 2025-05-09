@@ -1,7 +1,25 @@
 {
+  "name": "index",
+  "version": "1.0.0",
+  "description": "![GitHub repo size](https://img.shields.io/github/repo-size/jimmyadmsenior/Index?style=for-the-badge)\r ![GitHub language count](https://img.shields.io/github/languages/count/jimmyadmsenior/Index?style=for-the-badge)\r ![GitHub forks](https://img.shields.io/github/forks/jimmyadmsenior/Index?style=for-the-badge)\r ![Bitbucket open issues](https://img.shields.io/bitbucket/issues/jimmyadmsenior/Index?style=for-the-badge)\r ![Bitbucket open pull requests](https://img.shields.io/bitbucket/pr-raw/jimmyadmsenior/Index?style=for-the-badge)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jimmyadmsenior/Index.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jimmyadmsenior/Index/issues"
+  },
+  "homepage": "https://github.com/jimmyadmsenior/Index#readme",
   "devDependencies": {
     "autoprefixer": "^10.4.21",
     "postcss": "^8.5.3",
-    "tailwindcss": "^4.1.6"
+    "tailwindcss": "^3.4.17"
   }
 }
