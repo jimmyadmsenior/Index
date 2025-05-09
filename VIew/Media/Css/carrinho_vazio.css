@@ -274,7 +274,7 @@ footer a {
 
 /* Estilo do ícone do GitHub no tema escuro */
 [data-theme="dark"] .github-icon {
-  background-image: url('../Github_Logo_Branca.png'); /* Caminho para o ícone branco */
+  background-image: url('../VIew/Media/Github_Logo_Branca.png'); /* Caminho para o ícone branco */
 }
 
 /* Estilo do texto de descrição abaixo do logo */
