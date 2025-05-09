@@ -370,6 +370,54 @@ slider .sun, .slider .moon {
   border: none; /* Remove borda padrão */
   height: 2px; /* Altura da linha */
   background-color: #ccc; /* Cor da linha */
-  margin: 20px auto; /* Espaçamento vertical e centralização */
+  margin: 30px auto; /* Espaçamento vertical e centralização */
   width: 100%; /* Largura da linha */
 }
+
+  .verification-container h1 {
+    font-family: 'Goeform Bold', sans-serif; /* Fonte personalizada */
+    font-size: 36px; /* Tamanho da fonte */
+    font-weight: normal; /* Peso normal */
+    margin-bottom: 20px; /* Espaçamento inferior */
+  }
+  .verification-container p {
+    font-size: 20px; /* Tamanho da fonte */
+    font-weight: 400; /* Peso da fonte */
+    margin-bottom: 30px; /* Espaçamento inferior */
+  }
+  .verification-container button {
+    padding: 18px 40px; /* Espaçamento interno */
+    font-size: 20px; /* Tamanho da fonte */
+    font-weight: 700; /* Peso da fonte */
+    background: rgb(0, 0, 0); /* Cor de fundo */
+    color: rgb(255, 255, 255); /* Cor do texto */
+    border: none; /* Remove borda */
+    border-radius: 10px; /* Bordas arredondadas */
+    cursor: pointer; /* Cursor de ponteiro */
+    font-family: 'Goeform', sans-serif; /* Fonte personalizada */
+    transition: background 0.3s, color 0.3s, transform 0.2s; /* Transições suaves */
+  }
+  .verification-container button:hover {
+    background: #f0f0f0; /* Cor ao passar o mouse */
+    transform: scale(1.05); /* Aumenta ligeiramente */
+  }
+  .verification-container button:active {
+    background: #e0e0e0; /* Cor ao clicar */
+    transform: scale(0.98); /* Reduz ligeiramente */
+  }
+  
+  /* Estilos do input (uiverse G4b413l) */
+  .group {
+    position: relative; /* Posicionamento relativo */
+  }
+  
+  .group label {
+    color: #000000; /* Cor do texto */
+    font-size: 18px; /* Tamanho da fonte */
+    font-weight: normal; /* Peso normal */
+    position: absolute; /* Posicionamento absoluto */
+    pointer-events: none; /* Ignora eventos do mouse */
+    left: 5px; /* Distância da esquerda */
+    top: 10px; /* Distância do topo */
+    transition: 0.2s ease all; /* Transição suave */
+  }

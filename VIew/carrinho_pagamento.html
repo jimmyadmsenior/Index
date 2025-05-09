@@ -47,6 +47,126 @@
  <center><h1>Método de pagamento</h1></center>
  <hr class="divider">
 
+  <style>
+    .input-container {
+      position: relative;
+      width: 250px;
+      margin: 20px auto;
+    }
+
+    .input-field {
+      width: 100%;
+      padding: 10px 10px;
+      font-size: 16px;
+      border: 2px solid #000000;
+      border-radius: 5px;
+      background: none;
+      outline: none;
+      color: #000000;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+
+    .input-label {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      font-size: 16px;
+      color: #000000;
+      pointer-events: none;
+      transition: 0.2s ease all;
+      background-color: transparent;
+    }
+
+    .input-field:focus + .input-label,
+    .input-field:not(:placeholder-shown) + .input-label {
+      top: -10px;
+      left: 8px;
+      font-size: 12px;
+      color: #555;
+      background: white;
+      padding: 0 4px;
+    }
+
+    .input-highlight {
+      position: absolute;
+      height: 2px;
+      width: 100%;
+      bottom: 0;
+      left: 0;
+      background: #333;
+      transform: scaleX(0);
+      transition: transform 0.3s;
+    }
+
+    .input-field:focus ~ .input-highlight {
+      transform: scaleX(1);
+    }
+
+    .erro-mensagem {
+      display: none;
+      color: #ff0055;
+      font-size: 12px;
+      margin-top: 5px;
+      text-align: left;
+    }
+
+    .input-container.erro .input-field {
+      border-color: #ff0055;
+      box-shadow: 0 0 10px #ff0055;
+    }
+
+    .input-container.erro .erro-mensagem {
+      display: block;
+    }
+
+    button {
+      display: block;
+      margin: 0 auto;
+      margin-top: 20px;
+      padding: 10px 20px;
+      border: none;
+      background-color: #555;
+      color: white;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #777;
+    }
+  </style>
+
+
+<main class="background">
+  <div class="verification-container">
+    <form onsubmit="return validarCampo()">
+      <div class="input-container" id="campo-codigo">
+        <input class="input-field" type="text" id="input-field" placeholder=" " />
+        <label for="input-field" class="input-label">CPF</label>
+        <span class="input-highlight"></span>
+        <div class="erro-mensagem">Este campo é obrigatório</div>
+      </div>
+      <button type="submit">ENVIAR</button>
+      <hr class="divider">
+    </form>
+  </div>
+</main>
+
+<script>
+  function validarCampo() {
+    const campo = document.getElementById("input-field");
+    const container = document.getElementById("campo-codigo");
+
+    if (campo.value.trim() === "") {
+      container.classList.add("erro");
+      return false;
+    } else {
+      container.classList.remove("erro");
+      return true;
+    }
+  }
+</script>
   <footer>
     <div class="footer-content">
         <div class="footer-logo">
