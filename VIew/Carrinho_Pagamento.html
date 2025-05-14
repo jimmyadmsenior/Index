@@ -46,7 +46,87 @@
     </div>
   </header>
 
- <center><h1>Método de pagamento</h1></center>
+<div class="payment-method">
+  <div
+    class="w-[300px] p-2 aspect-square rounded-lg shadow flex flex-col items-center justify-center gap-2 bg-slate-50"
+  >
+    <p class="capitalize font-semibold self-start">Escolha o método de pagamento</p>
+
+    <!-- Google Pay -->
+    <label
+      class="inline-flex justify-between w-full items-center z-10 rounded-lg p-2 border border-transparent has-[:checked]:border-indigo-500 has-[:checked]:text-indigo-900 has-[:checked]:bg-indigo-50 has-[:checked]:font-bold hover:bg-slate-200 transition-all cursor-pointer has-[:checked]:transition-all has-[:checked]:duration-500 duration-500 relative [&_p]:has-[:checked]:translate-y-0 [&_p]:has-[:checked]:transition-transform [&_p]:has-[:checked]:duration-500 [&_p]:has-[:checked]:opacity-100 overflow-hidden"
+    >
+      <div class="inline-flex items-center justify-center gap-2 relative z-10">
+        <!-- SVG ícone Google Pay -->
+        … (seu SVG) …
+        <p class="font-semibold absolute inset-0 w-full whitespace-nowrap translate-y-[110%] translate-x-full top-1 left-2 transition-all duration-700 opacity-0">
+          Google Pay
+        </p>
+      </div>
+      <input
+        class="checked:text-indigo-500 checked:ring-0 checked:ring-current focus:ring-0 focus:ring-current"
+        value="google"
+        name="payment"
+        type="radio"
+      />
+    </label>
+    <!-- Apple Pay -->
+    <label
+      class="inline-flex justify-between w-full items-center rounded-lg p-2 border border-transparent has-[:checked]:border-indigo-500 has-[:checked]:text-indigo-900 has-[:checked]:bg-indigo-50 has-[:checked]:font-bold hover:bg-slate-200 transition-all cursor-pointer has-[:checked]:transition-all has-[:checked]:duration-500 duration-500 relative [&_p]:has-[:checked]:translate-y-0 [&_p]:has-[:checked]:transition-transform [&_p]:has-[:checked]:duration-500 [&_p]:has-[:checked]:opacity-100 overflow-hidden"
+    >
+      <div class="inline-flex items-center justify-center gap-2 relative">
+        <!-- SVG ícone Apple Pay -->
+        … (seu SVG) …
+        <p class="font-semibold absolute inset-0 w-full whitespace-nowrap -translate-y-[110%] translate-x-full top-1 left-2 transition-all duration-700 opacity-0">
+          Apple Pay
+        </p>
+      </div>
+      <input
+        class="checked:text-indigo-500 checked:ring-0 checked:ring-current focus:ring-0 focus:ring-current"
+        value="apple"
+        name="payment"
+        type="radio"
+      />
+    </label>
+    <!-- Paypal -->
+    <label
+      class="inline-flex justify-between w-full items-center rounded-lg p-2 border border-transparent has-[:checked]:border-indigo-500 has-[:checked]:text-indigo-900 has-[:checked]:bg-indigo-50 has-[:checked]:font-bold hover:bg-slate-200 transition-all cursor-pointer has-[:checked]:transition-all has-[:checked]:duration-500 duration-500 relative [&_p]:has-[:checked]:translate-y-0 [&_p]:has-[:checked]:transition-transform [&_p]:has-[:checked]:duration-500 [&_p]:has-[:checked]:opacity-100 overflow-hidden"
+    >
+      <div class="inline-flex items-center justify-center gap-2 relative">
+        <!-- SVG ícone Paypal -->
+        … (seu SVG) …
+        <p class="font-semibold absolute inset-0 w-full whitespace-nowrap -translate-y-[110%] translate-x-full top-1 left-2 transition-all duration-700 opacity-0">
+          Paypal
+        </p>
+      </div>
+      <input
+        class="checked:text-indigo-500 checked:ring-0 checked:ring-current focus:ring-0 focus:ring-current"
+        value="paypal"
+        name="payment"
+        type="radio"
+      />
+    </label>
+    <!-- Credit Card -->
+    <label
+      class="inline-flex justify-between w-full items-center rounded-lg p-2 border border-transparent has-[:checked]:border-indigo-500 has-[:checked]:text-indigo-900 has-[:checked]:bg-indigo-50 has-[:checked]:font-bold hover:bg-slate-200 transition-all cursor-pointer has-[:checked]:transition-all has-[:checked]:duration-500 duration-500 relative [&_p]:has-[:checked]:translate-y-0 [&_p]:has-[:checked]:transition-transform [&_p]:has-[:checked]:duration-500 [&_p]:has-[:checked]:opacity-100 overflow-hidden"
+    >
+      <div class="inline-flex items-center justify-center gap-2 relative">
+        <!-- SVG ícone Credit Card -->
+        … (seu SVG) …
+        <p class="font-semibold absolute inset-0 w-full whitespace-nowrap translate-y-[110%] translate-x-full top-1 left-2 transition-all duration-700 opacity-0">
+          Credit Card
+        </p>
+      </div>
+      <input
+        class="checked:text-indigo-500 checked:ring-0 checked:ring-current focus:ring-0 focus:ring-current"
+        value="visa"
+        name="payment"
+        type="radio"
+      />
+    </label>
+  </div>
+</div>
+
  <hr class="divider">
 
   <style>

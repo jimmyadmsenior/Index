@@ -15,6 +15,99 @@ html, body {
   height: 100vh; /* Define altura para 100% da viewport */
 }
 
+.payment-method {
+  width: 300px;
+  padding: 0.5rem;
+  aspect-ratio: 1/1; /* polyfill para .aspect-square */
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  background-color: #f1f5f9; /* bg-slate-50 */
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* título e subtítulo */
+.payment-method > p {
+  margin: 0;
+}
+.payment-method > p:first-of-type {
+  text-transform: capitalize;
+  font-weight: 600;
+}
+.payment-method > p:nth-of-type(2) {
+  font-size: 0.625rem; /* text-[10px] */
+  color: #6b7280; /* text-gray-500 */
+  padding-bottom: 0.25rem;
+}
+
+/* cada opção (label + input) */
+.payment-method label {
+  position: relative;
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0.5rem; /* p-2 */
+  border: 1px solid transparent;
+  border-radius: 0.5rem; /* rounded-lg */
+  cursor: pointer;
+  transition: background-color 0.3s, border-color 0.3s, color 0.3s, font-weight 0.3s;
+  overflow: hidden;
+}
+.payment-method label:hover {
+  background-color: #e2e8f0; /* hover:bg-slate-200 */
+}
+
+/* estado “selecionado” via :has() */
+.payment-method label:has(input:checked) {
+  border-color: #6366f1; /* border-indigo-500 */
+  background-color: #eef2ff; /* bg-indigo-50 */
+  color: #312e81; /* text-indigo-900 */
+  font-weight: 700; /* font-bold */
+  transition-duration: 0.5s;
+}
+
+/* ocultar o radio padrão e estilizar um círculo simples */
+.payment-method input[type="radio"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 1rem;
+  height: 1rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+.payment-method input[type="radio"]:checked {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 0.25rem rgba(99, 102, 241, 0.3);
+}
+
+/* ícone SVG */
+.payment-method label svg {
+  flex-shrink: 0;
+  width: 2rem;
+  height: 2rem;
+}
+
+/* legenda que surge por cima do ícone */
+.payment-method label p {
+  position: absolute;
+  top: 0.25rem;
+  left: 0.5rem;
+  transform: translate(100%, 110%);
+  transition: transform 0.7s, opacity 0.7s;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* ao marcar, traz o texto pra dentro */
+.payment-method label:has(input:checked) p {
+  transform: translate(0, 0);
+  opacity: 1;
+}
+
 /* Variáveis para tema claro (padrão) */
 :root {
   --bg-color: #fff;
