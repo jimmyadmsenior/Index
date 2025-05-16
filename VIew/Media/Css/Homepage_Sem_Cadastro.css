@@ -1,4 +1,3 @@
-/* ...existing code... */
 @font-face {
   font-family: 'Geoform';
   src: url('Geoform-Regular.ttf') format('truetype');
@@ -8,8 +7,7 @@ html, body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
-  overflow-y: hidden;
-  height: 100vh;
+  height: 100%;
 }
 
 :root {
@@ -50,6 +48,7 @@ body {
   display: flex;
   flex-direction: column;
   height: 100%;
+  min-height: 100vh;
 }
 
 header {
@@ -165,6 +164,7 @@ footer {
   margin: 0;
   font-size: 12px;
   transition: background-color 0.3s;
+  flex-shrink: 0;
 }
 
 footer a {
@@ -280,4 +280,201 @@ footer a {
 .theme-transition {
   transition: background-color 0.5s ease, color 0.5s ease;
 }
-/* ...existing code... */
+
+/* ===== HOMEPAGE SEM CADASTRO - CONTEÚDO PRINCIPAL ===== */
+.main-homepage {
+  width: 100%;
+  flex: 1 0 auto; /* Permite que o main cresça, mas não cobre o rodapé */
+  min-height: 0;
+  background: var(--bg-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 40px;
+}
+
+.hero-section {
+  margin-top: 40px;
+  text-align: center;
+}
+.hero-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: var(--text-color);
+}
+.hero-subtitle {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 40px;
+}
+
+.featured-products {
+  width: 90%;
+  max-width: 1200px;
+  background: #fafafa;
+  border-radius: 12px;
+  margin: 0 auto 40px auto;
+  padding: 40px 30px 30px 30px;
+  box-shadow: 0 2px 12px 0 rgba(0,0,0,0.03);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.featured-iphone14 {
+  text-align: center;
+  margin-bottom: 40px;
+}
+.featured-iphone14 h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+.featured-desc {
+  font-size: 1.1rem;
+  color: #222;
+  margin-bottom: 8px;
+}
+.featured-link {
+  color: #00bfff;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 1rem;
+  margin-bottom: 18px;
+  display: inline-block;
+  transition: color 0.2s;
+}
+.featured-link:hover {
+  color: #0077b6;
+}
+.featured-imgs {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 18px;
+}
+.iphone14-img {
+  max-width: 500px; /* Aumentado de 170px para 240px */
+  height: auto;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  width: 100%;
+  margin-top: 10px;
+}
+.product-card {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px 0 rgba(0,0,0,0.04);
+  padding: 28px 18px 18px 18px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 320px;
+  position: relative;
+}
+.product-card.dark {
+  background: #111;
+  color: #fff;
+}
+.product-card h3 {
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+.product-card p {
+  font-size: 1rem;
+  margin-bottom: 8px;
+}
+.product-card .featured-link {
+  margin-bottom: 12px;
+}
+.product-card img {
+  max-width: 170px;
+  height: auto;
+  margin-top: 10px;
+}
+
+/* Banner Explore */
+.explore-section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 40px 0 0 0;
+}
+.explore-banner {
+  background: #111;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 900px;
+  min-height: 260px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  box-shadow: 0 2px 12px 0 rgba(0,0,0,0.07);
+}
+.explore-text h2 {
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin: 0;
+}
+.explore-img img {
+  max-width: 180px;
+  height: auto;
+  display: block;
+}
+
+/* Responsividade */
+@media (max-width: 900px) {
+  .featured-products {
+    padding: 30px 5vw;
+  }
+  .product-grid {
+    gap: 18px;
+  }
+  .explore-banner {
+    flex-direction: column;
+    padding: 30px 10px;
+    min-height: 200px;
+    text-align: center;
+  }
+  .explore-img img {
+    margin: 0 auto;
+    max-width: 120px;
+  }
+}
+@media (max-width: 700px) {
+  .main-homepage {
+    padding-bottom: 10px;
+  }
+  .hero-title {
+    font-size: 1.3rem;
+  }
+  .featured-products {
+    padding: 18px 2vw;
+  }
+  .featured-iphone14 h2 {
+    font-size: 1.2rem;
+  }
+  .product-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+  .product-card {
+    min-height: 220px;
+    padding: 18px 6px 10px 6px;
+  }
+  .explore-banner {
+    min-height: 120px;
+    padding: 18px 2vw;
+  }
+}
+
+/* ===== FIM HOMEPAGE SEM CADASTRO ===== */
