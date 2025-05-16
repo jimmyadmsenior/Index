@@ -414,27 +414,27 @@ footer a {
   margin: 40px 0 0 0;
 }
 .explore-banner {
-  background: #111;
-  border-radius: 12px;
-  width: 90%;
-  max-width: 900px;
-  min-height: 260px;
+  background: none;
+  border-radius: 0;
+  box-shadow: none;
+  width: auto;
+  max-width: none;
+  min-height: unset;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 0 40px;
-  box-shadow: 0 2px 12px 0 rgba(0,0,0,0.07);
+  justify-content: center;
+  padding: 0;
 }
 .explore-text h2 {
-  color: #fff;
-  font-size: 1.5rem;
-  font-weight: 500;
-  margin: 0;
+  display: none;
 }
 .explore-img img {
-  max-width: 180px;
+  max-width: 600px;
+  width: 100%;
   height: auto;
+  margin: 0 auto;
   display: block;
+  border-radius: 18px;
 }
 
 /* Responsividade */
@@ -481,6 +481,26 @@ footer a {
     min-height: 120px;
     padding: 18px 2vw;
   }
+  .video-fullwidth {
+    margin-top: 10px;
+  }
 }
 
 /* ===== FIM HOMEPAGE SEM CADASTRO ===== */
+
+/* ===== VIDEO FULLWIDTH ===== */
+.video-fullwidth {
+  display: block;
+  width: 100vw;
+  max-width: 100vw;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  border-radius: 0;
+  margin-top: 20px;
+  margin-bottom: 0;
+}
+@media (max-width: 700px) {
+  .video-fullwidth {
+    margin-top: 10px;
+  }
+}
