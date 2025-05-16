@@ -379,8 +379,14 @@ footer a {
   position: relative;
 }
 .product-card.dark {
-  background: #111;
+  background: #000; /* Fundo preto absoluto */
   color: #fff;
+}
+.product-card.dark img {
+  max-width: 350px; /* Aumenta o tamanho da imagem do iPhone 14 Pro */
+  height: auto;
+  margin-bottom: -15px; /* Faz a imagem encostar na base do card */
+  margin-top: 10px;
 }
 .product-card h3 {
   font-size: 1.3rem;
