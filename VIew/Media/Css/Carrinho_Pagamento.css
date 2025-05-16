@@ -321,6 +321,7 @@ input:checked + .slider:before {
   transition: all 0.3s ease;
   position: relative;
   background: #fff;
+  overflow: hidden; /* Garante que o overlay não vaze */
 }
 
 .option-label:hover {
@@ -330,6 +331,33 @@ input:checked + .slider:before {
 .option-label.selected {
   border-color: #6366f1;
   background-color: #e0e7ff;
+}
+
+.option-label.selected::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(59, 130, 246, 0.18); /* Azul com transparência */
+  pointer-events: none;
+  z-index: 1;
+  transition: background 0.3s;
+}
+
+.option-label.selected,
+.option-label.selected .option-title {
+  color: #2563eb !important; /* Azul forte para texto e título */
+}
+
+.option-label.selected img,
+.option-label.selected svg {
+  filter: brightness(0) saturate(100%) invert(23%) sepia(98%) saturate(749%) hue-rotate(196deg) brightness(98%) contrast(101%);
+  /* Deixa o ícone azul */
+  z-index: 2;
+}
+
+.option-label.selected .option-title {
+  z-index: 2;
+  position: relative;
 }
 
 .option-label svg {
