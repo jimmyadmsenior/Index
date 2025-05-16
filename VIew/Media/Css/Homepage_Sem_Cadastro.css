@@ -298,13 +298,13 @@ footer a {
   text-align: center;
 }
 .hero-title {
-  font-size: 2.5rem;
+  font-size: 3.2rem; /* Aumentado */
   font-weight: bold;
   margin-bottom: 10px;
   color: var(--text-color);
 }
 .hero-subtitle {
-  font-size: 1.1rem;
+  font-size: 1.5rem; /* Aumentado */
   color: #555;
   margin-bottom: 40px;
 }
@@ -327,12 +327,12 @@ footer a {
   margin-bottom: 40px;
 }
 .featured-iphone14 h2 {
-  font-size: 2rem;
+  font-size: 2.5rem; /* Aumentado */
   font-weight: bold;
   margin-bottom: 8px;
 }
 .featured-desc {
-  font-size: 1.1rem;
+  font-size: 1.3rem; /* Aumentado */
   color: #222;
   margin-bottom: 8px;
 }
@@ -340,7 +340,7 @@ footer a {
   color: #00bfff;
   font-weight: bold;
   text-decoration: none;
-  font-size: 1rem;
+  font-size: 1.3rem; /* Aumentado */
   margin-bottom: 18px;
   display: inline-block;
   transition: color 0.2s;
