@@ -7,18 +7,29 @@
   src: url('Geoform-Regular.ttf') format('truetype');
 }
 
-/* Adicione ou ajuste este bloco no início do seu CSS */
-
 html, body {
   height: 100%;
   min-height: 100vh;
+  overflow-y: auto !important;
   width: 100%;
-  overflow-x: hidden;
-  overflow-y: auto;
-  font-family: 'Geoform', sans-serif;
-  background-color: var(--bg-color);
-  color: var(--text-color);
-  transition: background-color 0.3s, color 0.3s;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  /* Remove align-items/justify-content se não quiser centralizar tudo */
+}
+
+.payment-center-wrapper {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 60vh; /* Ajuste conforme necessário */
+  padding: 40px 0;
+  box-sizing: border-box;
 }
 
 body {
@@ -53,6 +64,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 12px;
+  margin: 0 16px;
 }
 
 .payment-container > p:first-child {
@@ -456,18 +468,29 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 32px; /* Espaço entre logo, menu e ícones */
 }
 
-.logo img {
-  height: 25px; /* Reduzido de 30px para 25px */
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+nav {
+  flex: 1;
+  display: flex;
+  justify-content: center;
 }
 
 nav ul.menu {
   list-style: none;
   display: flex;
-  gap: 25px; /* Reduzido de 30px para 25px */
+  gap: 25px;
   margin: 0;
   padding: 0;
+  align-items: center;
+  justify-content: center;
 }
 
 nav ul.menu li a {
