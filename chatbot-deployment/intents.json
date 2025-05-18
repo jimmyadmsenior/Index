@@ -1,0 +1,91 @@
+{
+  "intents": [
+    {
+      "tag": "greeting",
+      "patterns": [
+        "Oi",
+        "Olá",
+        "Tudo bem?",
+        "Tem alguém aí?",
+        "Bom dia",
+        "Boa tarde",
+        "Boa noite"
+      ],
+      "responses": [
+        "Olá! 😊",
+        "Bem-vindo, como posso ajudar?",
+        "Oi, em que posso te ajudar?",
+        "Olá, como posso ajudar você?"
+      ]
+    },
+    {
+      "tag": "goodbye",
+      "patterns": ["Tchau", "Até logo", "Adeus", "Até mais"],
+      "responses": [
+        "Até logo, obrigado pela visita!",
+        "Tenha um ótimo dia!",
+        "Tchau! Volte sempre."
+      ]
+    },
+    {
+      "tag": "thanks",
+      "patterns": ["Obrigado", "Valeu", "Agradecido", "Muito obrigado"],
+      "responses": ["Fico feliz em ajudar!", "Sempre à disposição!", "Por nada!"]
+    },
+    {
+      "tag": "items",
+      "patterns": [
+        "Quais itens vocês têm?",
+        "Que tipos de produtos existem?",
+        "O que vocês vendem?",
+        "Quais produtos estão disponíveis?",
+        "O que posso comprar aqui?"
+      ],
+      "responses": [
+        "Vendemos café e chá.",
+        "Temos café e chá disponíveis."
+      ]
+    },
+    {
+      "tag": "payments",
+      "patterns": [
+        "Vocês aceitam cartão de crédito?",
+        "Aceita Mastercard?",
+        "Posso pagar com Paypal?",
+        "Só aceitam dinheiro?",
+        "Quais formas de pagamento vocês aceitam?"
+      ],
+      "responses": [
+        "Aceitamos VISA, Mastercard e Paypal.",
+        "Aceitamos a maioria dos cartões de crédito e Paypal."
+      ]
+    },
+    {
+      "tag": "delivery",
+      "patterns": [
+        "Quanto tempo demora a entrega?",
+        "Em quanto tempo recebo meu pedido?",
+        "Quando chega minha entrega?",
+        "Qual o prazo de entrega?",
+        "A entrega é rápida?"
+      ],
+      "responses": [
+        "A entrega leva de 2 a 4 dias.",
+        "O envio leva de 2 a 4 dias."
+      ]
+    },
+    {
+      "tag": "funny",
+      "patterns": [
+        "Conte uma piada!",
+        "Me diga algo engraçado!",
+        "Você sabe alguma piada?",
+        "Me faça rir!"
+      ],
+      "responses": [
+        "Por que o hipster queimou a boca? Porque tomou o café antes de esfriar.",
+        "O que o búfalo disse ao filho quando ele foi para a faculdade? Bison."
+      ]
+    }
+  ]
+}
