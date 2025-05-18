@@ -39,7 +39,7 @@ body {
     transition: all .5s ease-in-out;
 }
 
-/* CONTENT ISOPEN */
+/* CONTENT IS OPEN */
 .chatbox--active {
     transform: translateY(-40px);
     z-index: 123456;
