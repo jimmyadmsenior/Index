@@ -130,45 +130,32 @@
         <p>Copyright © 2025 Index Inc. Todos os direitos reservados.</p>
     </div>
   </footer>
-  <!-- Chatbot Widget -->
-  <div class="chatbox-float">
-    <div class="chatbox">
-        <div class="chatbox__support">
-            <div class="chatbox__header">
-                <div class="chatbox__image--header">
-                    <img src="Media/ChatBot/images/chatbox-icon.png" alt="image">
-                </div>
-                <div class="chatbox__content--header">
-                    <h4 class="chatbox__heading--header">Índigo</h4>
-                    <p class="chatbox__description--header">Olá! Eu sou a Índigo, sua assistente virtual. Como posso ajudar?</p>
-                </div>
-            </div>
-            <div class="chatbox__messages">
-                <div></div>
-            </div>
-            <div class="chatbox__footer">
-                <input type="text" placeholder="Digite uma mensagem...">
-                <button class="chatbox__send--footer send__button">Enviar</button>
-            </div>
+  <!-- Novo Chatbot Widget -->
+  <link rel="stylesheet" href="Media/ChatBot/ModernChatBot.css">
+  <div id="modern-chatbot-widget">
+    <div class="modern-chatbot-fab" id="modernChatbotFab" title="Falar com Índigo">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="12" fill="currentColor"/></svg>
+    </div>
+    <div class="modern-chatbot-window" id="modernChatbotWindow">
+      <div class="modern-chatbot-header">
+        <div class="modern-chatbot-avatar">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="12" fill="currentColor"/></svg>
         </div>
-        <div class="chatbox__button">
-            <button><img src="Media/ChatBot/images/chatbox-icon.png" alt="Chatbot" /></button>
+        <div>
+          <div class="modern-chatbot-title">Índigo</div>
+          <div class="modern-chatbot-desc">Assistente virtual</div>
         </div>
+        <button class="modern-chatbot-close" id="modernChatbotClose" title="Fechar">×</button>
+      </div>
+      <div class="modern-chatbot-messages" id="modernChatbotMessages"></div>
+      <div class="modern-chatbot-footer" id="modernChatbotFooter"></div>
     </div>
   </div>
+  <script src="Media/ChatBot/ModernChatBot.js" defer></script>
+  <!-- Fim do novo Chatbot Widget -->
   <style>
-    .chatbox-float {
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
-      z-index: 9999;
-    }
+    .chatbox-float { display: none !important; }
   </style>
-  <script>
-    // Defina o endpoint do backend Flask
-    window.$SCRIPT_ROOT = "http://127.0.0.1:5000";
-  </script>
-  <script src="Media/ChatBot/app.js" defer></script>
   <script>
     // Script para alternar entre os temas claro e escuro
     document.addEventListener('DOMContentLoaded', function() {
