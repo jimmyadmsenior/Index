@@ -540,3 +540,85 @@ footer a {
     margin-top: 10px;
   }
 }
+
+/* ===== CHATBOT FLUTUANTE ===== */
+.chatbox-float {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 9999;
+  max-width: 370px;
+  width: 100%;
+  pointer-events: none;
+}
+.chatbox {
+  pointer-events: auto;
+}
+.chatbox__button {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: 10000;
+}
+.chatbox__button button {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: #00bfff;
+  border: none;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+  cursor: pointer;
+}
+.chatbox__button button img {
+  width: 38px;
+  height: 38px;
+}
+.chatbox__button button:hover {
+  background: #0077b6;
+}
+.chatbox__support {
+  position: absolute;
+  bottom: 80px;
+  right: 0;
+  width: 370px;
+  max-width: 90vw;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(20px) scale(0.98);
+  transition: opacity 0.25s, transform 0.25s;
+}
+.chatbox--active .chatbox__support {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0) scale(1);
+}
+@media (max-width: 500px) {
+  .chatbox-float {
+    right: 0;
+    left: 0;
+    bottom: 0;
+    max-width: 100vw;
+    width: 100vw;
+    padding: 0;
+  }
+  .chatbox__support {
+    width: 100vw;
+    right: 0;
+    left: 0;
+    border-radius: 0;
+    max-width: 100vw;
+  }
+  .chatbox__button button {
+    width: 54px;
+    height: 54px;
+  }
+}
+/* ===== FIM CHATBOT FLUTUANTE ===== */
