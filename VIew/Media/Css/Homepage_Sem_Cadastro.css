@@ -320,11 +320,13 @@ footer a {
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow: visible !important;
 }
 
 .featured-iphone14 {
   text-align: center;
   margin-bottom: 40px;
+  overflow: visible !important;
 }
 .featured-iphone14 h2 {
   font-size: 2.5rem; /* Aumentado */
@@ -406,137 +408,110 @@ footer a {
   margin-top: 10px;
 }
 
-/* Banner Explore */
-.explore-section {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  margin: 40px 0 0 0;
-}
+/* Banner Explore - texto sobre a imagem */
 .explore-banner {
   position: relative;
-  background: none;
-  border-radius: 0;
-  box-shadow: none;
   width: 100%;
-  max-width: 100vw;
-  min-height: unset;
+  max-width: 1200px;
+  min-height: 220px;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0;
+  background: #000;
+  border-radius: 22px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+  overflow: hidden;
 }
 .explore-text {
   position: absolute;
   left: 0;
   top: 50%;
   transform: translateY(-50%);
-  width: 900px;
-  max-width: 90vw;
+  z-index: 2;
+  width: 60%;
+  padding-left: 40px;
   display: flex;
+  align-items: center;
   justify-content: flex-start;
   pointer-events: none;
 }
 .explore-text h2 {
-  display: block;
   color: #fff;
-  font-size: 1.2rem;
+  font-size: 2.1rem;
   font-weight: bold;
   text-align: left;
-  margin-left: 40px;
+  margin: 0;
+  line-height: 1.2;
+  white-space: normal;
   text-shadow: 0 2px 12px rgba(0,0,0,0.35);
-  background: none;
-  pointer-events: auto;
-  overflow-wrap: break-word;
-  max-width: 90%;
+}
+.explore-img {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  min-width: 200px;
+  z-index: 1;
 }
 .explore-img img {
-  max-width: 900px;
+  max-width: 100%;
   width: 100%;
   height: auto;
-  margin: 0 auto;
-  display: block;
   border-radius: 18px;
+  margin: 0 0 0 0;
+  display: block;
 }
-
-/* Responsividade */
 @media (max-width: 900px) {
-  .featured-products {
-    padding: 30px 5vw;
-  }
-  .product-grid {
-    gap: 18px;
-  }
   .explore-banner {
-    flex-direction: column;
-    padding: 30px 10px;
-    min-height: 200px;
-    text-align: center;
+    min-height: 180px;
   }
   .explore-text {
-    width: 98vw;
-    max-width: 98vw;
+    width: 90%;
+    padding-left: 18px;
   }
   .explore-text h2 {
-    font-size: 1rem;
-    margin-left: 10px;
-    max-width: 98vw;
-  }
-  .explore-img img {
-    margin: 0 auto;
-    max-width: 98vw;
+    font-size: 1.2rem;
   }
 }
 @media (max-width: 700px) {
-  .main-homepage {
-    padding-bottom: 10px;
-  }
-  .hero-title {
-    font-size: 1.3rem;
-  }
-  .featured-products {
-    padding: 18px 2vw;
-  }
-  .featured-iphone14 h2 {
-    font-size: 1.2rem;
-  }
-  .product-grid {
-    grid-template-columns: 1fr;
-    gap: 18px;
-  }
-  .product-card {
-    min-height: 220px;
-    padding: 18px 6px 10px 6px;
-  }
   .explore-banner {
     min-height: 120px;
     padding: 18px 2vw;
   }
+  .explore-text {
+    width: 98vw;
+    left: 0;
+    top: 10px;
+    transform: none;
+    position: absolute;
+    padding-left: 10px;
+  }
   .explore-text h2 {
     font-size: 1.1rem;
-    margin-left: 10px;
+    margin-left: 0;
     max-width: 98%;
-  }
-  .video-fullwidth {
-    margin-top: 10px;
+    white-space: normal;
   }
 }
-
-/* ===== FIM HOMEPAGE SEM CADASTRO ===== */
 
 /* ===== VIDEO FULLWIDTH ===== */
 .video-fullwidth {
   display: block;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
   width: 100vw;
   max-width: 100vw;
-  margin-left: 50%;
-  transform: translateX(-50%);
   border-radius: 0;
   margin-top: 20px;
   margin-bottom: 0;
+  z-index: 2;
 }
 @media (max-width: 700px) {
   .video-fullwidth {
+    position: static;
+    left: auto;
+    transform: none;
     margin-top: 10px;
   }
 }
