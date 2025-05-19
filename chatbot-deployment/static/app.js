@@ -35,7 +35,6 @@ class Chatbox {
         } else {
             chatBox.classList.remove("chatbox--active");
         }
-
     }
 
     onSendButton(chatBox) {
@@ -84,10 +83,9 @@ class Chatbox {
         });
 
 
-
+        const chatmessage = chatBox.querySelector('.chatbox__messages');
+        chatmessage.innerHTML = html;
 
 
     }
-
-
 }
