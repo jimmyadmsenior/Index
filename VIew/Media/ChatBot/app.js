@@ -95,7 +95,7 @@ class Chatbox {
     }
 
     addBotMessage(msg) {
-        this.messages.push({ name: "Bot", message: msg });
+        this.messages.push({ name: "Índigo", message: msg });
     }
     addUserMessage(msg) {
         this.messages.push({ name: "User", message: msg });
@@ -127,8 +127,8 @@ class Chatbox {
     updateChatText(chatBox) {
         var html = '';
         this.messages.slice().reverse().forEach(function (item) {
-            if (item.name === "Bot") {
-                html += '<div class="messages__item messages__item--visitor">' + item.message + '</div>';
+            if (item.name === "Índigo") {
+                html += '<div class="messages__item messages__item--visitor"><b>Índigo:</b> ' + item.message + '</div>';
             } else {
                 html += '<div class="messages__item messages__item--operator">' + item.message + '</div>';
             }
