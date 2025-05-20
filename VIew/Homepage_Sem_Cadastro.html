@@ -194,43 +194,6 @@
       syncWithSystemTheme(prefersDarkScheme);
       prefersDarkScheme.addEventListener('change', syncWithSystemTheme);
     });
-
-    // Efeito de scroll no vídeo do iPhone 14 (apenas em desktop)
-    (function() {
-      function clamp(val, min, max) {
-        return Math.max(min, Math.min(max, val));
-      }
-      function isDesktop() {
-        return window.innerWidth >= 1024 && !/Mobi|Android|iPhone|iPad|iPod|Mobile|Tablet/i.test(navigator.userAgent);
-      }
-      function handleScroll() {
-        var video = document.querySelector('.video-fullwidth');
-        if (!video) return;
-        if (!isDesktop()) {
-          video.style.setProperty('width', '100vw', 'important');
-          video.style.setProperty('max-width', '100vw', 'important');
-          video.style.setProperty('border-radius', '0', 'important');
-          video.style.setProperty('transition', 'none', 'important');
-          return;
-        }
-        // DEBUG: Forçar largura mínima para testar efeito
-        var scrollY = window.scrollY;
-        var minWidth = 40; // Força o efeito a ser bem visível
-        var maxWidth = 100;
-        var percent = Math.min(scrollY / 400, 1);
-        var width = maxWidth - (maxWidth - minWidth) * percent;
-        video.style.setProperty('width', width + 'vw', 'important');
-        video.style.setProperty('max-width', width + 'vw', 'important');
-        video.style.setProperty('border-radius', (percent * 64) + 'px', 'important');
-        video.style.setProperty('transition', 'width 0.2s, max-width 0.2s, border-radius 0.2s', 'important');
-      }
-      window.addEventListener('scroll', handleScroll, { passive: true });
-      window.addEventListener('resize', handleScroll);
-      window.addEventListener('load', function() {
-        setTimeout(handleScroll, 100);
-      });
-      setTimeout(handleScroll, 800);
-    })();
   </script>
 </body>
 </html>
