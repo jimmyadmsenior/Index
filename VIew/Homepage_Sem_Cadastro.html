@@ -213,18 +213,16 @@
           video.style.setProperty('transition', 'none', 'important');
           return;
         }
-        // Efeito baseado no scroll da página (0 a 400px)
+        // DEBUG: Forçar largura mínima para testar efeito
         var scrollY = window.scrollY;
-        var start = 0;
-        var end = 400;
-        var percent = clamp((scrollY - start) / (end - start), 0, 1);
-        var minWidth = 70;
+        var minWidth = 40; // Força o efeito a ser bem visível
         var maxWidth = 100;
+        var percent = Math.min(scrollY / 400, 1);
         var width = maxWidth - (maxWidth - minWidth) * percent;
         video.style.setProperty('width', width + 'vw', 'important');
         video.style.setProperty('max-width', width + 'vw', 'important');
-        video.style.setProperty('border-radius', (percent * 32) + 'px', 'important');
-        video.style.setProperty('transition', 'width 0.3s, max-width 0.3s, border-radius 0.3s', 'important');
+        video.style.setProperty('border-radius', (percent * 64) + 'px', 'important');
+        video.style.setProperty('transition', 'width 0.2s, max-width 0.2s, border-radius 0.2s', 'important');
       }
       window.addEventListener('scroll', handleScroll, { passive: true });
       window.addEventListener('resize', handleScroll);
