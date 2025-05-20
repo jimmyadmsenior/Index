@@ -14,11 +14,12 @@
 
 O projeto ainda está em desenvolvimento e as próximas atualizações serão voltadas para as seguintes tarefas:
 
+- [X] Design e Elementos Gráficos
+- [X] ChatBot
 - [ ] Layout Base
 - [ ] Publicação dos produtos
 - [ ] Páginas Iniciais
 - [ ] BackEnd
-- [x] Design e Elementos Gráficos
 
 ## 📫 Contribuindo para o Index
 
