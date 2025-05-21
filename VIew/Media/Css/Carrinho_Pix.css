@@ -11,8 +11,6 @@
     min-height: 100vh; /* Garante que o conteúdo ocupe pelo menos a altura da janela */
   }
   
-  
-  
   :root {
     --bg-color: #fff;
     --text-color: #000;
@@ -99,16 +97,6 @@
     content: url('../QRcode.png'); /* Caminho para o ícone branco */
   }
   
-  .cart-icon {
-    width: 350px;
-    height: auto;
-    margin-bottom: 20px;
-  }
-  
-  .cart-icon img {
-    width: 100%;
-    height: auto;
-  }
   
   [data-theme="dark"] .cart-icon img {
     content: url('../VIew/Media/cart-icon-white.png');
@@ -304,6 +292,16 @@
   .logo img {
     height: 25px;
   }
+
+  .pix-image img {
+    width: 40px !important;
+    height: auto !important;
+  }
+
+  .qr-code img {
+    width: 300px !important;
+    height: auto !important;
+  }
   
   nav ul.menu {
     list-style: none;
@@ -390,3 +388,11 @@
     z-index: 1;
   }
   
+
+.qr-code {
+  transition: filter 0.3s ease;
+}
+
+[data-theme="dark"] .qr-code {
+  filter: invert(1);
+}
