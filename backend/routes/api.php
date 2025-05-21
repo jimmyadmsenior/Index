@@ -16,4 +16,8 @@ Route::get('/teste', function () {
     return ['ok' => true];
 });
 
+Route::get('/debug-api', function () {
+    return ['api' => true];
+});
+
 Route::apiResource('produtos', ProdutoController::class);
