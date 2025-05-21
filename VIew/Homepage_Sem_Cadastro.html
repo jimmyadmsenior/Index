@@ -53,8 +53,7 @@
         <div class="featured-imgs">
           <img src="../VIew/Media/Iphone_14_Capa_Homepage.png" alt="Two hands holding a light blue iPhone 14, one showing the back with the Apple logo and dual cameras, the other displaying the lock screen with the time 941 and colorful abstract wallpaper, set against a clean white background, conveying a modern and premium feel" class="iphone14-img"/>
         </div>
-        <!-- Vídeo embaixo da imagem, ocupando toda a largura -->
-        <video class="video-fullwidth" autoplay muted loop>
+        <!-- Vídeo embaixo da imagem, ocupando toda a largura -->        <video class="video-fullwidth iphone-video-scroll" id="iphoneVideoScroll" autoplay muted loop>
           <source src="../VIew/Media/Vídeo_iPhone_Capa_Homepage.mp4" type="video/mp4">
           Seu navegador não suporta a tag de vídeo.
         </video>
@@ -155,6 +154,37 @@
   <!-- Fim do novo Chatbot Widget -->
   <style>
     .chatbox-float { display: none !important; }
+    .iphone-video-scroll {
+      clip-path: inset(0% 0% 0% 0%);
+      transition: clip-path 0.3s cubic-bezier(.4,0,.2,1);
+      will-change: clip-path;
+    }
+    @supports not (clip-path: inset(0% 0% 0% 0%)) {
+      .iphone-video-scroll {
+        border-radius: 20px;
+      }
+    }
+    /* Menu fixo elegante com efeito vidro (blur) */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(30, 30, 30, 0.6); /* tom escuro translúcido */
+      backdrop-filter: blur(16px) saturate(180%);
+      -webkit-backdrop-filter: blur(16px) saturate(180%);
+      box-shadow: 0 4px 24px 0 rgba(0,0,0,0.08);
+      transition: background 0.3s, box-shadow 0.3s;
+    }
+    body {
+      padding-top: 90px; /* espaço para o header fixo */
+    }
+    @media (max-width: 700px) {
+      body {
+        padding-top: 120px;
+      }
+    }
   </style>
   <script>
     // Script para alternar entre os temas claro e escuro
@@ -193,6 +223,22 @@
       }
       syncWithSystemTheme(prefersDarkScheme);
       prefersDarkScheme.addEventListener('change', syncWithSystemTheme);
+    });  </script>
+  <script>
+    // Efeito de scroll no vídeo do iPhone
+    window.addEventListener('scroll', function() {
+      const video = document.getElementById('iphoneVideoScroll');
+      if (!video) return;
+      const rect = video.getBoundingClientRect();
+      const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+      // Quanto do vídeo está visível na tela (0 = topo da tela, 1 = totalmente visível)
+      let visible = 1 - Math.max(0, rect.top) / windowHeight;
+      visible = Math.max(0, Math.min(1, visible));
+      // Encurtamento máximo das laterais (em %)
+      const maxInset = 20; // até 20% de cada lado
+      const inset = maxInset * (1 - visible);
+      video.style.clipPath = `inset(0% ${inset}% 0% ${inset}%)`;
+      video.style.transition = 'clip-path 0.2s';
     });
   </script>
 </body>
