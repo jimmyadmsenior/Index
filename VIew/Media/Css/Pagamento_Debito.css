@@ -123,6 +123,11 @@ footer {
   margin: 0;
   font-size: 12px;
   transition: background-color 0.3s;
+  width: 100%;
+  clear: both;
+  align-self: flex-end;
+  margin-top: auto;
+  position: relative;
 }
 
 footer a {
@@ -521,4 +526,278 @@ input {
 }
 .creditcard.flipped {
   transform: rotateY(180deg);
+}
+
+.pay-btn {
+  position: relative;
+  padding: 12px 24px;
+  font-size: 16px;
+  background: #1a1a1a;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.3s ease;
+}
+
+.pay-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+}
+
+.icon-container {
+  position: relative;
+  width: 24px;
+  height: 24px;
+}
+
+.icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 24px;
+  height: 24px;
+  color: #22c55e;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.default-icon {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Hover animations */
+.pay-btn:hover .icon {
+  animation: none;
+}
+
+.pay-btn:hover .wallet-icon {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.pay-btn:hover .card-icon {
+  animation: iconRotate 2.5s infinite;
+  animation-delay: 0s;
+}
+
+.pay-btn:hover .payment-icon {
+  animation: iconRotate 2.5s infinite;
+  animation-delay: 0.5s;
+}
+
+.pay-btn:hover .dollar-icon {
+  animation: iconRotate 2.5s infinite;
+  animation-delay: 1s;
+}
+
+.pay-btn:hover .check-icon {
+  animation: iconRotate 2.5s infinite;
+  animation-delay: 1.5s;
+}
+
+/* Active state - show only checkmark */
+.pay-btn:active .icon {
+  animation: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.pay-btn:active .check-icon {
+  animation: checkmarkAppear 0.6s ease forwards;
+  visibility: visible;
+}
+
+.btn-text {
+  font-weight: 600;
+  font-family:
+    system-ui,
+    -apple-system,
+    sans-serif;
+}
+
+@keyframes iconRotate {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px) scale(0.5);
+  }
+  5% {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+  }
+  15% {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+  }
+  20% {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px) scale(0.5);
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px) scale(0.5);
+  }
+}
+
+@keyframes checkmarkAppear {
+  0% {
+    opacity: 0;
+    transform: scale(0.5) rotate(-45deg);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.2) rotate(0deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+.footer-logo p {
+  font-size: 13px; /* Reduzido de 14px para 13px */
+  font-weight: bold;
+  margin-bottom: 3px; /* Reduzido de 5px para 3px */
+  color: var(--text-color);
+}
+
+/* Ajusta o texto de copyright */
+.copy {
+  text-align: center;
+  font-size: 10px;
+  color: var(--copy-color);
+  padding-top: 10px; /* Reduzido de 20px para 10px */
+  padding-bottom: 5px; /* Adicionado um pequeno padding inferior */
+  margin-bottom: 0;
+  font-weight: lighter;
+}
+
+/* Estilos para a navbar */
+header {
+  width: 100%;
+  background: var(--header-bg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 20px; /* Reduzido de 10px para 8px */
+  transition: background-color 0.3s;
+}
+
+.header-content {
+  width: 100%;
+  max-width: 1300px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo img {
+  height: 25px; /* Reduzido de 30px para 25px */
+}
+
+nav ul.menu {
+  list-style: none;
+  display: flex;
+  gap: 25px; /* Reduzido de 30px para 25px */
+  margin: 0;
+  padding: 0;
+}
+
+nav ul.menu li a {
+  font-family: 'Geoform', sans-serif;
+  color: var(--header-text);
+  text-decoration: none;
+  font-size: 14px; /* Reduzido de 16px para 14px */
+  font-weight: 500;
+  letter-spacing: 0.11em;
+  transition: color 0.3s;
+}
+
+nav ul.menu li a:hover {
+  color: var(--hover-color);
+}
+
+.icons {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* Reduzido de 20px para 15px */
+  font-size: 16px; /* Reduzido de 18px para 16px */
+  color: var(--header-text);
+}
+
+/* Estilo para o toggle switch inspirado em uiverse */
+.theme-toggle {
+  position: relative;
+  display: inline-block;
+  width: 50px; /* Reduzido de 60px para 50px */
+  height: 25px; /* Reduzido de 30px para 25px */
+  margin-left: 15px; /* Reduzido de 20px para 15px */
+  cursor: pointer;
+}
+
+.theme-toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--toggle-bg);
+  transition: 0.4s;
+  border-radius: 25px; /* Ajustado para manter proporção */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5px; /* Reduzido de 6px para 5px */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 19px; /* Reduzido de 22px para 19px */
+  width: 19px; /* Reduzido de 22px para 19px */
+  left: 3px; /* Reduzido de 4px para 3px */
+  bottom: 3px; /* Reduzido de 4px para 3px */
+  background-color: var(--toggle-circle);
+  transition: 0.4s;
+  border-radius: 50%;
+  z-index: 2;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+input:checked + .slider:before {
+  transform: translateX(25px); /* Ajustado de 30px para 25px para match com o tamanho menor */
+}
+
+slider .sun, .slider .moon {
+  font-size: 12px; /* Reduzido de 14px para 12px */
+  color: var(--header-text);
+  z-index: 1;
+}
+
+/* Adiciona uma transição suave para todos os elementos que mudam de cor */
+* {
+  transition-property: color, background-color, border-color;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+}
+
+/* Estilo para a animação de transição do tema */
+.theme-transition {
+  transition: background-color 0.5s ease, color 0.5s ease;
 }
