@@ -120,10 +120,7 @@ body {
   opacity: 0.9;
 }
 
-.right .qrcode {
-  max-width: 200px; /* Reduzido de 240px para 200px */
-  height: auto;
-}
+
 
 footer {
   background-color: var(--footer-bg);
