@@ -25,7 +25,7 @@ Levamos a segurança do nosso site e serviços muito a sério. Abaixo estão alg
 
 Se você descobrir uma vulnerabilidade de segurança em nosso site ou serviços, incentivamos que você a reporte o mais rápido possível. Siga os passos abaixo:
 
-1. **Entre em Contato Conosco**: Envie um e-mail para [security@ourwebsite.com](mailto:security@ourwebsite.com) com os detalhes da vulnerabilidade. Inclua:
+1. **Entre em Contato Conosco**: Envie um e-mail para [jimmycastilho555@gmail.com](mailto:jimmycastilho555@gmail.com) com os detalhes da vulnerabilidade. Inclua:
     - Uma descrição detalhada do problema.
     - Passos para reproduzir a vulnerabilidade.
     - Qualquer impacto ou risco potencial associado à vulnerabilidade.
@@ -50,7 +50,7 @@ Pedimos que você:
 
 Para quaisquer dúvidas relacionadas à segurança ou para relatar uma vulnerabilidade, entre em contato conosco:
 
-- **E-mail**: [security@ourwebsite.com](jimmy.castilho@aluno.senai.br)
+- **E-mail**: [jimmy.castilho@aluno.senai.br](jimmy.castilho@aluno.senai.br)
 - **Repositório**: [Index](https://github.com/jimmyadmsenior/Index)
 
 Agradecemos seus esforços para nos ajudar a manter a segurança do nosso site e serviços.
