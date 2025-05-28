@@ -7,7 +7,7 @@ html, body {
   margin: 0;
   padding: 0;
   overflow-x: hidden; /* Remove a rolagem horizontal */
-  overflow-y: hidden; /* Remove a rolagem vertical */
+  overflow-y: auto; /* Remove a rolagem vertical */
   height: 100vh; /* Define altura para 100% da viewport */
 }
 
@@ -51,6 +51,7 @@ body {
   display: flex;
   flex-direction: column;
   height: 100%;
+  position: relative;
 }
 
 .topbar {
@@ -102,9 +103,20 @@ body {
   line-height: 1.4; /* Reduzido de 1.5 para 1.4 */
 }
 
+.banner-navbar {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  line-height: 0; /* Remove espaço extra abaixo da imagem */
+}
 
-
-
+.banner-navbar img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+  max-height: 300px; /* Ajuste a altura máxima se quiser */
+  filter: brightness(0.5) contrast(0.95);
+}
 
 footer {
   background-color: var(--footer-bg);
@@ -344,4 +356,170 @@ slider .sun, .slider .moon {
 /* Estilo para a animação de transição do tema */
 .theme-transition {
   transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+.politica-termos {
+  font-family: Arial, sans-serif;
+  padding: 40px 10px;
+  max-width: 700px;
+  margin: 40px auto;
+  background: var(--bg-color);
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+}
+
+.politica-termos h1 {
+  text-align: center;
+  font-weight: bold;
+  font-size: 2rem;
+  margin-bottom: 0;
+}
+
+.politica-termos h2 {
+  text-align: center;
+  font-size: 1rem;
+  font-weight: normal;
+  margin-top: -10px;
+  color: #555;
+  margin-bottom: 30px;
+}
+
+.politica-termos .section {
+  border-bottom: 1px solid #ddd;
+  padding: 20px 0;
+}
+
+.politica-termos .section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.politica-termos .section-header span {
+  font-weight: bold;
+}
+
+.politica-termos .toggle-icon {
+  font-size: 18px;
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.politica-termos .toggle-icon.rotated {
+  transform: rotate(90deg);
+}
+
+.politica-termos .section-content {
+  margin-top: 10px;
+  display: none;
+  color: #333;
+  font-size: 0.97rem;
+}
+
+.politica-termos .section-content.visible {
+  display: block;
+}
+
+.politica-termos .section-img {
+  width: 100%;
+  max-width: 320px;
+  display: block;
+  margin: 16px auto 16px auto;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.quem-somos-img {
+  width: 160px;
+  max-width: 80%;
+  display: block;
+  margin: 0 auto 18px auto;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+}
+
+.side-img {
+  position: absolute;
+  top: 160px; /* Ajuste conforme necessário para alinhar com o início do conteúdo */
+  left: 100%;
+  margin-left: 40px; /* Espaço entre o container e a imagem */
+  width: 180px;
+  max-width: 22vw;
+  z-index: 10;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+  opacity: 0.92;
+  background: #fff;
+  display: block;
+}
+
+/* Garante que o container principal seja o referencial para position: absolute */
+.politica-termos {
+  position: relative;
+}
+
+/* Esconde a imagem em telas pequenas */
+@media (max-width: 1100px) {
+  .side-img {
+    display: none;
+  }
+}
+
+.privacidade-lista {
+  padding-left: 18px;
+  margin: 0 0 0 0;
+  list-style: decimal inside;
+}
+
+.privacidade-lista > li {
+  margin-bottom: 18px;
+}
+
+.privacidade-titulo {
+  font-weight: bold;
+  color: #000000;
+  font-size: 1.08em;
+  display: block;
+  margin-bottom: 4px;
+  letter-spacing: 0.01em;
+}
+
+.privacidade-lista p,
+.privacidade-lista ul {
+  margin: 0 0 0 10px;
+  font-size: 0.98em;
+}
+
+.privacidade-lista ul {
+  list-style: disc inside;
+  padding-left: 12px;
+  margin-top: 4px;
+}
+
+.sobre-nos-banner-title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  font-size: 3rem;
+  font-weight: bold;
+  text-shadow: 0 2px 16px rgba(0,0,0,0.45);
+  margin: 0;
+  padding: 0 16px;
+  width: 100%;
+  text-align: center;
+  letter-spacing: 2px;
+  z-index: 2;
+}
+
+if (header.innerText.includes('QUEM SOMOS?')) {
+  const img = content.querySelector('.section-img');
+  if (content.classList.contains('visible')) {
+    img.style.display = 'block';
+  } else {
+    img.style.display = 'none';
+  }
 }
