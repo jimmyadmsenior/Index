@@ -305,6 +305,18 @@ A Silicon Devs é mais do que um e-commerce; somos um time dedicado a transforma
       });
       */
     });
+
+    function toggleSection(header) {
+  const icon = header.querySelector('.toggle-icon');
+  const content = header.nextElementSibling;
+  icon.classList.toggle('rotated');
+  content.classList.toggle('visible');
+  // Exibe a imagem em "QUEM SOMOS?" se existir
+  if (header.innerText.includes('QUEM SOMOS?')) {
+    const img = content.querySelector('.quem-somos-img');
+    if (img) img.style.display = content.classList.contains('visible') ? 'block' : 'none';
+  }
+}
   </script>
 </body>
 </html>
