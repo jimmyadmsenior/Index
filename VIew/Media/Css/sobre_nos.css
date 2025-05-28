@@ -359,13 +359,15 @@ slider .sun, .slider .moon {
 }
 
 .politica-termos {
-  font-family: Arial, sans-serif;
-  padding: 40px 10px;
-  max-width: 700px;
+  width: 100%;
+  max-width: 500px;
   margin: 40px auto;
+  padding: 40px 10px;
   background: var(--bg-color);
   border-radius: 12px;
   box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+  position: relative;
+  /* ↑ já estava, mas reforçado para garantir o posicionamento de elementos absolutos filhos */
 }
 
 .politica-termos h1 {
@@ -522,4 +524,73 @@ if (header.innerText.includes('QUEM SOMOS?')) {
   } else {
     img.style.display = 'none';
   }
+}
+
+.condicoes-lista {
+  padding-left: 18px;
+  margin: 0 0 0 0;
+  list-style: decimal inside;
+}
+
+.condicoes-lista > li {
+  margin-bottom: 18px;
+}
+
+.condicoes-titulo {
+  font-weight: bold;
+  color: #000000;
+  font-size: 1.08em;
+  display: block;
+  margin-bottom: 4px;
+  letter-spacing: 0.01em;
+}
+
+.condicoes-lista p {
+  margin: 0 0 0 10px;
+  font-size: 0.98em;
+}
+
+.captamos-lista {
+  padding-left: 18px;
+  margin: 0 0 0 0;
+  list-style: decimal inside;
+}
+
+.captamos-lista > li {
+  margin-bottom: 18px;
+}
+
+.captamos-titulo {
+  font-weight: bold;
+  color: #000000;
+  font-size: 1.08em;
+  display: block;
+  margin-bottom: 4px;
+  letter-spacing: 0.01em;
+}
+
+.captamos-lista p {
+  margin: 0 0 0 10px;
+  font-size: 0.98em;
+}
+
+/* ...existing code... */
+
+[data-theme="dark"] .politica-termos,
+[data-theme="dark"] .politica-termos .section-content,
+[data-theme="dark"] .privacidade-lista,
+[data-theme="dark"] .privacidade-lista p,
+[data-theme="dark"] .privacidade-lista ul,
+[data-theme="dark"] .privacidade-titulo,
+[data-theme="dark"] .condicoes-lista,
+[data-theme="dark"] .condicoes-lista p,
+[data-theme="dark"] .condicoes-titulo,
+[data-theme="dark"] .captamos-lista,
+[data-theme="dark"] .captamos-lista p,
+[data-theme="dark"] .captamos-titulo {
+  color: #fff !important;
+}
+
+[data-theme="dark"] .politica-termos {
+  background: #181818;
 }
