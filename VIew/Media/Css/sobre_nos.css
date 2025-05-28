@@ -517,14 +517,7 @@ slider .sun, .slider .moon {
   z-index: 2;
 }
 
-if (header.innerText.includes('QUEM SOMOS?')) {
-  const img = content.querySelector('.section-img');
-  if (content.classList.contains('visible')) {
-    img.style.display = 'block';
-  } else {
-    img.style.display = 'none';
-  }
-}
+
 
 .condicoes-lista {
   padding-left: 18px;
