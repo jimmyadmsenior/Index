@@ -166,14 +166,6 @@ body {
   margin-bottom: 15px;
 }
 
-.card img[alt="Samsung Galaxy Buds Live"] {
-  width: 180px;
-  height: auto;
-  max-width: 100%;
-  display: block;
-  margin: 0 auto 15px auto;
-}
-
 .card p {
   font-weight: bold;
   margin: 5px 0;
