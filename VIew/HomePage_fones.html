@@ -51,13 +51,97 @@
       <h1>Os Melhores <br>fones para</h1>
       <h1>Você</h1>
       <ul class="banner-falas">
-        <h3></h2>
-        <li>Design moderno e confortável</li>
-        <li>Bateria de longa duração</li>
+        <h3>Todos com qualidade</h3>
+        <h3>altíssima para curtir cada</h3>
+        <h3>momento!</h3>
       </ul>
     </div>
   </div>
 
+  <!-- Carrossel de Produtos -->
+<section class="produtos">
+  <h2>Os mais diversos modelos</h2>
+  <div class="carousel">
+    <div class="carousel-inner" id="carousel-inner">
+      <div class="carousel-slide">
+        <div class="card">
+          <img src="../VIew/Media/AirPods.png"AirPods (2ª geração)">
+          <p>AirPods (2ª geração)</p>
+          <span>R$359,99</span>
+        </div>
+        <div class="card">
+          <img src="../VIew/Media/galaxy-buds3-silver-mo 1.png" alt="Samsung Galaxy Buds Pro">
+          <p>Samsung Galaxy Buds Pro</p>
+          <span>R$235,99</span>
+        </div>
+        <div class="card">
+          <img src="../VIew/Media/Galaxy-Buds-2_1_2-removebg-preview.png" alt="Samsung Galaxy Buds Live">
+          <p>Samsung Galaxy Buds Live</p>
+          <span>R$257,90</span>
+        </div>
+      </div>
+      <div class="carousel-slide">
+        <div class="card">
+          <img src="fone1.png" alt="Fone A">
+          <p>Fone A</p>
+          <span>R$199,90</span>
+        </div>
+        <div class="card">
+          <img src="fone2.png" alt="Fone B">
+          <p>Fone B</p>
+          <span>R$219,90</span>
+        </div>
+        <div class="card">
+          <img src="fone3.png" alt="Fone C">
+          <p>Fone C</p>
+          <span>R$229,90</span>
+        </div>
+      </div>
+      <div class="carousel-slide">
+        <div class="card">
+          <img src="fone4.png" alt="Fone D">
+          <p>Fone D</p>
+          <span>R$210,90</span>
+        </div>
+        <div class="card">
+          <img src="fone5.png" alt="Fone E">
+          <p>Fone E</p>
+          <span>R$250,00</span>
+        </div>
+        <div class="card">
+          <img src="fone6.png" alt="Fone F">
+          <p>Fone F</p>
+          <span>R$275,00</span>
+        </div>
+      </div>
+    </div>
+    <div class="carousel-indicators">
+      <button class="active" onclick="moveToSlide(0)"></button>
+      <button onclick="moveToSlide(1)"></button>
+      <button onclick="moveToSlide(2)"></button>
+    </div>
+  </div>
+</section>
+
+<!-- Seção: Destaque AirPods -->
+<section class="airpods">
+  <div class="text-content">
+    <h2>AirPods</h2>
+    <p class="sub">Conforto Bluetooh. Mágico.</p>
+    <p class="desc">Introduzindo os AirPods. Tecnologia e praticidade, juntos como nunca!</p>
+  </div>
+  <div class="img-content">
+    <img src="../VIew/Media/Homem_fone.png" alt="Homem com AirPods">
+  </div>
+</section>
+
+<!-- Seção: Explore nosso site -->
+<section class="explore">
+  <div class="explore-content">
+    <h3>Explore nosso site e descubra o luxo</h3>
+    <img src="../VIew/Media/Imagem Ana.png" alt="Personagem">
+  </div>
+</section>
 
   <footer>
     <div class="footer-content">
@@ -178,6 +262,36 @@
       });
       */
     });
+
+    const carousel = document.getElementById("carousel-inner");
+    const carouselWrapper = document.querySelector(".carousel");
+    const indicators = document.querySelectorAll(".carousel-indicators button");
+    const totalSlides = 3;
+    let currentSlide = 0;
+    let autoSlide;
+
+    function moveToSlide(index) {
+      carousel.style.transform = `translateX(-${index * 100}%)`;
+      indicators.forEach(btn => btn.classList.remove("active"));
+      indicators[index].classList.add("active");
+      currentSlide = index;
+    }
+
+    function startAutoSlide() {
+      autoSlide = setInterval(() => {
+        const nextSlide = (currentSlide + 1) % totalSlides;
+        moveToSlide(nextSlide);
+      }, 2000);
+    }
+
+    function stopAutoSlide() {
+      clearInterval(autoSlide);
+    }
+
+    carouselWrapper.addEventListener("mouseenter", stopAutoSlide);
+    carouselWrapper.addEventListener("mouseleave", startAutoSlide);
+
+    startAutoSlide();
   </script>
 </body>
 </html>
