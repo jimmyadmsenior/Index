@@ -397,3 +397,43 @@ slider .sun, .slider .moon {
   letter-spacing: 2px;
   z-index: 2;
 }
+
+/* Texto do banner posicionado no canto esquerdo da imagem */
+.banner-texto-fone {
+  position: absolute;
+  top: 50%;
+  left: 5%;
+  transform: translateY(-50%);
+  color: #fff;
+  z-index: 2;
+  text-align: left;
+}
+
+.banner-texto-fone h1 {
+  font-size: 2.8rem;
+  font-weight: bold;
+  margin: 0 0 10px 0;
+  line-height: 1.1;
+  text-shadow: 0 2px 16px rgba(0,0,0,0.45);
+}
+
+.banner-voce {
+  display: block;
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: #ffe066;
+  text-shadow: 0 2px 16px rgba(0,0,0,0.45);
+}
+
+.banner-falas {
+  list-style: disc inside;
+  margin: 0;
+  padding-left: 18px;
+  font-size: 1.1rem;
+}
+
+.banner-falas li {
+  margin-bottom: 4px;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.35);
+}
