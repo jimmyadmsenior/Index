@@ -10,7 +10,7 @@ use App\Models\Produto;
 class CategoriaProdutoSeeder extends Seeder
 {
     /**
-     * Run the database seeds.
+     * Executa o seeder do banco de dados.
      */
     public function run(): void
     {
@@ -23,10 +23,10 @@ class CategoriaProdutoSeeder extends Seeder
             'Notebooks',
         ];
 
-        $categoriasIds = [];
+        $idsCategorias = [];
         foreach ($categorias as $cat) {
             $categoria = Categoria::create(['nome' => $cat]);
-            $categoriasIds[$cat] = $categoria->id;
+            $idsCategorias[$cat] = $categoria->id;
         }
 
         // Produtos (exemplo para Smartphones Apple, adicione os outros seguindo o padrão)
@@ -107,7 +107,11 @@ class CategoriaProdutoSeeder extends Seeder
             Produto::create([
                 'nome' => $produto['nome'],
                 'marca' => $produto['marca'],
-                'categoria_id' => $categoriasIds[$produto['categoria']],
+                'categoria_id' => $idsCategorias[$produto['categoria']],
+                'descricao' => $produto['descricao'] ?? 'Descrição do produto ' . $produto['nome'],
+                'imagem' => $produto['imagem'] ?? 'default.png',
+                'preco' => $produto['preco'] ?? rand(1000, 10000),
+                'modelo' => $produto['modelo'] ?? 'Modelo ' . $produto['nome'],
             ]);
         }
     }

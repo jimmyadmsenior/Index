@@ -10,7 +10,7 @@ use Illuminate\Http\Response;
 class ProdutoController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Exibe uma lista de todos os produtos.
      */
     public function index()
     {
@@ -19,7 +19,7 @@ class ProdutoController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Exibe o formulário para criar um novo produto.
      */
     public function create()
     {
@@ -27,68 +27,60 @@ class ProdutoController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Armazena um novo produto no banco de dados.
      */
-    public function store(Request $request)
+    public function store(Request $requisicao)
     {
         // Validação simples
-        $validated = $request->validate([
+        $validado = $requisicao->validate([
             'nome' => 'required|string',
             'marca' => 'required|string',
             'categoria_id' => 'required|exists:categorias,id',
         ]);
-        $produto = Produto::create($validated);
+        $produto = Produto::create($validado);
         return response()->json($produto, 201);
     }
 
     /**
-     * Display the specified resource.
+     * Exibe um produto específico.
      */
     public function show(string $id)
     {
         $produto = Produto::with('categoria')->find($id);
         if (!$produto) {
-            return response()->json(['message' => 'Produto não encontrado'], 404);
+            return response()->json(['mensagem' => 'Produto não encontrado'], 404);
         }
         return $produto;
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Atualiza um produto específico.
      */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
+    public function update(Request $requisicao, string $id)
     {
         $produto = Produto::find($id);
         if (!$produto) {
-            return response()->json(['message' => 'Produto não encontrado'], 404);
+            return response()->json(['mensagem' => 'Produto não encontrado'], 404);
         }
-        $validated = $request->validate([
+        $validado = $requisicao->validate([
             'nome' => 'sometimes|required|string',
             'marca' => 'sometimes|required|string',
             'categoria_id' => 'sometimes|required|exists:categorias,id',
         ]);
-        $produto->update($validated);
+        $produto->update($validado);
         return response()->json($produto);
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove um produto específico.
      */
     public function destroy(string $id)
     {
         $produto = Produto::find($id);
         if (!$produto) {
-            return response()->json(['message' => 'Produto não encontrado'], 404);
+            return response()->json(['mensagem' => 'Produto não encontrado'], 404);
         }
         $produto->delete();
-        return response()->json(['message' => 'Produto deletado com sucesso']);
+        return response()->json(['mensagem' => 'Produto removido com sucesso']);
     }
 }
