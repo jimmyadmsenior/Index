@@ -212,6 +212,21 @@
         min-height: calc(100vh - 120px);
       }
     }
+    #cursor-blur-boxes {
+      position: fixed;
+      pointer-events: none;
+      z-index: 99999 !important;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      /* Garante que o cursor fique acima de tudo */
+    }
+    #cursor-blur-boxes .box {
+      position: fixed !important;
+      pointer-events: none;
+      z-index: 99999 !important;
+    }
   </style>
   <script>
     // Script para alternar entre os temas claro e escuro
@@ -268,5 +283,31 @@
       video.style.transition = 'clip-path 0.2s';
     });
   </script>
+  <!-- Cursor Motion Blur Effect -->
+  <link rel="stylesheet" href="../VIew/Media/Cursor/EfeitoCursor/dist/style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.15.0/TweenMax.min.js"></script>
+  <script src="../VIew/Media/Cursor/EfeitoCursor/dist/script.js" defer></script>
+  <!-- Elementos do efeito cursor -->
+  <div id="cursor-blur-boxes">
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+  </div>
+  <!-- Fim Cursor Motion Blur Effect -->
 </body>
 </html>
