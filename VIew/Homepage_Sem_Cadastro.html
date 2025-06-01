@@ -158,6 +158,12 @@
       clip-path: inset(0% 0% 0% 0%);
       transition: clip-path 0.3s cubic-bezier(.4,0,.2,1);
       will-change: clip-path;
+      max-width: 100vw;
+      width: 100%;
+      height: auto;
+      display: block;
+      /* Garante que o vídeo não cause overflow */
+      overflow: hidden;
     }
     @supports not (clip-path: inset(0% 0% 0% 0%)) {
       .iphone-video-scroll {
@@ -177,12 +183,33 @@
       box-shadow: 0 4px 24px 0 rgba(0,0,0,0.08);
       transition: background 0.3s, box-shadow 0.3s;
     }
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      /* Garante que só exista um scroll vertical */
+    }
     body {
       padding-top: 90px; /* espaço para o header fixo */
+      min-height: 100vh;
+      box-sizing: border-box;
+      overflow-x: hidden;
+    }
+    main.main-homepage {
+      width: 100%;
+      overflow: visible;
+      min-height: calc(100vh - 90px);
+    }
+    section {
+      overflow: visible;
     }
     @media (max-width: 700px) {
       body {
         padding-top: 120px;
+      }
+      main.main-homepage {
+        min-height: calc(100vh - 120px);
       }
     }
   </style>
