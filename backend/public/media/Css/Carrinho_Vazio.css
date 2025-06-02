@@ -1,0 +1,429 @@
+/* Estilo para o ícone do carrinho no tema escuro */
+[data-theme="dark"] .cart-icon img {
+  font-family: 'Geoform'; /* Define a fonte Geoform */
+  src: url('Geoform-Regular.ttf') format('truetype'); /* Caminho para a fonte */
+}
+
+/* Estilo geral para o HTML e o corpo da página */
+html, body {
+  margin: 0; /* Remove margens padrão */
+  padding: 0; /* Remove preenchimento padrão */
+  overflow-x: hidden; /* Desativa rolagem horizontal */
+  overflow-y: auto; /* Permite rolagem vertical */
+  min-height: 100vh; /* Garante altura mínima da janela */
+}
+
+/* Variáveis de tema padrão (claro) */
+:root {
+  --bg-color: #fff; /* Cor de fundo */
+  --text-color: #000; /* Cor do texto */
+  --header-bg: #000; /* Cor de fundo do cabeçalho */
+  --header-text: #f9f9f9; /* Cor do texto do cabeçalho */
+  --footer-bg: #f9f9f9; /* Cor de fundo do rodapé */
+  --button-bg: #000; /* Cor de fundo do botão */
+  --button-text: #fff; /* Cor do texto do botão */
+  --footer-text: #555555; /* Cor do texto do rodapé */
+  --hover-color: #00bfff; /* Cor ao passar o mouse */
+  --copy-color: #888888; /* Cor do texto de copyright */
+  --toggle-bg: #f0f0f0; /* Cor de fundo do toggle */
+  --toggle-circle: #333; /* Cor do círculo do toggle */
+}
+
+/* Variáveis de tema escuro */
+[data-theme="dark"] {
+  --bg-color: #121212; /* Cor de fundo */
+  --text-color: #f0f0f0; /* Cor do texto */
+  --header-bg: #1a1a1a; /* Cor de fundo do cabeçalho */
+  --header-text: #ffffff; /* Cor do texto do cabeçalho */
+  --footer-bg: #1a1a1a; /* Cor de fundo do rodapé */
+  --button-bg: #ffffff; /* Cor de fundo do botão */
+  --button-text: #000000; /* Cor do texto do botão */
+  --footer-text: #cccccc; /* Cor do texto do rodapé */
+  --hover-color: #4db5ff; /* Cor ao passar o mouse */
+  --copy-color: #aaaaaa; /* Cor do texto de copyright */
+  --toggle-bg: #333; /* Cor de fundo do toggle */
+  --toggle-circle: #f0f0f0; /* Cor do círculo do toggle */
+}
+
+/* Estilo geral do corpo */
+body {
+  font-family: 'Geoform', Arial, sans-serif; /* Define a fonte */
+  background-color: var(--bg-color); /* Cor de fundo dinâmica */
+  color: var(--text-color); /* Cor do texto dinâmica */
+  transition: background-color 0.3s, color 0.3s; /* Transição suave */
+  display: flex; /* Define layout flexível */
+  flex-direction: column; /* Direção da flexbox */
+  min-height: 100vh; /* Altura mínima */
+  overflow-y: auto; /* Permite rolagem vertical */
+}
+
+/* Estilo do topo da página */
+.topbar {
+  background-color: var(--header-bg); /* Cor de fundo dinâmica */
+  display: flex; /* Layout flexível */
+  justify-content: space-between; /* Espaçamento entre elementos */
+  align-items: center; /* Alinhamento vertical */
+  padding: 10px 40px; /* Espaçamento interno */
+  color: var(--header-text); /* Cor do texto dinâmica */
+}
+
+/* Estilo do logo no topo */
+.topbar .logo {
+  height: 20px; /* Altura do logo */
+}
+
+/* Estilo dos links do menu */
+.menu a {
+  color: var(--header-text); /* Cor do texto dinâmica */
+  margin: 0 10px; /* Espaçamento entre links */
+  text-decoration: none; /* Remove sublinhado */
+  font-size: 12px; /* Tamanho da fonte */
+}
+
+/* Estilo dos ícones no topo */
+.icons img {
+  height: 14px; /* Altura dos ícones */
+  margin-left: 15px; /* Espaçamento à esquerda */
+}
+
+/* Estilo para a seção de carrinho vazio */
+.cart-empty {
+  display: flex; /* Layout flexível */
+  flex-direction: column; /* Direção da flexbox */
+  align-items: center; /* Alinhamento central */
+  justify-content: center; /* Centralização vertical */
+  text-align: center; /* Centraliza texto */
+  min-height: calc(100vh - 250px); /* Altura mínima */
+  padding: 40px 20px; /* Espaçamento interno */
+}
+
+/* Estilo do ícone do carrinho no tema claro */
+.cart-icon {
+  content: url('../carrinho\ preto.png'); /* Caminho para o ícone padrão */
+}
+
+/* Estilo do ícone do carrinho no tema escuro */
+[data-theme="dark"] .cart-icon {
+  content: url('../carrinho\ branco.png'); /* Caminho para o ícone branco */
+}
+
+/* Dimensões do ícone do carrinho */
+.cart-icon {
+  width: 80px; /* Largura */
+  height: auto; /* Altura automática */
+  margin-bottom: 20px; /* Espaçamento inferior */
+}
+
+/* Estilo da imagem do ícone do carrinho */
+.cart-icon img {
+  width: 100%; /* Largura total */
+  height: auto; /* Altura automática */
+}
+
+/* Estilo do ícone do carrinho no tema escuro */
+[data-theme="dark"] .cart-icon img {
+  content: url('../VIew/Media/cart-icon-white.png'); /* Caminho para o ícone branco */
+}
+
+/* Estilo do título na seção de carrinho vazio */
+.cart-empty h1 {
+  font-size: 28px; /* Tamanho da fonte */
+  font-weight: bold; /* Negrito */
+  margin-bottom: 15px; /* Espaçamento inferior */
+}
+
+/* Estilo do parágrafo na seção de carrinho vazio */
+.cart-empty p {
+  font-size: 16px; /* Tamanho da fonte */
+  color: #555; /* Cor do texto */
+  max-width: 500px; /* Largura máxima */
+  margin-bottom: 30px; /* Espaçamento inferior */
+}
+
+/* Estilo do botão de verificação */
+.verification-button {
+  padding: 18px 40px; /* Espaçamento interno */
+  font-size: 20px; /* Tamanho da fonte */
+  font-weight: 700; /* Negrito */
+  background: var(--button-bg); /* Cor de fundo dinâmica */
+  color: var(--button-text); /* Cor do texto dinâmica */
+  border: none; /* Remove borda */
+  border-radius: 10px; /* Bordas arredondadas */
+  cursor: pointer; /* Cursor de ponteiro */
+  font-family: 'Geoform', Arial, sans-serif; /* Fonte */
+  transition: background 0.3s, color 0.3s, transform 0.2s; /* Transições suaves */
+}
+
+/* Estilo do botão ao passar o mouse */
+.verification-button:hover {
+  background: #353535; /* Cor de fundo ao passar o mouse */
+  transform: scale(1.05); /* Aumenta o botão */
+}
+
+/* Estilo do botão ao clicar */
+.verification-button:active {
+  background: #000000; /* Cor de fundo ao clicar */
+  transform: scale(0.98); /* Reduz o botão */
+}
+
+/* Estilo para grupos */
+.group {
+  position: relative; /* Posição relativa */
+}
+
+/* Estilo do QR code */
+.right .qrcode {
+  max-width: 200px; /* Largura máxima */
+  height: auto; /* Altura automática */
+}
+
+/* Estilo do rodapé */
+footer {
+  background-color: var(--footer-bg); /* Cor de fundo dinâmica */
+  padding: 20px 60px 0; /* Espaçamento interno */
+  margin: 0; /* Remove margens */
+  font-size: 12px; /* Tamanho da fonte */
+  transition: background-color 0.3s; /* Transição suave */
+}
+
+/* Estilo dos links no rodapé */
+footer a {
+  color: inherit; /* Herda cor do texto */
+  text-decoration: none; /* Remove sublinhado */
+}
+
+/* Estilo do conteúdo do rodapé */
+.footer-content {
+  display: flex; /* Layout flexível */
+  justify-content: center; /* Centraliza horizontalmente */
+  align-items: flex-start; /* Alinha ao topo */
+  flex-wrap: wrap; /* Permite quebra de linha */
+  gap: 15px; /* Espaçamento entre seções */
+  text-align: left; /* Alinha texto à esquerda */
+}
+
+/* Estilo das seções do rodapé */
+.footer-section {
+  margin: 0 30px; /* Espaçamento lateral */
+}
+
+/* Estilo dos títulos das seções do rodapé */
+.footer-section h4 {
+  font-size: 13px; /* Tamanho da fonte */
+  font-weight: bold; /* Negrito */
+  margin-bottom: 8px; /* Espaçamento inferior */
+  text-align: left; /* Alinha texto à esquerda */
+}
+
+/* Estilo dos links nas seções do rodapé */
+.footer-section a {
+  display: block; /* Exibe como bloco */
+  margin: 3px 0; /* Espaçamento vertical */
+  padding: 0; /* Remove preenchimento */
+  text-decoration: none; /* Remove sublinhado */
+  color: var(--footer-text); /* Cor do texto dinâmica */
+  width: fit-content; /* Ajusta largura ao conteúdo */
+  letter-spacing: 0.03em; /* Espaçamento entre letras */
+  line-height: 1.4; /* Altura da linha */
+  transition: color 0.3s; /* Transição suave */
+}
+
+/* Estilo dos links ao passar o mouse */
+.footer-section a:hover {
+  color: var(--hover-color); /* Cor ao passar o mouse */
+}
+
+/* Estilo dos parágrafos nas seções do rodapé */
+.footer-section p {
+  display: block; /* Exibe como bloco */
+  margin: 3px 0; /* Espaçamento vertical */
+  font-size: 12px; /* Tamanho da fonte */
+  text-align: left; /* Alinha texto à esquerda */
+  letter-spacing: 0.03em; /* Espaçamento entre letras */
+  line-height: 1.4; /* Altura da linha */
+  color: var(--footer-text); /* Cor do texto dinâmica */
+}
+
+/* Estilo do logo do GitHub no rodapé */
+.footer-logo {
+  text-align: center; /* Centraliza horizontalmente */
+  margin-bottom: 10px; /* Espaçamento inferior */
+  width: 100%; /* Largura total */
+}
+
+/* Estilo do link do logo do GitHub */
+.footer-logo a {
+  display: inline-block; /* Exibe como bloco inline */
+  width: auto; /* Largura automática */
+  height: auto; /* Altura automática */
+  text-align: center; /* Centraliza texto */
+}
+
+/* Estilo do ícone do GitHub */
+.github-icon {
+  width: 25px; /* Largura */
+  margin: 5px auto 0; /* Espaçamento */
+  display: block; /* Exibe como bloco */
+  cursor: pointer; /* Cursor de ponteiro */
+  background-image: url('../VIew/Media/Github_Logo.png'); /* Caminho para o ícone */
+  background-size: contain; /* Ajusta tamanho */
+  background-repeat: no-repeat; /* Não repete imagem */
+  background-position: center; /* Centraliza imagem */
+  transition: background-image 0.3s; /* Transição suave */
+}
+
+/* Estilo do ícone do GitHub no tema escuro */
+[data-theme="dark"] .github-icon {
+  background-image: url('../VIew/Media/Github_Logo_Branca.png'); /* Caminho para o ícone branco */
+}
+
+/* Estilo do texto de descrição abaixo do logo */
+.footer-logo p {
+  font-size: 13px; /* Tamanho da fonte */
+  font-weight: bold; /* Negrito */
+  margin-bottom: 3px; /* Espaçamento inferior */
+  color: var(--text-color); /* Cor do texto dinâmica */
+}
+
+/* Estilo do texto de copyright */
+.copy {
+  text-align: center; /* Centraliza horizontalmente */
+  font-size: 10px; /* Tamanho da fonte */
+  color: var(--copy-color); /* Cor do texto dinâmica */
+  padding-top: 10px; /* Espaçamento superior */
+  padding-bottom: 5px; /* Espaçamento inferior */
+  margin-bottom: 0; /* Remove margem inferior */
+  font-weight: lighter; /* Fonte mais fina */
+}
+
+/* Transições gerais para tema */
+* {
+  transition-property: color, background-color, border-color; /* Propriedades com transição */
+  transition-duration: 0.3s; /* Duração da transição */
+  transition-timing-function: ease; /* Função de tempo */
+}
+
+/* Animação suave ao trocar tema */
+.theme-transition {
+  transition: background-color 0.5s ease, color 0.5s ease; /* Transição suave */
+}
+
+/* Estilo do cabeçalho */
+header {
+  width: 100%; /* Largura total */
+  background: var(--header-bg); /* Cor de fundo dinâmica */
+  display: flex; /* Layout flexível */
+  justify-content: center; /* Centraliza horizontalmente */
+  align-items: center; /* Centraliza verticalmente */
+  padding: 8px 20px; /* Espaçamento interno */
+  transition: background-color 0.3s; /* Transição suave */
+}
+
+/* Estilo do conteúdo do cabeçalho */
+.header-content {
+  width: 100%; /* Largura total */
+  max-width: 1300px; /* Largura máxima */
+  display: flex; /* Layout flexível */
+  align-items: center; /* Centraliza verticalmente */
+  justify-content: space-between; /* Espaçamento entre elementos */
+}
+
+/* Estilo do logo no cabeçalho */
+.logo img {
+  height: 25px; /* Altura do logo */
+}
+
+/* Estilo do menu de navegação */
+nav ul.menu {
+  list-style: none; /* Remove marcadores */
+  display: flex; /* Layout flexível */
+  gap: 25px; /* Espaçamento entre itens */
+  margin: 0; /* Remove margens */
+  padding: 0; /* Remove preenchimento */
+}
+
+/* Estilo dos links do menu */
+nav ul.menu li a {
+  font-family: 'Geoform', Arial, sans-serif; /* Fonte */
+  color: var(--header-text); /* Cor do texto dinâmica */
+  text-decoration: none; /* Remove sublinhado */
+  font-size: 14px; /* Tamanho da fonte */
+  font-weight: 500; /* Peso da fonte */
+  letter-spacing: 0.11em; /* Espaçamento entre letras */
+  transition: color 0.3s; /* Transição suave */
+}
+
+/* Estilo dos links ao passar o mouse */
+nav ul.menu li a:hover {
+  color: var(--hover-color); /* Cor ao passar o mouse */
+}
+
+/* Estilo dos ícones no cabeçalho */
+.icons {
+  display: flex; /* Layout flexível */
+  align-items: center; /* Centraliza verticalmente */
+  gap: 15px; /* Espaçamento entre ícones */
+  font-size: 16px; /* Tamanho da fonte */
+  color: var(--header-text); /* Cor do texto dinâmica */
+}
+
+/* Estilo do toggle de tema */
+.theme-toggle {
+  position: relative; /* Posição relativa */
+  display: inline-block; /* Exibe como bloco inline */
+  width: 50px; /* Largura */
+  height: 25px; /* Altura */
+  margin-left: 15px; /* Espaçamento à esquerda */
+  cursor: pointer; /* Cursor de ponteiro */
+}
+
+/* Estilo do input do toggle */
+.theme-toggle input {
+  opacity: 0; /* Torna invisível */
+  width: 0; /* Largura zero */
+  height: 0; /* Altura zero */
+}
+
+/* Estilo do slider do toggle */
+.slider {
+  position: absolute; /* Posição absoluta */
+  top: 0; /* Alinha ao topo */
+  left: 0; /* Alinha à esquerda */
+  right: 0; /* Alinha à direita */
+  bottom: 0; /* Alinha à base */
+  background-color: var(--toggle-bg); /* Cor de fundo dinâmica */
+  transition: 0.4s; /* Transição suave */
+  border-radius: 25px; /* Bordas arredondadas */
+  display: flex; /* Layout flexível */
+  align-items: center; /* Centraliza verticalmente */
+  justify-content: space-between; /* Espaçamento entre elementos */
+  padding: 0 5px; /* Espaçamento interno */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Sombra */
+}
+
+/* Estilo do círculo do toggle */
+.slider:before {
+  position: absolute; /* Posição absoluta */
+  content: ""; /* Conteúdo vazio */
+  height: 19px; /* Altura */
+  width: 19px; /* Largura */
+  left: 3px; /* Alinha à esquerda */
+  bottom: 3px; /* Alinha à base */
+  background-color: var(--toggle-circle); /* Cor dinâmica */
+  transition: 0.4s; /* Transição suave */
+  border-radius: 50%; /* Bordas arredondadas */
+  z-index: 2; /* Prioridade no empilhamento */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); /* Sombra */
+}
+
+/* Estilo do círculo ao ativar o toggle */
+input:checked + .slider:before {
+  transform: translateX(25px); /* Move o círculo */
+}
+
+/* Estilo dos ícones no slider */
+slider .sun, .slider .moon {
+  font-size: 12px; /* Tamanho da fonte */
+  color: var(--header-text); /* Cor do texto dinâmica */
+  z-index: 1; /* Prioridade no empilhamento */
+}

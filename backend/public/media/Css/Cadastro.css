@@ -1,0 +1,191 @@
+/* Cadastro.css - Página de cadastro moderna, responsiva e escura */
+body, html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Geoform', Arial, sans-serif;
+  background: radial-gradient(ellipse at center, #232323 0%, #111 100%);
+  color: #fff;
+  min-height: 100vh;
+  padding-top: 60px; /* Espaço para a navbar fixa */
+  display: flex;
+  flex-direction: column;
+}
+
+body {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  overflow: hidden; /* Remove scroll */
+}
+
+header {
+  width: 100%;
+  background: #111;
+  padding: 0;
+  box-shadow: 0 2px 8px 0 rgba(0,0,0,0.04);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+.header-content {
+  max-width: 1300px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 30px;
+  height: 60px;
+}
+.logo img {
+  height: 28px;
+}
+nav ul.menu {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+}
+nav ul.menu li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.11em;
+  transition: color 0.3s;
+}
+nav ul.menu li a:hover {
+  color: #00bfff;
+}
+.icons {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-size: 16px;
+  color: #fff;
+}
+.cadastro-container {
+  max-width: 420px;
+  margin: 0 auto;
+  background: rgba(30,30,30,0.85);
+  border-radius: 18px;
+  box-shadow: 0 4px 32px 0 rgba(0,0,0,0.18);
+  padding: 40px 32px 32px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  overflow: hidden; /* Garante que nada vaze do card */
+}
+.cadastro-container h1 {
+  font-size: 2.2rem;
+  font-weight: bold;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.cadastro-container h1 .arrow {
+  font-size: 1.5rem;
+  color: #fff;
+}
+.cadastro-container p {
+  color: #bdbdbd;
+  font-size: 1.08rem;
+  margin-bottom: 28px;
+}
+.cadastro-form label {
+  color: #bdbdbd;
+  font-size: 0.98rem;
+  margin-bottom: 4px;
+  margin-top: 28px; /* Aumenta o espaçamento entre grupos */
+  display: block;
+}
+.cadastro-form label:first-of-type {
+  margin-top: 0; /* O primeiro label não precisa de margem extra */
+}
+.cadastro-form .input-group {
+  position: relative;
+  margin-bottom: 14px; /* Espaço maior entre campos */
+}
+.cadastro-form input {
+  width: 100%;
+  padding: 13px 16px 13px 38px; /* padding-left menor para ícone */
+  border: 2px solid #444;
+  border-radius: 7px;
+  background: #181818;
+  color: #fff;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s;
+  margin-bottom: 0;
+  box-sizing: border-box;
+}
+.cadastro-form input:focus {
+  border-color: #00bfff;
+}
+.cadastro-form .input-group .icon {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #bdbdbd;
+  font-size: 1.1rem;
+  pointer-events: none;
+}
+.cadastro-form .input-group .toggle-password {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #bdbdbd;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.1rem;
+  padding: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.cadastro-form .input-group input[type="password"] {
+  padding-right: 38px;
+}
+.cadastro-form button[type="submit"] {
+  width: 100%;
+  margin-top: 32px;
+  padding: 15px 0;
+  background: #fff;
+  color: #232323;
+  font-size: 1.15rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
+  letter-spacing: 0.04em;
+  transition: background 0.2s, color 0.2s;
+}
+.cadastro-form button[type="submit"]:hover {
+  background: #f5f5f5;
+  color: #111;
+}
+/* Separação visual entre grupos de campos (e-mail, senha, nome, sobrenome) */
+.cadastro-form .input-group-group {
+  margin-bottom: 22px;
+}
+@media (max-width: 600px) {
+  .cadastro-container {
+    padding: 24px 8px 18px 8px;
+    margin: 0 8px;
+  }
+  .header-content {
+    padding: 0 10px;
+  }
+  .cadastro-form .input-group {
+    margin-bottom: 10px;
+  }
+}

@@ -1,0 +1,30 @@
+/* CSS migrado do <style> inline de Confirmacao_ADM.blade.php */
+.input-container {
+  position: relative;
+  width: 250px;
+  margin: 20px auto;
+}
+.input-field {
+  width: 100%;
+  padding: 10px 10px;
+  font-size: 16px;
+  border: 2px solid #ffffff;
+  border-radius: 5px;
+  background: none;
+  outline: none;
+  color: #ffffff;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+.input-label {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 16px;
+  color: #aaa;
+  pointer-events: none;
+  transition: 0.2s ease all;
+  background-color: transparent;
+}
+.input-field:focus + .input-label {
+  /* Adicione regras específicas se necessário */
+}
