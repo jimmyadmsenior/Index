@@ -1,0 +1,203 @@
+/* CSS migrado do <style> inline de Verificação.blade.php */
+body, html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Geoform', Arial, sans-serif;
+  background: radial-gradient(ellipse at center, #232323 0%, #111 100%);
+  color: #fff;
+  min-height: 100vh;
+  padding-top: 60px;
+  display: flex;
+  flex-direction: column;
+}
+body {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  overflow: hidden;
+}
+header {
+  width: 100%;
+  background: #111;
+  padding: 0;
+  box-shadow: 0 2px 8px 0 rgba(0,0,0,0.04);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+.header-content {
+  max-width: 1300px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 30px;
+  height: 60px;
+}
+.logo img {
+  height: 28px;
+}
+nav ul.menu {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+}
+nav ul.menu li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.11em;
+  transition: color 0.3s;
+}
+nav ul.menu li a:hover {
+  color: #00bfff;
+}
+.icons {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-size: 16px;
+  color: #fff;
+}
+.verificacao-container {
+  max-width: 480px;
+  margin: 0 auto;
+  background: rgba(20,20,20,0.95);
+  border-radius: 16px;
+  box-shadow: 0 4px 32px 0 rgba(0,0,0,0.18);
+  padding: 48px 36px 36px 36px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+}
+.verificacao-container h1 {
+  font-size: 2.4rem;
+  font-weight: bold;
+  margin-bottom: 18px;
+  text-align: center;
+}
+.verificacao-container p {
+  color: #fff;
+  font-size: 1.25rem;
+  margin-bottom: 32px;
+  text-align: center;
+}
+.codigo-input {
+  width: 100%;
+  padding: 18px 16px;
+  border: 2px solid #444;
+  border-radius: 7px;
+  background: #181818;
+  color: #fff;
+  font-size: 1.2rem;
+  outline: none;
+  margin-bottom: 32px;
+  text-align: center;
+  letter-spacing: 0.2em;
+}
+.verificacao-container button[type="submit"] {
+  width: 100%;
+  padding: 15px 0;
+  background: #fff;
+  color: #232323;
+  font-size: 1.15rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
+  letter-spacing: 0.04em;
+  transition: background 0.2s, color 0.2s;
+}
+.verificacao-container button[type="submit"]:hover {
+  background: #f5f5f5;
+  color: #111;
+}
+.verificacao-container .erro {
+  color: #ff5252;
+  background: #222;
+  border-radius: 6px;
+  padding: 10px 0;
+  margin-top: 18px;
+  width: 100%;
+  text-align: center;
+  font-size: 1rem;
+}
+.input-container {
+  position: relative;
+  width: 250px;
+  margin: 20px auto;
+}
+.input-field {
+  width: 100%;
+  padding: 10px 10px;
+  font-size: 16px;
+  border: 2px solid #ffffff;
+  border-radius: 5px;
+  background: none;
+  outline: none;
+  color: #ffffff;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+.input-label {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 16px;
+  color: #aaa;
+  pointer-events: none;
+  transition: 0.2s ease all;
+}
+.input-field:focus ~ .input-label,
+.input-field:not(:placeholder-shown) ~ .input-label {
+  top: -10px;
+  left: 8px;
+  font-size: 12px;
+  color: #555;
+  background: white;
+  padding: 0 4px;
+}
+.input-highlight {
+  position: absolute;
+  height: 2px;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  background: #333;
+  transform: scaleX(0);
+  transition: transform 0.3s;
+}
+.input-field:focus ~ .input-highlight {
+  transform: scaleX(1);
+}
+.erro-mensagem {
+  display: none;
+  color: #ff0055;
+  font-size: 12px;
+  margin-top: 5px;
+  text-align: left;
+}
+.input-container.erro .input-field {
+  border-color: #ff0055;
+  box-shadow: 0 0 10px #ff0055;
+}
+.input-container.erro .erro-mensagem {
+  display: block;
+}
+@media (max-width: 600px) {
+  .verificacao-container {
+    padding: 24px 8px 18px 8px;
+    margin: 0 8px;
+  }
+  .header-content {
+    padding: 0 10px;
+  }
+}

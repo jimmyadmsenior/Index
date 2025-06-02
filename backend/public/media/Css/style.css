@@ -1,0 +1,163 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #fff;
+  color: #000;
+}
+
+/* --- Carrossel de Produtos --- */
+.produtos {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.produtos h2 {
+  font-size: 24px;
+  margin-bottom: 30px;
+}
+
+.carousel {
+  position: relative;
+  overflow: hidden;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.carousel-inner {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  width: 300%;
+}
+
+.carousel-slide {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex: 0 0 100%;
+  padding-bottom: 20px;
+}
+
+.card {
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 20px;
+  width: 220px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 15px;
+}
+
+.card p {
+  font-weight: bold;
+  margin: 5px 0;
+}
+
+.card span {
+  color: #555;
+}
+
+.carousel-indicators {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.carousel-indicators button {
+  width: 12px;
+  height: 12px;
+  margin: 5px;
+  border-radius: 50%;
+  border: none;
+  background-color: #ccc;
+  cursor: pointer;
+}
+
+.carousel-indicators button.active {
+  background-color: #000;
+}
+
+/* --- Seção AirPods --- */
+.airpods {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #000;
+  color: #fff;
+  padding: 60px 10%;
+  flex-wrap: wrap;
+}
+
+.text-content {
+  flex: 1;
+}
+
+.text-content h2 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.sub {
+  font-size: 24px;
+  font-weight: 300;
+  margin-bottom: 15px;
+}
+
+.desc {
+  font-size: 16px;
+  color: #ccc;
+}
+
+.img-content {
+  flex: 1;
+  text-align: right;
+}
+
+.img-content img {
+  width: 80%;
+  max-width: 400px;
+}
+
+/* --- Seção Explore --- */
+.explore {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.explore-content {
+  background: #000;
+  color: #fff;
+  border-radius: 20px;
+  padding: 40px 20px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.explore-content h3 {
+  font-size: 22px;
+  margin-bottom: 15px;
+  max-width: 300px;
+}
+
+.explore-content img {
+  width: 120px;
+  height: auto;
+}
