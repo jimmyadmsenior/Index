@@ -628,3 +628,31 @@ footer a {
   }
 }
 /* ===== FIM CHATBOT FLUTUANTE ===== */
+
+/* Estilos para os botões de Login e Cadastro na navbar */
+.navbar-btn {
+  display: inline-block;
+  margin-left: 12px;
+  padding: 7px 22px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1.08rem;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s, border 0.2s;
+  border: 2px solid #fff;
+  background: transparent;
+  color: #fff;
+}
+.navbar-btn-login:hover {
+  background: #fff;
+  color: #181818;
+}
+.navbar-btn-cadastro {
+  border: 2px solid #ffd700;
+  color: #ffd700;
+  margin-left: 8px;
+}
+.navbar-btn-cadastro:hover {
+  background: #ffd700;
+  color: #181818;
+}

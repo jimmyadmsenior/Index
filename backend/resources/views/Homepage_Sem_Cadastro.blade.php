@@ -28,7 +28,8 @@
       </nav>
       <div class="icons">
         <i class="fas fa-search"></i>
-        <i class="fas fa-user"></i>
+        <a href="/login" class="navbar-btn navbar-btn-login">Login</a>
+        <a href="/cadastro" class="navbar-btn navbar-btn-cadastro">Cadastro</a>
         <i class="fas fa-shopping-bag"></i>
         <i class="fas fa-box"></i>
         <label class="theme-toggle">

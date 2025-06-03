@@ -44,13 +44,10 @@ class ProdutoController extends Controller
     /**
      * Exibe um produto específico.
      */
-    public function show(string $id)
+    public function show($id)
     {
-        $produto = Produto::with('categoria')->find($id);
-        if (!$produto) {
-            return response()->json(['mensagem' => 'Produto não encontrado'], 404);
-        }
-        return $produto;
+        $produto = Produto::findOrFail($id);
+        return view('Produto', compact('produto'));
     }
 
     /**

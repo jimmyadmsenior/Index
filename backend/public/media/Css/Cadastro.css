@@ -69,6 +69,23 @@ nav ul.menu li a:hover {
   font-size: 16px;
   color: #fff;
 }
+.cadastro-main {
+  min-height: calc(100vh - 60px);
+  height: calc(100vh - 60px);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex: 1 1 auto;
+  padding-top: 60px;
+}
+@media (max-width: 600px) {
+  .cadastro-main {
+    align-items: flex-start;
+    padding-top: 30px;
+    min-height: 100vh;
+    height: auto;
+  }
+}
 .cadastro-container {
   max-width: 420px;
   margin: 0 auto;
@@ -81,10 +98,26 @@ nav ul.menu li a:hover {
   align-items: stretch;
   overflow: hidden; /* Garante que nada vaze do card */
 }
+.cadastro-form-container {
+  width: 100%;
+  max-width: 420px;
+  margin: 0 auto;
+  background: rgba(30,30,30,0.97);
+  border-radius: 18px;
+  box-shadow: 0 4px 32px 0 rgba(0,0,0,0.18);
+  padding: 40px 32px 32px 32px;
+  color: #fff;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  min-height: 0;
+}
 .cadastro-container h1 {
   font-size: 2.2rem;
   font-weight: bold;
-  margin-bottom: 6px;
+  margin-bottom: 10px;
   display: flex;
   align-items: center;
   gap: 10px;
@@ -93,10 +126,19 @@ nav ul.menu li a:hover {
   font-size: 1.5rem;
   color: #fff;
 }
-.cadastro-container p {
-  color: #bdbdbd;
+.cadastro-container p, .cadastro-form-container p {
+  color: #AFB6C2;
   font-size: 1.08rem;
-  margin-bottom: 28px;
+  margin-bottom: 18px;
+  margin-top: -8px;
+}
+.cadastro-form-container h1 {
+  margin-bottom: 10px;
+  margin-top: 18px;
+}
+.cadastro-form-container p {
+  margin-bottom: 32px;
+  margin-top: 0;
 }
 .cadastro-form label {
   color: #bdbdbd;
@@ -104,6 +146,8 @@ nav ul.menu li a:hover {
   margin-bottom: 4px;
   margin-top: 28px; /* Aumenta o espaçamento entre grupos */
   display: block;
+  text-align: left;
+  font-weight: 500;
 }
 .cadastro-form label:first-of-type {
   margin-top: 0; /* O primeiro label não precisa de margem extra */
@@ -188,4 +232,87 @@ nav ul.menu li a:hover {
   .cadastro-form .input-group {
     margin-bottom: 10px;
   }
+  .cadastro-form-container {
+    padding: 20px 8px;
+  }
+  .cadastro-main {
+    min-height: 100vh;
+    height: auto;
+  }
 }
+/* === Navbar igual homepage sem cadastro === */
+.navbar-btn {
+  display: inline-block;
+  margin-left: 12px;
+  padding: 7px 22px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1.08rem;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s, border 0.2s;
+  border: 2px solid #fff;
+  background: transparent;
+  color: #fff;
+  box-shadow: none;
+  letter-spacing: 0.01em;
+}
+.navbar-btn-login {
+  border: 2px solid #fff;
+  color: #fff;
+}
+.navbar-btn-login:hover {
+  background: #fff;
+  color: #181818;
+  border-color: #fff;
+}
+.navbar-btn-cadastro {
+  border: 2px solid #ffd700;
+  color: #ffd700;
+  margin-left: 8px;
+  background: transparent;
+}
+.navbar-btn-cadastro:hover {
+  background: #ffd700;
+  color: #181818;
+  border-color: #ffd700;
+}
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  margin-left: 12px;
+  cursor: pointer;
+  position: relative;
+}
+.theme-toggle input[type="checkbox"] {
+  display: none;
+}
+.theme-toggle .slider {
+  display: flex;
+  align-items: center;
+  background: #232323;
+  border-radius: 20px;
+  padding: 3px 10px;
+  border: 1.5px solid #444;
+  transition: background 0.2s, border 0.2s;
+  font-size: 1.1rem;
+  gap: 6px;
+}
+.theme-toggle .sun {
+  color: #ffd700;
+  transition: color 0.2s;
+}
+.theme-toggle .moon {
+  color: #fff;
+  transition: color 0.2s;
+}
+.theme-toggle input[type="checkbox"]:checked + .slider {
+  background: #181818;
+  border-color: #ffd700;
+}
+.theme-toggle input[type="checkbox"]:checked + .slider .moon {
+  color: #ffd700;
+}
+.theme-toggle input[type="checkbox"]:checked + .slider .sun {
+  color: #fff;
+}
+

@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('foto')->nullable(); // Adiciona campo para foto de perfil
             $table->rememberToken();
             $table->timestamps();
         });

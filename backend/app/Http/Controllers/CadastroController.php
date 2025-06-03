@@ -52,8 +52,17 @@ class CadastroController extends Controller
     {
         $codigo = Session::get('cadastro_codigo');
         if ($request->codigo === $codigo) {
-            // Aqui você pode salvar o usuário no banco de dados
-            // ...
+            // Salvar usuário no banco de dados
+            $email = Session::get('cadastro_email');
+            $nome = Session::get('cadastro_nome');
+            $senha = Session::get('cadastro_senha');
+            // Criptografar a senha
+            $senhaHash = bcrypt($senha);
+            \App\Models\User::create([
+                'name' => $nome,
+                'email' => $email,
+                'password' => $senhaHash,
+            ]);
             Session::forget(['cadastro_email', 'cadastro_nome', 'cadastro_senha', 'cadastro_codigo']);
             return redirect('/login')->with('success', 'Cadastro confirmado! Faça login.');
         } else {
