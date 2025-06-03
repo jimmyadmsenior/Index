@@ -1,0 +1,23 @@
+@import url('Homepage_Sem_Cadastro.css');
+
+/* Esconde botões de login/cadastro na navbar */
+.icons .navbar-btn-login,
+.icons .navbar-btn-cadastro {
+  display: none !important;
+}
+/* Exibe ícone de perfil (fa-user) na navbar */
+.icons .fa-user {
+  display: inline-block !important;
+  color: #fff;
+  font-size: 20px;
+  margin: 0 10px;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.icons .fa-user:hover {
+  color: #ffd700;
+}
+/* Ajusta espaçamento dos ícones na navbar */
+.icons {
+  gap: 15px;
+}

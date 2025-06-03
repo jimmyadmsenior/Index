@@ -25,14 +25,26 @@
     </nav>
     <div class="icons">
       <i class="fas fa-search"></i>
-      <i class="fas fa-user"></i>
+      @if(auth()->check())
+        <a href="/perfil" title="Perfil" style="color:#fff;"><i class="fas fa-user"></i></a>
+      @else
+        <a href="/login" class="navbar-btn navbar-btn-login">Login</a>
+        <a href="/cadastro" class="navbar-btn navbar-btn-cadastro">Cadastro</a>
+      @endif
       <i class="fas fa-shopping-bag"></i>
       <i class="fas fa-box"></i>
+      <label class="theme-toggle">
+        <input type="checkbox" id="theme-toggle">
+        <span class="slider">
+          <i class="fas fa-sun sun"></i>
+          <i class="fas fa-moon moon"></i>
+        </span>
+      </label>
     </div>
   </div>
 </header>
-<main>
-  <form class="cadastro-container cadastro-form" method="POST" action="/cadastro" autocomplete="off">
+<main class="cadastro-main">
+  <form class="cadastro-form-container cadastro-form" method="POST" action="/cadastro" autocomplete="off">
     @csrf
     <h1><span class="arrow">→</span> Faça seu cadastro</h1>
     <p>Entre com suas informações de cadastro.</p>
@@ -61,6 +73,44 @@
   </form>
 </main>
 <script>
+// Script para alternar entre os temas claro e escuro (igual homepage)
+document.addEventListener('DOMContentLoaded', function() {
+  const savedTheme = localStorage.getItem('theme') || 'light';
+  document.documentElement.setAttribute('data-theme', savedTheme);
+  const themeToggle = document.getElementById('theme-toggle');
+  if(themeToggle) themeToggle.checked = savedTheme === 'dark';
+  if(themeToggle) themeToggle.addEventListener('change', function(e) {
+    if(e.target.checked) {
+      document.documentElement.setAttribute('data-theme', 'dark');
+      localStorage.setItem('theme', 'dark');
+      document.body.classList.add('theme-transition');
+      setTimeout(() => {
+        document.body.classList.remove('theme-transition');
+      }, 1000);
+    } else {
+      document.documentElement.setAttribute('data-theme', 'light');
+      localStorage.setItem('theme', 'light');
+      document.body.classList.add('theme-transition');
+      setTimeout(() => {
+        document.body.classList.remove('theme-transition');
+      }, 1000);
+    }
+  });
+  const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+  function syncWithSystemTheme(e) {
+    if (!localStorage.getItem('theme')) {
+      if (e.matches) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        if(themeToggle) themeToggle.checked = true;
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+        if(themeToggle) themeToggle.checked = false;
+      }
+    }
+  }
+  syncWithSystemTheme(prefersDarkScheme);
+  prefersDarkScheme.addEventListener('change', syncWithSystemTheme);
+});
 function togglePassword(id, btn) {
   const input = document.getElementById(id);
   if (input.type === 'password') {
