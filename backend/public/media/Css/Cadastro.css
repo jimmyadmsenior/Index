@@ -19,7 +19,6 @@ body {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  overflow: hidden; /* Remove scroll */
 }
 
 header {
@@ -73,8 +72,8 @@ nav ul.menu li a:hover {
   min-height: calc(100vh - 60px);
   height: calc(100vh - 60px);
   display: flex;
-  align-items: flex-start;
-  justify-content: center;
+  align-items: center; /* Centraliza verticalmente */
+  justify-content: center; /* Centraliza horizontalmente */
   flex: 1 1 auto;
   padding-top: 60px;
 }
