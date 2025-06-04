@@ -36,3 +36,7 @@ Route::post('/login', function(Request $request) {
     }
     return back()->withErrors(['email' => 'E-mail ou senha inválidos'])->withInput();
 });
+
+Route::get('/pagamento-debito', function () {
+    return view('Pagamento_Debito');
+});
