@@ -237,48 +237,105 @@ body {
   max-width: 400px;
 }
 
-/* --- Seção Explore --- */
-.explore {
-  padding: 60px 20px;
-  text-align: center;
-}
-
-.explore-content {
-  background: #000;
-  color: #fff;
-  border-radius: 20px;
-  padding: 40px 20px;
+/* --- Seção Explore (Padronizada com Homepage_Sem_Cadastro) --- */
+.explore-section {
+  width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  flex-wrap: nowrap;         /* Não quebra para baixo, mantém lado a lado */
-  max-width: 700px;
-  margin: 0 auto;
-  overflow: hidden;          /* Garante que nada ultrapasse o container */
+  margin: 60px 0 40px 0;
+  padding: 0;
 }
 
-.explore-content h3 {
-  font-size: 2.8rem;
-  margin-bottom: 0;
-  max-width: 320px;          /* Limita a largura do texto */
-  flex: 1 1 0;
+.explore-banner {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  min-height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #000;
+  border-radius: 22px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+  overflow: hidden;
+}
+
+.explore-text {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  width: 60%;
+  padding-left: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  pointer-events: none;
+}
+
+.explore-text h2 {
+  color: #fff;
+  font-size: 2.1rem;
+  font-weight: bold;
   text-align: left;
+  margin: 0;
   line-height: 1.2;
-  padding: 0 10px 0 0;
-  align-self: center;
-  word-break: break-word;    /* Quebra a palavra se necessário */
-  overflow-wrap: break-word; /* Garante quebra de linha */
+  white-space: normal;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.35);
 }
 
-.explore-content img {
-  width: 350px;         /* Aumenta o tamanho da imagem */
+.explore-img {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  min-width: 200px;
+  z-index: 1;
+}
+
+.explore-img img {
   max-width: 100%;
+  width: 100%;
   height: auto;
-  align-self: flex-end;
-  margin-left: 30px;
-  margin-right: 0;
-  flex-shrink: 0;
+  border-radius: 18px;
+  margin: 0 0 0 0;
   display: block;
+}
+
+@media (max-width: 900px) {
+  .explore-banner {
+    min-height: 180px;
+  }
+  .explore-text {
+    width: 90%;
+    padding-left: 18px;
+  }
+  .explore-text h2 {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 700px) {
+  .explore-banner {
+    min-height: 120px;
+    padding: 18px 2vw;
+  }
+  .explore-text {
+    width: 98vw;
+    left: 0;
+    top: 10px;
+    transform: none;
+    position: absolute;
+    padding-left: 10px;
+  }
+  .explore-text h2 {
+    font-size: 1.1rem;
+    margin-left: 0;
+    max-width: 98%;
+    white-space: normal;
+  }
 }
 
 /* --- Rodapé (footer) --- */
