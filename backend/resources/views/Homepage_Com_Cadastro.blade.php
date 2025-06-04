@@ -50,9 +50,9 @@
       <div class="featured-iphone14">
         <h2>iPhone 14</h2>
         <p class="featured-desc">A tecnologia encontra o conforto</p>
-        <a href="#" class="featured-link">Comprar</a>
+        <a href="/produto/1" class="featured-link">Comprar</a>
         <div class="featured-imgs">
-          <img src="/media/Iphone_14_Capa_Homepage.png" alt="Two hands holding a light blue iPhone 14, one showing the back with the Apple logo and dual cameras, the other displaying the lock screen with the time 941 and colorful abstract wallpaper, set against a clean white background, conveying a modern and premium feel" class="iphone14-img"/>
+          <img src="/media/Iphone_14_Capa_Homepage.png" alt="iPhone 14" class="iphone14-img"/>
         </div>
         <!-- Vídeo embaixo da imagem, ocupando toda a largura -->        <video class="video-fullwidth iphone-video-scroll" id="iphoneVideoScroll" autoplay muted loop>
           <source src="/media/Vídeo_iPhone_Capa_Homepage.mp4" type="video/mp4">
@@ -63,25 +63,25 @@
         <div class="product-card dark">
           <h3>iPhone 14 Pro</h3>
           <p>Faz jus ao nome</p>
-          <a href="#" class="featured-link">Comprar</a>
+          <a href="/produto/2" class="featured-link">Comprar</a>
           <img src="/media/Iphone_14_Pro_Capa_Homepage.png" alt="iPhone 14 Pro"/>
         </div>
         <div class="product-card dark">
           <h3>Galaxy Book4</h3>
           <p>Desempenho nunca antes visto</p>
-          <a href="#" class="featured-link">Comprar</a>
+          <a href="/produto/3" class="featured-link">Comprar</a>
           <img src="/media/GalaxyBook4_Homepage.png" alt="Galaxy Book4"/>
         </div>
         <div class="product-card dark">
           <h3>Samsung Galaxy Tab S6</h3>
           <p>Profissionalismo e elegância</p>
-          <a href="#" class="featured-link">Comprar</a>
+          <a href="/produto/4" class="featured-link">Comprar</a>
           <img src="/media/Samsung Galaxy Tab S6.png" alt="Samsung Galaxy Tab S6"/>
         </div>
         <div class="product-card dark">
           <h3><i class="fab fa-apple"></i> WATCH <span style="font-size:12px;">SERIES 8</span></h3>
           <p>Um salto de tecnologia</p>
-          <a href="#" class="featured-link">Comprar</a>
+          <a href="/produto/5" class="featured-link">Comprar</a>
           <img src="/media/Watch_Series8.png" alt="Apple Watch Series 8"/>
         </div>
       </div>
