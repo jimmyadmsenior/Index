@@ -7,7 +7,7 @@
         <form action="{{ route('perfil.updateFoto') }}" method="POST" enctype="multipart/form-data" class="perfil-foto-form">
             @csrf
             <div class="perfil-foto-box">
-                <img src="{{ !empty($user->foto) ? $user->foto : '/media/placeholder_produto.png' }}" alt="Foto de perfil" class="perfil-foto-preview">
+                <img src="{{ !empty($user->foto) ? $user->foto . '?v=' . time() : '/media/placeholder_produto.png' }}" alt="" class="perfil-foto-preview">
                 <input type="file" name="foto" id="foto" accept="image/*">
                 <button type="submit">Atualizar Foto</button>
             </div>

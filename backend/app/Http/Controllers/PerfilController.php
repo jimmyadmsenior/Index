@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -20,13 +21,24 @@ class PerfilController extends Controller
         $request->validate([
             'foto' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
-        $user = Auth::user();
-        $path = $request->file('foto')->store('public/fotos_perfil');
-        $publicPath = str_replace('public/', 'storage/', $path); // Garante caminho correto
-        $user->foto = '/' . $publicPath;
+        // Busca o usuário pelo Eloquent para garantir métodos disponíveis
+        $user = \App\Models\User::find(Auth::id());
+        $dir = storage_path('app/public/fotos_perfil');
+        if (!file_exists($dir)) {
+            mkdir($dir, 0775, true);
+        }
+        if (!$request->hasFile('foto')) {
+            return back()->withErrors(['foto' => 'Nenhum arquivo enviado.']);
+        }
+        $file = $request->file('foto');
+        if (!$file->isValid()) {
+            return back()->withErrors(['foto' => 'Arquivo inválido.']);
+        }
+        $ext = $file->getClientOriginalExtension();
+        $filename = 'perfil_' . $user->id . '_' . time() . '.' . $ext;
+        $file->storeAs('public/fotos_perfil', $filename);
+        $user->foto = '/storage/fotos_perfil/' . $filename;
         $user->save();
-        // Recarrega o usuário para garantir que o valor atualizado seja exibido
-        $user->refresh();
         return back()->with('success', 'Foto atualizada com sucesso!');
     }
 

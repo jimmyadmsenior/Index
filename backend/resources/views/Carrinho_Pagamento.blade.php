@@ -8,8 +8,7 @@
   <link rel="stylesheet" href="/media/Css/Carrinho_Pagamento.css" />
   <link rel="stylesheet" href="/media/Css/Carrinho_Pagamento_Custom.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-  <link href="path/to/tailwind.css" rel="stylesheet">
-  <link rel="stylesheet" href="../VIew/Media/Css/output.css">
+  <link rel="stylesheet" href="/media/ChatBot/style.css">
 </head>
 <body>
   <header>
@@ -19,24 +18,18 @@
       </div>
       <nav>
         <ul class="menu">
-      <nav>
-        <!-- Menu de navegação -->
-        <ul class="menu">
-          <li><a href="../VIew/Smartphone.html">Smartphones</a></li>
-          <li><a href="../VIew/Tablets.html">Tablets</a></li>
-          <li><a href="../VIew/Fones.html">Fones</a></li>
-          <li><a href="../VIew/Relógios.html">Relógios</a></li>
-          <li><a href="../VIew/Notebooks.html">Notebooks</a></li>
+          <li><a href="/Smartphone">Smartphones</a></li>
+          <li><a href="/Tablets">Tablets</a></li>
+          <li><a href="/Fones">Fones</a></li>
+          <li><a href="/Relogios">Relógios</a></li>
+          <li><a href="/Notebooks">Notebooks</a></li>
         </ul>
       </nav>
-
       <div class="icons">
         <i class="fas fa-search"></i>
-        <i class="fas fa-user"></i>
+        <a href="/perfil" title="Perfil" style="color:#fff;"><i class="fas fa-user"></i></a>
         <i class="fas fa-shopping-bag"></i>
-        <i class="fas fa-box"></i> <!-- Ícone de Pedidos -->
-        
-        <!-- Toggle Switch para Light/Dark Mode -->
+        <i class="fas fa-box"></i>
         <label class="theme-toggle">
           <input type="checkbox" id="theme-toggle">
           <span class="slider">
@@ -47,176 +40,130 @@
       </div>
     </div>
   </header>
-
-
-
- <hr class="divider">
-
-
-
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Método de Pagamento</title>
-  <link rel="stylesheet" href="../VIew/Media/" />
-</head>
-<body>
-  <div class="payment-center-wrapper">
-    <div class="payment-container">
-      <p>Método de pagamento</p>
-      <p class="description">selecione a forma de pagamento que utilizará
-
-      <label class="option-label">
-        <input type="radio" name="payment" value="google" />
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
-          <path fill="#4285F4" d="M44.5 20H24v8.5h11.8C34.6 33.4 30 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3 0 5.7 1.1 7.8 2.9l6.4-6.4C34.7 5.6 29.7 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.7-.5-4z"/>
-          <path fill="#34A853" d="M6.3 14.1l6.6 4.8C14.5 15 18.9 12 24 12c3 0 5.7 1.1 7.8 2.9l6.4-6.4C34.7 5.6 29.7 4 24 4 15.5 4 8.3 8.8 6.3 14.1z"/>
-          <path fill="#FBBC05" d="M24 44c5.5 0 10.5-2.1 14.3-5.5l-6.6-5.4C29.6 34.9 27 36 24 36c-6 0-10.6-3.6-12.4-8.6l-6.5 5C8.5 40.3 15.6 44 24 44z"/>
-          <path fill="#EA4335" d="M44.5 20H24v8.5h11.8C34.1 33.1 30 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3 0 5.7 1.1 7.8 2.9l6.4-6.4C34.7 5.6 29.7 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.7-.5-4z"/>
-        </svg>
-        <span class="option-title">Google Pay</span>
-      </label>
-
-      <label class="option-label">
-        <input type="radio" name="payment" value="paypal"/>
-        <img src="./Media/Design_sem_nome__3_-removebg-preview.png" alt="PayPal" style="width:50px;height:50px;">
-        <span class="option-title">Pix</span>
-      </label>
-
-      <label class="option-label">
-        <input type="radio" name="payment" value="paypal"/>
-        <img src="../VIew/Media/paypal_logo.png" alt="PayPal" style="width:48px;height:50px;">
-        <span class="option-title">PayPal</span>
-      </label>
-
-      <label class="option-label">
-        <input type="radio" name="payment" value="visa"/>
-        <img src="../VIew/Media/Visa_Inc.-Logo.wine.png" alt="Visa" style="width:48px;height:48px;">
-        <span class="option-title">Credit Card </span>
-      </label>
-    </div>
-  </div>
-  <script src="carrinho_pagamento.js"></script>
-</body>
-</html>
-
-
-
-<main class="background">
-  <div class="verification-container">
-    <form onsubmit="return validarCampo()">
-      <div class="input-container" id="campo-codigo">
-        <input class="input-field" type="text" id="input-field" placeholder=" " />
-        <label for="input-field" class="input-label">CPF</label>
-        <span class="input-highlight"></span>
-        <div class="erro-mensagem">Este campo é obrigatório</div>
+  <main class="background">
+    <div class="payment-center-wrapper">
+      <div class="payment-container">
+        <p>Método de pagamento</p>
+        <p class="description">selecione a forma de pagamento que utilizará</p>
+        <label class="option-label">
+          <input type="radio" name="payment" value="google" />
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+            <path fill="#4285F4" d="M44.5 20H24v8.5h11.8C34.6 33.4 30 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3 0 5.7 1.1 7.8 2.9l6.4-6.4C34.7 5.6 29.7 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.7-.5-4z"/>
+            <path fill="#34A853" d="M6.3 14.1l6.6 4.8C14.5 15 18.9 12 24 12c3 0 5.7 1.1 7.8 2.9l6.4-6.4C34.7 5.6 29.7 4 24 4 15.5 4 8.3 8.8 6.3 14.1z"/>
+            <path fill="#FBBC05" d="M24 44c5.5 0 10.5-2.1 14.3-5.5l-6.6-5.4C29.6 34.9 27 36 24 36c-6 0-10.6-3.6-12.4-8.6l-6.5 5C8.5 40.3 15.6 44 24 44z"/>
+            <path fill="#EA4335" d="M44.5 20H24v8.5h11.8C34.1 33.1 30 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3 0 5.7 1.1 7.8 2.9l6.4-6.4C34.7 5.6 29.7 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.7-.5-4z"/>
+          </svg>
+          <span class="option-title">Google Pay</span>
+        </label>
+        <label class="option-label">
+          <input type="radio" name="payment" value="pix"/>
+          <img src="/media/Design_sem_nome__3_-removebg-preview.png" alt="Pix" style="width:50px;height:50px;">
+          <span class="option-title">Pix</span>
+        </label>
+        <label class="option-label">
+          <input type="radio" name="payment" value="paypal"/>
+          <img src="/media/paypal_logo.png" alt="PayPal" style="width:48px;height:50px;">
+          <span class="option-title">PayPal</span>
+        </label>
+        <label class="option-label">
+          <input type="radio" name="payment" value="visa"/>
+          <img src="/media/Visa_Inc.-Logo.wine.png" alt="Visa" style="width:48px;height:48px;">
+          <span class="option-title">Credit Card </span>
+        </label>
       </div>
-      <button type="submit">ENVIAR</button>
-      <hr class="divider">
-    </form>
-  </div>
-</main>
-
-<script>
-  function validarCampo() {
-    const campo = document.getElementById("input-field");
-    const container = document.getElementById("campo-codigo");
-
-    if (campo.value.trim() === "") {
-      container.classList.add("erro");
-      return false;
-    } else {
-      container.classList.remove("erro");
-      return true;
-    }
-  }
-</script>
+    </div>
+    <div class="verification-container">
+      <form onsubmit="return validarCampo()">
+        <div class="input-container" id="campo-codigo">
+          <input class="input-field" type="text" id="input-field" placeholder=" " />
+          <label for="input-field" class="input-label">CPF</label>
+          <span class="input-highlight"></span>
+          <div class="erro-mensagem">Este campo é obrigatório</div>
+        </div>
+        <button type="submit">ENVIAR</button>
+        <hr class="divider">
+      </form>
+    </div>
+  </main>
   <footer>
     <div class="footer-content">
         <div class="footer-logo">
             <p>Conheça nosso repositório</p>
             <a href="https://github.com/jimmyadmsenior/Index" target="_blank">
-                <img src="../VIew/Media/Github_Logo.png" alt="GitHub" class="github-icon">
+                <img src="/media/Github_Logo.png" alt="GitHub" class="github-icon">
             </a>
         </div>
         <div class="footer-section">
             <h4>Nossas regras</h4>
-            <a href="../VIew/Politica_Privacidade.html">Política de Privacidade</a>
-            <a href="../VIew/Termos_Condicoes.html">Termos e Condições</a>
-            <a href="../VIew/Suporte.html">Suporte</a>
-            <a href="../VIew/Sobre.html">Sobre</a>
+            <a href="/Politica_Privacidade">Política de Privacidade</a>
+            <a href="/Termos_Condicoes">Termos e Condições</a>
+            <a href="/Suporte">Suporte</a>
+            <a href="/Sobre">Sobre</a>
         </div>
         <div class="footer-section">
             <h4>Recursos</h4>
-            <a href="../VIew/Smartphone.html">Smartphones</a>
-            <a href="../VIew/Tablets.html">Tablets</a>
-            <a href="../VIew/Fones.html">Fones</a>
-            <a href="../VIew/Relógios.html">Relógios</a>
-            <a href="../VIew/Notebooks.html">Notebooks</a>
+            <a href="/Smartphone">Smartphones</a>
+            <a href="/Tablets">Tablets</a>
+            <a href="/Fones">Fones</a>
+            <a href="/Relogios">Relógios</a>
+            <a href="/Notebooks">Notebooks</a>
         </div>
         <div class="footer-section">
             <h4>Conecte-se</h4>
             <a href="https://github.com/jimmyadmsenior/Index">Repositório</a>
-            <a href="../VIew/Download_App.html">Nosso App</a>
+            <a href="/Download_App">Nosso App</a>
         </div>
     </div>
     <div class="copy">
         <p>Copyright © 2025 Index Inc. Todos os direitos reservados.</p>
     </div>
   </footer>
-
+  <link rel="stylesheet" href="/media/ChatBot/ModernChatBot.css">
+  <div id="modern-chatbot-widget">
+    <div class="modern-chatbot-fab" id="modernChatbotFab" title="Falar com Índigo">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="12" fill="currentColor"/></svg>
+    </div>
+    <div class="modern-chatbot-window" id="modernChatbotWindow">
+      <div class="modern-chatbot-header">
+        <div class="modern-chatbot-avatar">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="12" fill="currentColor"/></svg>
+        </div>
+        <div>
+          <div class="modern-chatbot-title">Índigo</div>
+          <div class="modern-chatbot-desc">Assistente Virtual</div>
+        </div>
+        <button class="modern-chatbot-close" id="modernChatbotClose" title="Fechar">×</button>
+      </div>
+      <div class="modern-chatbot-messages" id="modernChatbotMessages"></div>
+      <div class="modern-chatbot-footer" id="modernChatbotFooter"></div>
+    </div>
+  </div>
+  <script src="/media/ChatBot/ModernChatBot.js" defer></script>
   <script>
     // Script para alternar entre os temas claro e escuro
     document.addEventListener('DOMContentLoaded', function() {
-      // Verificar se há uma preferência de tema salva no localStorage
       const savedTheme = localStorage.getItem('theme') || 'light';
       document.documentElement.setAttribute('data-theme', savedTheme);
-      const labels = document.querySelectorAll('.option-label');
-
-labels.forEach(label => {
-  label.addEventListener('click', () => {
-    labels.forEach(l => l.classList.remove('selected'));
-    label.classList.add('selected');
-    label.querySelector('input').checked = true;
-  });
-});
-
-      // Definir o estado inicial do checkbox com base no tema atual
       document.getElementById('theme-toggle').checked = savedTheme === 'dark';
-      
-      // Adicionar evento de mudança ao toggle
       document.getElementById('theme-toggle').addEventListener('change', function(e) {
         if(e.target.checked) {
-          // Mudar para o tema escuro
           document.documentElement.setAttribute('data-theme', 'dark');
           localStorage.setItem('theme', 'dark');
-          
-          // Animação suave para a transição do tema
           document.body.classList.add('theme-transition');
           setTimeout(() => {
             document.body.classList.remove('theme-transition');
           }, 1000);
         } else {
-          // Mudar para o tema claro
           document.documentElement.setAttribute('data-theme', 'light');
           localStorage.setItem('theme', 'light');
-          
-          // Animação suave para a transição do tema
           document.body.classList.add('theme-transition');
           setTimeout(() => {
             document.body.classList.remove('theme-transition');
           }, 1000);
         }
       });
-      
-      // Verificar preferência do sistema operacional do usuário
       const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
-      
-      // Função para sincronizar o tema com a preferência do sistema
       function syncWithSystemTheme(e) {
-        // Somente altera automaticamente se o usuário não definiu uma preferência manualmente
         if (!localStorage.getItem('theme')) {
           if (e.matches) {
             document.documentElement.setAttribute('data-theme', 'dark');
@@ -227,13 +174,44 @@ labels.forEach(label => {
           }
         }
       }
-      
-      // Verificar a preferência inicial
       syncWithSystemTheme(prefersDarkScheme);
-      
-      // Escutar por mudanças na preferência do sistema
       prefersDarkScheme.addEventListener('change', syncWithSystemTheme);
     });
+    function validarCampo() {
+      const campo = document.getElementById("input-field");
+      const container = document.getElementById("campo-codigo");
+      if (campo.value.trim() === "") {
+        container.classList.add("erro");
+        return false;
+      } else {
+        container.classList.remove("erro");
+        return true;
+      }
+    }
   </script>
+  <!-- Cursor Motion Blur Effect -->
+  <link rel="stylesheet" href="/media/Cursor/EfeitoCursor/dist/style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.15.0/TweenMax.min.js"></script>
+  <script src="/media/Cursor/EfeitoCursor/dist/script.js" defer></script>
+  <div id="cursor-blur-boxes">
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+  </div>
 </body>
 </html>

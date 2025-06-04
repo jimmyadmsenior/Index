@@ -34,11 +34,7 @@
 <main class="produto-main">
   <div class="produto-container">
     <div class="produto-foto">
-      @if($produto->foto)
-        <img src="{{ $produto->foto }}" alt="Foto do produto">
-      @else
-        <img src="/media/placeholder_produto.png" alt="Foto do produto">
-      @endif
+      <img src="{{ $produto->imagem ?? '/media/placeholder_produto.png' }}" alt="{{ $produto->nome }}">
     </div>
     <div class="produto-info">
       <h1 class="produto-nome">{{ $produto->nome }}</h1>
@@ -46,6 +42,7 @@
       <p class="produto-marca"><strong>Marca:</strong> {{ $produto->marca }}</p>
       <p class="produto-preco"><strong>Preço:</strong> R$ {{ number_format($produto->preco, 2, ',', '.') }}</p>
       <p class="produto-descricao">{{ $produto->descricao }}</p>
+      <a href="/Carrinho_Pagamento" class="btn-comprar" style="display:inline-block;margin-top:20px;padding:12px 32px;background:#4285F4;color:#fff;font-size:1.2rem;border-radius:8px;text-decoration:none;transition:background 0.2s;">Comprar</a>
     </div>
   </div>
 </main>

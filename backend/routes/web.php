@@ -11,6 +11,7 @@ Route::view('/recuperacao-senha', 'Recuperacao_Senha');
 Route::view('/confirmacao-adm', 'Confirmacao_ADM');
 Route::view('/compra-finalizada', 'Compra_Finalizada');
 Route::view('/Homepage_Com_Cadastro', 'Homepage_Com_Cadastro');
+Route::view('/Carrinho_Pagamento', 'Carrinho_Pagamento');
 
 Route::get('/cadastro', [CadastroController::class, 'showCadastro']);
 Route::post('/cadastro', [CadastroController::class, 'processaCadastro']);
