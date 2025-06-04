@@ -41,9 +41,9 @@
     <h1>Administrador</h1>
     <p>Seu login foi reconhecido como administrador. Enviamos um código para o seu e-mail para verificação.</p>
 
-    <for onsubmit="return validarCampo()">
+    <form onsubmit="return validarCampo()">
       <div class="input-container" id="campo-codigo">
-        <input class="input-field" type="text" id="input-field" placeholder=" ">
+        <input class="input-field" type="text" id="input-field" placeholder=" " oninput="removerErro()">
         <label for="input-field" class="input-label">Código de Verificação</label>
         <span class="input-highlight"></span>
         <div class="erro-mensagem">Este campo é obrigatório</div>
@@ -66,6 +66,11 @@
       container.classList.remove("erro");
       return true;
     }
+  }
+
+  function removerErro() {
+    const container = document.getElementById("campo-codigo");
+    container.classList.remove("erro");
   }
 </script>
 

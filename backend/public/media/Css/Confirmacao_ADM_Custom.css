@@ -26,5 +26,28 @@
   background-color: transparent;
 }
 .input-field:focus + .input-label {
-  /* Adicione regras específicas se necessário */
+  /* removido: regra vazia */
+}
+.input-container.erro .input-field {
+  border-color: #ff3333 !important;
+  box-shadow: 0 0 0 2px #ff333355;
+}
+.input-container .erro-mensagem {
+  display: none;
+  color: #ff3333;
+  font-size: 13px;
+  margin-top: 4px;
+  text-align: left;
+}
+.input-container.erro .erro-mensagem {
+  display: block;
+}
+.input-field:not(:placeholder-shown) + .input-label,
+.input-field:focus + .input-label {
+  top: -12px;
+  left: 8px;
+  font-size: 12px;
+  color: #00bfff;
+  background: #1a1a1a;
+  padding: 0 4px;
 }
