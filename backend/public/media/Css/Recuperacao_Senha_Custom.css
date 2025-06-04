@@ -33,3 +33,9 @@
   background: white;
   padding: 0 4px;
 }
+.btn-erro {
+  background: #d13447 !important;
+  color: #fff !important;
+  border: 1px solid #b3001b !important;
+  box-shadow: 0 0 0 2px #d1344733 !important;
+}

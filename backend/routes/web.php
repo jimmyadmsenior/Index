@@ -36,3 +36,18 @@ Route::post('/login', function(Request $request) {
     }
     return back()->withErrors(['email' => 'E-mail ou senha inválidos'])->withInput();
 });
+
+Route::get('/pagamento-debito', function () {
+    return view('Pagamento_Debito');
+});
+Route::view('/confirmacao-cadastro', 'Confirmacao_Cadastro');
+Route::view('/compra-finalizada', 'Compra_Finalizada');
+Route::view('/Homepage_Com_Cadastro', 'Homepage_Com_Cadastro');
+Route::view('/Homepage_Fones', 'Homepage_Fones');
+Route::view('/recuperacao-senha', 'Recuperacao_Senha');
+Route::view('/confirmacao-adm', 'Confirmacao_ADM');
+Route::view('/Chatbot', 'Chatbot');
+Route::view('/sobre-nos', 'Sobre_Nós');
+Route::view('/confirmacao-adm2', 'Confirmacao_ADM2');
+Route::view('/recuperacao-senha2', 'Recuperacao_Senha2');
+
