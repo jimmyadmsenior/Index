@@ -7,9 +7,10 @@ body, html {
   background: radial-gradient(ellipse at center, #232323 0%, #111 100%);
   color: #fff;
   min-height: 100vh;
-  padding-top: 60px; /* Espaço para a navbar fixa */
+  padding-top: 30px; /* Espaço para a navbar fixa */
   display: flex;
   flex-direction: column;
+  padding-bottom: 80px;
 }
 
 body {
@@ -72,8 +73,8 @@ nav ul.menu li a:hover {
   min-height: calc(100vh - 60px);
   height: calc(100vh - 60px);
   display: flex;
-  align-items: center; /* Centraliza verticalmente */
-  justify-content: center; /* Centraliza horizontalmente */
+  align-items: center;
+  justify-content: center;
   flex: 1 1 auto;
   padding-top: 60px;
 }
