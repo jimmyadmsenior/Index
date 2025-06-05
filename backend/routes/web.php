@@ -29,9 +29,17 @@ Route::middleware(['auth'])->group(function () {
 
 Route::post('/login', function(Request $request) {
     $credentials = $request->only('email', 'senha');
-    if (Auth::attempt(['email' => $credentials['email'], 'password' => $credentials['senha']])) {
+    $remember = $request->has('lembrar');
+    if (Auth::attempt(['email' => $credentials['email'], 'password' => $credentials['senha']], $remember)) {
         $request->session()->regenerate();
         return redirect('/Homepage_Com_Cadastro');
     }
     return back()->withErrors(['email' => 'E-mail ou senha inválidos'])->withInput();
+});
+
+Route::post('/logout', function() {
+    Auth::logout();
+    request()->session()->invalidate();
+    request()->session()->regenerateToken();
+    return redirect('/login');
 });

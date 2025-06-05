@@ -35,6 +35,10 @@
             </div>
         @endif
     </div>
+    <form action="/logout" method="POST" style="margin-top: 24px; text-align: center;">
+        @csrf
+        <button type="submit" style="background: #e74c3c; color: #fff; border: none; border-radius: 8px; padding: 10px 32px; font-size: 1.1rem; font-weight: bold; cursor: pointer; transition: background 0.2s;">Sair</button>
+    </form>
 </div>
 @endsection
 @push('styles')

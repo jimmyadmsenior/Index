@@ -90,13 +90,13 @@
   </div>
 </header>
 <main class="centered-main">
-  <div class="verificacao-container">
+  <div class="verificacao-container" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
     <h1>Verificação</h1>
     <p>Um código foi enviado para o seu e-mail para verificação.<br>Por favor, insira-o abaixo:</p>
-    <form method="POST" action="/verificacao">
+    <form method="POST" action="/verificacao" style="display: flex; flex-direction: column; align-items: center; width: 100%;">
       @csrf
-      <input type="text" name="codigo" maxlength="6" placeholder="XXX-XXX" required class="codigo-input">
-      <button type="submit">ENVIAR</button>
+      <input type="text" name="codigo" maxlength="6" placeholder="XXX-XXX" required class="codigo-input" style="text-align:center; width: 100%; max-width: 320px; margin-bottom: 18px;">
+      <button type="submit" style="width: 70%; min-width: 120px; max-width: 220px; margin: 0 auto;">ENVIAR</button>
     </form>
     @if(session('erro'))
       <div class="erro">{{ session('erro') }}</div>
