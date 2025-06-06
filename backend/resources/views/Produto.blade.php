@@ -73,6 +73,15 @@
     .sobre-toggle + .descricao-produto {
       margin-top: 0;
     }
+    .descricao-produto:not(.aberta) {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s cubic-bezier(0.4,0,0.2,1);
+    }
+    .descricao-produto.aberta {
+      max-height: 500px; /* valor alto o suficiente para a transição */
+      transition: max-height 0.5s cubic-bezier(0.4,0,0.2,1);
+    }
   </style>
 </head>
 <body>
@@ -107,15 +116,15 @@
       <h1 class="produto-nome">{{ $produto->nome }}</h1>
       <div class="sobre-col">
         <button class="sobre-toggle" onclick="toggleDescricao('descricao-modelo')">Sobre o modelo <i class='fas fa-chevron-down'></i></button>
-        <div id="descricao-modelo" class="descricao-produto" style="max-height:0;overflow:hidden;transition:max-height 0.5s cubic-bezier(0.4,0,0.2,1);">
+        <div id="descricao-modelo" class="descricao-produto">
           <p>{{ $produto->descricao_modelo ?? 'Informações detalhadas sobre o modelo.' }}</p>
         </div>
         <button class="sobre-toggle" onclick="toggleDescricao('descricao-marca')">Sobre a marca <i class='fas fa-chevron-down'></i></button>
-        <div id="descricao-marca" class="descricao-produto" style="max-height:0;overflow:hidden;transition:max-height 0.5s cubic-bezier(0.4,0,0.2,1);">
+        <div id="descricao-marca" class="descricao-produto">
           <p>{{ $produto->descricao_marca ?? 'Informações detalhadas sobre a marca.' }}</p>
         </div>
         <button class="sobre-toggle" onclick="toggleDescricao('descricao-produto')">Sobre o produto <i class='fas fa-chevron-down'></i></button>
-        <div id="descricao-produto" class="descricao-produto" style="max-height:0;overflow:hidden;transition:max-height 0.5s cubic-bezier(0.4,0,0.2,1);">
+        <div id="descricao-produto" class="descricao-produto">
           <p class="produto-descricao">{{ $produto->descricao }}</p>
         </div>
       </div>
@@ -133,11 +142,7 @@
 <script>
 function toggleDescricao(id) {
   const desc = document.getElementById(id);
-  if (desc.style.maxHeight && desc.style.maxHeight !== '0px') {
-    desc.style.maxHeight = '0';
-  } else {
-    desc.style.maxHeight = desc.scrollHeight + 'px';
-  }
+  desc.classList.toggle('aberta');
 }
 </script>
 </body>
