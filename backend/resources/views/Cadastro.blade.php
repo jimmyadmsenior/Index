@@ -44,8 +44,17 @@
   </div>
 </header>
 <main class="cadastro-main">
-  <form class="cadastro-form-container cadastro-form" method="POST" action="/cadastro" autocomplete="off">
+  <form method="POST" action="/cadastro" autocomplete="off" class="cadastro-form-container cadastro-form">
     @csrf
+    @if($errors->any())
+      <div class="alert alert-danger" style="color: #fff; background: #e74c3c; padding: 10px; border-radius: 6px; margin-bottom: 16px;">
+        <ul style="margin:0; padding-left: 18px;">
+          @foreach($errors->all() as $error)
+            <li>{{ $error }}</li>
+          @endforeach
+        </ul>
+      </div>
+    @endif
     <h1><span class="arrow">→</span> Faça seu cadastro</h1>
     <p>Entre com suas informações de cadastro.</p>
     <label for="email">E-mail</label>
