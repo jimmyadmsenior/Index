@@ -12,7 +12,7 @@
   <header>
     <div class="header-content">
       <div class="logo">
-        <img src="/media/Logo_Branca.png" alt="Logo da empresa">
+        <img src="../View/media/Logo_Branca.png" alt="Logo da empresa">
       </div>
       <nav>
         <ul class="menu">
@@ -40,7 +40,7 @@
   </header>
 
   <main class="cart-empty">
-    <img src="../VIew/Media/cart-icon.png" alt="Carrinho vazio" class="cart-icon">
+    <img src="/media/cart-icon.png" alt="Carrinho vazio" class="cart-icon">
     <h1>Seu carrinho está vazio</h1>
     <p>Se quiser continuar sua compra, navegue por nosso site ou busque por um produto específico.</p>
     <div class="button-container">
@@ -53,7 +53,7 @@
       <div class="footer-logo">
         <p>Conheça nosso repositório</p>
         <a href="https://github.com/jimmyadmsenior/Index" target="_blank">
-          <img src="../VIew/Media/Github_Logo.png" alt="GitHub" class="github-icon">
+          <img src="/media/Github_Logo.png" alt="GitHub" class="github-icon">
         </a>
       </div>
       <div class="footer-section">
