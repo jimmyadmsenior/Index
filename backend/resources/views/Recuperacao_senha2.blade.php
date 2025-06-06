@@ -19,11 +19,11 @@
 
     <nav>
       <ul class="menu">
-        <li><a href="../VIew/Smartphone.html">Smartphones</a></li>
-        <li><a href="../VIew/Tablets.html">Tablets</a></li>
-        <li><a href="../VIew/Fones.html">Fones</a></li>
-        <li><a href="../VIew/Relógios.html">Relógios</a></li>
-        <li><a href="../VIew/Notebooks.html">Notebooks</a></li>
+        <li><a href="/smartphones">Smartphones</a></li>
+        <li><a href="/tablets">Tablets</a></li>
+        <li><a href="/fones">Fones</a></li>
+        <li><a href="/relogios">Relógios</a></li>
+        <li><a href="/notebooks">Notebooks</a></li>
       </ul>
     </nav>
 

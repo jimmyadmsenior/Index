@@ -99,19 +99,15 @@ body {
 
 /* Estilo do ícone do carrinho no tema claro */
 .cart-icon {
-  content: url('../carrinho\ preto.png'); /* Caminho para o ícone padrão */
+  content: url('/media/carrinho_preto.png'); /* Caminho correto para o ícone preto */
+  width: 80px; /* Largura */
+  height: auto; /* Altura automática */
+  margin-bottom: 20px; /* Espaçamento inferior */
 }
 
 /* Estilo do ícone do carrinho no tema escuro */
 [data-theme="dark"] .cart-icon {
-  content: url('../carrinho\ branco.png'); /* Caminho para o ícone branco */
-}
-
-/* Dimensões do ícone do carrinho */
-.cart-icon {
-  width: 80px; /* Largura */
-  height: auto; /* Altura automática */
-  margin-bottom: 20px; /* Espaçamento inferior */
+  content: url('/media/carrinho_branco.png'); /* Caminho correto para o ícone branco */
 }
 
 /* Estilo da imagem do ícone do carrinho */
@@ -426,4 +422,15 @@ slider .sun, .slider .moon {
   font-size: 12px; /* Tamanho da fonte */
   color: var(--header-text); /* Cor do texto dinâmica */
   z-index: 1; /* Prioridade no empilhamento */
+}
+
+/* Estilo para o texto do parágrafo na seção de carrinho vazio */
+.cart-empty-description {
+  color: #555;
+  transition: color 0.3s;
+}
+
+/* Estilo para o texto do parágrafo na seção de carrinho vazio no tema escuro */
+[data-theme="dark"] .cart-empty-description {
+  color: #e0e0e0;
 }

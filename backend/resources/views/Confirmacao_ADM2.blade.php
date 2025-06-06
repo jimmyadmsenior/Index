@@ -20,11 +20,11 @@
       <nav>
         <!-- Menu de navegação -->
         <ul class="menu">
-          <li><a href="#">Smartphones</a></li>
-          <li><a href="#">Tablets</a></li>
-          <li><a href="#">Fones</a></li>
-          <li><a href="#">Relógios</a></li>
-          <li><a href="#">Notebooks</a></li>
+          <li><a href="/smartphones">Smartphones</a></li>
+          <li><a href="/tablets">Tablets</a></li>
+          <li><a href="/fones">Fones</a></li>
+          <li><a href="/relogios">Relógios</a></li>
+          <li><a href="/notebooks">Notebooks</a></li>
         </ul>
       </nav>
   

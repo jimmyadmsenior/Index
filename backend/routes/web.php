@@ -53,3 +53,4 @@ Route::view('/carrinho-vazio', 'Carrinho_Vazio');
 Route::get('/pagamento-debito', function () {
     return view('Pagamento_Debito');
 });
+Route::view('/perguntas-frequentes', 'Perguntas_Frequentes');
