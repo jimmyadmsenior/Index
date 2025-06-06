@@ -47,9 +47,6 @@
       <p class="hero-subtitle">Possua os melhores modelos, com tecnologia de ponta, da Apple e Samsung</p>
     </section>
     <section class="featured-products">
-<<<<<<< Updated upstream
-      @php $produtos = \App\Models\Produto::all(); @endphp
-=======
       @php
         $produtos = \App\Models\Produto::all();
         // Mapeamento para exibir os produtos em destaque na ordem desejada
@@ -61,7 +58,6 @@
           'Apple Watch Series 8',
         ];
       @endphp
->>>>>>> Stashed changes
       <div class="featured-iphone14">
         @php $p = $produtos->firstWhere('nome', 'iPhone 14'); @endphp
         <h2>iPhone 14</h2>
@@ -80,22 +76,6 @@
         </video>
       </div>
       <div class="product-grid">
-<<<<<<< Updated upstream
-        @foreach([
-          ['nome' => 'iPhone 14 Pro', 'img' => '/media/Iphone_14_Pro_Capa_Homepage.png'],
-          ['nome' => 'Galaxy Book4', 'img' => '/media/GalaxyBook4_Homepage.png'],
-          ['nome' => 'Samsung Galaxy Tab S6', 'img' => '/media/Samsung Galaxy Tab S6.png'],
-          ['nome' => 'Apple Watch Series 8', 'img' => '/media/Watch_Series8.png'],
-        ] as $item)
-          @php $p = $produtos->firstWhere('nome', $item['nome']); @endphp
-          <div class="product-card dark">
-            <h3>{{ $item['nome'] }}</h3>
-            <p>
-              @if($item['nome'] == 'iPhone 14 Pro') Faz jus ao nome
-              @elseif($item['nome'] == 'Galaxy Book4') Desempenho nunca antes visto
-              @elseif($item['nome'] == 'Samsung Galaxy Tab S6') Profissionalismo e elegância
-              @elseif($item['nome'] == 'Apple Watch Series 8') Um salto de tecnologia
-=======
         @foreach(['iPhone 14 Pro','Galaxy Book4','Samsung Galaxy Tab S6','Apple Watch Series 8'] as $nome)
           @php $p = $produtos->firstWhere('nome', $nome); @endphp
           <div class="product-card dark">
@@ -105,7 +85,6 @@
               @elseif($nome == 'Galaxy Book4') Desempenho nunca antes visto
               @elseif($nome == 'Samsung Galaxy Tab S6') Profissionalismo e elegância
               @elseif($nome == 'Apple Watch Series 8') Um salto de tecnologia
->>>>>>> Stashed changes
               @endif
             </p>
             @if($p)
@@ -113,11 +92,7 @@
             @else
               <a href="#" class="featured-link" style="pointer-events:none;opacity:0.5;">Indisponível</a>
             @endif
-<<<<<<< Updated upstream
-            <img src="{{ $item['img'] }}" alt="{{ $item['nome'] }}"/>
-=======
             <img src="/media/{{ str_replace(' ', '_', $nome) }}.png" alt="{{ $nome }}"/>
->>>>>>> Stashed changes
           </div>
         @endforeach
       </div>
@@ -270,5 +245,30 @@
     <div class="box"></div>
   </div>
   <!-- Fim Cursor Motion Blur Effect -->
+  <style>
+    /* Efeito do cursor igual ao style.css da pasta do cursor */
+    #cursor-blur-boxes .box {
+      position: absolute;
+      width: 25px;
+      height: 25px;
+      top: 50%;
+      left: 50%;
+      margin: -50 0 0 -50px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 50px;
+      -webkit-backface-visibility: hidden;
+      opacity: 0;
+      cursor: none;
+      transition: box-shadow 0.2s, border 0.2s;
+    }
+    html[data-theme="light"] #cursor-blur-boxes .box {
+      background: rgba(255, 255, 255, 0.9);
+      border: 2px solid #000;
+    }
+    html[data-theme="dark"] #cursor-blur-boxes .box {
+      background: rgba(0, 0, 0, 0.9);
+      border: 2px solid #fff;
+    }
+  </style>
 </body>
 </html>
