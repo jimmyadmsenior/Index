@@ -76,15 +76,32 @@
         </video>
       </div>
       <div class="product-grid">
-        @foreach(['iPhone 14 Pro','Galaxy Book4','Samsung Galaxy Tab S6','Apple Watch Series 8'] as $nome)
-          @php $p = $produtos->firstWhere('nome', $nome); @endphp
+        @foreach([
+          [
+            'nome' => 'iPhone 14 Pro',
+            'img' => '/media/Iphone_14_Pro_Capa_Homepage.png'
+          ],
+          [
+            'nome' => 'Galaxy Book4',
+            'img' => '/media/GalaxyBook4_Homepage.png'
+          ],
+          [
+            'nome' => 'Samsung Galaxy Tab S6',
+            'img' => '/media/Samsung_Galaxy_Tab_S6_Homepage.png'
+          ],
+          [
+            'nome' => 'Apple Watch Series 8',
+            'img' => '/media/Watch_Series8_Homepage.png'
+          ],
+        ] as $item)
+          @php $p = $produtos->firstWhere('nome', $item['nome']); @endphp
           <div class="product-card dark">
-            <h3>{{ $nome }}</h3>
+            <h3>{{ $item['nome'] }}</h3>
             <p>
-              @if($nome == 'iPhone 14 Pro') Faz jus ao nome
-              @elseif($nome == 'Galaxy Book4') Desempenho nunca antes visto
-              @elseif($nome == 'Samsung Galaxy Tab S6') Profissionalismo e elegância
-              @elseif($nome == 'Apple Watch Series 8') Um salto de tecnologia
+              @if($item['nome'] == 'iPhone 14 Pro') Faz jus ao nome
+              @elseif($item['nome'] == 'Galaxy Book4') Desempenho nunca antes visto
+              @elseif($item['nome'] == 'Samsung Galaxy Tab S6') Profissionalismo e elegância
+              @elseif($item['nome'] == 'Apple Watch Series 8') Um salto de tecnologia
               @endif
             </p>
             @if($p)
@@ -92,7 +109,7 @@
             @else
               <a href="#" class="featured-link" style="pointer-events:none;opacity:0.5;">Indisponível</a>
             @endif
-            <img src="/media/{{ str_replace(' ', '_', $nome) }}.png" alt="{{ $nome }}"/>
+            <img src="{{ $item['img'] }}" alt="{{ $item['nome'] }}"/>
           </div>
         @endforeach
       </div>
