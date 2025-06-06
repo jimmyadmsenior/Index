@@ -107,8 +107,98 @@ html, body {
 /* --- Fonte e cores padrão do body --- */
 body {
   font-family: 'Arial', sans-serif;
-  background-color: #fff;
-  color: #000;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+[data-theme="dark"] body {
+  background-color: #111 !important; /* <<< Altere aqui para mudar o fundo principal do modo dark */
+  color: #fff !important; /* <<< Altere aqui para mudar a cor do texto principal no modo dark */
+}
+
+header, .header-content, nav ul.menu li a, .icons, .produtos, .carousel, .carousel-inner, .carousel-slide, .card, .airpods, .explore-section, .explore-banner, .explore-text h2, .footer-content, .footer-section, .footer-logo, .copy, .banner-navbar, .banner-texto-fone, .banner-falas h3, .banner-falas, .banner-voce, .text-content, .img-content, .img-content img, .explore-img img {
+  background: unset;
+  color: unset;
+}
+
+[data-theme="dark"] header,
+[data-theme="dark"] .header-content,
+[data-theme="dark"] nav ul.menu li a,
+[data-theme="dark"] .icons,
+[data-theme="dark"] .produtos,
+[data-theme="dark"] .carousel,
+[data-theme="dark"] .carousel-inner,
+[data-theme="dark"] .carousel-slide,
+[data-theme="dark"] .card,
+[data-theme="dark"] .airpods,
+[data-theme="dark"] .explore-section,
+[data-theme="dark"] .explore-banner,
+[data-theme="dark"] .explore-text h2,
+[data-theme="dark"] .footer-content,
+[data-theme="dark"] .footer-section,
+[data-theme="dark"] .footer-logo,
+[data-theme="dark"] .copy,
+[data-theme="dark"] .banner-navbar,
+[data-theme="dark"] .banner-texto-fone,
+[data-theme="dark"] .banner-falas h3,
+[data-theme="dark"] .banner-falas,
+[data-theme="dark"] .banner-voce,
+[data-theme="dark"] .text-content,
+[data-theme="dark"] .img-content,
+[data-theme="dark"] .img-content img,
+[data-theme="dark"] .explore-img img {
+  background: transparent !important;
+  color: #fff !important; /* <<< Altere aqui para mudar a cor dos textos em seções no modo dark */
+}
+
+[data-theme="dark"] .card {
+  background: #181818 !important; /* <<< Altere aqui para mudar o fundo dos cards no modo dark */
+  color: #fff !important;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.35);
+}
+
+[data-theme="dark"] .airpods,
+[data-theme="dark"] .explore-banner,
+[data-theme="dark"] .footer-content, [data-theme="dark"] footer {
+  background: #181818 !important; /* <<< Altere aqui para mudar o fundo das seções no modo dark */
+  color: #fff !important;
+}
+
+[data-theme="dark"] .footer-section a, [data-theme="dark"] .footer-logo p {
+  color: #cccccc !important; /* <<< Altere aqui para mudar a cor dos links do rodapé no modo dark */
+}
+
+[data-theme="dark"] .copy {
+  color: #ededed !important; /* <<< Altere aqui para mudar a cor do copyright no modo dark */
+}
+
+[data-theme="dark"] .banner-navbar img {
+  filter: brightness(0.4) !important; /* <<< Altere aqui para escurecer mais ou menos o banner no modo dark */
+}
+
+[data-theme="dark"] .banner-texto-fone h1, [data-theme="dark"] .banner-falas h3 {
+  color: #fff !important;
+}
+
+[data-theme="dark"] .carousel-indicators button.active {
+  background-color: #fff !important;
+}
+
+[data-theme="dark"] .carousel-indicators button {
+  background-color: #444 !important;
+}
+
+[data-theme="dark"] .carousel-nav-btn {
+  background: #232323 !important;
+  color: #fff !important;
+}
+
+[data-theme="dark"] .carousel-nav-btn:hover {
+  background: #333 !important;
+}
+
+[data-theme="dark"] .carousel-nav-btn:active {
+  background: #111 !important;
 }
 
 /* --- Carrossel de Produtos --- */
@@ -172,7 +262,8 @@ body {
 }
 
 .card span {
-  color: #555;
+  color: #e3e3e3; /* Cor azul clara para números/preços, mais visível no dark e no light */
+  font-weight: bold;
 }
 
 /* --- Indicadores do carrossel --- */
@@ -686,4 +777,9 @@ slider .sun, .slider .moon {
 /* --- Remove espaço extra do primeiro h3 --- */
 .banner-falas h3:first-child {
   margin-top: 0;
+}
+
+[data-theme="dark"] .airpods {
+  background: #000000 !important; /* <<< Altere aqui para mudar o fundo do container AirPods no modo dark */
+  color: #fff !important;
 }
