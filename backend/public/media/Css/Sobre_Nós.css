@@ -9,7 +9,6 @@ html, body {
   overflow-x: hidden; /* Remove a rolagem horizontal */
   overflow-y: auto; /* Remove a rolagem vertical */
   height: 100vh; /* Define altura para 100% da viewport */
-}
 
 /* Variáveis para tema claro (padrão) */
 :root {
