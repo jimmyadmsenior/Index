@@ -89,8 +89,9 @@ nav ul.menu li a:hover {
   height: calc(100vh - 70px); /* Altura dinâmica */
   display: flex; /* Layout flexível */
   justify-content: center; /* Centraliza horizontalmente */
-  align-items: center; /* Centraliza verticalmente */
-  padding: 20px; /* Espaçamento interno */
+  align-items: flex-start; /* Alinha o conteúdo ao topo */
+  padding: 0 20px 20px 20px; /* Remove o padding-top para não empurrar o container para baixo */
+  position: relative; /* Adicionado para permitir uso de posicionamento absoluto no filho */
 }
 
 /* Container de verificação */
@@ -103,6 +104,10 @@ nav ul.menu li a:hover {
   width: 100%; /* Largura total */
   box-shadow: 0 0 20px rgb(91, 88, 88); /* Sombra */
   transition: all 0.3s ease; /* Transição suave */
+  top: 140px; /* Subiu um pouco o container */
+  margin-top: 0 !important; /* Remove qualquer margin-top anterior */
+  position: relative;
+  /* ↑↑↑ Aqui o ajuste para subir um pouco o container */
 }
 .verification-container h1 {
   font-family: 'Goeform Bold', sans-serif; /* Fonte personalizada */
@@ -313,6 +318,8 @@ nav ul.menu li a:hover {
   flex-direction: column;
   align-items: center;
   overflow: hidden;
+  margin-top: 60px; /* Desce o container para centralizar melhor na tela */
+  /* ↑↑↑ Aqui o ajuste para descer o container */
 }
 .verificacao-container h1 {
   font-size: 2.4rem;
@@ -390,80 +397,33 @@ nav ul.menu li a:hover {
   color: #aaa;
   pointer-events: none;
   transition: 0.2s ease all;
-}
-.input-field:focus ~ .input-label,
-.input-field:not(:placeholder-shown) ~ .input-label {
-  top: -10px;
-  left: 8px;
-  font-size: 12px;
-  color: #555;
-  background: white;
-  padding: 0 4px;
-}
-.input-highlight {
-  position: absolute;
-  height: 2px;
-  width: 100%;
-  bottom: 0;
-  left: 0;
-  background: #333;
-  transform: scaleX(0);
-  transition: transform 0.3s;
-}
-.input-field:focus ~ .input-highlight {
-  transform: scaleX(1);
-}
-.erro-mensagem {
-  display: none;
-  color: #ff0055;
-  font-size: 12px;
-  margin-top: 5px;
-  text-align: left;
+  background-color: transparent;
 }
 .input-container.erro .input-field {
-  border-color: #ff0055;
-  box-shadow: 0 0 10px #ff0055;
+  border-color: #ff3333 !important;
+  box-shadow: 0 0 0 2px #ff333355;
+}
+.input-container .erro-mensagem {
+  display: none;
+  color: #ff3333;
+  font-size: 13px;
+  margin-top: 4px;
+  text-align: left;
 }
 .input-container.erro .erro-mensagem {
   display: block;
 }
-@media (max-width: 600px) {
-  .verificacao-container {
-    padding: 24px 8px 18px 8px;
-    margin: 0 8px;
-  }
-  .header-content {
-    padding: 0 10px;
-  }
+.input-field:not(:placeholder-shown) + .input-label,
+.input-field:focus + .input-label {
+  top: -12px;
+  left: 8px;
+  font-size: 12px;
+  color: #00bfff;
+  background: #1a1a1a;
+  padding: 0 4px;
 }
 
-[data-theme="dark"] body, [data-theme="dark"] html {
-  background: radial-gradient(ellipse at center, #232323 0%, #111 100%);
-  color: #fff;
-}
-[data-theme="dark"] .verificacao-container {
-  background: rgba(20,20,20,0.95);
-  color: #fff;
-  box-shadow: 0 4px 32px 0 rgba(0,0,0,0.18);
-}
-[data-theme="dark"] .verificacao-container h1,
-[data-theme="dark"] .verificacao-container p {
-  color: #fff;
-}
-[data-theme="dark"] .codigo-input {
-  background: #181818;
-  color: #fff;
-  border: 2px solid #444;
-}
-[data-theme="dark"] .verificacao-container button[type="submit"] {
-  background: #fff;
-  color: #232323;
-}
-[data-theme="dark"] .verificacao-container button[type="submit"]:hover {
-  background: #f5f5f5;
-  color: #111;
-}
-
+/* Estilos para o tema claro */
 [data-theme="light"] body, [data-theme="light"] html {
   background: radial-gradient(ellipse at center, #f5f5f5 0%, #e0e0e0 100%);
   color: #232323;
@@ -494,10 +454,36 @@ nav ul.menu li a:hover {
   background: #f8d7da;
   color: #b71c1c;
 }
-[data-theme="dark"] .verificacao-container .erro {
-  background: #222;
-  color: #ff5252;
+
+/* Estilos para o tema escuro */
+[data-theme="dark"] body, [data-theme="dark"] html {
+  background: radial-gradient(ellipse at center, #232323 0%, #111 100%);
+  color: #fff;
 }
+[data-theme="dark"] .verificacao-container {
+  background: rgba(20,20,20,0.95);
+  color: #fff;
+  box-shadow: 0 4px 32px 0 rgba(0,0,0,0.18);
+}
+[data-theme="dark"] .verificacao-container h1,
+[data-theme="dark"] .verificacao-container p {
+  color: #fff;
+}
+[data-theme="dark"] .codigo-input {
+  background: #181818;
+  color: #fff;
+  border: 2px solid #444;
+}
+[data-theme="dark"] .verificacao-container button[type="submit"] {
+  background: #fff;
+  color: #232323;
+}
+[data-theme="dark"] .verificacao-container button[type="submit"]:hover {
+  background: #f5f5f5;
+  color: #111;
+}
+
+/* Transições suaves para todos os temas */
 html, body, .verificacao-container, .codigo-input, .verificacao-container button[type="submit"] {
   transition: background 0.8s cubic-bezier(.4,0,.2,1), color 0.8s cubic-bezier(.4,0,.2,1), border-color 0.8s cubic-bezier(.4,0,.2,1);
 }
