@@ -32,7 +32,7 @@
   </div>
 </header>
 <main class="background">
-  <div class="verification-container" style="margin-top: -60px;">
+  <div class="verification-container" style="margin-top: -0px;">
     <h1>VERIFICAÇÃO</h1>
     <p>Um código foi enviado para o seu e-mail para verificação. Por favor insira-o abaixo:</p>
     <form onsubmit="return validarCampo()">

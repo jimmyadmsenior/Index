@@ -104,10 +104,10 @@ nav ul.menu li a:hover {
   width: 100%; /* Largura total */
   box-shadow: 0 0 20px rgb(91, 88, 88); /* Sombra */
   transition: all 0.3s ease; /* Transição suave */
-  top: 140px; /* Subiu um pouco o container */
+  top: 30px; /* Subiu mais o container */
   margin-top: 0 !important; /* Remove qualquer margin-top anterior */
   position: relative;
-  /* ↑↑↑ Aqui o ajuste para subir um pouco o container */
+  /* ↑↑↑ Aqui o ajuste para subir o container */
 }
 .verification-container h1 {
   font-family: 'Goeform Bold', sans-serif; /* Fonte personalizada */
