@@ -16,11 +16,11 @@
       </div>
       <nav>
         <ul class="menu">
-          <li><a href="../VIew/Smartphone.html">Smartphones</a></li>
-          <li><a href="../VIew/Tablets.html">Tablets</a></li>
-          <li><a href="/Homepage_Fones">Fones</a></li>
-          <li><a href="../VIew/Relógios.html">Relógios</a></li>
-          <li><a href="../VIew/Notebooks.html">Notebooks</a></li>
+          <li><a href="/smartphones">Smartphones</a></li>
+          <li><a href="/tablets">Tablets</a></li>
+          <li><a href="/fones">Fones</a></li>
+          <li><a href="/relogios">Relógios</a></li>
+          <li><a href="/notebooks">Notebooks</a></li>
         </ul>
       </nav>
       <div class="icons">
@@ -46,7 +46,7 @@
       <img src="/media/pix.png" alt="Pix">
     </div>
     <div class="qr-code">
-      <img src="Media/Qr_Code_test.png" alt="QR Code">
+      <img src="/media/Qr_Code_test.png" alt="QR Code">
     </div>
     <p>123e4567-e89b-12d3-a456-426614174000</p>
     <div class="button-container">
@@ -59,28 +59,28 @@
       <div class="footer-logo">
         <p>Conheça nosso repositório</p>
         <a href="https://github.com/jimmyadmsenior/Index" target="_blank">
-          <img src="../VIew/Media/Github_Logo.png" alt="GitHub" class="github-icon">
+          <img src="/media/Github_Logo.png" alt="GitHub" class="github-icon">
         </a>
       </div>
       <div class="footer-section">
         <h4>Nossas regras</h4>
-        <a href="../VIew/Politica_Privacidade.html">Política de Privacidade</a>
-        <a href="../VIew/Termos_Condicoes.html">Termos e Condições</a>
-        <a href="../VIew/Suporte.html">Suporte</a>
-        <a href="../VIew/Sobre.html">Sobre</a>
+        <a href="/politica-privacidade">Política de Privacidade</a>
+        <a href="/termos-condicoes">Termos e Condições</a>
+        <a href="/suporte">Suporte</a>
+        <a href="/sobre-nos">Sobre</a>
       </div>
       <div class="footer-section">
         <h4>Recursos</h4>
-        <a href="../VIew/Smartphone.html">Smartphones</a>
-        <a href="../VIew/Tablets.html">Tablets</a>
-        <a href="../VIew/Fones.html">Fones</a>
-        <a href="../VIew/Relógios.html">Relógios</a>
-        <a href="../VIew/Notebooks.html">Notebooks</a>
+        <a href="/smartphones">Smartphones</a>
+        <a href="/tablets">Tablets</a>
+        <a href="/fones">Fones</a>
+        <a href="/relogios">Relógios</a>
+        <a href="/notebooks">Notebooks</a>
       </div>
       <div class="footer-section">
         <h4>Conecte-se</h4>
         <a href="https://github.com/jimmyadmsenior/Index">Repositório</a>
-        <a href="../VIew/Download_App.html">Nosso App</a>
+        <a href="/download-app">Nosso App</a>
       </div>
     </div>
     <div class="copy">
