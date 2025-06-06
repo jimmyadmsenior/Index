@@ -8,15 +8,11 @@ use App\Http\Controllers\CategoriaController;
 | API Routes
 |--------------------------------------------------------------------------
 |
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| is assigned the "api" middleware group. Enjoy building your API!
+| Aqui é onde você pode registrar rotas de API para sua aplicação. Essas
+| rotas são carregadas pelo RouteServiceProvider dentro de um grupo que
+| é atribuído ao middleware "api". Aproveite para construir sua API!
 |
 */
-
-Route::get('/teste', function () {
-    return ['ok' => true];
-});
 
 Route::get('/debug-api', function () {
     return ['api' => true];
