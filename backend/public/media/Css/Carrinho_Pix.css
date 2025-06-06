@@ -11,7 +11,7 @@
     min-height: 100vh; /* Garante que o conteúdo ocupe pelo menos a altura da janela */
   }
   
-  
+  :root {
     --bg-color: #fff;
     --text-color: #000;
     --header-bg: #000;
