@@ -20,8 +20,72 @@
   top: 10px;
   left: 10px;
   font-size: 16px;
-  color: #000000;
+  color: #aaa;
   pointer-events: none;
   transition: 0.2s ease all;
   background-color: transparent;
+}
+.input-field:not(:placeholder-shown) + .input-label,
+.input-field:focus + .input-label {
+  top: -12px;
+  left: 8px;
+  font-size: 12px;
+  color: #00bfff;
+}
+.input-container.erro .input-field {
+  border-color: #ff3333 !important;
+  box-shadow: 0 0 0 2px #ff333355;
+}
+.input-container .erro-mensagem {
+  display: none;
+  color: #ff3333;
+  font-size: 13px;
+  margin-top: 4px;
+  text-align: left;
+}
+.input-container.erro .erro-mensagem {
+  display: block;
+}
+.verification-container button {
+  display: block;
+  margin: 30px auto 0 auto;
+  padding: 18px 40px;
+  font-size: 20px;
+  font-weight: 700;
+  background: rgb(236, 236, 236);
+  color: rgb(0, 0, 0);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-family: 'Geoform', sans-serif;
+  transition: background 0.3s, color 0.3s, transform 0.2s;
+}
+.verification-container button:hover {
+  background: #f0f0f0;
+  transform: scale(1.05);
+}
+.verification-container button:active {
+  background: #e0e0e0;
+}
+.header-content {
+  width: 100%;
+  max-width: 1300px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.logo img {
+  height: 30px;
+}
+nav ul.menu {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+}
+nav ul.menu li a {
+  font-family: 'Geoform Medium', sans-serif;
+  color: rgb(249, 249, 249);
+  text-decoration: none;
 }

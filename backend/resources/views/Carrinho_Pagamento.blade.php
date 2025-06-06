@@ -12,33 +12,33 @@
 </head>
 <body>
   <header>
-    <div class="header-content">
-      <div class="logo">
-        <img src="/media/Logo_Branca.png" alt="Logo da empresa">
-      </div>
-      <nav>
-        <ul class="menu">
-          <li><a href="/Smartphone">Smartphones</a></li>
-          <li><a href="/Tablets">Tablets</a></li>
-          <li><a href="/Homepage_Fones">Fones</a></li>
-          <li><a href="/Relogios">Relógios</a></li>
-          <li><a href="/Notebooks">Notebooks</a></li>
-        </ul>
-      </nav>
-      <div class="icons">
-        <i class="fas fa-search"></i>
-        <a href="/perfil" title="Perfil" style="color:#fff;"><i class="fas fa-user"></i></a>
-        <i class="fas fa-shopping-bag"></i>
-        <i class="fas fa-box"></i>
-        <label class="theme-toggle">
-          <input type="checkbox" id="theme-toggle">
-          <span class="slider">
-            <i class="fas fa-sun sun"></i>
-            <i class="fas fa-moon moon"></i>
-          </span>
-        </label>
-      </div>
+  <div class="header-content">
+    <div class="logo">
+      <img src="/media/Logo_Branca.png" alt="Logo da empresa">
     </div>
+    <nav>
+      <ul class="menu">
+        <li><a href="/Smartphone">Smartphones</a></li>
+        <li><a href="/Tablets">Tablets</a></li>
+        <li><a href="/Fones">Fones</a></li>
+        <li><a href="/Relogios">Relógios</a></li>
+        <li><a href="/Notebooks">Notebooks</a></li>
+      </ul>
+    </nav>
+    <div class="icons">
+      <i class="fas fa-search"></i>
+      <a href="/perfil" title="Perfil" style="color:#fff;"><i class="fas fa-user"></i></a>
+      <i class="fas fa-shopping-bag"></i>
+      <i class="fas fa-box"></i>
+      <label class="theme-toggle">
+        <input type="checkbox" id="theme-toggle">
+        <span class="slider">
+          <i class="fas fa-sun sun"></i>
+          <i class="fas fa-moon moon"></i>
+        </span>
+      </label>
+    </div>
+  </div>
   </header>
   <main class="background">
     <div class="payment-center-wrapper">
@@ -75,7 +75,7 @@
     <div class="verification-container">
       <form onsubmit="return validarCampo()">
         <div class="input-container" id="campo-codigo">
-          <input class="input-field" type="text" id="input-field" placeholder=" " />
+          <input class="input-field" type="text" id="input-field" placeholder=" " oninput="removerErro()">
           <label for="input-field" class="input-label">CPF</label>
           <span class="input-highlight"></span>
           <div class="erro-mensagem">Este campo é obrigatório</div>
@@ -188,6 +188,10 @@
         return true;
       }
     }
+    function removerErro() {
+      const container = document.getElementById("campo-codigo");
+      container.classList.remove("erro");
+    }
   </script>
   <!-- Cursor Motion Blur Effect -->
   <link rel="stylesheet" href="/media/Cursor/EfeitoCursor/dist/style.css">
@@ -213,5 +217,22 @@
     <div class="box"></div>
     <div class="box"></div>
   </div>
+  <script>
+    // Script para animar e mostrar o nome do método de pagamento ao selecionar
+    const paymentLabels = document.querySelectorAll('.option-label');
+    paymentLabels.forEach(label => {
+      label.addEventListener('click', function() {
+        paymentLabels.forEach(l => l.classList.remove('selected'));
+        this.classList.add('selected');
+        // Mostra o nome do método animado
+        const allTitles = document.querySelectorAll('.option-title');
+        allTitles.forEach(t => t.style.opacity = 0);
+        const title = this.querySelector('.option-title');
+        title.style.opacity = 1;
+        title.style.transition = 'opacity 0.5s, transform 0.5s';
+        title.style.transform = 'translateX(0)';
+      });
+    });
+  </script>
 </body>
 </html>
