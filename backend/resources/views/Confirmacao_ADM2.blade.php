@@ -42,7 +42,7 @@
       <h1 class="titulo-confirmacao">Administrador</h1>
     </div>
     <div class="verification-container">
-      <img class="check-icon" src="../VIew/Media/Ícone_Check_Branco.png" alt="Ícone de confirmação">
+      <img class="check-icon" src="/media/Ícone_Check_Branco.png" alt="Ícone de confirmação">
       <p>Seu código foi validado com sucesso.<br>Agora você pode acessar a plataforma como administrador.</p>
       <button class="botao-entrar">ENTRAR</button>
     </div>

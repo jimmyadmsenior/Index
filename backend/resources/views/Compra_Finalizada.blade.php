@@ -48,7 +48,7 @@
     <div class="background">
       <div class="confirmation-container">
         <h1>Compra Finalizada</h1>
-        <img src="../VIew/Media/Ícone_Check_Verde.png" alt="Check" class="check-icon">
+        <img src="/media/Ícone_Check_Verde.png" alt="Check" class="check-icon">
         <p>Seu pagamento foi aprovado e sua compra foi concluída com sucesso.<br>
           Em breve, você receberá um e-mail com todas as informações e o código de rastreamento assim que o pedido for enviado.<br>
           Caso tenha dúvidas ou precise de suporte, entre em contato. Obrigado por comprar conosco.</p>

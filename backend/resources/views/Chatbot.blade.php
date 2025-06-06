@@ -54,7 +54,7 @@
         <li><a href="/">Início</a></li>
         <li><a href="/Smartphone">Smartphones</a></li>
         <li><a href="/Tablets">Tablets</a></li>
-        <li><a href="/Fones">Fones</a></li>
+        <li><a href="/Homepage_Fones">Fones</a></li>
         <li><a href="/Relogios">Relógios</a></li>
         <li><a href="/Notebooks">Notebooks</a></li>
         <li><a href="/Chatbot" class="active">Chatbot</a></li>

@@ -19,11 +19,11 @@
       <nav>
         <!-- Menu de navegação -->
         <ul class="menu">
-          <li><a href="../VIew/Smartphone.html">Smartphones</a></li>
-          <li><a href="../VIew/Tablets.html">Tablets</a></li>
-          <li><a href="../VIew/Fones.html">Fones</a></li>
-          <li><a href="../VIew/Relógios.html">Relógios</a></li>
-          <li><a href="../VIew/Notebooks.html">Notebooks</a></li>
+          <li><a href="/smartphones">Smartphones</a></li>
+          <li><a href="/tablets">Tablets</a></li>
+          <li><a href="/fones">Fones</a></li>
+          <li><a href="/relogios">Relógios</a></li>
+          <li><a href="/notebooks">Notebooks</a></li>
         </ul>
       </nav>
 
@@ -47,7 +47,7 @@
 
   <!-- Imagem rente à navbar -->
   <div class="banner-navbar" style="position: relative;">
-    <img src="../VIew/Media/Imagem Tecnologia Sobre.png" alt="Banner" />
+    <img src="/media/Imagem Tecnologia Sobre.png" alt="Banner" />
     <h1 class="sobre-nos-banner-title">SOBRE NÓS</h1>
   </div>
 
@@ -62,7 +62,7 @@
       <div class="toggle-icon">+</div>
     </div>
     <div class="section-content">
-      <img src="../VIew/Media/Logo do Grupo.png" alt="Equipe Silicon Devs" class="quem-somos-img" style="display:none;">
+      <img src="/media/Logo do Grupo.png" alt="Equipe Silicon Devs" class="quem-somos-img" style="display:none;">
       A Silicon Devs nasceu da união de quatro pessoas apaixonadas por tecnologia e inovação. Nosso projeto surgiu com um objetivo claro: criar um site intuitivo e eficiente para a venda de produtos tecnológicos, oferecendo aos clientes uma experiência fluida, segura e moderna.
 Nosso nome, Silicon Devs, é uma referência ao Vale do Silício, o maior polo tecnológico do mundo, berço das maiores inovações e startups de sucesso. Inspirados nesse ambiente de criatividade e evolução constante, buscamos trazer o melhor da tecnologia para nossos clientes, com um site que prioriza a usabilidade, rapidez e praticidade na navegação.
 Nosso compromisso é garantir que todos os nossos usuários encontrem facilmente os produtos que procuram, com descrições detalhadas, recomendações personalizadas e um processo de compra simplificado. Estamos sempre atentos às tendências do mercado para oferecer as últimas novidades, mantendo nossa plataforma atualizada e alinhada às necessidades dos consumidores.
@@ -188,7 +188,7 @@ A Silicon Devs é mais do que um e-commerce; somos um time dedicado a transforma
     </div>
   </div>
 </section>
-<img src="../VIew/Media/Logo do Grupo.png" alt="Como captamos seus dados" class="side-img">
+<img src="/media/Logo do Grupo.png" alt="Como captamos seus dados" class="side-img">
 
 <script>
   function toggleSection(header) {
@@ -209,28 +209,28 @@ A Silicon Devs é mais do que um e-commerce; somos um time dedicado a transforma
         <div class="footer-logo">
             <p>Conheça nosso repositório</p>
             <a href="https://github.com/jimmyadmsenior/Index" target="_blank">
-                <img src="../VIew/Media/Github_Logo.png" alt="GitHub" class="github-icon">
+                <img src="/media/Github_Logo.png" alt="GitHub" class="github-icon">
             </a>
         </div>
         <div class="footer-section">
             <h4>Nossas regras</h4>
-            <a href="../VIew/Politica_Privacidade.html">Política de Privacidade</a>
-            <a href="../VIew/Termos_Condicoes.html">Termos e Condições</a>
-            <a href="../VIew/Suporte.html">Suporte</a>
-            <a href="../VIew/Sobre.html">Sobre</a>
+            <a href="/politica-privacidade">Política de Privacidade</a>
+            <a href="/termos-condicoes">Termos e Condições</a>
+            <a href="/suporte">Suporte</a>
+            <a href="/sobre-nos">Sobre</a>
         </div>
         <div class="footer-section">
             <h4>Recursos</h4>
-            <a href="../VIew/Smartphone.html">Smartphones</a>
-            <a href="../VIew/Tablets.html">Tablets</a>
-            <a href="../VIew/Fones.html">Fones</a>
-            <a href="../VIew/Relógios.html">Relógios</a>
-            <a href="../VIew/Notebooks.html">Notebooks</a>
+            <a href="/smartphones">Smartphones</a>
+            <a href="/tablets">Tablets</a>
+            <a href="/fones">Fones</a>
+            <a href="/relogios">Relógios</a>
+            <a href="/notebooks">Notebooks</a>
         </div>
         <div class="footer-section">
             <h4>Conecte-se</h4>
             <a href="https://github.com/jimmyadmsenior/Index">Repositório</a>
-            <a href="../VIew/Download_App.html">Nosso App</a>
+            <a href="/download-app">Nosso App</a>
         </div>
     </div>
     <div class="copy">

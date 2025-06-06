@@ -12,6 +12,7 @@ Route::view('/confirmacao-adm', 'Confirmacao_ADM');
 Route::view('/compra-finalizada', 'Compra_Finalizada');
 Route::view('/Homepage_Com_Cadastro', 'Homepage_Com_Cadastro');
 Route::view('/Carrinho_Pagamento', 'Carrinho_Pagamento');
+Route::view('/Homepage_Fones', 'Homepage_Fones');
 
 Route::get('/cadastro', [CadastroController::class, 'showCadastro']);
 Route::post('/cadastro', [CadastroController::class, 'processaCadastro']);
@@ -37,9 +38,17 @@ Route::post('/login', function(Request $request) {
     return back()->withErrors(['email' => 'E-mail ou senha inválidos'])->withInput();
 });
 
-Route::post('/logout', function() {
-    Auth::logout();
-    request()->session()->invalidate();
-    request()->session()->regenerateToken();
-    return redirect('/login');
+Route::get('/pagamento-debito', function () {
+    return view('Pagamento_Debito');
 });
+Route::view('/confirmacao-cadastro', 'Confirmacao_Cadastro');
+Route::view('/compra-finalizada', 'Compra_Finalizada');
+Route::view('/Homepage_Com_Cadastro', 'Homepage_Com_Cadastro');
+Route::view('/Homepage_Fones', 'Homepage_Fones');
+Route::view('/recuperacao-senha', 'Recuperacao_Senha');
+Route::view('/confirmacao-adm', 'Confirmacao_ADM');
+Route::view('/Chatbot', 'Chatbot');
+Route::view('/sobre-nos', 'Sobre_Nós');
+Route::view('/confirmacao-adm2', 'Confirmacao_ADM2');
+Route::view('/recuperacao-senha2', 'Recuperacao_Senha2');
+
