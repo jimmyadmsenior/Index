@@ -64,9 +64,3 @@ Route::get('/pagamento-debito', function () {
     return view('Pagamento_Debito');
 });
 Route::view('/perguntas-frequentes', 'Perguntas_Frequentes');
-Route::view('/smartphones', 'Homepage_Smartphones');
-Route::view('/tablets', 'Homepage_Tablets');
-Route::view('/fones', 'HomePage_Fones');
-Route::view('/relogios', 'Relógios');
-Route::view('/notebooks', 'Notebooks');
-Route::view('/homepage_fones', 'HomePage_Fones');
