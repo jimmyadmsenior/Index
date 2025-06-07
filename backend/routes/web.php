@@ -13,6 +13,10 @@ Route::view('/compra-finalizada', 'Compra_Finalizada');
 Route::view('/Homepage_Com_Cadastro', 'Homepage_Com_Cadastro');
 Route::view('/Carrinho_Pagamento', 'Carrinho_Pagamento');
 Route::view('/Homepage_Fones', 'Homepage_Fones');
+Route::view('/Homepage_Smartphones', 'Homepage_Smartphones');
+Route::view('/Homepage_Tablets', 'Homepage_Tablets');
+Route::view('/Homepage_Relogios', 'Relógios');
+Route::view('/Homepage_Notebooks', 'Notebooks');
 
 Route::get('/cadastro', [CadastroController::class, 'showCadastro']);
 Route::post('/cadastro', [CadastroController::class, 'processaCadastro']);
@@ -38,6 +42,12 @@ Route::post('/login', function(Request $request) {
     return back()->withErrors(['email' => 'E-mail ou senha inválidos'])->withInput();
 });
 
+Route::post('/logout', function (Request $request) {
+    Auth::logout();
+    $request->session()->invalidate();
+    $request->session()->regenerateToken();
+    return redirect('/');
+})->name('logout');
 
 Route::view('/confirmacao-cadastro', 'Confirmacao_Cadastro');
 Route::view('/compra-finalizada', 'Compra_Finalizada');

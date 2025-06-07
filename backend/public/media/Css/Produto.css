@@ -99,6 +99,54 @@ nav ul.menu li a:hover {
   color: #bdbdbd;
   margin-top: 18px;
 }
+.sobre-toggle {
+  display: block;
+  margin: 0;
+  padding: 8px 22px;
+  background: #232323;
+  color: #fff;
+  border: none;
+  border-radius: 0;
+  font-size: 1.08rem;
+  font-family: 'Goeform', sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  border-bottom: none;
+}
+.sobre-toggle:hover {
+  background: #444;
+  color: #33ccff;
+}
+/* Efeito expandir/recolher para .descricao-produto */
+.descricao-produto {
+  background: #232323; /* cor sólida igual ao container */
+  color: #fff;
+  border-radius: 18px; /* igual ao .produto-container */
+  margin-top: 0;
+  padding: 18px 22px;
+  font-size: 1.13rem;
+  line-height: 1.6;
+  box-shadow: 0 4px 32px 0 rgba(0,0,0,0.18); /* igual ao .produto-container */
+  border: none;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.4,0,0.2,1);
+}
+.descricao-produto.aberta {
+  max-height: 500px; /* valor suficiente para o conteúdo, ajuste se necessário */
+  overflow: visible;
+}
+.sobre-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-bottom: 0;
+  margin-top: 0;
+}
+.sobre-toggle + .descricao-produto {
+  margin-top: 0;
+}
 @media (max-width: 900px) {
   .produto-container {
     flex-direction: column;
