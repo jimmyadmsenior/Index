@@ -73,7 +73,7 @@
             <img src="/media/pix2.png" alt="Pix" style="width:38px;filter:drop-shadow(0 2px 8px #00c86f88);"/>
             <span style="font-size:1.15rem;color:#fff;font-weight:600;">Pix</span>
           </div>
-          <a href="/Carrinho_Pix" style="padding:12px 28px;border-radius:8px;background:#fff;color:#00c86f;font-weight:700;font-size:1.08rem;text-decoration:none;box-shadow:0 2px 8px #00c86f33;transition:background 0.2s;">Pagar com Pix</a>
+          <a href="/Carrinho_Pix" id="btn-pagar-pix" style="padding:12px 28px;border-radius:8px;background:#fff;color:#00c86f;font-weight:700;font-size:1.08rem;text-decoration:none;box-shadow:0 2px 8px #00c86f33;transition:background 0.2s;">Pagar com Pix</a>
         </div>
       </div>
     </section>
@@ -275,6 +275,18 @@
     formCartao.addEventListener('submit', function(e) {
       e.preventDefault();
       window.location.href = '/compra-finalizada';
+    });
+  }
+});
+    </script>
+    <script>
+      // Redirecionamento ao clicar em "Pagar com Pix"
+      document.addEventListener('DOMContentLoaded', function() {
+  const btnPix = document.getElementById('btn-pagar-pix');
+  if (btnPix) {
+    btnPix.addEventListener('click', function(e) {
+      e.preventDefault();
+      window.location.href = '/Carrinho_Pix';
     });
   }
 });
