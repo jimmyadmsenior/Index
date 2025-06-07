@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CadastroController;
+use App\Http\Controllers\CompraController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
@@ -30,12 +31,17 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/perfil', [App\Http\Controllers\PerfilController::class, 'show'])->name('perfil.show');
     Route::post('/perfil/foto', [App\Http\Controllers\PerfilController::class, 'updateFoto'])->name('perfil.updateFoto');
     Route::post('/perfil/senha', [App\Http\Controllers\PerfilController::class, 'updateSenha'])->name('perfil.updateSenha');
+    Route::post('/finalizar-compra', [CompraController::class, 'finalizar'])->name('compra.finalizar');
 });
 
 Route::post('/login', function(Request $request) {
-    $credentials = $request->only('email', 'senha');
+    $credentials = [
+        'email' => $request->input('email'),
+        'password' => $request->input('senha'),
+    ];
     $remember = $request->has('lembrar');
-    if (Auth::attempt(['email' => $credentials['email'], 'password' => $credentials['senha']], $remember)) {
+    // O Auth::attempt já faz o hash da senha automaticamente
+    if (Auth::attempt($credentials, $remember)) {
         $request->session()->regenerate();
         return redirect('/Homepage_Com_Cadastro');
     }

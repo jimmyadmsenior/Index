@@ -12,6 +12,11 @@
   <link rel="stylesheet" href="/media/ChatBot/style.css">
 </head>
 <body>
+  @php
+    if(request('produto_id')) {
+      session(['produto_id' => request('produto_id')]);
+    }
+  @endphp
   <header>
     <div class="header-content">
       <div class="logo">
@@ -57,7 +62,9 @@
             <i class="fas fa-credit-card" style="font-size:1.5rem;color:#fff;"></i>
             <span style="font-size:1.15rem;color:#fff;font-weight:600;">Cartão de Crédito</span>
           </div>
-          <form id="form-cartao" style="display:flex;flex-direction:column;gap:14px;">
+          <form id="form-cartao" action="/finalizar-compra" method="POST" style="display:flex;flex-direction:column;gap:14px;">
+            @csrf
+            <input type="hidden" name="produto_id" id="produto_id_pagamento" value="{{ session('produto_id') ?? request('produto_id') ?? '' }}">
             <input type="text" placeholder="Nome no cartão" name="nome_cartao" required pattern="[A-Za-zÀ-ÿ ']+" title="Apenas letras" style="padding:11px;border-radius:7px;border:1px solid #3a3a4a;background:#23243a;color:#fff;"/>
             <input type="text" placeholder="Número do cartão" name="numero_cartao" required maxlength="19" pattern="[0-9 ]+" title="Apenas números" inputmode="numeric" style="padding:11px;border-radius:7px;border:1px solid #3a3a4a;background:#23243a;color:#fff;"/>
             <div style="display:flex;gap:10px;">
@@ -263,18 +270,6 @@
     nomeCartao.addEventListener('input', function(e) {
       // Permite apenas letras, acentos e espaço
       this.value = this.value.replace(/[^A-Za-zÀ-ÿ ']/g, '');
-    });
-  }
-});
-    </script>
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-  // Redireciona para compra_finalizada ao submeter o formulário do cartão
-  const formCartao = document.getElementById('form-cartao');
-  if (formCartao) {
-    formCartao.addEventListener('submit', function(e) {
-      e.preventDefault();
-      window.location.href = '/compra-finalizada';
     });
   }
 });
