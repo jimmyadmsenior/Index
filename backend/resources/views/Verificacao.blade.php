@@ -12,7 +12,11 @@
 <header>
   <div class="header-content">
     <div class="logo">
-      <img src="/media/Logo_Branca.png" alt="Logo da empresa">
+      @if(Auth::check())
+          <a href="/Homepage_Com_Cadastro"><img src="/media/Logo_Branca.png" alt="Logo da empresa"></a>
+      @else
+          <a href="/"><img src="/media/Logo_Branca.png" alt="Logo da empresa"></a>
+      @endif
     </div>
     <nav>
       <ul class="menu">
