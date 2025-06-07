@@ -13,7 +13,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.15.0/TweenMax.min.js"></script>
   <script src="/media/Cursor/EfeitoCursor/src/script.js" defer></script>
   <div id="cursor-blur-boxes">
-    <div class="box"></div><div class="box"></div><div class="box"></div><div class="box"></div><div class="box"></div><div class="box"></div><div class="box"></div><div class="box"></div><div class="box"></div><div class="box"></div><div class="box"></div><div class="box"></div><div class="box"></div><div class="box"></div><div class="box"></div><div class="box"></div><div class="box"></div><div class="box"></div>
+    <div class="box"></div><div class="box"></div><div class="box"></div><div class="box"></div><div class="box"></div><div class="box"></div><div class="box"></div><div class="box"></div><div class="box"></div><div class="box"></div><div class="box"></div><div class="box"></div><div class="box"></div><div class="box"></div><div class="box"></div><div class="box"></div><div class="box"></div><div class="box"></div><div class="box"></div>
   </div>
   <style>
     #cursor-blur-boxes .box {
@@ -51,11 +51,11 @@
       <nav>
         <!-- Menu de navegação -->
         <ul class="menu">
-          <li><a href="/smartphones">Smartphones</a></li>
-          <li><a href="/tablets">Tablets</a></li>
-          <li><a href="/fones">Fones</a></li>
-          <li><a href="/relogios">Relógios</a></li>
-          <li><a href="/notebooks">Notebooks</a></li>
+          <li><a href="/Homepage_Smartphones">Smartphones</a></li>
+          <li><a href="/Homepage_Tablets">Tablets</a></li>
+          <li><a href="/Homepage_Fones">Fones</a></li>
+          <li><a href="/Homepage_Relogios">Relógios</a></li>
+          <li><a href="/Homepage_Notebooks">Notebooks</a></li>
         </ul>
       </nav>
 

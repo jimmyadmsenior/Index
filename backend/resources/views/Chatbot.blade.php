@@ -23,11 +23,11 @@
       </div>
       <nav>
         <ul class="menu">
-          <li><a href="/Smartphone">Smartphones</a></li>
-          <li><a href="/Tablets">Tablets</a></li>
-          <li><a href="/Fones">Fones</a></li>
-          <li><a href="/Relogios">Relógios</a></li>
-          <li><a href="/Notebooks">Notebooks</a></li>
+          <li><a href="/categoria/smartphones">Smartphones</a></li>
+          <li><a href="/categoria/tablets">Tablets</a></li>
+          <li><a href="/Homepage_Fones">Fones</a></li>
+          <li><a href="/categoria/relogios">Relógios</a></li>
+          <li><a href="/categoria/notebooks">Notebooks</a></li>
         </ul>
       </nav>
       <div class="icons">
@@ -50,6 +50,9 @@
       </div>
     </div>
   </header>
+  <!-- Spline Animation no topo, ocupando 100% da largura -->
+  <script type="module" src="https://unpkg.com/@splinetool/viewer@1.10.2/build/spline-viewer.js"></script>
+  <spline-viewer url="https://prod.spline.design/tGzpUkIZMbzawcff/scene.splinecode"></spline-viewer>
   <!-- Seção explicativa do Chatbot -->
   <section class="chatbot-explicacao">
     <div class="chatbot-explicacao-container">
@@ -66,6 +69,28 @@
       <p class="chatbot-explicacao-final">Você pode acessar o Índigo em qualquer página pelo ícone no canto inferior direito.<br>Experimente conversar com ele agora mesmo!</p>
     </div>
   </section>
+  <!-- Chatbot Widget no canto inferior direito -->
+  <link rel="stylesheet" href="/media/ChatBot/ModernChatBot.css">
+  <div id="modern-chatbot-widget">
+    <div class="modern-chatbot-fab" id="modernChatbotFab" title="Falar com Índigo">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="12" fill="currentColor"/></svg>
+    </div>
+    <div class="modern-chatbot-window" id="modernChatbotWindow">
+      <div class="modern-chatbot-header">
+        <div class="modern-chatbot-avatar">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="12" fill="currentColor"/></svg>
+        </div>
+        <div>
+          <div class="modern-chatbot-title">Índigo</div>
+          <div class="modern-chatbot-desc">Assistente Virtual</div>
+        </div>
+        <button class="modern-chatbot-close" id="modernChatbotClose" title="Fechar">×</button>
+      </div>
+      <div class="modern-chatbot-messages" id="modernChatbotMessages"></div>
+      <div class="modern-chatbot-footer" id="modernChatbotFooter"></div>
+    </div>
+  </div>
+  <script src="/media/ChatBot/ModernChatBot.js" defer></script>
   <!-- Footer igual à Homepage_Com_Cadastro -->
   <footer>
     <div class="footer-content">
