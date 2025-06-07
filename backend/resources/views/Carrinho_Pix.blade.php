@@ -10,6 +10,9 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body>
+  @php
+    $produto_id = session('produto_id') ?? request('produto_id') ?? '';
+  @endphp
   <header>
     <div class="header-content">
       <div class="logo">
@@ -51,7 +54,11 @@
       <!-- Imagem do Pix removida -->
       <div style="margin-bottom:10px;"><img id="pix-qrcode" src="/media/Qr_Code_test.png" alt="QR Code" style="width:220px;"/></div>
       <p class="pix-codigo" style="color:#fff;font-size:1.05rem;margin-bottom:24px;">123e4567-e89b-12d3-a456-426614174000</p>
-      <button id="pix-btn" class="featured-link" style="display:inline-block;margin-top:10px;padding:14px 40px;font-size:1.15rem;border-radius:10px;background:#000;color:#fff;font-weight:700;text-decoration:none;cursor:pointer;border:none;transition:none;">Continuar</button>
+      <form id="form-pix" action="/finalizar-compra" method="POST" style="margin:0;">
+        @csrf
+        <input type="hidden" name="produto_id" id="produto_id_pix" value="{{ $produto_id }}">
+        <button id="pix-btn" class="featured-link" type="submit" style="display:inline-block;margin-top:10px;padding:14px 40px;font-size:1.15rem;border-radius:10px;background:#000;color:#fff;font-weight:700;text-decoration:none;cursor:pointer;border:none;transition:none;">Continuar</button>
+      </form>
     </section>
     <div style="height:60px;"></div>
   </main>
@@ -153,10 +160,6 @@
       applyPixSectionTheme();
       document.getElementById('theme-toggle').addEventListener('change', applyPixSectionTheme);
       prefersDarkScheme.addEventListener('change', applyPixSectionTheme);
-    });
-    // Redireciona ao clicar no botão 'Continuar'
-    document.getElementById('pix-btn').addEventListener('click', function() {
-      window.location.href = '/compra-finalizada';
     });
   </script>
   <style>

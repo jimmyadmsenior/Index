@@ -135,7 +135,7 @@
         <br>
         <span style="color:#7fff7f;font-size:1em;font-weight:600;">à vista: R$ {{ number_format($produto->preco * 0.95, 2, ',', '.') }} (5% OFF)</span>
       </p>
-      <a href="/Carrinho_Pagamento" class="btn-comprar verification-btn-adm">Comprar</a>
+      <a href="/Carrinho_Pagamento?produto_id={{ $produto->id }}" class="btn-comprar verification-btn-adm">Comprar</a>
     </div>
   </div>
 </main>
