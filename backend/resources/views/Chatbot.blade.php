@@ -50,12 +50,22 @@
       </div>
     </div>
   </header>
-  <main style="padding:0;margin:0;">
-    <!-- Spline Animation no topo, ocupando 100% da largura -->
-    <script type="module" src="https://unpkg.com/@splinetool/viewer@1.10.2/build/spline-viewer.js"></script>
-    <spline-viewer url="https://prod.spline.design/tGzpUkIZMbzawcff/scene.splinecode"></spline-viewer>
-    <!-- Conteúdo principal pode ser adicionado aqui -->
-  </main>
+  <!-- Seção explicativa do Chatbot -->
+  <section class="chatbot-explicacao">
+    <div class="chatbot-explicacao-container">
+      <h2>Como funciona o Chatbot Índigo?</h2>
+      <p>
+        O <strong>Chatbot Índigo</strong> é o assistente virtual inteligente do Index! Ele foi desenvolvido para:
+      </p>
+      <ul>
+        <li><i class="fas fa-comment-dots"></i> Responder dúvidas sobre produtos, compras e entregas.</li>
+        <li><i class="fas fa-search"></i> Ajudar na navegação do site e encontrar ofertas.</li>
+        <li><i class="fas fa-bolt"></i> Oferecer suporte rápido e personalizado 24h.</li>
+        <li><i class="fas fa-robot"></i> Simular conversas naturais, tornando sua experiência mais fluida.</li>
+      </ul>
+      <p class="chatbot-explicacao-final">Você pode acessar o Índigo em qualquer página pelo ícone no canto inferior direito.<br>Experimente conversar com ele agora mesmo!</p>
+    </div>
+  </section>
   <!-- Footer igual à Homepage_Com_Cadastro -->
   <footer>
     <div class="footer-content">
@@ -137,6 +147,7 @@
       background: rgba(0, 0, 0, 0.9);
       border: 2px solid #fff;
     }
+
   </style>
   <!-- Script de tema igual à homepage -->
   <script>
@@ -177,5 +188,107 @@
       prefersDarkScheme.addEventListener('change', syncWithSystemTheme);
     });
   </script>
+  <!-- Estilo dedicado para a seção explicativa do Chatbot -->
+  <style>
+    /* Estilo dedicado para a seção explicativa do Chatbot - agora neutro (preto/branco) e com suporte a tema, conforme solicitado */
+    body {
+      background: #fff !important;
+      transition: background 0.3s;
+    }
+    .chatbot-explicacao {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin: 0;
+      padding: 0;
+      background: none;
+    }
+    .chatbot-explicacao-container {
+      max-width: 700px;
+      margin: 40px auto 0 auto;
+      padding: 32px 24px;
+      background: #111;
+      border-radius: 20px;
+      box-shadow: 0 4px 24px 0 rgba(30,30,30,0.08);
+      text-align: center;
+      color: #fff;
+      border: 1.5px solid #222;
+      transition: background 0.3s, color 0.3s, border 0.3s;
+    }
+    .chatbot-explicacao-container h2 {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 18px;
+      transition: color 0.3s;
+    }
+    .chatbot-explicacao-container p {
+      font-size: 1.15rem;
+      color: #e0e0e0;
+      margin-bottom: 24px;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    .chatbot-explicacao-container ul {
+      text-align: left;
+      max-width: 420px;
+      margin: 0 auto 24px auto;
+      padding-left: 0;
+      list-style: none;
+    }
+    .chatbot-explicacao-container ul li {
+      margin-bottom: 10px;
+      padding-left: 28px;
+      position: relative;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: #fff;
+      transition: color 0.3s;
+    }
+    .chatbot-explicacao-container ul li i {
+      position: absolute;
+      left: 0;
+      top: 2px;
+      color: #fff;
+      transition: color 0.3s;
+    }
+    .chatbot-explicacao-final {
+      color: #e0e0e0;
+      font-size: 1.05rem;
+      margin-bottom: 0;
+      transition: color 0.3s;
+    }
+    /* Dark mode */
+    html[data-theme="dark"] body {
+      background: #181818 !important;
+    }
+    html[data-theme="dark"] .chatbot-explicacao-container {
+      background: #f7f7f7;
+      color: #222;
+      border: 1.5px solid #333;
+    }
+    html[data-theme="dark"] .chatbot-explicacao-container h2 {
+      color: #111;
+    }
+    html[data-theme="dark"] .chatbot-explicacao-container p,
+    html[data-theme="dark"] .chatbot-explicacao-final {
+      color: #333;
+    }
+    html[data-theme="dark"] .chatbot-explicacao-container ul li {
+      color: #222;
+    }
+    html[data-theme="dark"] .chatbot-explicacao-container ul li i {
+      color: #111;
+    }
+    @media (max-width: 800px) {
+      .chatbot-explicacao-container {
+        max-width: 98vw;
+        padding: 18px 6vw;
+      }
+      .chatbot-explicacao-container ul {
+        max-width: 98vw;
+      }
+    }
+  </style>
 </body>
 </html>
