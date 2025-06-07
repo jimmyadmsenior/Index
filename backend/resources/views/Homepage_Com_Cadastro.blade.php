@@ -19,11 +19,11 @@
       </div>
       <nav>
         <ul class="menu">
-          <li><a href="/Smartphone">Smartphones</a></li>
-          <li><a href="/Tablets">Tablets</a></li>
-          <li><a href="/Fones">Fones</a></li>
-          <li><a href="/Relogios">Relógios</a></li>
-          <li><a href="/Notebooks">Notebooks</a></li>
+          <li><a href="/smartphones">Smartphones</a></li>
+          <li><a href="/tablets">Tablets</a></li>
+          <li><a href="/Homepage_Fones">Fones</a></li>
+          <li><a href="/relogios">Relógios</a></li>
+          <li><a href="/notebooks">Notebooks</a></li>
         </ul>
       </nav>
       <div class="icons">
@@ -142,11 +142,11 @@
         </div>
         <div class="footer-section">
             <h4>Recursos</h4>
-            <a href="/Smartphone">Smartphones</a>
-            <a href="/Tablets">Tablets</a>
-            <a href="/Fones">Fones</a>
-            <a href="/Relogios">Relógios</a>
-            <a href="/Notebooks">Notebooks</a>
+            <a href="/smartphones">Smartphones</a>
+            <a href="/tablets">Tablets</a>
+            <a href="/fones">Fones</a>
+            <a href="/relogios">Relógios</a>
+            <a href="/notebooks">Notebooks</a>
         </div>
         <div class="footer-section">
             <h4>Conecte-se</h4>
