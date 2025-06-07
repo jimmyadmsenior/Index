@@ -23,11 +23,11 @@
       </div>
       <nav>
         <ul class="menu">
-          <li><a href="/Smartphone">Smartphones</a></li>
-          <li><a href="/Tablets">Tablets</a></li>
-          <li><a href="/Fones">Fones</a></li>
-          <li><a href="/Relogios">Relógios</a></li>
-          <li><a href="/Notebooks">Notebooks</a></li>
+          <li><a href="/smartphones">Smartphones</a></li>
+          <li><a href="/tablets">Tablets</a></li>
+          <li><a href="/Homepage_Fones">Fones</a></li>
+          <li><a href="/relogios">Relógios</a></li>
+          <li><a href="/notebooks">Notebooks</a></li>
         </ul>
       </nav>
       <div class="icons">
@@ -119,11 +119,11 @@
         </div>
         <div class="footer-section">
             <h4>Recursos</h4>
-            <a href="/Smartphone">Smartphones</a>
-            <a href="/Tablets">Tablets</a>
-            <a href="/Fones">Fones</a>
-            <a href="/Relogios">Relógios</a>
-            <a href="/Notebooks">Notebooks</a>
+            <a href="/smartphones">Smartphones</a>
+            <a href="/tablets">Tablets</a>
+            <a href="/fones">Fones</a>
+            <a href="/relogios">Relógios</a>
+            <a href="/notebooks">Notebooks</a>
         </div>
         <div class="footer-section">
             <h4>Conecte-se</h4>
@@ -159,43 +159,45 @@
   <script src="/media/ChatBot/ModernChatBot.js" defer></script>
   <!-- Fim do novo Chatbot Widget -->
   <script>
-    // Script para alternar entre os temas claro e escuro
-    document.addEventListener('DOMContentLoaded', function() {
-      const savedTheme = localStorage.getItem('theme') || 'light';
-      document.documentElement.setAttribute('data-theme', savedTheme);
-      document.getElementById('theme-toggle').checked = savedTheme === 'dark';
-      document.getElementById('theme-toggle').addEventListener('change', function(e) {
-        if(e.target.checked) {
+  // Script para alternar entre os temas claro e escuro
+  document.addEventListener('DOMContentLoaded', function() {
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+    const themeToggle = document.getElementById('theme-toggle');
+    if(themeToggle) themeToggle.checked = savedTheme === 'dark';
+    if(themeToggle) themeToggle.addEventListener('change', function(e) {
+      if(e.target.checked) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+        document.body.classList.add('theme-transition');
+        setTimeout(() => {
+          document.body.classList.remove('theme-transition');
+        }, 1000);
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+        localStorage.setItem('theme', 'light');
+        document.body.classList.add('theme-transition');
+        setTimeout(() => {
+          document.body.classList.remove('theme-transition');
+        }, 1000);
+      }
+    });
+    const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+    function syncWithSystemTheme(e) {
+      if (!localStorage.getItem('theme')) {
+        if (e.matches) {
           document.documentElement.setAttribute('data-theme', 'dark');
-          localStorage.setItem('theme', 'dark');
-          document.body.classList.add('theme-transition');
-          setTimeout(() => {
-            document.body.classList.remove('theme-transition');
-          }, 1000);
+          if(themeToggle) themeToggle.checked = true;
         } else {
           document.documentElement.setAttribute('data-theme', 'light');
-          localStorage.setItem('theme', 'light');
-          document.body.classList.add('theme-transition');
-          setTimeout(() => {
-            document.body.classList.remove('theme-transition');
-          }, 1000);
-        }
-      });
-      const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
-      function syncWithSystemTheme(e) {
-        if (!localStorage.getItem('theme')) {
-          if (e.matches) {
-            document.documentElement.setAttribute('data-theme', 'dark');
-            document.getElementById('theme-toggle').checked = true;
-          } else {
-            document.documentElement.setAttribute('data-theme', 'light');
-            document.getElementById('theme-toggle').checked = false;
-          }
+          if(themeToggle) themeToggle.checked = false;
         }
       }
-      syncWithSystemTheme(prefersDarkScheme);
-      prefersDarkScheme.addEventListener('change', syncWithSystemTheme);
-    });  </script>
+    }
+    syncWithSystemTheme(prefersDarkScheme);
+    prefersDarkScheme.addEventListener('change', syncWithSystemTheme);
+  });
+  </script>
   <script>
     // Efeito de scroll no vídeo do iPhone
     window.addEventListener('scroll', function() {

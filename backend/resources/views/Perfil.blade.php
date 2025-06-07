@@ -44,3 +44,44 @@
 @push('styles')
 <link rel="stylesheet" href="/media/Css/Perfil.css">
 @endpush
+@section('scripts')
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+    const themeToggle = document.getElementById('theme-toggle');
+    if(themeToggle) themeToggle.checked = savedTheme === 'dark';
+    if(themeToggle) themeToggle.addEventListener('change', function(e) {
+      if(e.target.checked) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+        document.body.classList.add('theme-transition');
+        setTimeout(() => {
+          document.body.classList.remove('theme-transition');
+        }, 1000);
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+        localStorage.setItem('theme', 'light');
+        document.body.classList.add('theme-transition');
+        setTimeout(() => {
+          document.body.classList.remove('theme-transition');
+        }, 1000);
+      }
+    });
+    const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+    function syncWithSystemTheme(e) {
+      if (!localStorage.getItem('theme')) {
+        if (e.matches) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+          if(themeToggle) themeToggle.checked = true;
+        } else {
+          document.documentElement.setAttribute('data-theme', 'light');
+          if(themeToggle) themeToggle.checked = false;
+        }
+      }
+    }
+    syncWithSystemTheme(prefersDarkScheme);
+    prefersDarkScheme.addEventListener('change', syncWithSystemTheme);
+  });
+</script>
+@endsection

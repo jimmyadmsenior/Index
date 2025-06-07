@@ -9,6 +9,31 @@
     <link rel="stylesheet" href="/media/Css/Homepage_Sem_Cadastro_Custom.css">
     <link rel="stylesheet" href="/media/Css/Perfil.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- Cursor Motion Blur Effect -->
+    <link rel="stylesheet" href="/media/Cursor/EfeitoCursor/dist/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.15.0/TweenMax.min.js"></script>
+    <script src="/media/Cursor/EfeitoCursor/src/script.js" defer></script>
+    <div id="cursor-blur-boxes">
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+    </div>
+    <!-- Fim Cursor Motion Blur Effect -->
 </head>
 <body>
     <header>
