@@ -20,6 +20,7 @@ return new class extends Migration
             $table->decimal('preco', 10, 2)->default(0);
             $table->text('descricao')->nullable();
             $table->string('imagem')->nullable();
+            $table->foreignId('categoria_id')->constrained('categorias');
             $table->timestamps();
         });
     }
