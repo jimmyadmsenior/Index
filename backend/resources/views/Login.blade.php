@@ -140,9 +140,10 @@
     .login-left[data-theme="light"] .form-input,
     .login-left[data-theme="light"] input,
     .login-left[data-theme="light"] textarea {
-      background: #fff !important;
-      color: #232323 !important;
-      border-color: #ccc !important;
+      background: #181818 !important;
+      color: #fff !important;
+      border-color: #444 !important;
+      box-shadow: none !important;
     }
     .login-left[data-theme="light"] label,
     .login-left[data-theme="light"] .form-label,
@@ -181,6 +182,23 @@
     }
     .login-left[data-theme="dark"] h1 img {
       filter: none !important;
+    }
+    .login-left[data-theme="light"] .toggle-password i {
+      color: #fff !important;
+    }
+    .login-left[data-theme="dark"] .toggle-password i {
+      color: #fff !important;
+    }
+    .toggle-password {
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+      padding: 0 !important;
+    }
+    .toggle-password i {
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
     }
   </style>
 </body>

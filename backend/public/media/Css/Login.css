@@ -173,7 +173,6 @@ nav ul.menu li a:hover {
   background-clip: padding-box !important;
   font-size: 1.15rem !important;
 }
-/* Autofill fix para Firefox */
 input.form-input:-moz-autofill {
   box-shadow: 0 0 0 1000px #181818 inset !important;
   -moz-text-fill-color: #fff !important;
@@ -182,21 +181,6 @@ input.form-input:-moz-autofill {
   outline: none !important;
   background-clip: padding-box !important;
   font-size: 1.15rem !important;
-}
-/* Remove border duplicada do autofill */
-.input-wrapper:has(.form-input:-webkit-autofill) {
-  border: 2px solid #fff2 !important;
-}
-.input-wrapper:has(input.form-input:-moz-autofill) {
-  border: 2px solid #fff2 !important;
-}
-.toggle-password {
-  background: none;
-  border: none;
-  color: #fff;
-  font-size: 1.2em;
-  margin-left: 0.5em;
-  cursor: pointer;
 }
 .form-options {
   display: flex;
@@ -383,4 +367,12 @@ input.form-input:-moz-autofill {
   .login-btn {
     max-width: 98vw;
   }
+}
+.login-left[data-theme="light"] .form-input,
+.login-left[data-theme="light"] input,
+.login-left[data-theme="light"] textarea {
+  background: #181818 !important;
+  color: #fff !important;
+  border-color: #444 !important;
+  box-shadow: none !important;
 }
