@@ -67,7 +67,7 @@ class CadastroController extends Controller
                 'password' => $senha, // O cast 'hashed' já faz o hash
             ]);
             Session::forget(['cadastro_email', 'cadastro_nome', 'cadastro_senha', 'cadastro_codigo']);
-            return redirect('/login')->with('success', 'Cadastro confirmado! Faça login.');
+            return redirect('/confirmacao-cadastro');
         } else {
             return redirect('/verificacao')->with('erro', 'Código incorreto. Tente novamente.');
         }
