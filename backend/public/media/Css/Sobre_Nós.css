@@ -12,6 +12,8 @@ html, body {
 }
 
 /* Variáveis para tema claro (padrão) */
+
+
 :root {
   --bg-color: #fff;
   --text-color: #000;
