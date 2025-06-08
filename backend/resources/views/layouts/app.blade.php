@@ -18,11 +18,11 @@
             </div>
             <nav>
                 <ul class="menu">
-                    <li><a href="/Smartphone">Smartphones</a></li>
-                    <li><a href="/Tablets">Tablets</a></li>
-                    <li><a href="/Fones">Fones</a></li>
-                    <li><a href="/Relogios">Relógios</a></li>
-                    <li><a href="/Notebooks">Notebooks</a></li>
+                    <li><a href="/Homepage_Smartphones">Smartphones</a></li>
+                    <li><a href="/Homepage_Tablets">Tablets</a></li>
+                    <li><a href="/Homepage_Fones">Fones</a></li>
+                    <li><a href="/Homepage_Relogios">Relógios</a></li>
+                    <li><a href="/Homepage_Notebooks">Notebooks</a></li>
                 </ul>
             </nav>
             <div class="icons">
