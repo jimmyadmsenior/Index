@@ -38,7 +38,7 @@
       </div>
     </div>
   </header>
-  <main class="cadastro-main" style="min-height:100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 0;">
+  <main class="cadastro-main" style="min-height:100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 0; margin-top: 60px;">
     <form method="POST" action="/cadastro" autocomplete="off" class="cadastro-form-container cadastro-form">
       @csrf
       @if($errors->any())

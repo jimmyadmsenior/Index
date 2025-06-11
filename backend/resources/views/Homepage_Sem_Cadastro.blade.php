@@ -219,7 +219,7 @@
   <link rel="stylesheet" href="/media/Cursor/EfeitoCursor/dist/style.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.15.0/TweenMax.min.js"></script>
-  <script src="/media/Cursor/EfeitoCursor/dist/script.js" defer></script>
+  <script src="/media/Cursor/EfeitoCursor/src/script.js" defer></script>
   <!-- Elementos do efeito cursor -->
   <div id="cursor-blur-boxes">
     <div class="box"></div>
@@ -241,5 +241,165 @@
     <div class="box"></div>
   </div>
   <!-- Fim Cursor Motion Blur Effect -->
+  <!-- Modal de login obrigatório -->
+  <div id="login-required-modal" class="login-modal-hidden">
+    <div class="login-modal-content">
+      <button class="login-modal-close" id="loginModalClose" title="Fechar">&times;</button>
+      <div class="login-modal-icon"><i class="fa-solid fa-lock"></i></div>
+      <h2>Faça login para comprar</h2>
+      <p>Você precisa estar logado para comprar um produto.</p>
+      <div class="login-modal-actions">
+        <a href="/login" class="login-modal-btn login">Fazer login</a>
+        <a href="/cadastro" class="login-modal-btn cadastro">Cadastrar-se</a>
+      </div>
+    </div>
+  </div>
+  <style>
+    #login-required-modal {
+      position: fixed;
+      top: 0; left: 0; width: 100vw; height: 100vh;
+      background: rgba(0,0,0,0.55);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000000;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.35s cubic-bezier(.4,0,.2,1);
+    }
+    #login-required-modal.login-modal-visible {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .login-modal-content {
+      background: #181818;
+      color: #fff;
+      border-radius: 18px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.28);
+      padding: 38px 32px 28px 32px;
+      min-width: 320px;
+      max-width: 90vw;
+      text-align: center;
+      position: relative;
+      transform: translateY(40px) scale(0.98);
+      opacity: 0;
+      transition: all 0.45s cubic-bezier(.4,0,.2,1);
+      animation: modalIn 0.5s cubic-bezier(.4,0,.2,1) forwards;
+    }
+    #login-required-modal.login-modal-visible .login-modal-content {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+    @keyframes modalIn {
+      from { opacity: 0; transform: translateY(40px) scale(0.98); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    .login-modal-icon {
+      font-size: 2.8rem;
+      margin-bottom: 18px;
+      color: #fff;
+      background: #000;
+      border-radius: 50%;
+      width: 64px; height: 64px;
+      display: flex; align-items: center; justify-content: center;
+      margin-left: auto; margin-right: auto;
+      box-shadow: 0 2px 12px 0 #0004;
+      animation: iconPop 0.7s cubic-bezier(.4,0,.2,1);
+    }
+    @keyframes iconPop {
+      0% { transform: scale(0.7); opacity: 0; }
+      60% { transform: scale(1.15); opacity: 1; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    .login-modal-content h2 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: #fff;
+      letter-spacing: 0.01em;
+    }
+    .login-modal-content p {
+      color: #ccc;
+      font-size: 1.05rem;
+      margin-bottom: 22px;
+    }
+    .login-modal-actions {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      margin-top: 10px;
+    }
+    .login-modal-btn {
+      padding: 10px 28px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 1rem;
+      border: none;
+      text-decoration: none;
+      color: #fff;
+      background: linear-gradient(90deg, #000 60%, #222 100%);
+      box-shadow: 0 2px 8px 0 #0002;
+      transition: background 0.2s, box-shadow 0.2s, color 0.2s, transform 0.2s;
+      letter-spacing: 0.04em;
+      display: inline-block;
+    }
+    .login-modal-btn.login {
+      background: linear-gradient(90deg, #0078ff 60%, #00c6ff 100%);
+      color: #fff;
+    }
+    .login-modal-btn.cadastro {
+      background: linear-gradient(90deg, #000 60%, #222 100%);
+      color: #fff;
+    }
+    .login-modal-btn:hover {
+      filter: brightness(1.15);
+      transform: scale(1.06);
+      box-shadow: 0 4px 16px 0 #0078ff33;
+    }
+    .login-modal-close {
+      position: absolute;
+      top: 16px; right: 18px;
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 1.7rem;
+      cursor: pointer;
+      transition: color 0.2s, transform 0.2s;
+      z-index: 2;
+    }
+    .login-modal-close:hover {
+      color: #0078ff;
+      transform: scale(1.2);
+    }
+    @media (max-width: 500px) {
+      .login-modal-content {
+        min-width: 0;
+        width: 95vw;
+        padding: 18px 4vw 18px 4vw;
+      }
+    }
+  </style>
+  <script>
+    // Modal de login obrigatório
+    document.addEventListener('DOMContentLoaded', function() {
+      // Seleciona todos os botões "Comprar" da homepage sem cadastro
+      document.querySelectorAll('.featured-link').forEach(function(btn) {
+        btn.addEventListener('click', function(e) {
+          e.preventDefault();
+          const modal = document.getElementById('login-required-modal');
+          modal.classList.add('login-modal-visible');
+        });
+      });
+      // Fecha o modal ao clicar no X ou fora do conteúdo
+      document.getElementById('loginModalClose').onclick = function() {
+        document.getElementById('login-required-modal').classList.remove('login-modal-visible');
+      };
+      document.getElementById('login-required-modal').addEventListener('click', function(e) {
+        if (e.target === this) {
+          this.classList.remove('login-modal-visible');
+        }
+      });
+    });
+  </script>
 </body>
 </html>
