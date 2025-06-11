@@ -38,7 +38,7 @@
       </div>
     </div>
   </header>
-  <main class="cadastro-main" style="min-height:100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 0;">
+  <main class="cadastro-main" style="min-height:100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 0; margin-top: 60px;">
     <form method="POST" action="/cadastro" autocomplete="off" class="cadastro-form-container cadastro-form">
       @csrf
       @if($errors->any())
@@ -323,6 +323,19 @@
     <div class="box"></div>
   </div>
   <style>
+    html, body, * {
+      cursor: none !important;
+    }
+    #cursor-blur-boxes {
+      position: fixed !important;
+      pointer-events: none !important;
+      z-index: 1000001 !important;
+      top: 0; left: 0; width: 100vw; height: 100vh;
+    }
+    #cursor-blur-boxes .box {
+      pointer-events: none !important;
+      z-index: 1000001 !important;
+    }
     #cursor-blur-boxes .box {
       position: absolute;
       width: 25px;
