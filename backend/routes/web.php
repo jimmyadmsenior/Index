@@ -27,7 +27,14 @@ Route::post('/verificacao', [CadastroController::class, 'verificaCodigo']);
 Route::get('/produto/{id}', [App\Http\Controllers\ProdutoController::class, 'show'])->name('produto.show');
 Route::view('/Chatbot', 'Chatbot');
 
+// Rotas protegidas: carrinho e pagamento
 Route::middleware(['auth'])->group(function () {
+    Route::view('/Carrinho_Pagamento', 'Carrinho_Pagamento');
+    Route::view('/Carrinho_Pix', 'Carrinho_Pix');
+    Route::view('/carrinho-vazio', 'Carrinho_Vazio');
+    Route::get('/pagamento-debito', function () {
+        return view('Pagamento_Debito');
+    });
     Route::get('/perfil', [App\Http\Controllers\PerfilController::class, 'show'])->name('perfil.show');
     Route::post('/perfil/foto', [App\Http\Controllers\PerfilController::class, 'updateFoto'])->name('perfil.updateFoto');
     Route::post('/perfil/senha', [App\Http\Controllers\PerfilController::class, 'updateSenha'])->name('perfil.updateSenha');
@@ -65,9 +72,3 @@ Route::view('/Chatbot', 'Chatbot');
 Route::view('/sobre-nos', 'Sobre_Nós');
 Route::view('/confirmacao-adm2', 'Confirmacao_ADM2');
 Route::view('/recuperacao-senha2', 'Recuperacao_Senha2');
-Route::view('/carrinho-vazio', 'Carrinho_Vazio');
-Route::get('/pagamento-debito', function () {
-    return view('Pagamento_Debito');
-});
-Route::view('/perguntas-frequentes', 'Perguntas_Frequentes');
-Route::view('/Carrinho_Pix', 'Carrinho_Pix');
