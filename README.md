@@ -16,9 +16,9 @@ O projeto ainda está em desenvolvimento e as próximas atualizações serão vo
 
 - [X] Design e Elementos Gráficos
 - [X] ChatBot
-- [ ] Layout Base
-- [ ] Publicação dos produtos
-- [ ] Páginas Iniciais
+- [X] Layout Base
+- [X] Publicação dos produtos
+- [X] Páginas Iniciais
 - [ ] BackEnd
 
 ## 📫 Contribuindo para o Index
