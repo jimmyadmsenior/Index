@@ -1,0 +1,785 @@
+/* --- Importa a fonte personalizada Geoform --- */
+@font-face {
+  font-family: 'Geoform';
+  src: url('Geoform-Regular.ttf') format('truetype');
+}
+
+/* --- Remove margens/paddings padrão e controla rolagem da página --- */
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Remove a rolagem horizontal */
+  overflow-y: auto;   /* Permite rolagem vertical */
+  height: 100vh;      /* Altura total da viewport */
+}
+
+/* --- Variáveis CSS para tema claro (padrão) --- */
+:root {
+  --bg-color: #fff;
+  --text-color: #000;
+  --header-bg: #000;
+  --header-text: #f9f9f9;
+  --footer-bg: #f9f9f9;
+  --button-bg: #000;
+  --button-text: #fff;
+  --footer-text: #555555;
+  --hover-color: #00bfff;
+  --copy-color: #888888;
+  --toggle-bg: #f0f0f0;
+  --toggle-circle: #333;
+}
+
+/* --- Variáveis CSS para tema escuro --- */
+[data-theme="dark"] {
+  --bg-color: #121212;
+  --text-color: #f0f0f0;
+  --header-bg: #1a1a1a;
+  --header-text: #ffffff;
+  --footer-bg: #1a1a1a;
+  --button-bg: #3d3d3d;
+  --button-text: #ffffff;
+  --footer-text: #cccccc;
+  --hover-color: #4db5ff;
+  --copy-color: #aaaaaa;
+  --toggle-bg: #333;
+  --toggle-circle: #f0f0f0;
+}
+
+/* --- Barra superior (topbar) --- */
+.topbar {
+  background-color: var(--header-bg);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 40px;
+  color: var(--header-text);
+}
+
+.topbar .logo {
+  height: 20px;
+}
+
+.menu a {
+  color: var(--header-text);
+  margin: 0 10px;
+  text-decoration: none;
+  font-size: 12px;
+}
+
+.icons img {
+  height: 14px;
+  margin-left: 15px;
+}
+
+/* --- Container principal da página --- */
+.container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 30px 40px; /* Espaçamento interno */
+  flex-wrap: wrap;
+  flex: 1; /* Ocupa espaço disponível */
+}
+
+/* --- Coluna esquerda do container --- */
+.left {
+  max-width: 400px;
+}
+
+.left h1 {
+  font-size: 48px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.left p {
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+/* --- Reset de margens, paddings e box-sizing global --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* --- Fonte e cores padrão do body --- */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+[data-theme="dark"] body {
+  background-color: #111 !important; /* <<< Altere aqui para mudar o fundo principal do modo dark */
+  color: #fff !important; /* <<< Altere aqui para mudar a cor do texto principal no modo dark */
+}
+
+header, .header-content, nav ul.menu li a, .icons, .produtos, .carousel, .carousel-inner, .carousel-slide, .card, .airpods, .explore-section, .explore-banner, .explore-text h2, .footer-content, .footer-section, .footer-logo, .copy, .banner-navbar, .banner-texto-fone, .banner-falas h3, .banner-falas, .banner-voce, .text-content, .img-content, .img-content img, .explore-img img {
+  background: unset;
+  color: unset;
+}
+
+[data-theme="dark"] header,
+[data-theme="dark"] .header-content,
+[data-theme="dark"] nav ul.menu li a,
+[data-theme="dark"] .icons,
+[data-theme="dark"] .produtos,
+[data-theme="dark"] .carousel,
+[data-theme="dark"] .carousel-inner,
+[data-theme="dark"] .carousel-slide,
+[data-theme="dark"] .card,
+[data-theme="dark"] .airpods,
+[data-theme="dark"] .explore-section,
+[data-theme="dark"] .explore-banner,
+[data-theme="dark"] .explore-text h2,
+[data-theme="dark"] .footer-content,
+[data-theme="dark"] .footer-section,
+[data-theme="dark"] .footer-logo,
+[data-theme="dark"] .copy,
+[data-theme="dark"] .banner-navbar,
+[data-theme="dark"] .banner-texto-fone,
+[data-theme="dark"] .banner-falas h3,
+[data-theme="dark"] .banner-falas,
+[data-theme="dark"] .banner-voce,
+[data-theme="dark"] .text-content,
+[data-theme="dark"] .img-content,
+[data-theme="dark"] .img-content img,
+[data-theme="dark"] .explore-img img {
+  background: transparent !important;
+  color: #fff !important; /* <<< Altere aqui para mudar a cor dos textos em seções no modo dark */
+}
+
+[data-theme="dark"] .card {
+  background: #181818 !important; /* <<< Altere aqui para mudar o fundo dos cards no modo dark */
+  color: #fff !important;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.35);
+}
+
+[data-theme="dark"] .airpods,
+[data-theme="dark"] .explore-banner,
+[data-theme="dark"] .footer-content, [data-theme="dark"] footer {
+  background: #181818 !important; /* <<< Altere aqui para mudar o fundo das seções no modo dark */
+  color: #fff !important;
+}
+
+[data-theme="dark"] .footer-section a, [data-theme="dark"] .footer-logo p {
+  color: #cccccc !important; /* <<< Altere aqui para mudar a cor dos links do rodapé no modo dark */
+}
+
+[data-theme="dark"] .copy {
+  color: #ededed !important; /* <<< Altere aqui para mudar a cor do copyright no modo dark */
+}
+
+[data-theme="dark"] .banner-navbar img {
+  filter: brightness(0.4) !important; /* <<< Altere aqui para escurecer mais ou menos o banner no modo dark */
+}
+
+[data-theme="dark"] .banner-texto-fone h1, [data-theme="dark"] .banner-falas h3 {
+  color: #fff !important;
+}
+
+[data-theme="dark"] .carousel-indicators button.active {
+  background-color: #fff !important;
+}
+
+[data-theme="dark"] .carousel-indicators button {
+  background-color: #444 !important;
+}
+
+[data-theme="dark"] .carousel-nav-btn {
+  background: #232323 !important;
+  color: #fff !important;
+}
+
+[data-theme="dark"] .carousel-nav-btn:hover {
+  background: #333 !important;
+}
+
+[data-theme="dark"] .carousel-nav-btn:active {
+  background: #111 !important;
+}
+
+/* --- Carrossel de Produtos --- */
+.produtos {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.produtos h2 {
+  font-size: 24px;
+  margin-bottom: 30px;
+}
+
+.carousel {
+  position: relative;
+  overflow: hidden;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.carousel-inner {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  width: 300%;
+}
+
+.carousel-slide {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex: 0 0 100%;
+  padding-bottom: 20px;
+}
+
+/* --- Cartão de produto do carrossel --- */
+.card {
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 20px;
+  width: 220px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 15px;
+}
+
+.card p {
+  font-weight: bold;
+  margin: 5px 0;
+}
+
+.card span {
+  color: #e3e3e3; /* Cor azul clara para números/preços, mais visível no dark e no light */
+  font-weight: bold;
+}
+
+/* --- Indicadores do carrossel --- */
+.carousel-indicators {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.carousel-indicators button {
+  width: 12px;
+  height: 12px;
+  margin: 5px;
+  border-radius: 50%;
+  border: none;
+  background-color: #ccc;
+  cursor: pointer;
+}
+
+.carousel-indicators button.active {
+  background-color: #000;
+}
+
+/* --- Seção AirPods --- */
+.airpods {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #000;
+  color: #fff;
+  padding: 60px 10%;
+  flex-wrap: wrap;
+}
+
+.text-content {
+  flex: 1;
+}
+
+.text-content h2 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.sub {
+  font-size: 24px;
+  font-weight: 300;
+  margin-bottom: 15px;
+}
+
+.desc {
+  font-size: 16px;
+  color: #ccc;
+}
+
+.img-content {
+  flex: 1;
+  text-align: right;
+}
+
+.img-content img {
+  width: 80%;
+  max-width: 400px;
+}
+
+/* --- Seção Explore (Padronizada com Homepage_Sem_Cadastro) --- */
+.explore-section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 60px 0 40px 0;
+  padding: 0;
+}
+
+.explore-banner {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  min-height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #000;
+  border-radius: 22px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+  overflow: hidden;
+}
+
+.explore-text {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  width: 60%;
+  padding-left: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  pointer-events: none;
+}
+
+.explore-text h2 {
+  color: #fff;
+  font-size: 2.1rem;
+  font-weight: bold;
+  text-align: left;
+  margin: 0;
+  line-height: 1.2;
+  white-space: normal;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.35);
+}
+
+.explore-img {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  min-width: 200px;
+  z-index: 1;
+}
+
+.explore-img img {
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+  border-radius: 18px;
+  margin: 0 0 0 0;
+  display: block;
+}
+
+@media (max-width: 900px) {
+  .explore-banner {
+    min-height: 180px;
+  }
+  .explore-text {
+    width: 90%;
+    padding-left: 18px;
+  }
+  .explore-text h2 {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 700px) {
+  .explore-banner {
+    min-height: 120px;
+    padding: 18px 2vw;
+  }
+  .explore-text {
+    width: 98vw;
+    left: 0;
+    top: 10px;
+    transform: none;
+    position: absolute;
+    padding-left: 10px;
+  }
+  .explore-text h2 {
+    font-size: 1.1rem;
+    margin-left: 0;
+    max-width: 98%;
+    white-space: normal;
+  }
+}
+
+/* --- Rodapé (footer) --- */
+footer {
+  background-color: var(--footer-bg);
+  padding: 20px 60px 0;
+  margin: 0;
+  font-size: 12px;
+  transition: background-color 0.3s;
+}
+
+footer a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* --- Centraliza o conteúdo do rodapé --- */
+.footer-content {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 15px;
+  text-align: left;
+}
+
+/* --- Títulos e itens das seções do rodapé --- */
+.footer-section h4 {
+  font-size: 13px;
+  font-weight: bold;
+  margin-bottom: 8px;
+  text-align: left;
+}
+
+.footer-section a {
+  display: block;
+  margin: 3px 0;
+  padding: 0;
+  text-decoration: none;
+  color: var(--footer-text);
+  width: fit-content;
+  letter-spacing: 0.03em;
+  line-height: 1.4;
+  transition: color 0.3s;
+}
+
+.footer-section a:hover {
+  text-decoration: inherit;
+  color: var(--hover-color);
+}
+
+.footer-section p {
+  display: block;
+  margin: 3px 0;
+  font-size: 12px;
+  text-align: left;
+  letter-spacing: 0.03em;
+  line-height: 1.4;
+  color: var(--footer-text);
+}
+
+/* --- Espaçamento entre as seções do rodapé --- */
+.footer-section {
+  margin: 0 30px;
+}
+
+/* --- Seção do GitHub no rodapé --- */
+.footer-logo {
+  text-align: center;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.footer-logo a {
+  display: inline-block;
+  width: auto;
+  height: auto;
+  text-align: center;
+}
+
+/* --- Ícone do GitHub padrão --- */
+.github-icon {
+  width: 25px;
+  margin: 5px auto 0;
+  display: block;
+  cursor: pointer;
+  background-image: url('../VIew/Media/Github_Logo.png'); /* Logo padrão */
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* --- Ícone do GitHub para tema escuro --- */
+[data-theme="dark"] .github-icon {
+  background-image: url('../Github_Logo_Branca.png'); /* Logo branca */
+}
+
+.github-icon {
+  width: 25px;
+  margin: 5px auto 0;
+  display: block;
+  cursor: pointer;
+}
+
+.footer-logo p {
+  font-size: 13px;
+  font-weight: bold;
+  margin-bottom: 3px;
+  color: var(--text-color);
+}
+
+/* --- Texto de copyright --- */
+.copy {
+  text-align: center;
+  font-size: 10px;
+  color: var(--copy-color);
+  padding-top: 10px;
+  padding-bottom: 5px;
+  margin-bottom: 0;
+  font-weight: lighter;
+}
+
+/* --- Navbar (header) --- */
+header {
+  width: 100%;
+  background: var(--header-bg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 20px;
+  transition: background-color 0.3s;
+}
+
+.header-content {
+  width: 100%;
+  max-width: 1300px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo img {
+  height: 25px;
+}
+
+/* --- Menu de navegação --- */
+nav ul.menu {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul.menu li a {
+  font-family: 'Geoform', sans-serif;
+  color: var(--header-text);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.11em;
+  transition: color 0.3s;
+}
+
+nav ul.menu li a:hover {
+  color: var(--hover-color);
+}
+
+/* --- Ícones na navbar --- */
+.icons {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-size: 16px;
+  color: var(--header-text);
+}
+
+/* --- Toggle switch de tema (inspirado em uiverse) --- */
+.theme-toggle {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 25px;
+  margin-left: 15px;
+  cursor: pointer;
+}
+
+.theme-toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--toggle-bg);
+  transition: 0.4s;
+  border-radius: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* --- Círculo do toggle switch --- */
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 19px;
+  width: 19px;
+  left: 3px;
+  bottom: 3px;
+  background-color: var(--toggle-circle);
+  transition: 0.4s;
+  border-radius: 50%;
+  z-index: 2;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* --- Move o círculo ao ativar o toggle --- */
+input:checked + .slider:before {
+  transform: translateX(25px);
+}
+
+/* --- Ícones de sol e lua no toggle --- */
+slider .sun, .slider .moon {
+  font-size: 12px;
+  color: var(--header-text);
+  z-index: 1;
+}
+
+/* --- Transição suave para elementos que mudam de cor --- */
+* {
+  transition-property: color, background-color, border-color;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+}
+
+/* --- Animação de transição do tema --- */
+.theme-transition {
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+/* --- Imagem do banner ocupando toda a largura --- */
+.img-banner-full {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  filter: brightness(0.); /* Escurecimento suave */
+}
+
+/* --- Banner da navbar --- */
+.banner-navbar {
+  width: 100vw;
+  max-width: 100vw;
+  overflow: hidden;
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+
+.banner-navbar img {
+  width: 100vw;
+  max-width: 100vw;
+  min-height: 220px;
+  height: 300px;
+  display: block;
+  margin: 0 auto;
+  object-fit: cover;
+  filter: brightness(0.8); /* Escurece a imagem */
+}
+
+/* --- Título centralizado sobre o banner --- */
+.sobre-nos-banner-title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  font-size: 3rem;
+  font-weight: bold;
+  text-shadow: 0 2px 16px rgba(0,0,0,0.45);
+  margin: 0;
+  padding: 0 16px;
+  width: 100%;
+  text-align: center;
+  letter-spacing: 2px;
+  z-index: 2;
+}
+
+/* --- Texto do banner posicionado à esquerda --- */
+.banner-texto-fone {
+  position: absolute;
+  top: 50%;
+  left: 5%;
+  transform: translateY(-50%);
+  color: #fff;
+  z-index: 2;
+  text-align: left;
+}
+
+.banner-texto-fone h1 {
+  font-size: 2.8rem;
+  font-weight: bold;
+  margin: 0 0 10px 0;
+  line-height: 1.1;
+  text-shadow: 0 2px 16px rgba(0,0,0,0.45);
+}
+
+.banner-voce {
+  display: block;
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: #ffffff;
+  text-shadow: 0 2px 16px rgba(0,0,0,0.45);
+}
+
+/* --- Lista de falas do banner --- */
+.banner-falas {
+  list-style: disc inside;
+  margin: 0;
+  padding-left: 18px;
+  font-size: 1.1rem;
+}
+
+.banner-falas li {
+  margin-bottom: 4px;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.35);
+}
+
+/* --- Espaçamento entre falas do banner --- */
+.banner-falas h3 {
+  margin: 4px 0 0 0;
+  padding: 0;
+  font-size: 1.08rem;
+  line-height: 1.2;
+}
+
+/* --- Remove espaço extra do primeiro h3 --- */
+.banner-falas h3:first-child {
+  margin-top: 0;
+}
+
+[data-theme="dark"] .airpods {
+  background: #000000 !important; /* <<< Altere aqui para mudar o fundo do container AirPods no modo dark */
+  color: #fff !important;
+}
