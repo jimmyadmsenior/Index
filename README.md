@@ -85,15 +85,25 @@ Esse projeto está sob licença. Veja o arquivo [LICENÇA](LICENSE) para mais de
 
 ## Instalação
 
-Instruções sobre como acessar e utilizar o nosso site
-
-```bash
-# URL do site para ser acessada via navegador
+URL do site para ser acessada via navegador
 Em breve ainda iremos colocar (Site ainda em construção)
 
-# Como clonar o repositório para sua máquina local
-Para clonar o repositório para sua máquina local basta você mandar
-uma solicitação para nós (Pull Request) propondo ser um afiliado ou ajudante para
+## Como clonar o repositório para sua máquina local
+Para clonar o repositório para sua máquina local, você deve enviar uma solicitação para nós (Pull Request) propondo ser um afiliado ou ajudante para o nosso projeto. Lembre-se de enviar uma mensagem relatando o porquê você gostaria de ajudar e como pode contribuir para o nosso projeto.
+
+# Como clonar o repositório para seu perfil do GitHub
+Aperte no botão **Fork** na parte de cima dos arquivos, ao lado esquerdo da seção de favoritar o repositório.
+
+# Como iniciar o servidor local
+1. **Abra o terminal** no seu computador.
+2. **Navegue até a pasta "backend"** usando o comando:
+   ```bash
+   cd caminho/para/a/pasta/backend
+Substitua caminho/para/a/pasta pelo caminho real onde a pasta "backend" está localizada.
+3. Execute o seguinte comando para iniciar o servidor:
+
+php artisan serve
+Agora o servidor estará rodando e você poderá acessá-lo através do seu navegador.
 o nosso projeto, lembre-se de enviar uma mensagem relatando o por quê
 que você gostaria de ajudar e como você pode contribuir para o nosso projeto.
 
