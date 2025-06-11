@@ -304,7 +304,8 @@
       if (indicators[index]) indicators[index].classList.add("active");
       currentSlide = index;
     }
-
+ 
+    
     function nextSlide() {
       const next = (currentSlide + 1) % totalSlides;
       moveToSlide(next);
