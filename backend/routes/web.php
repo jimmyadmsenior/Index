@@ -49,6 +49,7 @@ Route::view('/Chatbot', 'Chatbot');
 Route::view('/sobre-nos', 'Sobre_Nós');
 Route::view('/confirmacao-adm2', 'Confirmacao_ADM2');
 Route::view('/recuperacao-senha2', 'Recuperacao_Senha2');
+Route::view('/Homepage-Tablet', 'Homepage_Tablet');
 Route::view('/carrinho-vazio', 'Carrinho_Vazio');
 Route::get('/pagamento-debito', function () {
     return view('Pagamento_Debito');

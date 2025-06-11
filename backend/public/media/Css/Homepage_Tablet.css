@@ -1,7 +1,9 @@
 /* --- Importa a fonte personalizada Geoform --- */
 @font-face {
   font-family: 'Geoform';
-  src: url('Geoform-Regular.ttf') format('truetype');
+  src: url('/Fonte/Geoform.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
 }
 
 /* --- Remove margens/paddings padrão e controla rolagem da página --- */
@@ -262,7 +264,7 @@ header, .header-content, nav ul.menu li a, .icons, .produtos, .carousel, .carous
 }
 
 .card span {
-  color: #e3e3e3; /* Cor azul clara para números/preços, mais visível no dark e no light */
+  color: #000000; /* Cor azul clara para números/preços, mais visível no dark e no light */
   font-weight: bold;
 }
 
@@ -782,4 +784,78 @@ slider .sun, .slider .moon {
 [data-theme="dark"] .airpods {
   background: #000000 !important; /* <<< Altere aqui para mudar o fundo do container AirPods no modo dark */
   color: #fff !important;
+}
+
+.geoform-text {
+  font-family: 'Geoform', Arial, sans-serif !important;
+}
+
+.carousel-nav-btn {
+  transition: transform 0.2s, background 0.2s, box-shadow 0.2s;
+  background: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 56px;
+  height: 56px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  color: #333;
+  cursor: pointer;
+  margin-bottom: 8px;
+}
+
+.carousel-nav-btn:hover {
+  transform: scale(1.12);
+  background: #e6e6e6;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+}
+
+.carousel-nav-btn:active {
+  transform: scale(0.96) translateY(2px);
+  background: #d1d1d1;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.12);
+}
+
+.banner-navbar .comprar-btn {
+  transition: transform 0.18s, background 0.18s, box-shadow 0.18s;
+  background: #fff;
+  color: #111;
+  font-weight: bold;
+  font-size: 2rem;
+  border: none;
+  border-radius: 32px;
+  padding: 18px 64px;
+  margin-bottom: 40px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  cursor: pointer;
+  letter-spacing: 3px;
+}
+
+.banner-navbar .comprar-btn:hover {
+  transform: scale(1.08);
+  background: #e6e6e6;
+  color: #111;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.18);
+}
+
+.banner-navbar .comprar-btn:active {
+  transform: scale(0.96) translateY(2px);
+  background: #d1d1d1;
+  color: #111;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.12);
+}
+
+.group6-img {
+  filter: none !important;
+  mix-blend-mode: normal !important;
+  background: #000;
+}
+
+[data-theme="dark"] .group6-img {
+  filter: none !important;
+  mix-blend-mode: normal !important;
+  background: #000;
 }

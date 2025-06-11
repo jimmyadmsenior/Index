@@ -7,43 +7,6 @@
   <link rel="icon" type="image/png" href="/media/Ícone_Guia_Navegador_Site.png">
   <link rel="stylesheet" href="/media/Css/HomePage_Tablet.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-  <style>
-    @font-face {
-      font-family: 'Geoform';
-      src: url('/Fonte/Geoform.otf') format('opentype');
-      font-weight: normal;
-      font-style: normal;
-    }
-    .geoform-text {
-      font-family: 'Geoform', Arial, sans-serif !important;
-    }
-    .carousel-nav-btn {
-      transition: transform 0.2s, background 0.2s, box-shadow 0.2s;
-      background: #fff;
-      border: none;
-      border-radius: 50%;
-      width: 56px;
-      height: 56px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 24px;
-      color: #333;
-      cursor: pointer;
-      margin-bottom: 8px;
-    }
-    .carousel-nav-btn:hover {
-      transform: scale(1.12);
-      background: #e6e6e6;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.18);
-    }
-    .carousel-nav-btn:active {
-      transform: scale(0.96) translateY(2px);
-      background: #d1d1d1;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.12);
-    }
-  </style>
 </head>
 <body>
   <header>
@@ -83,17 +46,24 @@
   </header>
 
  <!-- Imagem rente à navbar -->
-  <div class="banner-navbar" style="position: relative;">
-    <img src="/media/Capa_Fones.png" alt="Banner" />
-    <div class="banner-texto-fone" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100%; text-align: center; color: #fff;">
-      <h1 class="geoform-text">OS MELHORES FONES</h1>
-      <h1 class="geoform-text">PARA VOCÊ</h1>
-      <ul class="banner-falas" style="list-style: none; padding: 0; margin: 0;">
-        <h3 class="geoform-text">Todos com qualidade altíssima para curtir cada</h3>
-        <h3 class="geoform-text">momento!</h3>
-      </ul> 
+  <div class="banner-navbar" style="background: #000; position: relative; width: 100%; padding-top: 48px; padding-bottom: 0; display: flex; flex-direction: column; align-items: center;">
+    <div class="banner-tablet-overlay" style="width: 100%; max-width: 1100px; display: flex; flex-direction: column; align-items: center; z-index: 2; position: relative;">
+      <h1 class="geoform-text" style="font-size: 4.2rem; font-weight: bold; margin-bottom: 18px; color: #fff; letter-spacing: 1px; text-align: center;">Galaxy Tab S9 Ultra Mockup</h1>
+      <div style="display: flex; gap: 28px; flex-wrap: wrap; justify-content: center; margin-bottom: 38px; align-items: center;">
+        <span style="font-size: 1.25rem; color: #fff;">Tela Escalável</span>
+        <span style="color: #fff; font-size: 1.5rem;">|</span>
+        <span style="font-size: 1.25rem; color: #fff;">Intuitivo</span>
+        <span style="color: #fff; font-size: 1.5rem;">|</span>
+        <span style="font-size: 1.25rem; color: #fff;">Tecnologia de Ponta</span>
+        <span style="color: #fff; font-size: 1.5rem;">|</span>
+        <span style="font-size: 1.25rem; color: #fff;">Câmera Ultra-Wide</span>
+        <span style="color: #fff; font-size: 1.5rem;">|</span>
+        <span style="font-size: 1.25rem; color: #fff;">Tela de 12 polegadas</span>
+      </div>
+      <button class="comprar-btn" style="background: #fff; color: #111; font-weight: bold; font-size: 2rem; border: none; border-radius: 32px; padding: 18px 64px; margin-bottom: 40px; box-shadow: 0 2px 8px rgba(0,0,0,0.12); cursor: pointer; letter-spacing: 3px;">COMPRAR</button>
     </div>
-    </div>
+    <img src="/media/Group 6.png" alt="Banner" class="group6-img" style="width: 100%; max-width: 1100px; height: auto; display: block; object-fit: contain; background: #000; margin: 0 auto; filter: none !important; mix-blend-mode: normal !important;" />
+  </div>
 
   <!-- Carrossel de Produtos -->
 <section class="produtos">
@@ -102,51 +72,52 @@
     <div class="carousel-inner" id="carousel-inner">
       <div class="carousel-slide">
         <div class="card">
-          <img src="/media/AirPods.png" alt="AirPods (2ª geração)">
-          <p>AirPods (2ª geração)</p>
-          <span>R$359,99</span>
+          <img src="/media/ipad_air.png" alt="AirPods (2ª geração)" style="width: 150px; height: 150px; object-fit: contain;">
+          <p>Ipad air </p>
+          <span>R$5.119,99</span>
         </div>
         <div class="card">
-          <img src="/media/galaxy-buds3-silver-mo 1.png" alt="Samsung Galaxy Buds Pro">
-          <p>Samsung Galaxy Buds Pro</p>
-          <span>R$235,99</span>
+          <img src="/media/ipad_11th_gen.png" alt="Samsung Galaxy Buds Pro" style="width: 150px; height: 150px; object-fit: contain;">
+          <p>Ipad 11th gen </p>
+          <span>R$2.899,99</span>
         </div>
         <div class="card">
-          <img src="/media/airPods (2).png" alt="AirPods Estojo">
-          <p style="margin-top: 28px;">AirPods Pro</p>
-          <span style="margin-top: 10px; display: inline-block;">R$849,90</span>
+          <img src="/media/ipad_pro.png" alt="AirPods Estojo" style="width: 150px; height: 150px; object-fit: contain;">
+          <p style="margin-top: 28px;">Ipad Pro</p>
+          <span style="margin-top: 10px; display: inline-block;">R$7.799,99</span>
         </div>
       </div>
       <div class="carousel-slide">
         <div class="card">
-          <img src="/media/AirPods Max.png" alt="Fone A">
-          <p>AirPods Max</p>
+          <img src="/media/Galaxy_tab_fe.png" alt="Fone A" style="width: 150px; height: 150px; object-fit: contain;">
+          <p>Galaxy Tab FE</p>
+          </p>
           <span>R$4.999,99</span>
         </div>
         <div class="card">
-          <img src="/media/AirPods 3.png" alt="Fone B">
+          <img src="/media/Galaxy_tab.png" alt="Fone B" style="width: 150px; height: 150px; object-fit: contain;">
           <p style="margin-top: 28px;">AirPods (3ª geração)</p>
           <span style="margin-top: 0px; display: inline-block;">R$1.299,90</span>
         </div>
         <div class="card">
-          <img src="/media/galaxy_Buds_live.png" alt="Fone C">
-          <p style="margin-top: 10px;">Galaxy Buds Live</p>
-          <span style="margin-top: 0px; display: inline-block;">R$229,90</span>
+          <img src="/media/Galaxy_tab_fee.png" alt="Galaxy Tab FE+" style="width: 150px; height: 150px; object-fit: contain;">
+          <p style="margin-top: 10px;">Galaxy Tab FE+</p>
+          <span style="margin-top: 0px; display: inline-block;">R$5.499,99</span>
         </div>
       </div>
       <div class="carousel-slide">
         <div class="card">
-          <img src="/media/Galaxy Buds Pro.png" alt="Fone D">
-            <p style="margin-top: 40px;">Galaxy Buds3 Pro</p>
+          <img src="/media/ipad_mini.png" alt="Fone D" style="width: 150px; height: 150px; object-fit: contain;">
+            <p style="margin-top: 35px;">Galaxy Buds3 Pro</p>
             <span style="margin-top: 0px; display: inline-block;">R$1.290,90</span>
         </div>
         <div class="card">
-          <img src="/media/Galaxy Buds Live.png" alt="Fone E" style="margin-top: -18px;">
-          <p style="margin-top: 0px;">Galaxy Buds Live</p>
-          <span style="margin-top: 0px; display: inline-block;">R$599,99</span>
+          <img src="/media/galaxy_s9_ultra.png" alt="Fone E" style="width: 150px; height: 150px; object-fit: contain; margin-top: -18px;">
+          <p style="margin-top: 50px;">Galaxy s9 ultra</p>
+          <span style="margin-top: 3px; display: inline-block;">R$8.99,99</span>
         </div>
         <div class="card">
-            <img src="/media/Galaxy Buds Live2.png" alt="Fone F" style="width: 120px; height: auto;">
+            <img src="/media/Galaxy_A9.png" alt="Fone F" style="width: 150px; height: 150px; object-fit: contain;">
             <p style="margin-top: 40px;">Galaxy Buds Live(ANC)</p>
             <span style="margin-top: 0px; display: inline-block;">R$999,99</span>
         </div>
@@ -174,15 +145,16 @@
   </div>
 </section>
 
-<!-- Seção: Destaque AirPods -->
-<section class="airpods">
-  <div class="text-content">
-    <h2>AirPods</h2>
-    <p class="sub">Conforto Bluetooh. Mágico.</p>
-    <p class="desc">Introduzindo os AirPods. Tecnologia e praticidade, juntos como nunca!</p>
-  </div>
-  <div class="img-content">
-    <img src="/media/Homem_fone.png" alt="Homem com AirPods">
+<!-- Seção: Destaque Galaxy Tab A -->
+<section class="galaxy-tab-a-banner" style="background: #000; width: 100vw; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 0; position: relative; min-height: 700px;">
+  <div style="position: relative; width: 100vw; height: 700px; max-width: 100vw; min-height: 700px; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+    <!-- Banner único com vários tablets -->
+    <img src="/media/selecao de tablets.png" alt="Samsung Galaxy Tab A" style="position: absolute; left: 0; top: 0; width: 100vw; height: 700px; max-width: 100vw; max-height: 100%; min-width: 0; min-height: 0; margin: 0; display: block; object-fit: cover; background: transparent; z-index: 2;" />
+    <!-- Texto e botão -->
+    <div style="position: absolute; left: 0; right: 0; top: 50%; transform: translateY(-50%); z-index: 3; text-align: center;">
+      <h2 class="geoform-text" style="font-size: 4.2rem; font-weight: bold; color: #fff; margin-bottom: 32px; line-height: 1.1; text-shadow: 0 2px 12px rgba(0,0,0,0.35);">Samsung Galaxy<br>Tab A</h2>
+      <button class="comprar-btn" style="background: #fff; color: #111; font-weight: bold; font-size: 2.2rem; border: none; border-radius: 40px; padding: 22px 70px; margin-top: 24px; box-shadow: 0 4px 16px rgba(0,0,0,0.18); cursor: pointer; letter-spacing: 3px; transition: transform 0.18s, background 0.18s, box-shadow 0.18s;" onmouseover="this.style.transform='scale(1.08)';this.style.background='#e6e6e6';this.style.color='#111';this.style.boxShadow='0 4px 18px rgba(0,0,0,0.18)';" onmouseout="this.style.transform='scale(1)';this.style.background='#fff';this.style.color='#111';this.style.boxShadow='0 4px 16px rgba(0,0,0,0.18)';" onmousedown="this.style.transform='scale(0.96) translateY(2px)';this.style.background='#d1d1d1';this.style.color='#111';this.style.boxShadow='0 1px 4px rgba(0,0,0,0.12)';" onmouseup="this.style.transform='scale(1.08)';this.style.background='#e6e6e6';this.style.color='#111';this.style.boxShadow='0 4px 18px rgba(0,0,0,0.18)';">COMPRAR</button>
+    </div>
   </div>
 </section>
 
@@ -318,17 +290,18 @@
       */
     });
 
+    // Carrossel de Produtos
     const carousel = document.getElementById("carousel-inner");
     const carouselWrapper = document.querySelector(".carousel");
     const indicators = document.querySelectorAll(".carousel-indicators button");
-    const totalSlides = 3;
+    const totalSlides = document.querySelectorAll('.carousel-slide').length;
     let currentSlide = 0;
     let autoSlide;
 
     function moveToSlide(index) {
       carousel.style.transform = `translateX(-${index * 100}%)`;
       indicators.forEach(btn => btn.classList.remove("active"));
-      indicators[index].classList.add("active");
+      if (indicators[index]) indicators[index].classList.add("active");
       currentSlide = index;
     }
 
@@ -343,20 +316,56 @@
     }
 
     function startAutoSlide() {
+      stopAutoSlide();
       autoSlide = setInterval(() => {
-        const nextSlide = (currentSlide + 1) % totalSlides;
-        moveToSlide(nextSlide);
+        nextSlide();
       }, 2000);
     }
 
     function stopAutoSlide() {
-      clearInterval(autoSlide);
+      if (autoSlide) clearInterval(autoSlide);
     }
+
+    indicators.forEach((btn, idx) => {
+      btn.onclick = () => moveToSlide(idx);
+    });
+    window.nextSlide = nextSlide;
+    window.prevSlide = prevSlide;
+    window.moveToSlide = moveToSlide;
 
     carouselWrapper.addEventListener("mouseenter", stopAutoSlide);
     carouselWrapper.addEventListener("mouseleave", startAutoSlide);
-
     startAutoSlide();
+
+    // Suporte a swipe/touch para o carrossel
+    let startX = 0;
+    let isSwiping = false;
+
+    carouselWrapper.addEventListener('touchstart', function(e) {
+      if (e.touches.length === 1) {
+        startX = e.touches[0].clientX;
+        isSwiping = true;
+      }
+    });
+
+    carouselWrapper.addEventListener('touchmove', function(e) {
+      if (!isSwiping) return;
+      // Não faz nada, mas pode ser usado para animação futura
+    });
+
+    carouselWrapper.addEventListener('touchend', function(e) {
+      if (!isSwiping) return;
+      const endX = e.changedTouches[0].clientX;
+      const diffX = endX - startX;
+      if (Math.abs(diffX) > 50) { // threshold para swipe
+        if (diffX < 0) {
+          nextSlide(); // swipe para a esquerda
+        } else {
+          prevSlide(); // swipe para a direita
+        }
+      }
+      isSwiping = false;
+    });
   </script>
 </body>
 </html>
