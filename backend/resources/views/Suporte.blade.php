@@ -7,6 +7,38 @@
   <link rel="icon" type="image/png" href="/media/Ícone_Guia_Navegador_Site.png">
   <link rel="stylesheet" href="/media/Css/Suporte.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <!-- Cursor Motion Blur Effect -->
+  <link rel="stylesheet" href="/media/Cursor/EfeitoCursor/dist/style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.15.0/TweenMax.min.js"></script>
+  <script src="/media/Cursor/EfeitoCursor/src/script.js" defer></script>
+  <div id="cursor-blur-boxes">
+    <div class="box"></div><div class="box"></div><div class="box"></div><div class="box"></div><div class="box"></div><div class="box"></div><div class="box"></div><div class="box"></div><div class="box"></div><div class="box"></div><div class="box"></div><div class="box"></div><div class="box"></div><div class="box"></div><div class="box"></div><div class="box"></div><div class="box"></div>
+  </div>
+  <style>
+    #cursor-blur-boxes .box {
+      position: absolute;
+      width: 25px;
+      height: 25px;
+      top: 50%;
+      left: 50%;
+      margin: -50 0 0 -50px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 50px;
+      -webkit-backface-visibility: hidden;
+      opacity: 0;
+      cursor: none;
+      transition: box-shadow 0.2s, border 0.2s;
+    }
+    html[data-theme="light"] #cursor-blur-boxes .box {
+      background: rgba(255, 255, 255, 0.9);
+      border: 2px solid #000;
+    }
+    html[data-theme="dark"] #cursor-blur-boxes .box {
+      background: rgba(0, 0, 0, 0.9);
+      border: 2px solid #fff;
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -19,11 +51,11 @@
       <nav>
         <!-- Menu de navegação -->
         <ul class="menu">
-          <li><a href="/smartphones">Smartphones</a></li>
-          <li><a href="/tablets">Tablets</a></li>
-          <li><a href="/fones">Fones</a></li>
-          <li><a href="/relogios">Relógios</a></li>
-          <li><a href="/notebooks">Notebooks</a></li>
+          <li><a href="/Homepage_Smartphones">Smartphones</a></li>
+          <li><a href="/Homepage_Tablets">Tablets</a></li>
+          <li><a href="/Homepage_Fones">Fones</a></li>
+          <li><a href="/Homepage_Relogios">Relógios</a></li>
+          <li><a href="/Homepage_Notebooks">Notebooks</a></li>
         </ul>
       </nav>
 

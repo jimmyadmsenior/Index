@@ -12,15 +12,19 @@
 <header>
   <div class="header-content">
     <div class="logo">
-      <img src="/media/Logo_Branca.png" alt="Logo da empresa">
+      @if(Auth::check())
+          <a href="/Homepage_Com_Cadastro"><img src="/media/Logo_Branca.png" alt="Logo da empresa"></a>
+      @else
+          <a href="/"><img src="/media/Logo_Branca.png" alt="Logo da empresa"></a>
+      @endif
     </div>
     <nav>
       <ul class="menu">
-        <li><a href="/Smartphone">Smartphones</a></li>
-        <li><a href="/Tablets">Tablets</a></li>
-        <li><a href="/Fones">Fones</a></li>
-        <li><a href="/Relogios">Relógios</a></li>
-        <li><a href="/Notebooks">Notebooks</a></li>
+        <li><a href="/Homepage_Smartphones">Smartphones</a></li>
+        <li><a href="/Homepage_Tablets">Tablets</a></li>
+        <li><a href="/Homepage_Fones">Fones</a></li>
+        <li><a href="/Homepage_Relogios">Relógios</a></li>
+        <li><a href="/Homepage_Notebooks">Notebooks</a></li>
       </ul>
     </nav>
     <div class="icons">
@@ -35,9 +39,10 @@
   <div class="verification-container" style="margin-top: -0px;">
     <h1>VERIFICAÇÃO</h1>
     <p>Um código foi enviado para o seu e-mail para verificação. Por favor insira-o abaixo:</p>
-    <form onsubmit="return validarCampo()">
+    <form method="POST" action="/verificacao" onsubmit="return validarCampo()">
+      @csrf
       <div class="input-container" id="campo-codigo">
-        <input class="input-field" type="text" id="input-field" placeholder=" " oninput="removerErro()">
+        <input class="input-field" type="text" id="input-field" name="codigo" placeholder=" " oninput="removerErro()">
         <label for="input-field" class="input-label">Código de Verificação</label>
         <span class="input-highlight"></span>
         <div class="erro-mensagem">Este campo é obrigatório</div>

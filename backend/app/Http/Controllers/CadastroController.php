@@ -51,20 +51,23 @@ class CadastroController extends Controller
     public function verificaCodigo(Request $request)
     {
         $codigo = Session::get('cadastro_codigo');
+        $email = Session::get('cadastro_email');
+        $nome = Session::get('cadastro_nome');
+        $senha = Session::get('cadastro_senha');
+
         if ($request->codigo === $codigo) {
-            // Salvar usuário no banco de dados
-            $email = Session::get('cadastro_email');
-            $nome = Session::get('cadastro_nome');
-            $senha = Session::get('cadastro_senha');
-            // Criptografar a senha
-            $senhaHash = bcrypt($senha);
+            // Verifica se o e-mail já existe antes de criar
+            if (\App\Models\User::where('email', $email)->exists()) {
+                return redirect('/login')->withErrors(['email' => 'Este e-mail já está cadastrado. Faça login.']);
+            }
+            // NÃO faça hash manualmente, pois o model já faz isso pelo cast
             \App\Models\User::create([
                 'name' => $nome,
                 'email' => $email,
-                'password' => $senhaHash,
+                'password' => $senha, // O cast 'hashed' já faz o hash
             ]);
             Session::forget(['cadastro_email', 'cadastro_nome', 'cadastro_senha', 'cadastro_codigo']);
-            return redirect('/login')->with('success', 'Cadastro confirmado! Faça login.');
+            return redirect('/confirmacao-cadastro');
         } else {
             return redirect('/verificacao')->with('erro', 'Código incorreto. Tente novamente.');
         }

@@ -81,10 +81,12 @@ class CategoriaProdutoSeeder extends Seeder
             ['nome' => 'Galaxy Tab S9 FE', 'marca' => 'Samsung', 'categoria' => 'Tablets'],
             ['nome' => 'Galaxy Tab A9+', 'marca' => 'Samsung', 'categoria' => 'Tablets'],
             ['nome' => 'Galaxy Tab A9', 'marca' => 'Samsung', 'categoria' => 'Tablets'],
+            ['nome' => 'Samsung Galaxy Tab S6', 'marca' => 'Samsung', 'categoria' => 'Tablets'], // Corrigido para bater com o nome do Blade
             // Relógios Apple
             ['nome' => 'Apple Watch Series 9 (41mm, 45mm)', 'marca' => 'Apple', 'categoria' => 'Relógios'],
             ['nome' => 'Apple Watch SE (2022)', 'marca' => 'Apple', 'categoria' => 'Relógios'],
             ['nome' => 'Apple Watch Ultra 2', 'marca' => 'Apple', 'categoria' => 'Relógios'],
+            ['nome' => 'Apple Watch Series 8', 'marca' => 'Apple', 'categoria' => 'Relógios'], // Adicionado
             // Relógios Samsung
             ['nome' => 'Galaxy Watch 6 Classic', 'marca' => 'Samsung', 'categoria' => 'Relógios'],
             ['nome' => 'Galaxy Watch 6', 'marca' => 'Samsung', 'categoria' => 'Relógios'],

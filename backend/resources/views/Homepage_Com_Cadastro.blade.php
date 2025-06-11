@@ -15,15 +15,19 @@
   <header>
     <div class="header-content">
       <div class="logo">
-        <img src="/media/Logo_Branca.png" alt="Logo da empresa">
+        @if(Auth::check())
+            <a href="/Homepage_Com_Cadastro"><img src="/media/Logo_Branca.png" alt="Logo da empresa"></a>
+        @else
+            <a href="/"><img src="/media/Logo_Branca.png" alt="Logo da empresa"></a>
+        @endif
       </div>
       <nav>
         <ul class="menu">
-          <li><a href="/Smartphone">Smartphones</a></li>
-          <li><a href="/Tablets">Tablets</a></li>
-          <li><a href="/Fones">Fones</a></li>
-          <li><a href="/Relogios">Relógios</a></li>
-          <li><a href="/Notebooks">Notebooks</a></li>
+          <li><a href="/Homepage_Smartphones">Smartphones</a></li>
+          <li><a href="/Homepage_Tablets">Tablets</a></li>
+          <li><a href="/Homepage_Fones">Fones</a></li>
+          <li><a href="/Homepage_Relogios">Relógios</a></li>
+          <li><a href="/Homepage_Notebooks">Notebooks</a></li>
         </ul>
       </nav>
       <div class="icons">
@@ -87,11 +91,11 @@
           ],
           [
             'nome' => 'Samsung Galaxy Tab S6',
-            'img' => '/media/Samsung_Galaxy_Tab_S6_Homepage.png'
+            'img' => '/media/Samsung Galaxy Tab S6.png'
           ],
           [
             'nome' => 'Apple Watch Series 8',
-            'img' => '/media/Watch_Series8_Homepage.png'
+            'img' => '/media/Watch_Series8.png'
           ],
         ] as $item)
           @php $p = $produtos->firstWhere('nome', $item['nome']); @endphp
@@ -106,8 +110,6 @@
             </p>
             @if($p)
               <a href="/produto/{{ $p->id }}" class="featured-link">Comprar</a>
-            @else
-              <a href="#" class="featured-link" style="pointer-events:none;opacity:0.5;">Indisponível</a>
             @endif
             <img src="{{ $item['img'] }}" alt="{{ $item['nome'] }}"/>
           </div>

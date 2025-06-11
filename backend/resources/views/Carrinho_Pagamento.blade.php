@@ -3,87 +3,87 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Método de Pagamento</title>
+  <title>Carrinho e Pagamento - Index</title>
   <link rel="icon" type="image/png" href="/media/Ícone_Guia_Navegador_Site.png">
-  <link rel="stylesheet" href="/media/Css/Carrinho_Pagamento.css" />
-  <link rel="stylesheet" href="/media/Css/Carrinho_Pagamento_Custom.css" />
+  <link rel="stylesheet" href="/media/Css/Homepage_Com_Cadastro.css" />
+  <link rel="stylesheet" href="/media/Css/Homepage_Sem_Cadastro_Custom.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <!-- Chatbot Widget -->
   <link rel="stylesheet" href="/media/ChatBot/style.css">
 </head>
 <body>
+  @php
+    if(request('produto_id')) {
+      session(['produto_id' => request('produto_id')]);
+    }
+  @endphp
   <header>
-  <div class="header-content">
-    <div class="logo">
-      <img src="/media/Logo_Branca.png" alt="Logo da empresa">
-    </div>
-    <nav>
-      <ul class="menu">
-        <li><a href="/Smartphone">Smartphones</a></li>
-        <li><a href="/Tablets">Tablets</a></li>
-        <li><a href="/Fones">Fones</a></li>
-        <li><a href="/Relogios">Relógios</a></li>
-        <li><a href="/Notebooks">Notebooks</a></li>
-      </ul>
-    </nav>
-    <div class="icons">
-      <i class="fas fa-search"></i>
-      <a href="/perfil" title="Perfil" style="color:#fff;"><i class="fas fa-user"></i></a>
-      <i class="fas fa-shopping-bag"></i>
-      <i class="fas fa-box"></i>
-      <label class="theme-toggle">
-        <input type="checkbox" id="theme-toggle">
-        <span class="slider">
-          <i class="fas fa-sun sun"></i>
-          <i class="fas fa-moon moon"></i>
-        </span>
-      </label>
-    </div>
-  </div>
-  </header>
-  <main class="background">
-    <div class="payment-center-wrapper">
-      <div class="payment-container">
-        <p>Método de pagamento</p>
-        <p class="description">selecione a forma de pagamento que utilizará</p>
-        <label class="option-label">
-          <input type="radio" name="payment" value="google" />
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
-            <path fill="#4285F4" d="M44.5 20H24v8.5h11.8C34.6 33.4 30 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3 0 5.7 1.1 7.8 2.9l6.4-6.4C34.7 5.6 29.7 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.7-.5-4z"/>
-            <path fill="#34A853" d="M6.3 14.1l6.6 4.8C14.5 15 18.9 12 24 12c3 0 5.7 1.1 7.8 2.9l6.4-6.4C34.7 5.6 29.7 4 24 4 15.5 4 8.3 8.8 6.3 14.1z"/>
-            <path fill="#FBBC05" d="M24 44c5.5 0 10.5-2.1 14.3-5.5l-6.6-5.4C29.6 34.9 27 36 24 36c-6 0-10.6-3.6-12.4-8.6l-6.5 5C8.5 40.3 15.6 44 24 44z"/>
-            <path fill="#EA4335" d="M44.5 20H24v8.5h11.8C34.1 33.1 30 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3 0 5.7 1.1 7.8 2.9l6.4-6.4C34.7 5.6 29.7 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.7-.5-4z"/>
-          </svg>
-          <span class="option-title">Google Pay</span>
-        </label>
-        <label class="option-label">
-          <input type="radio" name="payment" value="pix"/>
-          <img src="/media/Design_sem_nome__3_-removebg-preview.png" alt="Pix" style="width:50px;height:50px;">
-          <span class="option-title">Pix</span>
-        </label>
-        <label class="option-label">
-          <input type="radio" name="payment" value="paypal"/>
-          <img src="/media/paypal_logo.png" alt="PayPal" style="width:48px;height:50px;">
-          <span class="option-title">PayPal</span>
-        </label>
-        <label class="option-label">
-          <input type="radio" name="payment" value="visa"/>
-          <img src="/media/Visa_Inc.-Logo.wine.png" alt="Visa" style="width:48px;height:48px;">
-          <span class="option-title">Credit Card </span>
+    <div class="header-content">
+      <div class="logo">
+        @if(Auth::check())
+            <a href="/Homepage_Com_Cadastro"><img src="/media/Logo_Branca.png" alt="Logo da empresa"></a>
+        @else
+            <a href="/"><img src="/media/Logo_Branca.png" alt="Logo da empresa"></a>
+        @endif
+      </div>
+      <nav>
+        <ul class="menu">
+          <li><a href="/Homepage_Smartphones">Smartphones</a></li>
+          <li><a href="/Homepage_Tablets">Tablets</a></li>
+          <li><a href="/Homepage_Fones">Fones</a></li>
+          <li><a href="/Homepage_Relogios">Relógios</a></li>
+          <li><a href="/Homepage_Notebooks">Notebooks</a></li>
+        </ul>
+      </nav>
+      <div class="icons">
+        <i class="fas fa-search"></i>
+        <a href="/perfil" title="Perfil" style="color:#fff;"><i class="fas fa-user"></i></a>
+        <i class="fas fa-shopping-bag"></i>
+        <i class="fas fa-box"></i>
+        <label class="theme-toggle">
+          <input type="checkbox" id="theme-toggle">
+          <span class="slider">
+            <i class="fas fa-sun sun"></i>
+            <i class="fas fa-moon moon"></i>
+          </span>
         </label>
       </div>
     </div>
-    <div class="verification-container">
-      <form onsubmit="return validarCampo()">
-        <div class="input-container" id="campo-codigo">
-          <input class="input-field" type="text" id="input-field" placeholder=" " oninput="removerErro()">
-          <label for="input-field" class="input-label">CPF</label>
-          <span class="input-highlight"></span>
-          <div class="erro-mensagem">Este campo é obrigatório</div>
+  </header>
+  <!-- Conteúdo do carrinho e pagamento será adicionado depois -->
+  <main class="main-homepage" style="min-height:60vh;">
+    <div style="height:70px;"></div> <!-- Espaço extra antes da seção de pagamento -->
+    <section class="payment-section" style="max-width:480px;margin:48px auto 64px auto;padding:36px 28px;background:rgba(24,24,28,0.98);border-radius:28px;box-shadow:0 8px 32px rgba(0,0,0,0.22);">
+      <h2 style="text-align:center;font-size:2.1rem;font-weight:800;margin-bottom:32px;color:#fff;letter-spacing:1px;">Pagamento</h2>
+      <div style="display:flex;flex-direction:column;gap:28px;">
+        <!-- Cartão -->
+        <div class="payment-card" style="background:linear-gradient(120deg,#23243a 60%,#2e8fff 100%);border-radius:18px;padding:24px 20px;box-shadow:0 2px 12px #2e8fff22;">
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:18px;">
+            <i class="fas fa-credit-card" style="font-size:1.5rem;color:#fff;"></i>
+            <span style="font-size:1.15rem;color:#fff;font-weight:600;">Cartão de Crédito</span>
+          </div>
+          <form id="form-cartao" action="/finalizar-compra" method="POST" style="display:flex;flex-direction:column;gap:14px;">
+            @csrf
+            <input type="hidden" name="produto_id" id="produto_id_pagamento" value="{{ session('produto_id') ?? request('produto_id') ?? '' }}">
+            <input type="text" placeholder="Nome no cartão" name="nome_cartao" required pattern="[A-Za-zÀ-ÿ ']+" title="Apenas letras" style="padding:11px;border-radius:7px;border:1px solid #3a3a4a;background:#23243a;color:#fff;"/>
+            <input type="text" placeholder="Número do cartão" name="numero_cartao" required maxlength="19" pattern="[0-9 ]+" title="Apenas números" inputmode="numeric" style="padding:11px;border-radius:7px;border:1px solid #3a3a4a;background:#23243a;color:#fff;"/>
+            <div style="display:flex;gap:10px;">
+              <input type="text" placeholder="Validade (MM/AA)" name="validade" required maxlength="5" pattern="(0[1-9]|1[0-2])\/[0-9]{2}" title="Formato MM/AA" inputmode="numeric" style="flex:1;padding:11px;border-radius:7px;border:1px solid #3a3a4a;background:#23243a;color:#fff;"/>
+              <input type="text" placeholder="CVV" name="cvv" required maxlength="4" pattern="[0-9]{3,4}" title="Apenas números" inputmode="numeric" style="flex:1;padding:11px;border-radius:7px;border:1px solid #3a3a4a;background:#23243a;color:#fff;"/>
+            </div>
+            <button type="submit" style="margin-top:10px;padding:13px 0;font-size:1.08rem;border-radius:8px;border:none;background:#00c86f;color:#fff;font-weight:700;box-shadow:0 2px 8px #00c86f33;transition:background 0.2s;">Pagar com Cartão</button>
+          </form>
         </div>
-        <button type="submit">ENVIAR</button>
-        <hr class="divider">
-      </form>
-    </div>
+        <!-- Pix -->
+        <div class="payment-card" style="background:linear-gradient(120deg,#23243a 60%,#00c86f 100%);border-radius:18px;padding:24px 20px;box-shadow:0 2px 12px #00c86f22;display:flex;align-items:center;justify-content:space-between;gap:18px;">
+          <div style="display:flex;align-items:center;gap:12px;">
+            <img src="/media/pix2.png" alt="Pix" style="width:38px;filter:drop-shadow(0 2px 8px #00c86f88);"/>
+            <span style="font-size:1.15rem;color:#fff;font-weight:600;">Pix</span>
+          </div>
+          <a href="/Carrinho_Pix" id="btn-pagar-pix" style="padding:12px 28px;border-radius:8px;background:#fff;color:#00c86f;font-weight:700;font-size:1.08rem;text-decoration:none;box-shadow:0 2px 8px #00c86f33;transition:background 0.2s;">Pagar com Pix</a>
+        </div>
+      </div>
+    </section>
   </main>
   <footer>
     <div class="footer-content">
@@ -118,6 +118,7 @@
         <p>Copyright © 2025 Index Inc. Todos os direitos reservados.</p>
     </div>
   </footer>
+  <!-- Novo Chatbot Widget -->
   <link rel="stylesheet" href="/media/ChatBot/ModernChatBot.css">
   <div id="modern-chatbot-widget">
     <div class="modern-chatbot-fab" id="modernChatbotFab" title="Falar com Índigo">
@@ -139,6 +140,7 @@
     </div>
   </div>
   <script src="/media/ChatBot/ModernChatBot.js" defer></script>
+  <!-- Fim do novo Chatbot Widget -->
   <script>
     // Script para alternar entre os temas claro e escuro
     document.addEventListener('DOMContentLoaded', function() {
@@ -176,63 +178,113 @@
       }
       syncWithSystemTheme(prefersDarkScheme);
       prefersDarkScheme.addEventListener('change', syncWithSystemTheme);
-    });
-    function validarCampo() {
-      const campo = document.getElementById("input-field");
-      const container = document.getElementById("campo-codigo");
-      if (campo.value.trim() === "") {
-        container.classList.add("erro");
-        return false;
-      } else {
-        container.classList.remove("erro");
-        return true;
+    });  </script>
+    <!-- Cursor Motion Blur Effect -->
+    <link rel="stylesheet" href="/media/Cursor/EfeitoCursor/dist/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.15.0/TweenMax.min.js"></script>
+    <script src="/media/Cursor/EfeitoCursor/src/script.js" defer></script>
+    <!-- Elementos do efeito cursor -->
+    <div id="cursor-blur-boxes">
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+    </div>
+    <!-- Fim Cursor Motion Blur Effect -->
+    <style>
+      #cursor-blur-boxes .box {
+        position: absolute;
+        width: 25px;
+        height: 25px;
+        top: 50%;
+        left: 50%;
+        margin: -50 0 0 -50px;
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 50px;
+        -webkit-backface-visibility: hidden;
+        opacity: 0;
+        cursor: none;
+        transition: box-shadow 0.2s, border 0.2s;
       }
-    }
-    function removerErro() {
-      const container = document.getElementById("campo-codigo");
-      container.classList.remove("erro");
-    }
-  </script>
-  <!-- Cursor Motion Blur Effect -->
-  <link rel="stylesheet" href="/media/Cursor/EfeitoCursor/dist/style.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.15.0/TweenMax.min.js"></script>
-  <script src="/media/Cursor/EfeitoCursor/dist/script.js" defer></script>
-  <div id="cursor-blur-boxes">
-    <div class="box"></div>
-    <div class="box"></div>
-    <div class="box"></div>
-    <div class="box"></div>
-    <div class="box"></div>
-    <div class="box"></div>
-    <div class="box"></div>
-    <div class="box"></div>
-    <div class="box"></div>
-    <div class="box"></div>
-    <div class="box"></div>
-    <div class="box"></div>
-    <div class="box"></div>
-    <div class="box"></div>
-    <div class="box"></div>
-    <div class="box"></div>
-    <div class="box"></div>
-  </div>
-  <script>
-    // Script para animar e mostrar o nome do método de pagamento ao selecionar
-    const paymentLabels = document.querySelectorAll('.option-label');
-    paymentLabels.forEach(label => {
-      label.addEventListener('click', function() {
-        paymentLabels.forEach(l => l.classList.remove('selected'));
-        this.classList.add('selected');
-        // Mostra o nome do método animado
-        const allTitles = document.querySelectorAll('.option-title');
-        allTitles.forEach(t => t.style.opacity = 0);
-        const title = this.querySelector('.option-title');
-        title.style.opacity = 1;
-        title.style.transition = 'opacity 0.5s, transform 0.5s';
-        title.style.transform = 'translateX(0)';
-      });
+      html[data-theme="light"] #cursor-blur-boxes .box {
+        background: rgba(255, 255, 255, 0.9);
+        border: 2px solid #000;
+      }
+      html[data-theme="dark"] #cursor-blur-boxes .box {
+        background: rgba(0, 0, 0, 0.9);
+        border: 2px solid #fff;
+      }
+    </style>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+  const numeroCartao = document.querySelector('input[name="numero_cartao"]');
+  const validade = document.querySelector('input[name="validade"]');
+  const cvv = document.querySelector('input[name="cvv"]');
+  const nomeCartao = document.querySelector('input[name="nome_cartao"]');
+
+  if (numeroCartao) {
+    numeroCartao.addEventListener('input', function(e) {
+      // Permite apenas números e espaço
+      this.value = this.value.replace(/[^0-9 ]/g, '');
     });
-  </script>
-</body>
+  }
+  if (validade) {
+    validade.addEventListener('input', function(e) {
+      // Permite apenas números e barra
+      this.value = this.value.replace(/[^0-9/]/g, '');
+      // Adiciona a barra automaticamente após dois dígitos
+      if (this.value.length === 2 && !this.value.includes('/')) {
+        this.value = this.value + '/';
+      }
+      // Limita a 5 caracteres
+      if (this.value.length > 5) {
+        this.value = this.value.slice(0, 5);
+      }
+    });
+  }
+  if (cvv) {
+    cvv.addEventListener('input', function(e) {
+      // Permite apenas números
+      this.value = this.value.replace(/[^0-9]/g, '');
+      // Limita a 4 caracteres
+      if (this.value.length > 4) {
+        this.value = this.value.slice(0, 4);
+      }
+    });
+  }
+  if (nomeCartao) {
+    nomeCartao.addEventListener('input', function(e) {
+      // Permite apenas letras, acentos e espaço
+      this.value = this.value.replace(/[^A-Za-zÀ-ÿ ']/g, '');
+    });
+  }
+});
+    </script>
+    <script>
+      // Redirecionamento ao clicar em "Pagar com Pix"
+      document.addEventListener('DOMContentLoaded', function() {
+  const btnPix = document.getElementById('btn-pagar-pix');
+  if (btnPix) {
+    btnPix.addEventListener('click', function(e) {
+      e.preventDefault();
+      window.location.href = '/Carrinho_Pix';
+    });
+  }
+});
+    </script>
+  </body>
 </html>

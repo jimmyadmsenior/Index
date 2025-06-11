@@ -49,18 +49,21 @@
   <header>
     <div class="header-content">
       <div class="logo">
-        <!-- Logo da empresa -->
-        <img src="/media/Logo_Branca.png" alt="Logo da empresa">
+        @if(Auth::check())
+            <a href="/Homepage_Com_Cadastro"><img src="/media/Logo_Branca.png" alt="Logo da empresa"></a>
+        @else
+            <a href="/"><img src="/media/Logo_Branca.png" alt="Logo da empresa"></a>
+        @endif
       </div>
 
       <nav>
         <!-- Menu de navegação -->
         <ul class="menu">
-          <li><a href="/Smartphone">Smartphones</a></li>
-          <li><a href="/Tablets">Tablets</a></li>
+          <li><a href="/Homepage_Smartphones">Smartphones</a></li>
+          <li><a href="/Homepage_Tablets">Tablets</a></li>
           <li><a href="/Homepage_Fones">Fones</a></li>
-          <li><a href="/Relógios">Relógios</a></li>
-          <li><a href="/Notebooks">Notebooks</a></li>
+          <li><a href="/Homepage_Relogios">Relógios</a></li>
+          <li><a href="/Homepage_Notebooks">Notebooks</a></li>
         </ul>
       </nav>
 
@@ -215,11 +218,11 @@
         </div>
         <div class="footer-section">
             <h4>Recursos</h4>
-            <a href="/Smartphone">Smartphones</a>
-            <a href="/Tablets">Tablets</a>
-            <a href="/Homepage_Fones">Fones</a>
-            <a href="/Relógios">Relógios</a>
-            <a href="/Notebooks">Notebooks</a>
+            <a href="/smartphones">Smartphones</a>
+            <a href="/tablets">Tablets</a>
+            <a href="/fones">Fones</a>
+            <a href="/relogios">Relógios</a>
+            <a href="/notebooks">Notebooks</a>
         </div>
         <div class="footer-section">
             <h4>Conecte-se</h4>
@@ -233,91 +236,47 @@
   </footer>
 
   <script>
-    // Script para alternar entre os temas claro e escuro
-    document.addEventListener('DOMContentLoaded', function() {
-      // Verificar se há uma preferência de tema salva no localStorage
-      const savedTheme = localStorage.getItem('theme') || 'light';
-      document.documentElement.setAttribute('data-theme', savedTheme);
-      
-      // Definir o estado inicial do checkbox com base no tema atual
-      document.getElementById('theme-toggle').checked = savedTheme === 'dark';
-      
-      // Adicionar evento de mudança ao toggle
-      document.getElementById('theme-toggle').addEventListener('change', function(e) {
-        if(e.target.checked) {
-          // Mudar para o tema escuro
+  // Script para alternar entre os temas claro e escuro
+  document.addEventListener('DOMContentLoaded', function() {
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+    const themeToggle = document.getElementById('theme-toggle');
+    if(themeToggle) themeToggle.checked = savedTheme === 'dark';
+    if(themeToggle) themeToggle.addEventListener('change', function(e) {
+      if(e.target.checked) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+        document.body.classList.add('theme-transition');
+        setTimeout(() => {
+          document.body.classList.remove('theme-transition');
+        }, 1000);
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+        localStorage.setItem('theme', 'light');
+        document.body.classList.add('theme-transition');
+        setTimeout(() => {
+          document.body.classList.remove('theme-transition');
+        }, 1000);
+      }
+    });
+    const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+    function syncWithSystemTheme(e) {
+      if (!localStorage.getItem('theme')) {
+        if (e.matches) {
           document.documentElement.setAttribute('data-theme', 'dark');
-          localStorage.setItem('theme', 'dark');
-          
-          // Animação suave para a transição do tema
-          document.body.classList.add('theme-transition');
-          setTimeout(() => {
-            document.body.classList.remove('theme-transition');
-          }, 1000);
+          if(themeToggle) themeToggle.checked = true;
         } else {
-          // Mudar para o tema claro
           document.documentElement.setAttribute('data-theme', 'light');
-          localStorage.setItem('theme', 'light');
-          
-          // Animação suave para a transição do tema
-          document.body.classList.add('theme-transition');
-          setTimeout(() => {
-            document.body.classList.remove('theme-transition');
-          }, 1000);
-        }
-      });
-      
-      // Verificar preferência do sistema operacional do usuário
-      const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
-      
-      // Função para sincronizar o tema com a preferência do sistema
-      function syncWithSystemTheme(e) {
-        // Somente altera automaticamente se o usuário não definiu uma preferência manualmente
-        if (!localStorage.getItem('theme')) {
-          if (e.matches) {
-            document.documentElement.setAttribute('data-theme', 'dark');
-            document.getElementById('theme-toggle').checked = true;
-          } else {
-            document.documentElement.setAttribute('data-theme', 'light');
-            document.getElementById('theme-toggle').checked = false;
-          }
+          if(themeToggle) themeToggle.checked = false;
         }
       }
-      
-      // Verificar a preferência inicial
-      syncWithSystemTheme(prefersDarkScheme);
-      
-      // Escutar por mudanças na preferência do sistema
-      prefersDarkScheme.addEventListener('change', syncWithSystemTheme);
+    }
+    syncWithSystemTheme(prefersDarkScheme);
+    prefersDarkScheme.addEventListener('change', syncWithSystemTheme);
+  });
+</script>
 
-      // Script para download usando JavaScript (Opção 2)
-      /* Descomente o código abaixo se estiver usando a Opção 2 com o botão JavaScript */
-      /*
-      document.getElementById('download-button').addEventListener('click', function() {
-        // URL do arquivo para download (substitua pelo caminho correto do seu arquivo)
-        const fileUrl = '../caminho/para/seu/arquivo.apk';
-        
-        // Nome que será dado ao arquivo baixado
-        const fileName = 'index-app.apk';
-        
-        // Criar um elemento de link invisível
-        const link = document.createElement('a');
-        link.href = fileUrl;
-        link.download = fileName;
-        link.style.display = 'none';
-        
-        // Adicionar ao DOM, clicar nele e depois remover
-        document.body.appendChild(link);
-        link.click();
-        
-        // Pequeno delay antes de remover o elemento
-        setTimeout(() => {
-          document.body.removeChild(link);
-        }, 100);
-      });
-      */
-    });
-
+  <script>
     const carousel = document.getElementById("carousel-inner");
     const carouselWrapper = document.querySelector(".carousel");
     const indicators = document.querySelectorAll(".carousel-indicators button");
