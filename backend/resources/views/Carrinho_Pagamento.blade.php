@@ -10,6 +10,58 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   <!-- Chatbot Widget -->
   <link rel="stylesheet" href="/media/ChatBot/style.css">
+  <style>
+.btn-anim {
+  transition: transform 0.18s cubic-bezier(.4,1.5,.5,1), box-shadow 0.18s, background 0.18s, color 0.18s;
+  will-change: transform;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+  position: relative;
+  z-index: 1;
+}
+.btn-anim:hover, .btn-anim:focus {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+}
+.btn-anim:active {
+  transform: translateY(2px) scale(0.98);
+  box-shadow: 0 1px 4px rgba(0,0,0,0.10);
+}
+/* Cores específicas para cada botão */
+#form-cartao .btn-anim {
+  background-color: #00c86f !important;
+  color: #fff !important;
+}
+#form-cartao .btn-anim:hover, #form-cartao .btn-anim:focus {
+  background-color: #00e07a !important;
+}
+#form-cartao .btn-anim:active {
+  background-color: #009e56 !important;
+}
+#btn-pagar-debito.btn-anim {
+  background-color: #fff !important;
+  color: #00bfff !important;
+}
+#btn-pagar-debito.btn-anim:hover, #btn-pagar-debito.btn-anim:focus {
+  background-color: #e6f7ff !important;
+  color: #009edb !important;
+}
+#btn-pagar-debito.btn-anim:active {
+  background-color: #b3e6ff !important;
+  color: #0077a6 !important;
+}
+#btn-pagar-pix.btn-anim {
+  background-color: #fff !important;
+  color: #00c86f !important;
+}
+#btn-pagar-pix.btn-anim:hover, #btn-pagar-pix.btn-anim:focus {
+  background-color: #e6fff3 !important;
+  color: #009e56 !important;
+}
+#btn-pagar-pix.btn-anim:active {
+  background-color: #b3ffd9 !important;
+  color: #00773d !important;
+}
+</style>
 </head>
 <body>
   @php
@@ -71,8 +123,16 @@
               <input type="text" placeholder="Validade (MM/AA)" name="validade" required maxlength="5" pattern="(0[1-9]|1[0-2])\/[0-9]{2}" title="Formato MM/AA" inputmode="numeric" style="flex:1;padding:11px;border-radius:7px;border:1px solid #3a3a4a;background:#23243a;color:#fff;"/>
               <input type="text" placeholder="CVV" name="cvv" required maxlength="4" pattern="[0-9]{3,4}" title="Apenas números" inputmode="numeric" style="flex:1;padding:11px;border-radius:7px;border:1px solid #3a3a4a;background:#23243a;color:#fff;"/>
             </div>
-            <button type="submit" style="margin-top:10px;padding:13px 0;font-size:1.08rem;border-radius:8px;border:none;background:#00c86f;color:#fff;font-weight:700;box-shadow:0 2px 8px #00c86f33;transition:background 0.2s;">Pagar com Cartão</button>
+            <button type="submit" class="btn-anim" style="margin-top:10px;padding:13px 0;font-size:1.08rem;border-radius:8px;border:none;color:#fff;font-weight:700;box-shadow:0 2px 8px #00c86f33;transition:background 0.2s;">Pagar com Cartão</button>
           </form>
+        </div>
+        <!-- Cartão de Débito -->
+        <div class="payment-card" style="background:linear-gradient(120deg,#23243a 60%,#00bfff 100%);border-radius:18px;padding:24px 20px;box-shadow:0 2px 12px #00bfff22;display:flex;align-items:center;justify-content:space-between;gap:18px;">
+          <div style="display:flex;align-items:center;gap:12px;">
+            <i class="fas fa-credit-card" style="font-size:1.5rem;color:#fff;"></i>
+            <span style="font-size:1.15rem;color:#fff;font-weight:600;">Cartão de Débito</span>
+          </div>
+          <a href="/pagamento-debito" id="btn-pagar-debito" class="btn-anim" style="padding:12px 28px;border-radius:8px;font-weight:700;font-size:1.08rem;text-decoration:none;box-shadow:0 2px 8px #00bfff33;transition:background 0.2s;">Pagar com Débito</a>
         </div>
         <!-- Pix -->
         <div class="payment-card" style="background:linear-gradient(120deg,#23243a 60%,#00c86f 100%);border-radius:18px;padding:24px 20px;box-shadow:0 2px 12px #00c86f22;display:flex;align-items:center;justify-content:space-between;gap:18px;">
@@ -80,7 +140,7 @@
             <img src="/media/pix2.png" alt="Pix" style="width:38px;filter:drop-shadow(0 2px 8px #00c86f88);"/>
             <span style="font-size:1.15rem;color:#fff;font-weight:600;">Pix</span>
           </div>
-          <a href="/Carrinho_Pix" id="btn-pagar-pix" style="padding:12px 28px;border-radius:8px;background:#fff;color:#00c86f;font-weight:700;font-size:1.08rem;text-decoration:none;box-shadow:0 2px 8px #00c86f33;transition:background 0.2s;">Pagar com Pix</a>
+          <a href="/Carrinho_Pix" id="btn-pagar-pix" class="btn-anim" style="padding:12px 28px;border-radius:8px;font-weight:700;font-size:1.08rem;text-decoration:none;box-shadow:0 2px 8px #00c86f33;transition:background 0.2s;">Pagar com Pix</a>
         </div>
       </div>
     </section>
