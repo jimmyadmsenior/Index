@@ -1,3 +1,6 @@
+@extends('layouts.app')
+
+@section('content')
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -8,40 +11,6 @@
   <link rel="stylesheet" href="/media/Css/Login.css">
 </head>
 <body>
-  <header>
-    <div class="header-content">
-      <div class="logo">
-        <img src="/media/Logo_Branca.png" alt="Logo da empresa">
-      </div>
-      <nav>
-        <ul class="menu">
-          <li><a href="/Homepage_Smartphones">Smartphones</a></li>
-<li><a href="/Homepage_Tablets">Tablets</a></li>
-<li><a href="/Homepage_Fones">Fones</a></li>
-<li><a href="/Homepage_Relogios">Relógios</a></li>
-<li><a href="/Homepage_Notebooks">Notebooks</a></li>
-        </ul>
-      </nav>
-      <div class="icons">
-        <i class="fas fa-search"></i>
-        @if(auth()->check())
-          <a href="/perfil" title="Perfil" style="color:#fff;"><i class="fas fa-user"></i></a>
-        @else
-          <a href="/login" class="navbar-btn navbar-btn-login">Login</a>
-          <a href="/cadastro" class="navbar-btn navbar-btn-cadastro">Cadastro</a>
-        @endif
-        <i class="fas fa-shopping-bag"></i>
-        <i class="fas fa-box"></i>
-        <label class="theme-toggle">
-          <input type="checkbox" id="theme-toggle">
-          <span class="slider">
-            <i class="fas fa-sun sun"></i>
-            <i class="fas fa-moon moon"></i>
-          </span>
-        </label>
-      </div>
-    </div>
-  </header>
   <main class="main-login">
     <section class="login-left">
       <form class="login-form" autocomplete="off" method="POST" action="/login">
@@ -203,3 +172,4 @@
   </style>
 </body>
 </html>
+@endsection

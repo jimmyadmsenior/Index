@@ -1,43 +1,8 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-  <meta charset="UTF-8">
-  <title>confirmação ADM2</title>
-  <!-- Importando FontAwesome para os ícones -->
-  <link rel="icon" type="image/png" href="/media/Ícone_Guia_Navegador_Site.png">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <link rel="stylesheet" href="/media/Css/Confirmacao_ADM2.css" />
-</head>
-<body>
-  <header>
-    <!-- Cabeçalho da página -->
-    <div class="header-content">
-      <div class="logo">
-        <!-- Logo da empresa -->
-        <img src="/media/Logo_Branca.png" alt="Logo da empresa">
-      </div>
-  
-      <nav>
-        <!-- Menu de navegação -->
-        <ul class="menu">
-          <li><a href="/smartphones">Smartphones</a></li>
-          <li><a href="/tablets">Tablets</a></li>
-          <li><a href="/fones">Fones</a></li>
-          <li><a href="/relogios">Relógios</a></li>
-          <li><a href="/notebooks">Notebooks</a></li>
-        </ul>
-      </nav>
-  
-      <div class="icons">
-        <i class="fas fa-search"></i>
-        <i class="fas fa-user"></i>
-        <i class="fas fa-shopping-bag"></i>
-        <i class="fas fa-box"></i> <!-- Ícone de Pedidos -->
-      </div>
-    </div>
-  </header>
+@extends('layouts.app')
 
-  <div class="background">
+@section('content')
+<!-- Conteúdo original da página abaixo -->
+<div class="background">
     <div class="titulo-wrapper">
       <h1 class="titulo-confirmacao">Administrador</h1>
     </div>
@@ -47,6 +12,4 @@
       <button class="botao-entrar">ENTRAR</button>
     </div>
   </div>
-
-</body>
-</html>
+@endsection

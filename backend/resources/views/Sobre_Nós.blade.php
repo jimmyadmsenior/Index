@@ -1,4 +1,8 @@
-<!DOCTYPE html>
+@extends('layouts.app')
+@section('content')
+<!-- Conteúdo original da página abaixo -->
+<main>
+  <!DOCTYPE html>
 <html lang="pt-br" data-theme="light">
 <head>
   <meta charset="UTF-8" />
@@ -358,3 +362,5 @@ A Silicon Devs é mais do que um e-commerce; somos um time dedicado a transforma
   </script>
 </body>
 </html>
+</main>
+@endsection

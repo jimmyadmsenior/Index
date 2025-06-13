@@ -1,3 +1,6 @@
+@extends('layouts.app')
+
+@section('content')
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -85,28 +88,6 @@
   </style>
 </head>
 <body>
-<header>
-  <div class="header-content">
-    <div class="logo">
-      <img src="/media/Logo_Branca.png" alt="Logo da empresa">
-    </div>
-    <nav>
-      <ul class="menu">
-        <li><a href="/Smartphone">Smartphones</a></li>
-        <li><a href="/Tablets">Tablets</a></li>
-        <li><a href="/Fones">Fones</a></li>
-        <li><a href="/Relogios">Relógios</a></li>
-        <li><a href="/Notebooks">Notebooks</a></li>
-      </ul>
-    </nav>
-    <div class="icons">
-      <i class="fas fa-search"></i>
-      <i class="fas fa-user"></i>
-      <i class="fas fa-shopping-bag"></i>
-      <i class="fas fa-box"></i>
-    </div>
-  </div>
-</header>
 <main class="produto-main">
   <div class="produto-container">
     <div class="produto-foto">
@@ -147,3 +128,4 @@ function toggleDescricao(id) {
 </script>
 </body>
 </html>
+@endsection

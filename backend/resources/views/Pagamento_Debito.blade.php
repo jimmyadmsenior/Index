@@ -1,3 +1,6 @@
+@extends('layouts.app')
+
+@section('content')
 <!DOCTYPE html>
 <html lang="pt-br" data-theme="light">
 <head>
@@ -287,3 +290,4 @@
   </script>
 </body>
 </html>
+@endsection

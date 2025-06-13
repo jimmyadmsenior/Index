@@ -27,7 +27,17 @@
             </nav>
             <div class="icons">
                 <i class="fas fa-search"></i>
-                <a href="/perfil" title="Perfil" style="color:#fff;"><i class="fas fa-user"></i></a>
+                @auth
+                    <a href="/perfil" title="Perfil" style="color:#fff;">
+                        @if(!empty(Auth::user()->foto))
+                            <img src="{{ Auth::user()->foto }}" alt="Perfil" style="width:32px;height:32px;border-radius:50%;object-fit:cover;border:2px solid #fff;vertical-align:middle;">
+                        @else
+                            <img src="/media/placeholder_produto.png" alt="Perfil" style="width:32px;height:32px;border-radius:50%;object-fit:cover;border:2px solid #fff;vertical-align:middle;">
+                        @endif
+                    </a>
+                @else
+                    <a href="/login" title="Perfil" style="color:#fff;"><i class="fas fa-user"></i></a>
+                @endauth
                 <i class="fas fa-shopping-bag"></i>
                 <i class="fas fa-box"></i>
                 <label class="theme-toggle">

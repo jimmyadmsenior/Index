@@ -1,14 +1,7 @@
-<!DOCTYPE html>
-<html lang="pt-br" data-theme="light">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Baixe Nosso App</title>
-  <link rel="icon" type="image/png" href="/media/Ícone_Guia_Navegador_Site.png">
-  <link rel="stylesheet" href="/media/Css/Perguntas_Frequentes.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-</head>
-<body>
+@extends('layouts.app')
+@section('content')
+<!-- Conteúdo original da página abaixo -->
+<main>
   <header>
     <div class="header-content">
       <div class="logo">
@@ -294,5 +287,5 @@
   }
 }
   </script>
-</body>
-</html>
+</main>
+@endsection

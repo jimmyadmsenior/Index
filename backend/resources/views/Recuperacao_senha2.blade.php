@@ -1,3 +1,5 @@
+@extends('layouts.app')
+@section('content')
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -10,31 +12,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body>
-
-<header>
-  <div class="header-content">
-    <div class="logo">
-      <img src="/media/Logo_Branca.png" alt="Logo da empresa">
-    </div>
-
-    <nav>
-      <ul class="menu">
-        <li><a href="/Homepage_Smartphones">Smartphones</a></li>
-        <li><a href="/Homepage_Tablets">Tablets</a></li>
-        <li><a href="/Homepage_Fones">Fones</a></li>
-        <li><a href="/Homepage_Relogios">Relógios</a></li>
-        <li><a href="/Homepage_Notebooks">Notebooks</a></li>
-      </ul>
-    </nav>
-
-    <div class="icons">
-      <i class="fas fa-search"></i>
-      <i class="fas fa-user"></i>
-      <i class="fas fa-shopping-bag"></i>
-      <i class="fas fa-box"></i>
-    </div>
-  </div>
-</header>
 
 <main class="background">
   <div class="verification-container">
@@ -90,3 +67,4 @@ function removerErro() {
 
 </body>
 </html>
+@endsection

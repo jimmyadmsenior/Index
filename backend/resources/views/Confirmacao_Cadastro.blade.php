@@ -1,3 +1,5 @@
+@extends('layouts.app')
+@section('content')
 <!DOCTYPE html>
 <html lang="pt-br" data-theme="light">
 <head>
@@ -10,35 +12,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body>
-  <header>
-    <div class="header-content">
-      <div class="logo">
-        <a href="/Homepage_Com_Cadastro"><img src="/media/Logo_Branca.png" alt="Logo da empresa"></a>
-      </div>
-      <nav>
-        <ul class="menu">
-          <li><a href="/Homepage_Smartphones">Smartphones</a></li>
-          <li><a href="/Homepage_Tablets">Tablets</a></li>
-          <li><a href="/Homepage_Fones">Fones</a></li>
-          <li><a href="/Homepage_Relogios">Relógios</a></li>
-          <li><a href="/Homepage_Notebooks">Notebooks</a></li>
-        </ul>
-      </nav>
-      <div class="icons">
-        <i class="fas fa-search"></i>
-        <a href="/perfil" title="Perfil" style="color:#fff;"><i class="fas fa-user"></i></a>
-        <i class="fas fa-shopping-bag"></i>
-        <i class="fas fa-box"></i>
-        <label class="theme-toggle">
-          <input type="checkbox" id="theme-toggle">
-          <span class="slider">
-            <i class="fas fa-sun sun"></i>
-            <i class="fas fa-moon moon"></i>
-          </span>
-        </label>
-      </div>
-    </div>
-  </header>
   <main class="main-homepage" style="min-height:80vh;display:flex;flex-direction:column;justify-content:center;">
     <div style="height:20vh;"></div>
     <section style="display:flex;justify-content:center;align-items:center;flex:1;width:100vw;">
@@ -51,39 +24,6 @@
     </section>
     <div style="height:18vh;"></div>
   </main>
-  <footer>
-    <div class="footer-content">
-      <div class="footer-logo">
-        <p>Conheça nosso repositório</p>
-        <a href="https://github.com/jimmyadmsenior/Index" target="_blank">
-          <img src="/media/Github_Logo.png" alt="GitHub" class="github-icon">
-        </a>
-      </div>
-      <div class="footer-section">
-        <h4>Nossas regras</h4>
-        <a href="/Politica_Privacidade">Política de Privacidade</a>
-        <a href="/Termos_Condicoes">Termos e Condições</a>
-        <a href="/Suporte">Suporte</a>
-        <a href="/Sobre">Sobre</a>
-      </div>
-      <div class="footer-section">
-        <h4>Recursos</h4>
-        <a href="/Homepage_Smartphones">Smartphones</a>
-        <a href="/Homepage_Tablets">Tablets</a>
-        <a href="/Homepage_Fones">Fones</a>
-        <a href="/Homepage_Relogios">Relógios</a>
-        <a href="/Homepage_Notebooks">Notebooks</a>
-      </div>
-      <div class="footer-section">
-        <h4>Conecte-se</h4>
-        <a href="https://github.com/jimmyadmsenior/Index">Repositório</a>
-        <a href="/Download_App">Nosso App</a>
-      </div>
-    </div>
-    <div class="copy">
-      <p>Copyright © 2025 Index Inc. Todos os direitos reservados.</p>
-    </div>
-  </footer>
   <link rel="stylesheet" href="/media/Cursor/EfeitoCursor/dist/style.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.15.0/TweenMax.min.js"></script>
@@ -172,3 +112,4 @@
   </style>
 </body>
 </html>
+@endsection
