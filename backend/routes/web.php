@@ -72,3 +72,8 @@ Route::view('/Chatbot', 'Chatbot');
 Route::view('/sobre-nos', 'Sobre_Nós');
 Route::view('/confirmacao-adm2', 'Confirmacao_ADM2');
 Route::view('/recuperacao-senha2', 'Recuperacao_Senha2');
+Route::view('/Recuperacao_Senha_1', 'Recuperacao_Senha_1');
+Route::post('/recuperacao-senha-email', function() {
+    // Aqui você pode implementar o envio do e-mail de recuperação ou apenas simular para teste
+    return back()->with('status', 'Se o e-mail existir, você receberá instruções para redefinir sua senha.');
+});
