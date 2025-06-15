@@ -371,13 +371,15 @@ nav ul.menu li a:hover {
   font-size: 1rem;
 }
 .input-container {
-  position: relative;
-  width: 250px;
+  width: 100%;
+  max-width: 420px;
   margin: 20px auto;
 }
 .input-field {
   width: 100%;
-  padding: 10px 10px;
+  min-width: 0;
+  max-width: 100%;
+  padding: 10px 38px 10px 52px; /* padding-left maior para afastar o texto do ícone */
   font-size: 16px;
   border: 2px solid #ffffff;
   border-radius: 5px;
@@ -385,6 +387,7 @@ nav ul.menu li a:hover {
   outline: none;
   color: #ffffff;
   transition: border-color 0.3s, box-shadow 0.3s;
+  box-sizing: border-box;
 }
 .input-label {
   position: absolute;
