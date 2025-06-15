@@ -17,15 +17,15 @@
   }
 }
 header {
+  /* Removido o fundo escuro do header fixo */
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 1000;
-  background: rgba(30, 30, 30, 0.6);
-  backdrop-filter: blur(16px) saturate(180%);
-  -webkit-backdrop-filter: blur(16px) saturate(180%);
-  box-shadow: 0 4px 24px 0 rgba(0,0,0,0.08);
+  background: none !important;
+  box-shadow: none !important;
+  border: none !important;
   transition: background 0.3s, box-shadow 0.3s;
 }
 html, body {

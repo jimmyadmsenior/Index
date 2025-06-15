@@ -1,4 +1,4 @@
-@import url('Homepage_Sem_Cadastro.css');
+@import url('/media/Css/Homepage_Sem_Cadastro.css');
 
 /* Esconde botões de login/cadastro na navbar */
 .icons .navbar-btn-login,
@@ -20,4 +20,14 @@
 /* Ajusta espaçamento dos ícones na navbar */
 .icons {
   gap: 15px;
+}
+
+/* Destaca a navbar no modo light */
+[data-theme="light"] header {
+  background: rgba(255,255,255,0.95) !important;
+  box-shadow: 0 2px 12px 0 rgba(0,0,0,0.08) !important;
+  border-bottom: 1px solid #e0e0e0 !important;
+}
+[data-theme="light"] .header-content {
+  background: transparent !important;
 }

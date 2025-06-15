@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="/media/Css/Homepage_Com_Cadastro.css" />
   <link rel="stylesheet" href="/media/Css/Homepage_Sem_Cadastro_Custom.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link rel="stylesheet" href="/media/Cursor/cursor-global.css">
 </head>
 <body>
   <header>
@@ -254,6 +255,10 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.15.0/TweenMax.min.js"></script>
   <script src="/media/Cursor/EfeitoCursor/src/script.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/TweenLite.min.js"></script>
+  <script src="/media/Cursor/cursor-global.js" defer></script>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       const savedTheme = localStorage.getItem('theme') || 'light';
