@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="/media/Css/Homepage_Sem_Cadastro_Custom.css">
     <link rel="stylesheet" href="/media/Css/Perfil.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="/media/Cursor/cursor-global.css">
+    @vite('resources/css/app.css') <!-- Importação do CSS global app.css -->
     @if (View::hasSection('head'))
         @yield('head')
     @endif
@@ -89,6 +91,10 @@
           <p>Copyright © 2025 Index Inc. Todos os direitos reservados.</p>
       </div>
     </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/TweenLite.min.js"></script>
+    <script src="/media/Cursor/cursor-global.js" defer></script>
     <script>
       // Script para alternar entre os temas claro e escuro
       document.addEventListener('DOMContentLoaded', function() {

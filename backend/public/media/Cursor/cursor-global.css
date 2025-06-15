@@ -1,0 +1,39 @@
+/* Efeito de cursor personalizado global */
+* ,
+*:hover,
+*:active,
+*:focus,
+input,
+textarea,
+button,
+a,
+select,
+label {
+  cursor: none !important;
+}
+html, body {
+  cursor: none !important;
+}
+.box {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  top: 50%;
+  left: 50%;
+  background: rgba(255,255,255,0.2);
+  border-radius: 50px;
+  pointer-events: none;
+  opacity: 0;
+  z-index: 99999;
+  transition: background 0.2s, border 0.2s;
+}
+html[data-theme="light"] body .box, html[data-theme="light"] #cursor-blur-boxes .box {
+  background: rgba(0,0,0,0.25) !important;
+  border: 2px solid #fff !important;
+  box-sizing: border-box;
+}
+html[data-theme="dark"] body .box, html[data-theme="dark"] #cursor-blur-boxes .box {
+  background: rgba(255,255,255,0.2) !important;
+  border: 2px solid #000 !important;
+  box-sizing: border-box;
+}
