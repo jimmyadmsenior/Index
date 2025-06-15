@@ -54,7 +54,9 @@ body {
 
 header {
   width: 100%;
-  background: var(--header-bg);
+  background: rgba(30, 30, 30, 0.6) !important;
+  backdrop-filter: blur(16px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(180%) !important;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -64,6 +66,8 @@ header {
   top: 0;
   left: 0;
   z-index: 1000;
+  box-shadow: none !important;
+  border: none !important;
 }
 
 .header-content {
@@ -164,12 +168,15 @@ slider .sun, .slider .moon {
 }
 
 footer {
-  background-color: var(--footer-bg);
+  background: var(--footer-bg) !important;
   padding: 20px 60px 0;
   margin: 0;
   font-size: 12px;
   transition: background-color 0.3s;
   flex-shrink: 0;
+  box-shadow: none !important;
+  border: none !important;
+  margin-top: 48px !important;
 }
 
 footer a {
@@ -291,11 +298,16 @@ footer a {
   width: 100%;
   flex: 1 0 auto; /* Permite que o main cresça, mas não cobre o rodapé */
   min-height: 0;
-  background: var(--bg-color);
+  background: var(--bg-color) !important;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding-bottom: 40px;
+  box-shadow: none !important;
+  border: none !important;
+  min-height: 100vh !important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 .hero-section {
@@ -655,4 +667,65 @@ footer a {
 .navbar-btn-cadastro:hover {
   background: #ffd700;
   color: #181818;
+}
+
+header, main.main-homepage, .featured-products, footer {
+  background: none !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+main.main-homepage {
+  background: var(--bg-color) !important;
+  min-height: 100vh !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+body {
+  background: var(--bg-color) !important;
+}
+
+header, .featured-products, footer {
+  box-shadow: none !important;
+  border: none !important;
+}
+
+/* Remove qualquer padding/margin extra do main e do body */
+main, body {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+header, .header-content, .header-content .menu li a, .icons, .icons i, .icons a {
+  color: var(--header-text) !important;
+  fill: var(--header-text) !important;
+}
+
+/* Remove qualquer filtro da logo */
+.header-content .logo img {
+  filter: none !important;
+}
+
+/* Navbar: cor padrão no light mode é escura, mas quando sobre fundo escuro (header) fica branca */
+[data-theme="light"] header {
+  color-scheme: light;
+}
+[data-theme="light"] header:hover .header-content .menu li a,
+[data-theme="light"] header:hover .icons i,
+[data-theme="light"] header:hover .icons a,
+[data-theme="light"] header:focus-within .header-content .menu li a,
+[data-theme="light"] header:focus-within .icons i,
+[data-theme="light"] header:focus-within .icons a {
+  color: #fff !important;
+  fill: #fff !important;
+  transition: color 0.2s, fill 0.2s;
+}
+
+[data-theme="light"] .header-content .menu li a,
+[data-theme="light"] .icons i,
+[data-theme="light"] .icons a {
+  color: #222 !important;
+  fill: #222 !important;
+  transition: color 0.2s, fill 0.2s;
 }

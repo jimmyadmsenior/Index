@@ -1,17 +1,6 @@
-<!DOCTYPE html>
-<html lang="pt-br" data-theme="light">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Homepage - Index</title>
-  <link rel="icon" type="image/png" href="/media/Ícone_Guia_Navegador_Site.png">
-  <link rel="stylesheet" href="/media/Css/Homepage_Sem_Cadastro.css" />
-  <link rel="stylesheet" href="/media/Css/Homepage_Sem_Cadastro_Custom.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-  <!-- Chatbot Widget -->
-  <link rel="stylesheet" href="/media/ChatBot/style.css">
-</head>
-<body>
+@extends('layouts.app')
+@section('content')
+  <!-- Conteúdo da homepage sem cadastro -->
   <header>
     <div class="header-content">
       <div class="logo">
@@ -401,5 +390,4 @@
       });
     });
   </script>
-</body>
-</html>
+@endsection

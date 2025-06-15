@@ -9,6 +9,9 @@
     <link rel="stylesheet" href="/media/Css/Homepage_Sem_Cadastro_Custom.css">
     <link rel="stylesheet" href="/media/Css/Perfil.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    @if (View::hasSection('head'))
+        @yield('head')
+    @endif
 </head>
 <body>
     <header>
