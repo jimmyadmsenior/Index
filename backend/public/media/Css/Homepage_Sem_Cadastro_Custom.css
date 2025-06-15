@@ -17,15 +17,15 @@
   }
 }
 header {
-  /* Removido o fundo escuro do header fixo */
+  background: rgba(255,255,255,0.95) !important;
+  box-shadow: 0 2px 12px 0 rgba(0,0,0,0.08) !important;
+  border-bottom: 1px solid #e0e0e0 !important;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 1000;
-  background: none !important;
-  box-shadow: none !important;
-  border: none !important;
+  padding: 8px 0;
   transition: background 0.3s, box-shadow 0.3s;
 }
 html, body {
@@ -65,4 +65,138 @@ section {
 #cursor-blur-boxes .box {
   pointer-events: none !important;
   z-index: 1000001 !important;
+}
+
+/* Tema claro para navbar/menu */
+[data-theme="light"] nav ul.menu li a {
+  color: #222 !important;
+  text-shadow: none !important;
+}
+[data-theme="light"] nav ul.menu li a:hover,
+[data-theme="light"] header nav ul.menu li a:hover {
+  color: #000 !important;
+  background: #f2f2f2 !important;
+  border-radius: 6px;
+}
+/* Tema escuro para navbar/menu */
+[data-theme="dark"] nav ul.menu li a {
+  color: #fff !important;
+}
+[data-theme="dark"] nav ul.menu li a:hover,
+[data-theme="dark"] header nav ul.menu li a:hover {
+  color: #ffd700 !important;
+  background: #222 !important;
+  border-radius: 6px;
+}
+/* Ajuste para header no tema claro */
+[data-theme="light"] header {
+  background: rgba(255,255,255,0.95) !important;
+  box-shadow: 0 2px 12px 0 rgba(0,0,0,0.08) !important;
+  border-bottom: 1px solid #e0e0e0 !important;
+}
+[data-theme="light"] .header-content {
+  background: transparent !important;
+}
+/* Ajuste para header no tema escuro */
+[data-theme="dark"] header {
+  background: #181818 !important;
+  box-shadow: 0 2px 12px 0 rgba(0,0,0,0.18) !important;
+  border-bottom: 1px solid #222 !important;
+}
+[data-theme="dark"] .header-content {
+  background: transparent !important;
+}
+.header-content {
+  max-width: 1300px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+nav ul.menu {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+  margin: 0;
+  padding: 0;
+}
+nav ul.menu li a {
+  color: #222 !important;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.11em;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+[data-theme="dark"] nav ul.menu li a {
+  color: #fff !important;
+}
+nav ul.menu li a:hover {
+  color: #0078ff !important;
+  background: none !important;
+}
+.icons .navbar-btn-login,
+.icons .navbar-btn-cadastro {
+  display: inline-block !important;
+  background: #000;
+  color: #fff;
+  border-radius: 6px;
+  padding: 6px 18px;
+  margin-left: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+}
+.icons .navbar-btn-login:hover,
+.icons .navbar-btn-cadastro:hover {
+  background: #0078ff;
+  color: #fff;
+}
+
+/* Garante que o toggle de tema sempre apareça na navbar */
+.icons .theme-toggle {
+  display: inline-block !important;
+  margin-left: 12px;
+}
+
+.icons label.theme-toggle {
+  background: none;
+  box-shadow: none;
+}
+
+.icons .theme-toggle input[type="checkbox"] {
+  display: inline-block !important;
+}
+
+/* Corrige o efeito de "desaparecimento" da navbar ao passar o mouse */
+header:hover, .header-content:hover, nav:hover, nav ul.menu:hover, nav ul.menu li:hover, nav ul.menu li a:hover {
+  background: none !important;
+  filter: none !important;
+  opacity: 1 !important;
+}
+
+/* Garante contraste dos links da navbar em todos os estados */
+nav ul.menu li a {
+  color: #222 !important;
+}
+[data-theme="dark"] nav ul.menu li a {
+  color: #fff !important;
+}
+nav ul.menu li a:hover {
+  color: #0078ff !important;
+  background: none !important;
+}
+
+/* Corrige o fundo do header para não sumir no hover */
+header, header:hover, .header-content, .header-content:hover {
+  background: rgba(255,255,255,0.95) !important;
+  box-shadow: 0 2px 12px 0 rgba(0,0,0,0.08) !important;
+  border-bottom: 1px solid #e0e0e0 !important;
+}
+[data-theme="dark"] header, [data-theme="dark"] header:hover, [data-theme="dark"] .header-content, [data-theme="dark"] .header-content:hover {
+  background: #181818 !important;
+  box-shadow: 0 2px 12px 0 rgba(0,0,0,0.18) !important;
+  border-bottom: 1px solid #222 !important;
 }

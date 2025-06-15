@@ -1,14 +1,13 @@
 @extends('layouts.app')
+@section('head')
+    {{-- Remover script duplicado de tema, pois já está no layout/app.blade.php --}}
+@endsection
 @section('content')
-  <!-- Conteúdo da homepage sem cadastro -->
+  <!-- Navbar copiada da homepage com cadastro, sem foto de perfil e com botões de login/cadastro -->
   <header>
     <div class="header-content">
       <div class="logo">
-        @if(Auth::check())
-            <a href="/Homepage_Com_Cadastro"><img src="/media/Logo_Branca.png" alt="Logo da empresa"></a>
-        @else
-            <a href="/"><img src="/media/Logo_Branca.png" alt="Logo da empresa"></a>
-        @endif
+        <a href="/"><img src="/media/Logo_Branca.png" alt="Logo da empresa"></a>
       </div>
       <nav>
         <ul class="menu">
@@ -25,13 +24,7 @@
         <a href="/cadastro" class="navbar-btn navbar-btn-cadastro">Cadastro</a>
         <i class="fas fa-shopping-bag"></i>
         <i class="fas fa-box"></i>
-        <label class="theme-toggle">
-          <input type="checkbox" id="theme-toggle">
-          <span class="slider">
-            <i class="fas fa-sun sun"></i>
-            <i class="fas fa-moon moon"></i>
-          </span>
-        </label>
+        {{-- Toggle de tema removido para evitar duplicidade --}}
       </div>
     </div>
   </header>
@@ -115,46 +108,6 @@
   <script src="/media/ChatBot/ModernChatBot.js" defer></script>
   <!-- Fim do novo Chatbot Widget -->
   <script>
-  // Script para alternar entre os temas claro e escuro
-  document.addEventListener('DOMContentLoaded', function() {
-    const savedTheme = localStorage.getItem('theme') || 'light';
-    document.documentElement.setAttribute('data-theme', savedTheme);
-    const themeToggle = document.getElementById('theme-toggle');
-    if(themeToggle) themeToggle.checked = savedTheme === 'dark';
-    if(themeToggle) themeToggle.addEventListener('change', function(e) {
-      if(e.target.checked) {
-        document.documentElement.setAttribute('data-theme', 'dark');
-        localStorage.setItem('theme', 'dark');
-        document.body.classList.add('theme-transition');
-        setTimeout(() => {
-          document.body.classList.remove('theme-transition');
-        }, 1000);
-      } else {
-        document.documentElement.setAttribute('data-theme', 'light');
-        localStorage.setItem('theme', 'light');
-        document.body.classList.add('theme-transition');
-        setTimeout(() => {
-          document.body.classList.remove('theme-transition');
-        }, 1000);
-      }
-    });
-    const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
-    function syncWithSystemTheme(e) {
-      if (!localStorage.getItem('theme')) {
-        if (e.matches) {
-          document.documentElement.setAttribute('data-theme', 'dark');
-          if(themeToggle) themeToggle.checked = true;
-        } else {
-          document.documentElement.setAttribute('data-theme', 'light');
-          if(themeToggle) themeToggle.checked = false;
-        }
-      }
-    }
-    syncWithSystemTheme(prefersDarkScheme);
-    prefersDarkScheme.addEventListener('change', syncWithSystemTheme);
-  });
-  </script>
-  <script>
     // Efeito de scroll no vídeo do iPhone
     window.addEventListener('scroll', function() {
       const video = document.getElementById('iphoneVideoScroll');
@@ -172,12 +125,10 @@
     });
   </script>
   <!-- Cursor Motion Blur Effect -->
-  <link rel="stylesheet" href="/media/Cursor/EfeitoCursor/dist/style.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.15.0/TweenMax.min.js"></script>
-  <script src="/media/Cursor/EfeitoCursor/src/script.js" defer></script>
+  {{-- <link rel="stylesheet" href="/media/Cursor/EfeitoCursor/dist/style.css"> --}}
+  {{-- <script src="/media/Cursor/EfeitoCursor/src/script.js" defer></script> --}}
   <!-- Elementos do efeito cursor -->
-  <div id="cursor-blur-boxes">
+  {{-- <div id="cursor-blur-boxes">
     <div class="box"></div>
     <div class="box"></div>
     <div class="box"></div>
@@ -195,7 +146,7 @@
     <div class="box"></div>
     <div class="box"></div>
     <div class="box"></div>
-  </div>
+  </div> --}}
   <!-- Fim Cursor Motion Blur Effect -->
   <!-- Modal de login obrigatório -->
   <div id="login-required-modal" class="login-modal-hidden">

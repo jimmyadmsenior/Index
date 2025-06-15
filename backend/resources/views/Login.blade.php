@@ -39,7 +39,7 @@
         </div>
         <div class="form-options">
           <label class="lembrar-label"><input type="checkbox" name="lembrar"> Lembre-me</label>
-          <a href="#" class="esqueci-senha-link">Esqueci minha senha</a>
+          <a href="/Recuperacao_Senha_1" class="esqueci-senha-link">Esqueci minha senha</a>
         </div>
         <button class="login-btn" type="submit">ENTRAR</button>
         <div class="register-link">

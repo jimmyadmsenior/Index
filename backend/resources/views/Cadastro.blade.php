@@ -251,10 +251,8 @@
       <p>Copyright © 2025 Index Inc. Todos os direitos reservados.</p>
     </div>
   </footer>
-  <link rel="stylesheet" href="/media/Cursor/EfeitoCursor/dist/style.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.15.0/TweenMax.min.js"></script>
-  <script src="/media/Cursor/EfeitoCursor/src/script.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/TweenLite.min.js"></script>
