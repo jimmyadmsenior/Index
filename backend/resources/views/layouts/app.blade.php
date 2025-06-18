@@ -32,18 +32,23 @@
             </nav>
             <div class="icons">
                 <i class="fas fa-search"></i>
-                @auth
-                    <a href="/perfil" class="navbar-btn navbar-btn-perfil" title="Meu perfil" style="display: flex; align-items: center; gap: 8px;">
-                        @if(Auth::user() && Auth::user()->foto)
-                            <img src="{{ Auth::user()->foto }}" alt="Foto de perfil" style="width: 32px; height: 32px; border-radius: 50%; object-fit: cover; border: 2px solid #fff; background: #222;">
-                        @else
-                            <i class="fas fa-user" style="font-size: 24px; color: #fff;"></i>
-                        @endif
-                    </a>
-                @else
+                @if (Request::is('/') || Request::is('Homepage_Sem_Cadastro'))
                     <a href="/login" class="navbar-btn navbar-btn-login">Login</a>
                     <a href="/cadastro" class="navbar-btn navbar-btn-cadastro">Cadastro</a>
-                @endauth
+                @else
+                    @auth
+                        <a href="/perfil" class="navbar-btn navbar-btn-perfil" title="Meu perfil" style="display: flex; align-items: center; gap: 8px;">
+                            @if(Auth::user() && Auth::user()->foto)
+                                <img src="{{ Auth::user()->foto }}" alt="Foto de perfil" style="width: 32px; height: 32px; border-radius: 50%; object-fit: cover; border: 2px solid #fff; background: #222;">
+                            @else
+                                <i class="fas fa-user" style="font-size: 24px; color: #fff;"></i>
+                            @endif
+                        </a>
+                    @else
+                        <a href="/login" class="navbar-btn navbar-btn-login">Login</a>
+                        <a href="/cadastro" class="navbar-btn navbar-btn-cadastro">Cadastro</a>
+                    @endauth
+                @endif
                 <i class="fas fa-shopping-bag"></i>
                 <i class="fas fa-box"></i>
                 <label class="theme-toggle">
