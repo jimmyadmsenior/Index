@@ -13,14 +13,16 @@ class CompraController extends Controller
     public function finalizar(Request $request)
     {
         $user = Auth::user();
-        // Pegue o produto comprado (exemplo: do request ou sessão)
-        $produto = Produto::find($request->produto_id); // ajuste conforme seu fluxo
+        $produto = Produto::find($request->produto_id);
+        if (!$produto) {
+            return redirect('/carrinho')->with('error', 'Produto não encontrado. Selecione um produto antes de finalizar a compra.');
+        }
         $codigoRastreamento = 'BR' . rand(100000000, 999999999) . 'SEDEX';
 
         // Envia o e-mail
         Mail::to($user->email)->send(new CompraFinalizadaMail($produto, $codigoRastreamento));
 
-        // Redireciona para a página de compra finalizada
-        return redirect('/compra-finalizada');
+        // Exibe diretamente a view de compra finalizada
+        return view('Compra_Finalizada');
     }
 }
