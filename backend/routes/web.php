@@ -12,7 +12,6 @@ Route::view('/', 'Homepage_Sem_Cadastro');
 Route::view('/login', 'Login')->name('login');
 Route::view('/recuperacao-senha', 'Recuperacao_Senha');
 Route::view('/confirmacao-adm', 'Confirmacao_ADM');
-Route::view('/compra-finalizada', 'Compra_Finalizada');
 Route::view('/Homepage_Com_Cadastro', 'Homepage_Com_Cadastro');
 Route::view('/Carrinho_Pagamento', 'Carrinho_Pagamento');
 Route::view('/Homepage_Fones', 'Homepage_Fones');
@@ -65,7 +64,7 @@ Route::post('/logout', function (Request $request) {
 })->name('logout');
 
 Route::view('/confirmacao-cadastro', 'Confirmacao_Cadastro');
-Route::view('/compra-finalizada', 'Compra_Finalizada');
+Route::view('/compra-finalizada', 'Compra_Finalizada')->name('compra.finalizada');
 Route::view('/Homepage_Com_Cadastro', 'Homepage_Com_Cadastro');
 Route::view('/Homepage_Fones', 'Homepage_Fones');
 Route::view('/recuperacao-senha', 'Recuperacao_Senha');
@@ -124,3 +123,4 @@ Route::post('/recuperacao-senha-nova', function(Request $request) {
     // Redireciona para a página de login
     return redirect('/login')->with('status', 'Senha redefinida com sucesso! Faça login com sua nova senha.');
 });
+Route::view('/carrinho', 'Carrinho');

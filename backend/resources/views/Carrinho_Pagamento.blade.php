@@ -16,9 +16,9 @@
         <input type="hidden" name="produto_id" id="produto_id_pagamento" value="{{ session('produto_id') ?? request('produto_id') ?? '' }}">
         <input type="text" placeholder="Nome no cartão" name="nome_cartao" required pattern="[A-Za-zÀ-ÿ ']+" title="Apenas letras" style="padding:11px;border-radius:7px;border:1px solid #3a3a4a;background:#23243a;color:#fff;"/>
         <input type="text" placeholder="Número do cartão" name="numero_cartao" required maxlength="19" pattern="[0-9 ]+" title="Apenas números" inputmode="numeric" style="padding:11px;border-radius:7px;border:1px solid #3a3a4a;background:#23243a;color:#fff;"/>
-        <div style="display:flex;gap:10px;">
-          <input type="text" placeholder="Validade (MM/AA)" name="validade" required maxlength="5" pattern="(0[1-9]|1[0-2])\/[0-9]{2}" title="Formato MM/AA" inputmode="numeric" style="flex:1;padding:11px;border-radius:7px;border:1px solid #3a3a4a;background:#23243a;color:#fff;"/>
-          <input type="text" placeholder="CVV" name="cvv" required maxlength="4" pattern="[0-9]{3,4}" title="Apenas números" inputmode="numeric" style="flex:1;padding:11px;border-radius:7px;border:1px solid #3a3a4a;background:#23243a;color:#fff;"/>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;">
+          <input type="text" placeholder="Validade (MM/AA)" name="validade" required maxlength="5" pattern="(0[1-9]|1[0-2])\/[0-9]{2}" title="Formato MM/AA" inputmode="numeric" style="min-width:0;flex-basis:60%;flex-grow:1;padding:11px;border-radius:7px;border:1px solid #3a3a4a;background:#23243a;color:#fff;"/>
+          <input type="text" placeholder="CVV" name="cvv" required maxlength="4" pattern="[0-9]{3,4}" title="Apenas números" inputmode="numeric" style="min-width:0;flex-basis:35%;flex-grow:0;padding:11px;border-radius:7px;border:1px solid #3a3a4a;background:#23243a;color:#fff;"/>
         </div>
         <button type="submit" class="btn-anim" style="margin-top:10px;padding:13px 0;font-size:1.08rem;border-radius:8px;border:none;background:#2e8fff;color:#fff;font-weight:700;box-shadow:0 2px 8px #2e8fff33;transition:background 0.2s;">Pagar com Cartão</button>
       </form>
