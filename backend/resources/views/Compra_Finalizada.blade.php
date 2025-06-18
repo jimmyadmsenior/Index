@@ -31,7 +31,12 @@
       </nav>
       <div class="icons">
         <i class="fas fa-search"></i>
-        <a href="/perfil" title="Perfil" style="color:#fff;"><i class="fas fa-user"></i></a>
+        @if(Auth::check())
+          <a href="/perfil" title="Perfil" style="color:#fff;"><i class="fas fa-user"></i></a>
+        @else
+          <a href="/login" class="navbar-btn navbar-btn-login">Login</a>
+          <a href="/cadastro" class="navbar-btn navbar-btn-cadastro">Cadastro</a>
+        @endif
         <i class="fas fa-shopping-bag"></i>
         <i class="fas fa-box"></i>
         <label class="theme-toggle">

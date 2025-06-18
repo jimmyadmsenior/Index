@@ -3,31 +3,6 @@
     {{-- Remover script duplicado de tema, pois já está no layout/app.blade.php --}}
 @endsection
 @section('content')
-  <!-- Navbar copiada da homepage com cadastro, sem foto de perfil e com botões de login/cadastro -->
-  <header>
-    <div class="header-content">
-      <div class="logo">
-        <a href="/"><img src="/media/Logo_Branca.png" alt="Logo da empresa"></a>
-      </div>
-      <nav>
-        <ul class="menu">
-          <li><a href="/Homepage_Smartphones">Smartphones</a></li>
-          <li><a href="/Homepage_Tablets">Tablets</a></li>
-          <li><a href="/Homepage_Fones">Fones</a></li>
-          <li><a href="/Homepage_Relogios">Relógios</a></li>
-          <li><a href="/Homepage_Notebooks">Notebooks</a></li>
-        </ul>
-      </nav>
-      <div class="icons">
-        <i class="fas fa-search"></i>
-        <a href="/login" class="navbar-btn navbar-btn-login">Login</a>
-        <a href="/cadastro" class="navbar-btn navbar-btn-cadastro">Cadastro</a>
-        <i class="fas fa-shopping-bag"></i>
-        <i class="fas fa-box"></i>
-        {{-- Toggle de tema removido para evitar duplicidade --}}
-      </div>
-    </div>
-  </header>
   <main class="main-homepage">
     <section class="hero-section">
       <h1 class="hero-title">Chegou o Index, o toque de classe que faltava!</h1>
