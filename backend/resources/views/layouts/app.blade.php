@@ -75,7 +75,7 @@
                   <a href="/Politica_Privacidade">Política de Privacidade</a>
                   <a href="/Termos_Condicoes">Termos e Condições</a>
                   <a href="/Suporte">Suporte</a>
-                  <a href="/Sobre">Sobre</a>
+                  <a href="/sobre-nos">Sobre</a>
               </div>
               <div class="footer-section">
                   <h4>Recursos</h4>
