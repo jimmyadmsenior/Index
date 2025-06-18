@@ -11,56 +11,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="/media/Cursor/cursor-global.css">
     @vite('resources/css/app.css') <!-- Importação do CSS global app.css -->
-    @if (View::hasSection('head'))
-        @yield('head')
-    @endif
 </head>
 <body>
-    <header>
-        <div class="header-content">
-            <div class="logo">
-                <a href="/Homepage_Com_Cadastro"><img src="/media/Logo_Branca.png" alt="Logo da empresa"></a>
-            </div>
-            <nav>
-                <ul class="menu">
-                    <li><a href="/Homepage_Smartphones">Smartphones</a></li>
-                    <li><a href="/Homepage_Tablets">Tablets</a></li>
-                    <li><a href="/Homepage_Fones">Fones</a></li>
-                    <li><a href="/Homepage_Relogios">Relógios</a></li>
-                    <li><a href="/Homepage_Notebooks">Notebooks</a></li>
-                </ul>
-            </nav>
-            <div class="icons">
-                <i class="fas fa-search"></i>
-                @if (Request::is('/') || Request::is('Homepage_Sem_Cadastro'))
-                    <a href="/login" class="navbar-btn navbar-btn-login">Login</a>
-                    <a href="/cadastro" class="navbar-btn navbar-btn-cadastro">Cadastro</a>
-                @else
-                    @auth
-                        <a href="/perfil" class="navbar-btn navbar-btn-perfil" title="Meu perfil" style="display: flex; align-items: center; gap: 8px;">
-                            @if(Auth::user() && Auth::user()->foto)
-                                <img src="{{ Auth::user()->foto }}" alt="Foto de perfil" style="width: 32px; height: 32px; border-radius: 50%; object-fit: cover; border: 2px solid #fff; background: #222;">
-                            @else
-                                <i class="fas fa-user" style="font-size: 24px; color: #fff;"></i>
-                            @endif
-                        </a>
-                    @else
-                        <a href="/login" class="navbar-btn navbar-btn-login">Login</a>
-                        <a href="/cadastro" class="navbar-btn navbar-btn-cadastro">Cadastro</a>
-                    @endauth
-                @endif
-                <i class="fas fa-shopping-bag"></i>
-                <i class="fas fa-box"></i>
-                <label class="theme-toggle">
-                  <input type="checkbox" id="theme-toggle">
-                  <span class="slider">
-                    <i class="fas fa-sun sun"></i>
-                    <i class="fas fa-moon moon"></i>
-                  </span>
-                </label>
-            </div>
-        </div>
-    </header>
+    @include('layouts.navbar')
     <main style="padding-bottom: 48px;">
         @yield('content')
     </main>

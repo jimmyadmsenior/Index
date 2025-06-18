@@ -1,6 +1,5 @@
 @extends('layouts.app')
 @section('head')
-    {{-- Remover script duplicado de tema, pois já está no layout/app.blade.php --}}
 @endsection
 @section('content')
   <main class="main-homepage">

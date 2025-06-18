@@ -11,27 +11,27 @@
 </head>
 <body>
 
-<header>
+<header style="background:#111;box-shadow:none;border:none;">
   <div class="header-content">
     <div class="logo">
       <img src="/media/Logo_Branca.png" alt="Logo da empresa">
     </div>
 
-    <nav>
+    <nav style="background:#111;">
       <ul class="menu">
-        <li><a href="#">Smartphones</a></li>
-        <li><a href="#">Tablets</a></li>
-        <li><a href="#">Fones</a></li>
-        <li><a href="#">Relógios</a></li>
-        <li><a href="#">Notebooks</a></li>
+        <li><a href="#" style="color:#fff;background:#111;">Smartphones</a></li>
+        <li><a href="#" style="color:#fff;background:#111;">Tablets</a></li>
+        <li><a href="#" style="color:#fff;background:#111;">Fones</a></li>
+        <li><a href="#" style="color:#fff;background:#111;">Relógios</a></li>
+        <li><a href="#" style="color:#fff;background:#111;">Notebooks</a></li>
       </ul>
     </nav>
 
     <div class="icons">
-      <i class="fas fa-search"></i>
-      <i class="fas fa-user"></i>
-      <i class="fas fa-shopping-bag"></i>
-      <i class="fas fa-box"></i>
+      <i class="fas fa-search" style="color:#fff;"></i>
+      <i class="fas fa-user" style="color:#fff;"></i>
+      <i class="fas fa-shopping-bag" style="color:#fff;"></i>
+      <i class="fas fa-box" style="color:#fff;"></i>
     </div>
   </div>
 </header>

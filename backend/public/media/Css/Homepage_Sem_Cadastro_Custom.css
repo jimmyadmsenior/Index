@@ -17,16 +17,17 @@
   }
 }
 header {
-  background: rgba(255,255,255,0.95) !important;
-  box-shadow: 0 2px 12px 0 rgba(0,0,0,0.08) !important;
-  border-bottom: 1px solid #e0e0e0 !important;
+  background: #111 !important;
+  color: #fff !important;
+  box-shadow: none !important;
+  border-bottom: none !important;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 1000;
   padding: 8px 0;
-  transition: background 0.3s, box-shadow 0.3s;
+  transition: none !important;
 }
 html, body {
   height: 100%;
@@ -35,7 +36,7 @@ html, body {
   overflow-x: hidden;
 }
 body {
-  padding-top: 90px;
+  padding-top: 160px;
   min-height: 100vh;
   box-sizing: border-box;
   overflow-x: hidden;
@@ -50,8 +51,7 @@ section {
 }
 @media (max-width: 700px) {
   body {
-    padding-top: 120px;
-  }
+   
   main.main-homepage {
     min-height: calc(100vh - 120px);
   }
@@ -73,10 +73,28 @@ section {
   text-shadow: none !important;
 }
 [data-theme="light"] nav ul.menu li a:hover,
-[data-theme="light"] header nav ul.menu li a:hover {
-  color: #000 !important;
-  background: #f2f2f2 !important;
-  border-radius: 6px;
+[data-theme="light"] nav ul.menu li a:focus,
+[data-theme="light"] nav ul.menu li a:active,
+[data-theme="light"] .navbar-btn:hover,
+[data-theme="light"] .navbar-btn:focus,
+[data-theme="light"] .navbar-btn:active,
+[data-theme="light"] .navbar-btn-login:hover,
+[data-theme="light"] .navbar-btn-login:focus,
+[data-theme="light"] .navbar-btn-login:active,
+[data-theme="light"] .navbar-btn-cadastro:hover,
+[data-theme="light"] .navbar-btn-cadastro:focus,
+[data-theme="light"] .navbar-btn-cadastro:active,
+[data-theme="light"] .navbar-btn-perfil:hover,
+[data-theme="light"] .navbar-btn-perfil:focus,
+[data-theme="light"] .navbar-btn-perfil:active {
+  background: #111 !important;
+  color: #fff !important;
+  text-decoration: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+  border: none !important;
+  filter: none !important;
+  transition: none !important;
 }
 /* Tema escuro para navbar/menu */
 [data-theme="dark"] nav ul.menu li a {
@@ -199,4 +217,192 @@ header, header:hover, .header-content, .header-content:hover {
   background: #181818 !important;
   box-shadow: 0 2px 12px 0 rgba(0,0,0,0.18) !important;
   border-bottom: 1px solid #222 !important;
+}
+
+/* FORÇA NAVBAR SEMPRE PRETA E ELEMENTOS BRANCOS, INDEPENDENTE DO TEMA */
+header, .header-content, nav, nav ul.menu, nav ul.menu li, nav ul.menu li a, .icons, .navbar-btn, .navbar-btn-login, .navbar-btn-cadastro, .navbar-btn-perfil {
+  background: #111 !important;
+  color: #fff !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+nav ul.menu li a, .navbar-btn, .navbar-btn-login, .navbar-btn-cadastro, .navbar-btn-perfil {
+  color: #fff !important;
+  text-shadow: none !important;
+  transition: none !important;
+  background: #111 !important;
+}
+nav ul.menu li a:hover, .navbar-btn:hover, .navbar-btn-login:hover, .navbar-btn-cadastro:hover, .navbar-btn-perfil:hover {
+  background: #111 !important;
+  color: #fff !important;
+  text-decoration: underline;
+  filter: none !important;
+  transition: none !important;
+}
+nav ul.menu li a:active, .navbar-btn:active {
+  background: #111 !important;
+  color: #fff !important;
+}
+nav ul.menu li a:visited {
+  color: #fff !important;
+}
+[data-theme="dark"] header, [data-theme="light"] header,
+[data-theme="dark"] .header-content, [data-theme="light"] .header-content,
+[data-theme="dark"] nav, [data-theme="light"] nav,
+[data-theme="dark"] nav ul.menu, [data-theme="light"] nav ul.menu,
+[data-theme="dark"] nav ul.menu li, [data-theme="light"] nav ul.menu li,
+[data-theme="dark"] nav ul.menu li a, [data-theme="light"] nav ul.menu li a,
+[data-theme="dark"] .icons, [data-theme="light"] .icons,
+[data-theme="dark"] .navbar-btn, [data-theme="light"] .navbar-btn,
+[data-theme="dark"] .navbar-btn-login, [data-theme="light"] .navbar-btn-login,
+[data-theme="dark"] .navbar-btn-cadastro, [data-theme="light"] .navbar-btn-cadastro,
+[data-theme="dark"] .navbar-btn-perfil, [data-theme="light"] .navbar-btn-perfil {
+  background: #111 !important;
+  color: #fff !important;
+}
+
+.hero-title {
+  margin-top: 120px !important;
+}
+
+/* REMOVE QUALQUER EFEITO DE HOVER DA NAVBAR EM QUALQUER TEMA */
+[data-theme="light"] nav ul.menu li a,
+[data-theme="light"] nav ul.menu li a:hover,
+[data-theme="light"] nav ul.menu li a:focus,
+[data-theme="light"] nav ul.menu li a:active,
+[data-theme="dark"] nav ul.menu li a,
+[data-theme="dark"] nav ul.menu li a:hover,
+[data-theme="dark"] nav ul.menu li a:focus,
+[data-theme="dark"] nav ul.menu li a:active,
+nav ul.menu li a,
+nav ul.menu li a:hover,
+nav ul.menu li a:focus,
+nav ul.menu li a:active,
+.navbar-btn,
+.navbar-btn:hover,
+.navbar-btn:focus,
+.navbar-btn:active,
+.navbar-btn-login,
+.navbar-btn-login:hover,
+.navbar-btn-login:focus,
+.navbar-btn-login:active,
+.navbar-btn-cadastro,
+.navbar-btn-cadastro:hover,
+.navbar-btn-cadastro:focus,
+.navbar-btn-cadastro:active,
+.navbar-btn-perfil,
+.navbar-btn-perfil:hover,
+.navbar-btn-perfil:focus,
+.navbar-btn-perfil:active {
+  background: #111 !important;
+  color: #fff !important;
+  text-decoration: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+  border: none !important;
+  filter: none !important;
+  transition: none !important;
+  border-radius: 0 !important;
+}
+
+/* Remove todos os efeitos de hover dos links da navbar, sobrescrevendo qualquer regra anterior */
+nav ul.menu li a:hover, nav ul.menu li a:focus, nav ul.menu li a:active,
+.navbar-btn:hover, .navbar-btn:focus, .navbar-btn:active,
+.navbar-btn-login:hover, .navbar-btn-login:focus, .navbar-btn-login:active,
+.navbar-btn-cadastro:hover, .navbar-btn-cadastro:focus, .navbar-btn-cadastro:active,
+.navbar-btn-perfil:hover, .navbar-btn-perfil:focus, .navbar-btn-perfil:active {
+  background: #111 !important;
+  color: #fff !important;
+  text-decoration: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+  border: none !important;
+  filter: none !important;
+  transition: none !important;
+  border-radius: 0 !important;
+}
+[data-theme="light"] nav ul.menu li a:hover,
+[data-theme="light"] nav ul.menu li a:focus,
+[data-theme="light"] nav ul.menu li a:active,
+[data-theme="light"] .navbar-btn:hover,
+[data-theme="light"] .navbar-btn:focus,
+[data-theme="light"] .navbar-btn:active,
+[data-theme="light"] .navbar-btn-login:hover,
+[data-theme="light"] .navbar-btn-login:focus,
+[data-theme="light"] .navbar-btn-login:active,
+[data-theme="light"] .navbar-btn-cadastro:hover,
+[data-theme="light"] .navbar-btn-cadastro:focus,
+[data-theme="light"] .navbar-btn-cadastro:active,
+[data-theme="light"] .navbar-btn-perfil:hover,
+[data-theme="light"] .navbar-btn-perfil:focus,
+[data-theme="light"] .navbar-btn-perfil:active {
+  background: #111 !important;
+  color: #fff !important;
+  text-decoration: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+  border: none !important;
+  filter: none !important;
+  transition: none !important;
+  border-radius: 0 !important;
+}
+[data-theme="dark"] nav ul.menu li a:hover,
+[data-theme="dark"] nav ul.menu li a:focus,
+[data-theme="dark"] nav ul.menu li a:active,
+[data-theme="dark"] .navbar-btn:hover,
+[data-theme="dark"] .navbar-btn:focus,
+[data-theme="dark"] .navbar-btn:active,
+[data-theme="dark"] .navbar-btn-login:hover,
+[data-theme="dark"] .navbar-btn-login:focus,
+[data-theme="dark"] .navbar-btn-login:active,
+[data-theme="dark"] .navbar-btn-cadastro:hover,
+[data-theme="dark"] .navbar-btn-cadastro:focus,
+[data-theme="dark"] .navbar-btn-cadastro:active,
+[data-theme="dark"] .navbar-btn-perfil:hover,
+[data-theme="dark"] .navbar-btn-perfil:focus,
+[data-theme="dark"] .navbar-btn-perfil:active {
+  background: #111 !important;
+  color: #fff !important;
+  text-decoration: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+  border: none !important;
+  filter: none !important;
+  transition: none !important;
+  border-radius: 0 !important;
+}
+
+/* REMOVE TODAS AS REGRAS DE COR DA NAVBAR NO LIGHT MODE E FORÇA SEMPRE BRANCO */
+[data-theme="light"] nav ul.menu li a,
+[data-theme="light"] .navbar-btn,
+[data-theme="light"] .navbar-btn-login,
+[data-theme="light"] .navbar-btn-cadastro,
+[data-theme="light"] .navbar-btn-perfil {
+  color: #fff !important;
+  background: #111 !important;
+  text-shadow: none !important;
+}
+[data-theme="light"] nav ul.menu li a:hover,
+[data-theme="light"] nav ul.menu li a:focus,
+[data-theme="light"] nav ul.menu li a:active,
+[data-theme="light"] .navbar-btn:hover,
+[data-theme="light"] .navbar-btn:focus,
+[data-theme="light"] .navbar-btn:active,
+[data-theme="light"] .navbar-btn-login:hover,
+[data-theme="light"] .navbar-btn-login:focus,
+[data-theme="light"] .navbar-btn-login:active,
+[data-theme="light"] .navbar-btn-cadastro:hover,
+[data-theme="light"] .navbar-btn-cadastro:focus,
+[data-theme="light"] .navbar-btn-cadastro:active,
+[data-theme="light"] .navbar-btn-perfil:hover,
+[data-theme="light"] .navbar-btn-perfil:focus,
+[data-theme="light"] .navbar-btn-perfil:active {
+  color: #fff !important;
+  background: #111 !important;
+  text-decoration: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+  border: none !important;
+  filter: none !important;
+  transition: none !important;
 }

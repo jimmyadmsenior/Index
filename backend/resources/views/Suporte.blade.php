@@ -1,5 +1,8 @@
 @extends('layouts.app')
 
+@section('head')
+@endsection
+
 @section('content')
   <!-- Conteúdo da página de suporte -->
   <div id="cursor-blur-boxes">

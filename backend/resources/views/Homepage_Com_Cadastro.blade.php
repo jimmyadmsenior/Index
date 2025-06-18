@@ -1,5 +1,16 @@
 @extends('layouts.app')
 
+@section('head')
+<style>
+header, nav, .menu li a, .icons i, .navbar-btn, .navbar-btn-login, .navbar-btn-cadastro, .navbar-btn-perfil {
+  background: #111 !important;
+  color: #fff !important;
+  border: none !important;
+}
+.menu li a { text-decoration: none !important; }
+</style>
+@endsection
+
 @section('content')
 <main class="main-homepage">
     <section class="hero-section">

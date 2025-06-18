@@ -1,5 +1,4 @@
 @extends('layouts.app')
-
 @section('head')
     <link rel="stylesheet" href="/media/Css/Verificacao_Custom.css">
 @endsection

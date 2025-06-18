@@ -1,4 +1,6 @@
 @extends('layouts.app')
+@section('head')
+@endsection
 @section('title', 'Meu Perfil')
 @section('content')
 <div class="perfil-container" style="margin-top: 90px;">

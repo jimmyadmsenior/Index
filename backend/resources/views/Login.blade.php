@@ -1,5 +1,6 @@
 @extends('layouts.app')
-
+@section('head')
+@endsection
 @section('content')
 <!DOCTYPE html>
 <html lang="pt-br">

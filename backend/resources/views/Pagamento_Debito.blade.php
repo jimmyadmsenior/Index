@@ -1,4 +1,6 @@
 @extends('layouts.app')
+@section('head')
+@endsection
 
 @section('content')
 <div style="height:70px;"></div>

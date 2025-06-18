@@ -1,4 +1,14 @@
 @extends('layouts.app')
+@section('head')
+<style>
+header, nav, .menu li a, .icons i, .navbar-btn, .navbar-btn-login, .navbar-btn-cadastro, .navbar-btn-perfil {
+  background: #111 !important;
+  color: #fff !important;
+  border: none !important;
+}
+.menu li a { text-decoration: none !important; }
+</style>
+@endsection
 @section('content')
 <main class="main-homepage">
   <section class="hero-section" style="display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; background: #000; padding: 48px 0 0 0;">
