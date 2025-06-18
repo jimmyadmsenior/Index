@@ -1,5 +1,4 @@
 @extends('layouts.app')
-
 @section('head')
 <style>
   .verification-container {

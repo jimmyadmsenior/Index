@@ -1,4 +1,6 @@
 @extends('layouts.app')
+@section('head')
+@endsection
 @section('content')
 <div style="position: relative; width: 100%; max-height: 260px; overflow: hidden;">
   <img src="/media/Imagem Tecnologia Sobre.png" alt="Banner Sobre Nós" class="sobre-nos-banner" style="width: 100%; max-height: 260px; object-fit: cover; display: block; filter: brightness(0.55);">
@@ -12,7 +14,4 @@
     <p style="font-size: 1.12rem; color: #bbb; margin-bottom: 28px; line-height: 1.7;">A Silicon Devs é mais do que um e-commerce; somos um time dedicado a transformar a experiência de compra online.</p>
   </section>
 </main>
-@endsection
-@section('head')
-  <link rel="stylesheet" href="/media/Css/Sobre_Nós.css" />
 @endsection

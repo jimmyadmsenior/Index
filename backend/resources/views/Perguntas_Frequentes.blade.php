@@ -1,37 +1,37 @@
 @extends('layouts.app')
+@section('head')
+@endsection
 @section('content')
 <!-- Conteúdo original da página abaixo -->
 <main>
-  <header>
+  <header style="background:#111;box-shadow:none;border:none;">
     <div class="header-content">
       <div class="logo">
         <!-- Logo da empresa -->
         <img src="/media/Logo_Branca.png" alt="Logo da empresa">
       </div>
-
-      <nav>
+      <nav style="background:#111;">
         <!-- Menu de navegação -->
         <ul class="menu">
-          <li><a href="/Homepage_Smartphones">Smartphones</a></li>
-          <li><a href="/Homepage_Tablets">Tablets</a></li>
-          <li><a href="/Homepage_Fones">Fones</a></li>
-          <li><a href="/Homepage_Relogios">Relógios</a></li>
-          <li><a href="/Homepage_Notebooks">Notebooks</a></li>
+          <li><a href="/Homepage_Smartphones" style="color:#fff;background:#111;">Smartphones</a></li>
+          <li><a href="/Homepage_Tablets" style="color:#fff;background:#111;">Tablets</a></li>
+          <li><a href="/Homepage_Fones" style="color:#fff;background:#111;">Fones</a></li>
+          <li><a href="/Homepage_Relogios" style="color:#fff;background:#111;">Relógios</a></li>
+          <li><a href="/Homepage_Notebooks" style="color:#fff;background:#111;">Notebooks</a></li>
         </ul>
       </nav>
-
       <div class="icons">
-        <i class="fas fa-search"></i>
-        <i class="fas fa-user"></i>
-        <i class="fas fa-shopping-bag"></i>
-        <i class="fas fa-box"></i> <!-- Ícone de Pedidos -->
+        <i class="fas fa-search" style="color:#fff;"></i>
+        <i class="fas fa-user" style="color:#fff;"></i>
+        <i class="fas fa-shopping-bag" style="color:#fff;"></i>
+        <i class="fas fa-box" style="color:#fff;"></i> <!-- Ícone de Pedidos -->
         
         <!-- Toggle Switch para Light/Dark Mode -->
         <label class="theme-toggle">
           <input type="checkbox" id="theme-toggle">
           <span class="slider">
-            <i class="fas fa-sun sun"></i>
-            <i class="fas fa-moon moon"></i>
+            <i class="fas fa-sun sun" style="color:#fff;"></i>
+            <i class="fas fa-moon moon" style="color:#fff;"></i>
           </span>
         </label>
       </div>
