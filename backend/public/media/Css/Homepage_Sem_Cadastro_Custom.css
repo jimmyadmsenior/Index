@@ -59,12 +59,12 @@ section {
 #cursor-blur-boxes {
   position: fixed !important;
   pointer-events: none !important;
-  z-index: 1000001 !important;
+  z-index: 1000002 !important;
   top: 0; left: 0; width: 100vw; height: 100vh;
 }
 #cursor-blur-boxes .box {
   pointer-events: none !important;
-  z-index: 1000001 !important;
+  z-index: 1000002 !important;
 }
 
 /* Tema claro para navbar/menu */
@@ -234,7 +234,7 @@ nav ul.menu li a, .navbar-btn, .navbar-btn-login, .navbar-btn-cadastro, .navbar-
 }
 nav ul.menu li a:hover, .navbar-btn:hover, .navbar-btn-login:hover, .navbar-btn-cadastro:hover, .navbar-btn-perfil:hover {
   background: #111 !important;
-  color: #fff !important;
+  color: #33aaff !important;
   text-decoration: underline;
   filter: none !important;
   transition: none !important;

@@ -16,7 +16,6 @@
     @include('layouts.navbar')
     <main style="padding-bottom: 48px;">
         @yield('content')
-    </main>
     @hasSection('footer')
         @yield('footer')
     @else
@@ -54,6 +53,8 @@
           </div>
         </footer>
     @endif
+
+    <!-- Cursor Motion Blur Effect: agora controlado apenas via JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/TweenLite.min.js"></script>
