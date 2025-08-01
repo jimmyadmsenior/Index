@@ -57,5 +57,5 @@
 .navbar-index a:hover {
   color: #ffd700 !important;
 }
-body { margin-top: 64px !important; }
+
 </style>
