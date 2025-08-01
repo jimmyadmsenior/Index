@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="/media/Cursor/cursor-global.css">
     @vite('resources/css/app.css') <!-- Importação do CSS global app.css -->
+    @yield('head')
 </head>
 <body>
     @include('layouts.navbar')

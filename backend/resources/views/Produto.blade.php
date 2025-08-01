@@ -1,10 +1,11 @@
 @extends('layouts.app')
 @section('head')
+  <link rel="stylesheet" href="/media/Css/Produto.css" />
 @endsection
 @section('content')
-<main class="produto-main">
-  <div class="produto-container">
-    <div class="produto-foto">
+  <div class="produto-main">
+    <div class="produto-container">
+      <div class="produto-foto">
       <img src="{{ $produto->imagem ?? '/media/placeholder_produto.png' }}" alt="{{ $produto->nome }}">
     </div>
     <div class="produto-info">
@@ -32,8 +33,8 @@
       </p>
       <a href="/Carrinho_Pagamento?produto_id={{ $produto->id }}" class="btn-comprar verification-btn-adm">Comprar</a>
     </div>
+    </div>
   </div>
-</main>
 <script>
 function toggleDescricao(id) {
   const desc = document.getElementById(id);
