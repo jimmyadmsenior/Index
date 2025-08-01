@@ -12,8 +12,8 @@
   <link rel="stylesheet" href="/media/Css/Login.css">
 </head>
 <body>
-  <main class="main-login">
-    <section class="login-left">
+  <main class="main-login" style="min-height:100vh;display:flex;align-items:stretch;justify-content:center;">
+    <section class="login-left" style="display:flex;flex-direction:column;justify-content:flex-start;min-height:100vh;padding-top:40px;">
       <form class="login-form" autocomplete="off" method="POST" action="/login">
         @csrf
         <h1><img src="/media/Icon Login.png" alt="Ícone Login" style="height: 38px;vertical-align:middle;margin-right:12px;"> Faça seu login</h1>
@@ -49,7 +49,7 @@
       </form>
     </section>
     <section class="login-right">
-      <img src="/media/Imagem homem deitado.png" alt="Login Ilustração" style="max-width:100%;height:auto;display:block;margin:0 auto;"/>
+      <img src="/media/Imagem homem deitado.png" alt="Login Ilustração" style="width:100%;height:100vh;object-fit:cover;display:block;margin:0 auto;"/>
     </section>
   </main>
   <script>
@@ -86,6 +86,19 @@
     }
   </script>
   <style>
+    /* Remove autofill background dos inputs (deixa transparente) */
+    input:-webkit-autofill,
+    input:-webkit-autofill:focus,
+    input:-webkit-autofill:hover,
+    input:-webkit-autofill:active {
+      -webkit-box-shadow: 0 0 0 1000px transparent inset !important;
+      box-shadow: 0 0 0 1000px transparent inset !important;
+      -webkit-text-fill-color: inherit !important;
+      color: inherit !important;
+      border: none !important;
+      transition: background-color 5000s ease-in-out 0s;
+      background: transparent !important;
+    }
     /* Tema claro/escuro apenas na área do formulário */
     .login-left[data-theme="dark"] {
       background: #232323 !important;
