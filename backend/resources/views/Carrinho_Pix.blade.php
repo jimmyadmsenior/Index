@@ -13,7 +13,7 @@
       <p class="pix-codigo" style="color:#fff;font-size:1.05rem;margin-bottom:24px;">123e4567-e89b-12d3-a456-426614174000</p>
       <form id="form-pix" action="/finalizar-compra" method="POST" style="margin:0;">
         @csrf
-        <input type="hidden" name="produto_id" id="produto_id_pix" value="{{ session('produto_id') ?? request('produto_id') ?? (isset($produto) ? $produto->id : ($produto_id ?? '')) }}">
+        <input type="hidden" name="produto_id" id="produto_id_pix" value="{{ $produto_id ?? session('produto_id') ?? request('produto_id') ?? (isset($produto) ? $produto->id : ($produto_id ?? '')) }}">
         <button id="pix-btn" class="featured-link" type="submit" style="display:inline-block;margin-top:10px;padding:14px 40px;font-size:1.15rem;border-radius:10px;background:#000;color:#fff;font-weight:700;text-decoration:none;cursor:pointer;border:none;transition:none;">Continuar</button>
       </form>
     </section>
