@@ -31,7 +31,13 @@ Route::view('/Chatbot', 'Chatbot');
 // Rotas protegidas: carrinho e pagamento
 Route::middleware(['auth'])->group(function () {
     Route::view('/Carrinho_Pagamento', 'Carrinho_Pagamento');
-    Route::view('/Carrinho_Pix', 'Carrinho_Pix');
+    Route::get('/Carrinho_Pix', function (Request $request) {
+        $produto_id = $request->query('produto_id') ?? session('produto_id');
+        if ($produto_id) {
+            session(['produto_id' => $produto_id]);
+        }
+        return view('Carrinho_Pix', ['produto_id' => $produto_id]);
+    });
     Route::view('/carrinho-vazio', 'Carrinho_Vazio');
     Route::get('/pagamento-debito', function () {
         return view('Pagamento_Debito');
