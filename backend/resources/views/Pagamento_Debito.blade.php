@@ -12,18 +12,41 @@
         <i class="fas fa-credit-card" style="font-size:1.5rem;color:#fff;"></i>
         <span style="font-size:1.15rem;color:#fff;font-weight:600;">Cartão de Débito</span>
       </div>
-      <div style="color:yellow; font-size:0.95rem; margin-bottom:10px;">
-        <strong>ID do produto enviado:</strong> 1
-      </div>
       <form id="form-debito" action="/finalizar-compra" method="POST" style="display:flex;flex-direction:column;gap:14px;">
         @csrf
-        <input type="hidden" name="produto_id" id="produto_id_debito" value="1">
-        <input type="text" placeholder="Nome no cartão" name="nome_cartao" required pattern="[A-Za-zÀ-ÿ ']+" title="Apenas letras" style="padding:11px;border-radius:7px;border:1px solid #3a3a4a;background:#23243a;color:#fff;"/>
-        <input type="text" placeholder="Número do cartão" name="numero_cartao" required maxlength="19" pattern="[0-9 ]+" title="Apenas números" inputmode="numeric" style="padding:11px;border-radius:7px;border:1px solid #3a3a4a;background:#23243a;color:#fff;"/>
+        <input type="hidden" name="produto_id" id="produto_id_debito" value="{{ request('produto_id') ?? session('produto_id') ?? '' }}">
+        <input type="text" placeholder="Nome no cartão" name="nome_cartao" id="nome_cartao_debito" required pattern="[A-Za-zÀ-ÿ ']+" title="Apenas letras" style="padding:11px;border-radius:7px;border:1px solid #3a3a4a;background:#23243a;color:#fff;"/>
+        <input type="text" placeholder="Número do cartão" name="numero_cartao" id="numero_cartao_debito" required maxlength="19" pattern="[0-9 ]+" title="Apenas números" inputmode="numeric" autocomplete="cc-number" style="padding:11px;border-radius:7px;border:1px solid #3a3a4a;background:#23243a;color:#fff;"/>
         <div style="display:flex;gap:10px;flex-wrap:wrap;">
-          <input type="text" placeholder="Validade (MM/AA)" name="validade" required maxlength="5" pattern="(0[1-9]|1[0-2])\/[0-9]{2}" title="Formato MM/AA" inputmode="numeric" style="min-width:0;flex-basis:60%;flex-grow:1;padding:11px;border-radius:7px;border:1px solid #3a3a4a;background:#23243a;color:#fff;"/>
-          <input type="text" placeholder="CVV" name="cvv" required maxlength="4" pattern="[0-9]{3,4}" title="Apenas números" inputmode="numeric" style="min-width:0;flex-basis:35%;flex-grow:0;padding:11px;border-radius:7px;border:1px solid #3a3a4a;background:#23243a;color:#fff;"/>
+          <input type="text" placeholder="Validade (MM/AA)" name="validade" id="validade_cartao_debito" required maxlength="5" pattern="(0[1-9]|1[0-2])\/[0-9]{2}" title="Formato MM/AA" inputmode="numeric" autocomplete="cc-exp" style="min-width:0;flex-basis:60%;flex-grow:1;padding:11px;border-radius:7px;border:1px solid #3a3a4a;background:#23243a;color:#fff;"/>
+          <input type="text" placeholder="CVV" name="cvv" id="cvv_cartao_debito" required maxlength="4" pattern="[0-9]{3,4}" title="Apenas números" inputmode="numeric" autocomplete="cc-csc" style="min-width:0;flex-basis:35%;flex-grow:0;padding:11px;border-radius:7px;border:1px solid #3a3a4a;background:#23243a;color:#fff;"/>
         </div>
+        <!-- Opção de parcelas -->
+        <div id="parcelas-container" style="margin:10px 0 0 0;">
+        </div>
+        <script>
+        // Impede números no nome do cartão
+        document.getElementById('nome_cartao_debito').addEventListener('input', function(e) {
+          e.target.value = e.target.value.replace(/[0-9]/g, '');
+        });
+        // Máscara para número do cartão (só números e espaço)
+        document.getElementById('numero_cartao_debito').addEventListener('input', function(e) {
+          let v = e.target.value.replace(/\D/g, '');
+          v = v.replace(/(\d{4})(?=\d)/g, '$1 ');
+          e.target.value = v.trim();
+        });
+        // Impede letras no CVV
+        document.getElementById('cvv_cartao_debito').addEventListener('input', function(e) {
+          e.target.value = e.target.value.replace(/\D/g, '');
+        });
+        // Máscara para validade MM/AA
+        document.getElementById('validade_cartao_debito').addEventListener('input', function(e) {
+          let v = e.target.value.replace(/\D/g, '');
+          if (v.length > 4) v = v.slice(0,4);
+          if (v.length > 2) v = v.slice(0,2) + '/' + v.slice(2);
+          e.target.value = v;
+        });
+        </script>
         <button type="submit" class="btn-anim" style="margin-top:10px;padding:13px 0;font-size:1.08rem;border-radius:8px;border:none;background:#00bfff;color:#fff;font-weight:700;box-shadow:0 2px 8px #00bfff33;transition:background 0.2s;">Pagar com Débito</button>
       </form>
     </div>
