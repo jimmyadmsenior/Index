@@ -33,15 +33,15 @@
                   <a href="/Politica_Privacidade">Política de Privacidade</a>
                   <a href="/Termos_Condicoes">Termos e Condições</a>
                   <a href="/Suporte">Suporte</a>
-                  <a href="/sobre-nos">Sobre</a>
+                  <a href="/Sobre_Nós">Sobre nós</a>
               </div>
               <div class="footer-section">
                   <h4>Recursos</h4>
-                  <a href="/Smartphone">Smartphones</a>
-                  <a href="/Tablets">Tablets</a>
-                  <a href="/Fones">Fones</a>
-                  <a href="/Relogios">Relógios</a>
-                  <a href="/Notebooks">Notebooks</a>
+                  <a href="/Homepage_Smartphones">Smartphones</a>
+                  <a href="/Homepage_Tablets">Tablets</a>
+                  <a href="/Homepage_Fones">Fones</a>
+                  <a href="/Homepage_Relógios">Relógios</a>
+                  <a href="/Homepage_Notebooks">Notebooks</a>
               </div>
               <div class="footer-section">
                   <h4>Conecte-se</h4>

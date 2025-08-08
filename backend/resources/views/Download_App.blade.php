@@ -43,23 +43,23 @@
         </div>
         <div class="footer-section">
             <h4>Nossas regras</h4>
-            <a href="/politica-privacidade">Política de Privacidade</a>
-            <a href="/termos-condicoes">Termos e Condições</a>
-            <a href="/suporte">Suporte</a>
-            <a href="/sobre-nos">Sobre</a>
+            <a href="/Politica_Privacidade">Política de Privacidade</a>
+            <a href="/Termos_Condicoes">Termos e Condições</a>
+            <a href="/Suporte">Suporte</a>
+            <a href="/Sobre_Nós">Sobre nós</a>
         </div>
         <div class="footer-section">
             <h4>Recursos</h4>
-            <a href="/smartphones">Smartphones</a>
-            <a href="/tablets">Tablets</a>
-            <a href="/fones">Fones</a>
-            <a href="/relogios">Relógios</a>
-            <a href="/notebooks">Notebooks</a>
+            <a href="/Homepage_Smartphones">Smartphones</a>
+            <a href="/Homepage_Tablets">Tablets</a>
+            <a href="/Homepage_Fones">Fones</a>
+            <a href="/Homepage_Relógios">Relógios</a>
+            <a href="/Homepage_Notebooks">Notebooks</a>
         </div>
         <div class="footer-section">
             <h4>Conecte-se</h4>
             <a href="https://github.com/jimmyadmsenior/Index">Repositório</a>
-            <a href="/download-app">Nosso App</a>
+            <a href="/Download_App">Nosso App</a>
         </div>
     </div>
     <div class="copy">
