@@ -1,10 +1,28 @@
 @extends('layouts.app')
 @section('head')
 <style>
+html { margin: 0 !important; padding: 0 !important; border: none !important; box-shadow: none !important; }
+body { margin: 0 !important; padding: 0 !important; }
+main.main-homepage { padding: 0 !important; margin: 0 !important; }
 header, nav, .menu li a, .icons i, .navbar-btn, .navbar-btn-login, .navbar-btn-cadastro, .navbar-btn-perfil {
   background: #111 !important;
   color: #fff !important;
   border: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+header {
+  margin: 0 !important;
+  padding: 0 !important;
+  background: #111 !important;
+  box-shadow: none !important;
+  border: none !important;
+  border-radius: 0 !important;
+  position: relative;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
 }
 .menu li a { text-decoration: none !important; }
 
@@ -38,7 +56,7 @@ header, nav, .menu li a, .icons i, .navbar-btn, .navbar-btn-login, .navbar-btn-c
 @endsection
 @section('content')
 <main class="main-homepage">
-  <section class="hero-section" style="display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; background: #000; padding: 48px 0 0 0;">
+  <section class="hero-section" style="display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; background: #000; padding: 0; margin: 0;">
     <h1 class="hero-title geoform-text" style="font-size: 4.2rem; font-weight: bold; margin-bottom: 18px; color: #fff; letter-spacing: 1px; text-align: center;">Galaxy Tab S9 Ultra Mockup</h1>
     <div style="display: flex; gap: 28px; flex-wrap: wrap; justify-content: center; margin-bottom: 38px; align-items: center;">
       <span style="font-size: 1.25rem; color: #fff;">Tela Escalável</span>
@@ -263,7 +281,7 @@ header, nav, .menu li a, .icons i, .navbar-btn, .navbar-btn-login, .navbar-btn-c
   </section>
 
   <!-- Seção: Explore nosso site -->
-  <section class="explore-section">
+  <section class="explore-section" style="margin: 64px 0 64px 0;">
     <div class="explore-banner">
       <div class="explore-text">
         <h2>Explore nosso site e descubra o luxo</h2>
