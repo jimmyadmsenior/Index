@@ -1,3 +1,7 @@
+@extends('layouts.app')
+@section('head')
+@endsection
+@section('content')
 <!DOCTYPE html>
 <html lang="pt-br" data-theme="light">
 <head>
@@ -9,42 +13,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body>
-  <header>
-    <div class="header-content">
-      <div class="logo">
-        <!-- Logo da empresa -->
-        <img src="/media/Logo_Branca.png" alt="Logo da empresa">
-      </div>
-
-      <nav>
-        <!-- Menu de navegação -->
-        <ul class="menu">
-          <li><a href="/smartphones">Smartphones</a></li>
-          <li><a href="/tablets">Tablets</a></li>
-          <li><a href="/fones">Fones</a></li>
-          <li><a href="/relogios">Relógios</a></li>
-          <li><a href="/notebooks">Notebooks</a></li>
-        </ul>
-      </nav>
-
-      <div class="icons">
-        <i class="fas fa-search"></i>
-        <i class="fas fa-user"></i>
-        <i class="fas fa-shopping-bag"></i>
-        <i class="fas fa-box"></i> <!-- Ícone de Pedidos -->
-        
-        <!-- Toggle Switch para Light/Dark Mode -->
-        <label class="theme-toggle">
-          <input type="checkbox" id="theme-toggle">
-          <span class="slider">
-            <i class="fas fa-sun sun"></i>
-            <i class="fas fa-moon moon"></i>
-          </span>
-        </label>
-      </div>
-    </div>
-  </header>
-
   <main class="container">
     <div class="left">
       <h1>BAIXE NOSSO APP</h1>
@@ -187,3 +155,4 @@
   </script>
 </body>
 </html>
+@endsection

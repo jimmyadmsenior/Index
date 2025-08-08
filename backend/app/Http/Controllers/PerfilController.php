@@ -36,7 +36,8 @@ class PerfilController extends Controller
         }
         $ext = $file->getClientOriginalExtension();
         $filename = 'perfil_' . $user->id . '_' . time() . '.' . $ext;
-        $file->storeAs('public/fotos_perfil', $filename);
+        // Salva a foto no disco 'public' corretamente
+        Storage::disk('public')->putFileAs('fotos_perfil', $file, $filename);
         $user->foto = '/storage/fotos_perfil/' . $filename;
         $user->save();
         return back()->with('success', 'Foto atualizada com sucesso!');

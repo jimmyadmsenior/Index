@@ -1,3 +1,7 @@
+@extends('layouts.app')
+@section('head')
+@endsection
+@section('content')
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -8,42 +12,8 @@
   <link rel="stylesheet" href="/media/Css/Login.css">
 </head>
 <body>
-  <header>
-    <div class="header-content">
-      <div class="logo">
-        <img src="/media/Logo_Branca.png" alt="Logo da empresa">
-      </div>
-      <nav>
-        <ul class="menu">
-          <li><a href="/Homepage_Smartphones">Smartphones</a></li>
-<li><a href="/Homepage_Tablets">Tablets</a></li>
-<li><a href="/Homepage_Fones">Fones</a></li>
-<li><a href="/Homepage_Relogios">Relógios</a></li>
-<li><a href="/Homepage_Notebooks">Notebooks</a></li>
-        </ul>
-      </nav>
-      <div class="icons">
-        <i class="fas fa-search"></i>
-        @if(auth()->check())
-          <a href="/perfil" title="Perfil" style="color:#fff;"><i class="fas fa-user"></i></a>
-        @else
-          <a href="/login" class="navbar-btn navbar-btn-login">Login</a>
-          <a href="/cadastro" class="navbar-btn navbar-btn-cadastro">Cadastro</a>
-        @endif
-        <i class="fas fa-shopping-bag"></i>
-        <i class="fas fa-box"></i>
-        <label class="theme-toggle">
-          <input type="checkbox" id="theme-toggle">
-          <span class="slider">
-            <i class="fas fa-sun sun"></i>
-            <i class="fas fa-moon moon"></i>
-          </span>
-        </label>
-      </div>
-    </div>
-  </header>
-  <main class="main-login">
-    <section class="login-left">
+  <main class="main-login" style="min-height:100vh;display:flex;align-items:stretch;justify-content:center;">
+    <section class="login-left" style="display:flex;flex-direction:column;justify-content:flex-start;min-height:100vh;padding-top:40px;">
       <form class="login-form" autocomplete="off" method="POST" action="/login">
         @csrf
         <h1><img src="/media/Icon Login.png" alt="Ícone Login" style="height: 38px;vertical-align:middle;margin-right:12px;"> Faça seu login</h1>
@@ -70,7 +40,7 @@
         </div>
         <div class="form-options">
           <label class="lembrar-label"><input type="checkbox" name="lembrar"> Lembre-me</label>
-          <a href="#" class="esqueci-senha-link">Esqueci minha senha</a>
+          <a href="/Recuperacao_Senha_1" class="esqueci-senha-link">Esqueci minha senha</a>
         </div>
         <button class="login-btn" type="submit">ENTRAR</button>
         <div class="register-link">
@@ -79,7 +49,7 @@
       </form>
     </section>
     <section class="login-right">
-      <img src="/media/Imagem homem deitado.png" alt="Login Ilustração" style="max-width:100%;height:auto;display:block;margin:0 auto;"/>
+      <img src="/media/Imagem homem deitado.png" alt="Login Ilustração" style="width:100%;height:100vh;object-fit:cover;display:block;margin:0 auto;"/>
     </section>
   </main>
   <script>
@@ -116,6 +86,19 @@
     }
   </script>
   <style>
+    /* Remove autofill background dos inputs (deixa transparente) */
+    input:-webkit-autofill,
+    input:-webkit-autofill:focus,
+    input:-webkit-autofill:hover,
+    input:-webkit-autofill:active {
+      -webkit-box-shadow: 0 0 0 1000px transparent inset !important;
+      box-shadow: 0 0 0 1000px transparent inset !important;
+      -webkit-text-fill-color: inherit !important;
+      color: inherit !important;
+      border: none !important;
+      transition: background-color 5000s ease-in-out 0s;
+      background: transparent !important;
+    }
     /* Tema claro/escuro apenas na área do formulário */
     .login-left[data-theme="dark"] {
       background: #232323 !important;
@@ -203,3 +186,4 @@
   </style>
 </body>
 </html>
+@endsection

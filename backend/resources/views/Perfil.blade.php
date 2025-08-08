@@ -1,14 +1,19 @@
 @extends('layouts.app')
+@section('head')
+@endsection
 @section('title', 'Meu Perfil')
 @section('content')
-<div class="perfil-container">
+<div class="perfil-container" style="margin-top: 90px;">
     <h1>Meu Perfil</h1>
     <div class="perfil-card">
         <form action="{{ route('perfil.updateFoto') }}" method="POST" enctype="multipart/form-data" class="perfil-foto-form">
             @csrf
             <div class="perfil-foto-box">
-                <img src="{{ !empty($user->foto) ? $user->foto . '?v=' . time() : '/media/placeholder_produto.png' }}" alt="" class="perfil-foto-preview">
-                <input type="file" name="foto" id="foto" accept="image/*">
+                <label for="foto" class="perfil-foto-upload-label" style="cursor:pointer; display:flex; flex-direction:column; align-items:center; gap:8px;">
+                    <img src="{{ !empty($user->foto) ? $user->foto . '?v=' . time() : '/media/placeholder_produto.png' }}" alt="" class="perfil-foto-preview" id="fotoPreview">
+                    <span style="background:#3a7bfd; color:#fff; padding:6px 18px; border-radius:6px; font-size:1rem; font-weight:500; transition:background 0.2s;">Escolher nova foto</span>
+                    <input type="file" name="foto" id="foto" accept="image/*" style="display:none;">
+                </label>
                 <button type="submit">Atualizar Foto</button>
             </div>
         </form>
@@ -82,6 +87,24 @@
     }
     syncWithSystemTheme(prefersDarkScheme);
     prefersDarkScheme.addEventListener('change', syncWithSystemTheme);
+  });
+</script>
+<script>
+  // Preview da imagem selecionada
+  document.addEventListener('DOMContentLoaded', function() {
+    const input = document.getElementById('foto');
+    const preview = document.getElementById('fotoPreview');
+    if(input && preview) {
+      input.addEventListener('change', function(e) {
+        if (e.target.files && e.target.files[0]) {
+          const reader = new FileReader();
+          reader.onload = function(ev) {
+            preview.src = ev.target.result;
+          }
+          reader.readAsDataURL(e.target.files[0]);
+        }
+      });
+    }
   });
 </script>
 @endsection

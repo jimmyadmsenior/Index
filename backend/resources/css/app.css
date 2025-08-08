@@ -9,3 +9,99 @@
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
 }
+
+/* Navbar sempre preta, independente do tema */
+nav, .header-content, .menu, .menu li, .menu li a, .icons, .navbar-btn, .navbar-btn-login, .navbar-btn-cadastro, .navbar-btn-perfil {
+  background: #111 !important;
+  color: #fff !important;
+}
+.menu li a:hover, .navbar-btn:hover, .navbar-btn-login:hover, .navbar-btn-cadastro:hover, .navbar-btn-perfil:hover {
+  background: #111 !important;
+  color: #fff !important;
+  text-decoration: none !important;
+  filter: none !important;
+  transition: none !important;
+}
+.menu li a:active, .navbar-btn:active {
+  background: #111 !important;
+  color: #fff !important;
+}
+.menu li a:visited {
+  color: #fff !important;
+}
+.menu li a, .navbar-btn {
+  transition: none !important;
+}
+
+/* Garante navbar preta mesmo em modo dark ou light */
+[data-theme="dark"] nav,
+[data-theme="dark"] .header-content,
+[data-theme="dark"] .menu,
+[data-theme="dark"] .menu li,
+[data-theme="dark"] .menu li a,
+[data-theme="dark"] .icons,
+[data-theme="dark"] .navbar-btn,
+[data-theme="dark"] .navbar-btn-login,
+[data-theme="dark"] .navbar-btn-cadastro,
+[data-theme="dark"] .navbar-btn-perfil,
+[data-theme="light"] nav,
+[data-theme="light"] .header-content,
+[data-theme="light"] .menu,
+[data-theme="light"] .menu li,
+[data-theme="light"] .menu li a,
+[data-theme="light"] .icons,
+[data-theme="light"] .navbar-btn,
+[data-theme="light"] .navbar-btn-login,
+[data-theme="light"] .navbar-btn-cadastro,
+[data-theme="light"] .navbar-btn-perfil {
+  background: #111 !important;
+  color: #fff !important;
+}
+
+/* Força a navbar/header sempre preta e elementos brancos em todas as páginas, independentemente do tema */
+header, .header-content, nav, nav ul.menu, nav ul.menu li, nav ul.menu li a, .icons, .navbar-btn, .navbar-btn-login, .navbar-btn-cadastro, .navbar-btn-perfil {
+  background: #111 !important;
+  color: #fff !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+nav ul.menu li a, .navbar-btn, .navbar-btn-login, .navbar-btn-cadastro, .navbar-btn-perfil {
+  color: #fff !important;
+  text-shadow: none !important;
+  transition: none !important;
+}
+nav ul.menu li a:hover, nav ul.menu li a:focus, nav ul.menu li a:active,
+.navbar-btn:hover, .navbar-btn:focus, .navbar-btn:active,
+.navbar-btn-login:hover, .navbar-btn-login:focus, .navbar-btn-login:active,
+.navbar-btn-cadastro:hover, .navbar-btn-cadastro:focus, .navbar-btn-cadastro:active,
+.navbar-btn-perfil:hover, .navbar-btn-perfil:focus, .navbar-btn-perfil:active {
+  background: #111 !important;
+  color: #fff !important;
+  text-decoration: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+  border: none !important;
+  filter: none !important;
+  transition: none !important;
+}
+nav ul.menu li a:active, .navbar-btn:active {
+  background: #111 !important;
+  color: #fff !important;
+}
+nav ul.menu li a:visited {
+  color: #fff !important;
+}
+[data-theme="dark"] header, [data-theme="light"] header,
+[data-theme="dark"] .header-content, [data-theme="light"] .header-content,
+[data-theme="dark"] nav, [data-theme="light"] nav,
+[data-theme="dark"] nav ul.menu, [data-theme="light"] nav ul.menu,
+[data-theme="dark"] nav ul.menu li, [data-theme="light"] nav ul.menu li,
+[data-theme="dark"] nav ul.menu li a, [data-theme="light"] nav ul.menu li a,
+[data-theme="dark"] .icons, [data-theme="light"] .icons,
+[data-theme="dark"] .navbar-btn, [data-theme="light"] .navbar-btn,
+[data-theme="dark"] .navbar-btn-login, [data-theme="light"] .navbar-btn-login,
+[data-theme="dark"] .navbar-btn-cadastro, [data-theme="light"] .navbar-btn-cadastro,
+[data-theme="dark"] .navbar-btn-perfil, [data-theme="light"] .navbar-btn-perfil {
+  background: #111 !important;
+  color: #fff !important;
+}

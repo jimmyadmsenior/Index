@@ -1,3 +1,7 @@
+@extends('layouts.app')
+@section('head')
+@endsection
+@section('content')
 <!DOCTYPE html>
 <html lang="pt-BR" data-theme="light">
 <head>
@@ -8,33 +12,27 @@
   <link rel="stylesheet" href="/media/Css/Homepage_Com_Cadastro.css" />
   <link rel="stylesheet" href="/media/Css/Homepage_Sem_Cadastro_Custom.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link rel="stylesheet" href="/media/Cursor/cursor-global.css">
 </head>
 <body>
-  <header>
+  <header style="background:#111;box-shadow:none;border:none;">
     <div class="header-content">
       <div class="logo">
         <a href="/Homepage_Com_Cadastro"><img src="/media/Logo_Branca.png" alt="Logo da empresa"></a>
       </div>
-      <nav>
+      <nav style="background:#111;">
         <ul class="menu">
-          <li><a href="/Homepage_Smartphones">Smartphones</a></li>
-          <li><a href="/Homepage_Tablets">Tablets</a></li>
-          <li><a href="/Homepage_Fones">Fones</a></li>
-          <li><a href="/Homepage_Relogios">Relógios</a></li>
-          <li><a href="/Homepage_Notebooks">Notebooks</a></li>
+          <li><a href="/Homepage_Smartphones" style="color:#fff;background:#111;">Smartphones</a></li>
+          <li><a href="/Homepage_Tablets" style="color:#fff;background:#111;">Tablets</a></li>
+          <li><a href="/Homepage_Fones" style="color:#fff;background:#111;">Fones</a></li>
+          <li><a href="/Homepage_Relogios" style="color:#fff;background:#111;">Relógios</a></li>
+          <li><a href="/Homepage_Notebooks" style="color:#fff;background:#111;">Notebooks</a></li>
         </ul>
       </nav>
       <div class="icons">
-        <i class="fas fa-search"></i>
-        <i class="fas fa-shopping-bag"></i>
-        <i class="fas fa-box"></i>
-        <label class="theme-toggle">
-          <input type="checkbox" id="theme-toggle">
-          <span class="slider">
-            <i class="fas fa-sun sun"></i>
-            <i class="fas fa-moon moon"></i>
-          </span>
-        </label>
+        <i class="fas fa-search" style="color:#fff;"></i>
+        <i class="fas fa-shopping-bag" style="color:#fff;"></i>
+        <i class="fas fa-box" style="color:#fff;"></i>
       </div>
     </div>
   </header>
@@ -250,10 +248,12 @@
       <p>Copyright © 2025 Index Inc. Todos os direitos reservados.</p>
     </div>
   </footer>
-  <link rel="stylesheet" href="/media/Cursor/EfeitoCursor/dist/style.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.15.0/TweenMax.min.js"></script>
-  <script src="/media/Cursor/EfeitoCursor/src/script.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/TweenLite.min.js"></script>
+  <script src="/media/Cursor/cursor-global.js" defer></script>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       const savedTheme = localStorage.getItem('theme') || 'light';
@@ -361,3 +361,4 @@
   </style>
 </body>
 </html>
+@endsection

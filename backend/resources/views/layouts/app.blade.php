@@ -9,73 +9,57 @@
     <link rel="stylesheet" href="/media/Css/Homepage_Sem_Cadastro_Custom.css">
     <link rel="stylesheet" href="/media/Css/Perfil.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="/media/Cursor/cursor-global.css">
+    @vite('resources/css/app.css') <!-- Importação do CSS global app.css -->
+    @yield('head')
 </head>
 <body>
-    <header>
-        <div class="header-content">
-            <div class="logo">
-                <a href="/Homepage_Com_Cadastro"><img src="/media/Logo_Branca.png" alt="Logo da empresa"></a>
-            </div>
-            <nav>
-                <ul class="menu">
-                    <li><a href="/Homepage_Smartphones">Smartphones</a></li>
-                    <li><a href="/Homepage_Tablets">Tablets</a></li>
-                    <li><a href="/Homepage_Fones">Fones</a></li>
-                    <li><a href="/Homepage_Relogios">Relógios</a></li>
-                    <li><a href="/Homepage_Notebooks">Notebooks</a></li>
-                </ul>
-            </nav>
-            <div class="icons">
-                <i class="fas fa-search"></i>
-                <a href="/perfil" title="Perfil" style="color:#fff;"><i class="fas fa-user"></i></a>
-                <i class="fas fa-shopping-bag"></i>
-                <i class="fas fa-box"></i>
-                <label class="theme-toggle">
-                  <input type="checkbox" id="theme-toggle">
-                  <span class="slider">
-                    <i class="fas fa-sun sun"></i>
-                    <i class="fas fa-moon moon"></i>
-                  </span>
-                </label>
-            </div>
-        </div>
-    </header>
+    @include('layouts.navbar')
     <main style="padding-bottom: 48px;">
         @yield('content')
-    </main>
-    <footer>
-      <div class="footer-content">
-          <div class="footer-logo">
-              <p>Conheça nosso repositório</p>
-              <a href="https://github.com/jimmyadmsenior/Index" target="_blank">
-                  <img src="/media/Github_Logo.png" alt="GitHub" class="github-icon">
-              </a>
+    @hasSection('footer')
+        @yield('footer')
+    @else
+        <footer>
+          <div class="footer-content">
+              <div class="footer-logo">
+                  <p>Conheça nosso repositório</p>
+                  <a href="https://github.com/jimmyadmsenior/Index" target="_blank">
+                      <img src="/media/Github_Logo.png" alt="GitHub" class="github-icon">
+                  </a>
+              </div>
+              <div class="footer-section">
+                  <h4>Nossas regras</h4>
+                  <a href="/Politica_Privacidade">Política de Privacidade</a>
+                  <a href="/Termos_Condicoes">Termos e Condições</a>
+                  <a href="/Suporte">Suporte</a>
+                  <a href="/sobre-nos">Sobre</a>
+              </div>
+              <div class="footer-section">
+                  <h4>Recursos</h4>
+                  <a href="/Smartphone">Smartphones</a>
+                  <a href="/Tablets">Tablets</a>
+                  <a href="/Fones">Fones</a>
+                  <a href="/Relogios">Relógios</a>
+                  <a href="/Notebooks">Notebooks</a>
+              </div>
+              <div class="footer-section">
+                  <h4>Conecte-se</h4>
+                  <a href="https://github.com/jimmyadmsenior/Index">Repositório</a>
+                  <a href="/Download_App">Nosso App</a>
+              </div>
           </div>
-          <div class="footer-section">
-              <h4>Nossas regras</h4>
-              <a href="/Politica_Privacidade">Política de Privacidade</a>
-              <a href="/Termos_Condicoes">Termos e Condições</a>
-              <a href="/Suporte">Suporte</a>
-              <a href="/Sobre">Sobre</a>
+          <div class="copy">
+              <p>Copyright © 2025 Index Inc. Todos os direitos reservados.</p>
           </div>
-          <div class="footer-section">
-              <h4>Recursos</h4>
-              <a href="/Smartphone">Smartphones</a>
-              <a href="/Tablets">Tablets</a>
-              <a href="/Fones">Fones</a>
-              <a href="/Relogios">Relógios</a>
-              <a href="/Notebooks">Notebooks</a>
-          </div>
-          <div class="footer-section">
-              <h4>Conecte-se</h4>
-              <a href="https://github.com/jimmyadmsenior/Index">Repositório</a>
-              <a href="/Download_App">Nosso App</a>
-          </div>
-      </div>
-      <div class="copy">
-          <p>Copyright © 2025 Index Inc. Todos os direitos reservados.</p>
-      </div>
-    </footer>
+        </footer>
+    @endif
+
+    <!-- Cursor Motion Blur Effect: agora controlado apenas via JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/TweenLite.min.js"></script>
+    <script src="/media/Cursor/cursor-global.js" defer></script>
     <script>
       // Script para alternar entre os temas claro e escuro
       document.addEventListener('DOMContentLoaded', function() {

@@ -5,7 +5,7 @@ body, html {
   background: radial-gradient(ellipse at center, #232323 0%, #111 100%);
   color: #fff;
   min-height: 100vh;
-  padding-top: 60px;
+  /* padding-top removido para evitar duplo scroll e retângulo preto */
 }
 header {
   width: 100%;
