@@ -35,8 +35,10 @@ Route::middleware(['auth'])->group(function () {
         $produto_id = $request->query('produto_id') ?? session('produto_id');
         if ($produto_id) {
             session(['produto_id' => $produto_id]);
+            return view('Carrinho_Pix', ['produto_id' => $produto_id]);
+        } else {
+            return redirect('/carrinho-vazio')->with('error', 'Selecione um produto antes de finalizar a compra.');
         }
-        return view('Carrinho_Pix', ['produto_id' => $produto_id]);
     });
     Route::view('/carrinho-vazio', 'Carrinho_Vazio');
     Route::get('/pagamento-debito', function () {
@@ -70,7 +72,7 @@ Route::post('/logout', function (Request $request) {
 })->name('logout');
 
 Route::view('/confirmacao-cadastro', 'Confirmacao_Cadastro');
-Route::view('/compra-finalizada', 'Compra_Finalizada')->name('compra.finalizada');
+Route::view('/compra-finalizada', 'Compra_Finalizada')->name('compra.finalizada.view');
 Route::view('/Homepage_Com_Cadastro', 'Homepage_Com_Cadastro');
 Route::view('/Homepage_Fones', 'Homepage_Fones');
 Route::view('/recuperacao-senha', 'Recuperacao_Senha');

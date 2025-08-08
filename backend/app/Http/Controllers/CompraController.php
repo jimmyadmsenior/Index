@@ -22,7 +22,7 @@ class CompraController extends Controller
         // Envia o e-mail
         Mail::to($user->email)->send(new CompraFinalizadaMail($produto, $codigoRastreamento));
 
-        // Exibe diretamente a view de compra finalizada
-        return view('Compra_Finalizada');
+    // Redireciona para a página de compra finalizada
+    return redirect()->route('compra.finalizada.view');
     }
 }
