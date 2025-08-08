@@ -37,7 +37,7 @@
         <img src="/media/pix2.png" alt="Pix" style="width:38px;filter:drop-shadow(0 2px 8px #00c86f88);"/>
         <span style="font-size:1.15rem;color:#fff;font-weight:600;">Pix</span>
       </div>
-      <a href="/Carrinho_Pix" id="btn-pagar-pix" class="btn-anim" style="padding:12px 28px;border-radius:8px;font-weight:700;font-size:1.08rem;text-decoration:none;background:#00c86f;color:#fff;box-shadow:0 2px 8px #00c86f33;transition:background 0.2s;">Pagar com Pix</a>
+  <a href="/Carrinho_Pix?produto_id={{ session('produto_id') ?? request('produto_id') ?? '' }}" id="btn-pagar-pix" class="btn-anim" style="padding:12px 28px;border-radius:8px;font-weight:700;font-size:1.08rem;text-decoration:none;background:#00c86f;color:#fff;box-shadow:0 2px 8px #00c86f33;transition:background 0.2s;">Pagar com Pix</a>
     </div>
   </div>
 </section>
