@@ -31,6 +31,18 @@ Route::view('/Chatbot', 'Chatbot');
 // Rotas protegidas: carrinho e pagamento
 Route::middleware(['auth'])->group(function () {
     Route::view('/Carrinho_Pagamento', 'Carrinho_Pagamento');
+    Route::get('/Pagamento_Credito', function (Request $request) {
+        $produto_id = $request->query('produto_id') ?? session('produto_id');
+        if (!$produto_id) {
+            return redirect('/carrinho-vazio')->with('error', 'Selecione um produto antes de finalizar a compra.');
+        }
+        $produto = \App\Models\Produto::find($produto_id);
+        if (!$produto) {
+            return redirect('/carrinho-vazio')->with('error', 'Produto não encontrado.');
+        }
+        session(['produto_id' => $produto_id]);
+        return view('Pagamento_Credito', compact('produto'));
+    });
     Route::get('/Carrinho_Pix', function (Request $request) {
         $produto_id = $request->query('produto_id') ?? session('produto_id');
         if ($produto_id) {
@@ -41,8 +53,17 @@ Route::middleware(['auth'])->group(function () {
         }
     });
     Route::view('/carrinho-vazio', 'Carrinho_Vazio');
-    Route::get('/pagamento-debito', function () {
-        return view('Pagamento_Debito');
+    Route::get('/pagamento-debito', function (\Illuminate\Http\Request $request) {
+        $produto_id = $request->query('produto_id') ?? session('produto_id');
+        if (!$produto_id) {
+            return redirect('/carrinho-vazio')->with('error', 'Selecione um produto antes de finalizar a compra.');
+        }
+        $produto = \App\Models\Produto::find($produto_id);
+        if (!$produto) {
+            return redirect('/carrinho-vazio')->with('error', 'Produto não encontrado.');
+        }
+        session(['produto_id' => $produto_id]);
+        return view('Pagamento_Debito', compact('produto'));
     });
     Route::get('/perfil', [App\Http\Controllers\PerfilController::class, 'show'])->name('perfil.show');
     Route::post('/perfil/foto', [App\Http\Controllers\PerfilController::class, 'updateFoto'])->name('perfil.updateFoto');
