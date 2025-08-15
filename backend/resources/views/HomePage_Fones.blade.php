@@ -13,8 +13,8 @@
   <section class="produtos" style="background: #181818; border-radius: 24px; max-width: 1700px; margin: 64px auto 64px auto; box-shadow: 0 4px 32px 0 rgba(0,0,0,0.18); padding: 36px 0 32px 0; min-height: 520px;">
     <h2 style="color: #fff; font-size: 2rem; font-weight: bold; margin-bottom: 36px; letter-spacing: 1px; text-align: center; width: 100%;">Os modelos mais vendidos</h2>
     <div class="carousel">
-      <div class="carousel-inner" id="carousel-inner" style="width: 100%; justify-content: center; min-height: 320px;">
-        <div class="carousel-slide active" style="justify-content: center; gap: 48px; min-height: 320px; display: flex;">
+      <div class="carousel-inner" id="carousel-inner" style="width: 100%; justify-content: center; min-height: 320px; display: flex; transition: transform 0.7s cubic-bezier(.7,1.5,.5,1);">
+        <div class="carousel-slide" style="justify-content: center; gap: 48px; min-height: 320px; display: flex;">
           <div class="card" style="width: 240px; height: 320px; background: #232323; border-radius: 18px; box-shadow: 0 2px 16px rgba(0,0,0,0.18); padding: 28px 18px 22px 18px; display: flex; flex-direction: column; align-items: center; transition: box-shadow 0.2s;">
             <img src="/media/AirPods.png" alt="AirPods (2ª geração)" style="width: 140px; height: 140px; margin-bottom: 18px; border-radius: 12px; box-shadow: 0 2px 12px #0005; background: #181818; object-fit: contain;">
             <p style="font-weight: bold; margin: 5px 0 0 0; color: #fff; font-size: 1.1rem; letter-spacing: 0.5px;">AirPods (2ª geração)</p>
@@ -67,9 +67,9 @@
         </div>
       </div>
       <div class="carousel-indicators" style="margin-top: 24px;">
-        <button class="active" type="button" data-slide="0"></button>
-        <button type="button" data-slide="1"></button>
-        <button type="button" data-slide="2"></button>
+        <button class="carousel-dot active" type="button" data-slide="0" aria-label="Slide 1"></button>
+        <button class="carousel-dot" type="button" data-slide="1" aria-label="Slide 2"></button>
+        <button class="carousel-dot" type="button" data-slide="2" aria-label="Slide 3"></button>
       </div>
       <div style="position: relative; width: 100%; display: flex; justify-content: center; align-items: center; margin-top: 0; gap: 32px;">
         <button id="carousel-prev" class="carousel-nav-btn" style="width: 44px; height: 44px; font-size: 22px; background: #232323; color: #fff; border: none; box-shadow: 0 2px 8px #0003; border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: background 0.2s;">
@@ -145,51 +145,16 @@
 </script>
 
 <script>
-  const carousel = document.getElementById("carousel-inner");
-  const carouselWrapper = document.querySelector(".carousel");
-  const indicators = document.querySelectorAll(".carousel-indicators button");
-  const totalSlides = 3;
-  let currentSlide = 0;
-  let autoSlide;
-
-  function moveToSlide(index) {
-    carousel.style.transform = `translateX(-${index * 100}%)`;
-    indicators.forEach(btn => btn.classList.remove("active"));
-    indicators[index].classList.add("active");
-    currentSlide = index;
-  }
-
-  function nextSlide() {
-    const next = (currentSlide + 1) % totalSlides;
-    moveToSlide(next);
-  }
-
-  function prevSlide() {
-    const prev = (currentSlide - 1 + totalSlides) % totalSlides;
-    moveToSlide(prev);
-  }
-
-  function startAutoSlide() {
-    autoSlide = setInterval(() => {
-      const nextSlide = (currentSlide + 1) % totalSlides;
-      moveToSlide(nextSlide);
-    }, 2000);
-  }
-
-  function stopAutoSlide() {
-    clearInterval(autoSlide);
-  }
-
-  carouselWrapper.addEventListener("mouseenter", stopAutoSlide);
-  carouselWrapper.addEventListener("mouseleave", startAutoSlide);
-
-  startAutoSlide();
-</script>
-<script>
-    // Carrossel simples: mostra apenas o slide ativo
+  // Carrossel funcional: auto-slide, bolinhas e navegação
+  document.addEventListener('DOMContentLoaded', function() {
     const slides = document.querySelectorAll('.carousel-slide');
-    const indicators = document.querySelectorAll('.carousel-indicators button');
+    const indicators = document.querySelectorAll('.carousel-dot');
+    const prevBtn = document.getElementById('carousel-prev');
+    const nextBtn = document.getElementById('carousel-next');
+    const carouselWrapper = document.querySelector('.carousel');
     let currentSlide = 0;
+    let autoSlideInterval = null;
+
     function showSlide(idx) {
       slides.forEach((slide, i) => {
         slide.style.display = i === idx ? 'flex' : 'none';
@@ -199,23 +164,45 @@
     }
     function moveToSlide(idx) {
       showSlide(idx);
+      resetAutoSlide();
     }
     function prevSlide() {
       let idx = (currentSlide - 1 + slides.length) % slides.length;
       showSlide(idx);
+      resetAutoSlide();
     }
     function nextSlide() {
       let idx = (currentSlide + 1) % slides.length;
       showSlide(idx);
+      resetAutoSlide();
     }
-    // Inicializa carrossel
-    showSlide(0);
-    // Eventos dos botões
-    document.getElementById('carousel-prev').addEventListener('click', prevSlide);
-    document.getElementById('carousel-next').addEventListener('click', nextSlide);
+    function startAutoSlide() {
+      autoSlideInterval = setInterval(() => {
+        let idx = (currentSlide + 1) % slides.length;
+        showSlide(idx);
+      }, 2000);
+    }
+    function stopAutoSlide() {
+      clearInterval(autoSlideInterval);
+    }
+    function resetAutoSlide() {
+      stopAutoSlide();
+      startAutoSlide();
+    }
+    // Eventos
+    if (prevBtn) prevBtn.addEventListener('click', prevSlide);
+    if (nextBtn) nextBtn.addEventListener('click', nextSlide);
     indicators.forEach((btn, idx) => {
       btn.addEventListener('click', () => moveToSlide(idx));
     });
-  </script>
+    if (carouselWrapper) {
+      carouselWrapper.addEventListener('mouseenter', stopAutoSlide);
+      carouselWrapper.addEventListener('mouseleave', startAutoSlide);
+    }
+    // Inicializa carrossel
+    showSlide(0);
+    startAutoSlide();
+  });
+</script>
 @endpush
 @endsection
