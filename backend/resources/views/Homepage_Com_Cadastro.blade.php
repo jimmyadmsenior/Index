@@ -25,7 +25,7 @@ header, nav, .menu li a, .icons i, .navbar-btn, .navbar-btn-login, .navbar-btn-c
         <div class="featured-imgs">
           <img src="/media/Iphone_14_Capa_Homepage.png" alt="iPhone 14" class="iphone14-img"/>
         </div>
-        <video class="video-fullwidth iphone-video-scroll" id="iphoneVideoScroll" autoplay muted loop>
+        <video class="video-fullwidth iphone-video-scroll" id="iphoneVideoScroll" autoplay muted loop style="border-radius: 22px; overflow: hidden;">
           <source src="/media/Vídeo_iPhone_Capa_Homepage.mp4" type="video/mp4">
           Seu navegador não suporta a tag de vídeo.
         </video>
@@ -63,7 +63,7 @@ header, nav, .menu li a, .icons i, .navbar-btn, .navbar-btn-login, .navbar-btn-c
           <h2>Explore nosso site e descubra o luxo</h2>
         </div>
         <div class="explore-img">
-          <img src="/media/Explore_Nosso_Site_E_Descubra.png" alt="Mascote Index"/>
+          <img src="/media/Explore_Nosso_Site_E_Descubra.png" alt="Mascote Index" style="max-width: 1150px; width: 100%; height: auto; display: block; margin: 12px auto;"/>
         </div>
       </div>
     </section>

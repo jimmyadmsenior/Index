@@ -130,7 +130,7 @@ header, nav, .menu li a, .icons i, .navbar-btn, .navbar-btn-login, .navbar-btn-c
   </script>
 
   <!-- Seção: Destaque Galaxy Tab A -->
-  <section class="galaxy-tab-a-banner" style="background: #000; width: 100vw; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 0; position: relative; min-height: 700px;">
+  <section class="galaxy-tab-a-banner" style="background: #000; width: 100vw; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 0; position: relative; min-height: 700px; margin-bottom: 35px;">
     <div style="position: relative; width: 100vw; height: 700px; max-width: 100vw; min-height: 700px; display: flex; align-items: center; justify-content: center; overflow: hidden;">
       <img src="/media/selecao de tablets.png" alt="Samsung Galaxy Tab A" style="position: absolute; left: 0; top: 0; width: 100vw; height: 700px; max-width: 100vw; max-height: 100%; min-width: 0; min-height: 0; margin: 0; display: block; object-fit: cover; background: transparent; z-index: 2;" />
       <div style="position: absolute; left: 0; right: 0; top: 50%; transform: translateY(-50%); z-index: 3; text-align: center;">
@@ -141,13 +141,13 @@ header, nav, .menu li a, .icons i, .navbar-btn, .navbar-btn-login, .navbar-btn-c
   </section>
 
   <!-- Seção: Explore nosso site -->
-  <section class="explore-section">
+  <section class="explore-section" style="margin-top: 35px;">
     <div class="explore-banner">
       <div class="explore-text">
         <h2>Explore nosso site e descubra o luxo</h2>
       </div>
       <div class="explore-img">
-        <img src="/media/Imagem Ana.png" alt="Mascote Index"/>
+  <img src="/media/Imagem Ana.png" alt="Mascote Index" style="max-width: 1150px; width: 100%; height: auto; display: block; margin: 12px auto;"/>
       </div>
     </div>
   </section>
