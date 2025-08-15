@@ -639,3 +639,54 @@ slider .sun, .slider .moon {
     top: 10px; /* Distância do topo */
     transition: 0.2s ease all; /* Transição suave */
   }
+
+/* Botões animados de pagamento */
+.btn-anim {
+  transition: transform 0.18s cubic-bezier(.4,1.5,.5,1), box-shadow 0.18s, background 0.18s, color 0.18s;
+  will-change: transform;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+  position: relative;
+  z-index: 1;
+}
+.btn-anim:hover, .btn-anim:focus {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+}
+.btn-anim:active {
+  transform: translateY(2px) scale(0.98);
+  box-shadow: 0 1px 4px rgba(0,0,0,0.10);
+}
+#form-cartao .btn-anim {
+  background-color: #00c86f !important;
+  color: #fff !important;
+}
+#form-cartao .btn-anim:hover, #form-cartao .btn-anim:focus {
+  background-color: #00e07a !important;
+}
+#form-cartao .btn-anim:active {
+  background-color: #009e56 !important;
+}
+#btn-pagar-debito.btn-anim {
+  background-color: #fff !important;
+  color: #00bfff !important;
+}
+#btn-pagar-debito.btn-anim:hover, #btn-pagar-debito.btn-anim:focus {
+  background-color: #e6f7ff !important;
+  color: #009edb !important;
+}
+#btn-pagar-debito.btn-anim:active {
+  background-color: #b3e6ff !important;
+  color: #0077a6 !important;
+}
+#btn-pagar-pix.btn-anim {
+  background-color: #fff !important;
+  color: #00c86f !important;
+}
+#btn-pagar-pix.btn-anim:hover, #btn-pagar-pix.btn-anim:focus {
+  background-color: #e6fff3 !important;
+  color: #009e56 !important;
+}
+#btn-pagar-pix.btn-anim:active {
+  background-color: #b3ffd9 !important;
+  color: #00773d !important;
+}

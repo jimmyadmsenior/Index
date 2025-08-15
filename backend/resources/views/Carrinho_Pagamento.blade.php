@@ -7,21 +7,13 @@
   <div style="display:flex;flex-direction:column;gap:28px;">
     <!-- Cartão -->
     <div class="payment-card" style="background:linear-gradient(120deg,#23243a 60%,#2e8fff 100%);border-radius:18px;padding:24px 20px;box-shadow:0 2px 12px #2e8fff22;">
-      <div style="display:flex;align-items:center;gap:12px;margin-bottom:18px;">
-        <i class="fas fa-credit-card" style="font-size:1.5rem;color:#fff;"></i>
-        <span style="font-size:1.15rem;color:#fff;font-weight:600;">Cartão de Crédito</span>
-      </div>
-      <form id="form-cartao" action="/finalizar-compra" method="POST" style="display:flex;flex-direction:column;gap:14px;">
-        @csrf
-        <input type="hidden" name="produto_id" id="produto_id_pagamento" value="{{ session('produto_id') ?? request('produto_id') ?? '' }}">
-        <input type="text" placeholder="Nome no cartão" name="nome_cartao" required pattern="[A-Za-zÀ-ÿ ']+" title="Apenas letras" style="padding:11px;border-radius:7px;border:1px solid #3a3a4a;background:#23243a;color:#fff;"/>
-        <input type="text" placeholder="Número do cartão" name="numero_cartao" required maxlength="19" pattern="[0-9 ]+" title="Apenas números" inputmode="numeric" style="padding:11px;border-radius:7px;border:1px solid #3a3a4a;background:#23243a;color:#fff;"/>
-        <div style="display:flex;gap:10px;flex-wrap:wrap;">
-          <input type="text" placeholder="Validade (MM/AA)" name="validade" required maxlength="5" pattern="(0[1-9]|1[0-2])\/[0-9]{2}" title="Formato MM/AA" inputmode="numeric" style="min-width:0;flex-basis:60%;flex-grow:1;padding:11px;border-radius:7px;border:1px solid #3a3a4a;background:#23243a;color:#fff;"/>
-          <input type="text" placeholder="CVV" name="cvv" required maxlength="4" pattern="[0-9]{3,4}" title="Apenas números" inputmode="numeric" style="min-width:0;flex-basis:35%;flex-grow:0;padding:11px;border-radius:7px;border:1px solid #3a3a4a;background:#23243a;color:#fff;"/>
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:18px;">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <i class="fas fa-credit-card" style="font-size:1.5rem;color:#fff;"></i>
+          <span style="font-size:1.15rem;color:#fff;font-weight:600;display:flex;flex-direction:column;line-height:1.1;">Cartão de<br>Crédito</span>
         </div>
-        <button type="submit" class="btn-anim" style="margin-top:10px;padding:13px 0;font-size:1.08rem;border-radius:8px;border:none;background:#2e8fff;color:#fff;font-weight:700;box-shadow:0 2px 8px #2e8fff33;transition:background 0.2s;">Pagar com Cartão</button>
-      </form>
+  <a href="/Pagamento_Credito?produto_id={{ session('produto_id') ?? request('produto_id') ?? '' }}" class="btn-anim" style="padding:12px 28px;border-radius:8px;font-weight:700;font-size:1.08rem;text-decoration:none;background:#2e8fff;color:#fff;box-shadow:0 2px 8px #2e8fff33;transition:background 0.2s;">Pagar com Cartão</a>
+      </div>
     </div>
     <!-- Cartão de Débito -->
     <div class="payment-card" style="background:linear-gradient(120deg,#23243a 60%,#00bfff 100%);border-radius:18px;padding:24px 20px;box-shadow:0 2px 12px #00bfff22;display:flex;align-items:center;justify-content:space-between;gap:18px;">
@@ -37,7 +29,7 @@
         <img src="/media/pix2.png" alt="Pix" style="width:38px;filter:drop-shadow(0 2px 8px #00c86f88);"/>
         <span style="font-size:1.15rem;color:#fff;font-weight:600;">Pix</span>
       </div>
-      <a href="/Carrinho_Pix" id="btn-pagar-pix" class="btn-anim" style="padding:12px 28px;border-radius:8px;font-weight:700;font-size:1.08rem;text-decoration:none;background:#00c86f;color:#fff;box-shadow:0 2px 8px #00c86f33;transition:background 0.2s;">Pagar com Pix</a>
+  <a href="/Carrinho_Pix?produto_id={{ session('produto_id') ?? request('produto_id') ?? '' }}" id="btn-pagar-pix" class="btn-anim" style="padding:12px 28px;border-radius:8px;font-weight:700;font-size:1.08rem;text-decoration:none;background:#00c86f;color:#fff;box-shadow:0 2px 8px #00c86f33;transition:background 0.2s;">Pagar com Pix</a>
     </div>
   </div>
 </section>

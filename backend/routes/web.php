@@ -14,11 +14,11 @@ Route::view('/recuperacao-senha', 'Recuperacao_Senha');
 Route::view('/confirmacao-adm', 'Confirmacao_ADM');
 Route::view('/Homepage_Com_Cadastro', 'Homepage_Com_Cadastro');
 Route::view('/Carrinho_Pagamento', 'Carrinho_Pagamento');
-Route::view('/Homepage_Fones', 'Homepage_Fones');
+Route::view('/Homepage_Fones', 'HomePage_Fones');
 Route::view('/Homepage_Smartphones', 'Homepage_Smartphones');
 Route::view('/Homepage_Tablets', 'Homepage_Tablets');
-Route::view('/Homepage_Relogios', 'Relógios');
-Route::view('/Homepage_Notebooks', 'Notebooks');
+Route::view('/Homepage_Relógios', 'Homepage_Relógios');
+Route::view('/Homepage_Notebooks', 'Homepage_Notebooks');
 
 Route::get('/cadastro', [CadastroController::class, 'showCadastro']);
 Route::post('/cadastro', [CadastroController::class, 'processaCadastro']);
@@ -31,16 +31,39 @@ Route::view('/Chatbot', 'Chatbot');
 // Rotas protegidas: carrinho e pagamento
 Route::middleware(['auth'])->group(function () {
     Route::view('/Carrinho_Pagamento', 'Carrinho_Pagamento');
+    Route::get('/Pagamento_Credito', function (Request $request) {
+        $produto_id = $request->query('produto_id') ?? session('produto_id');
+        if (!$produto_id) {
+            return redirect('/carrinho-vazio')->with('error', 'Selecione um produto antes de finalizar a compra.');
+        }
+        $produto = \App\Models\Produto::find($produto_id);
+        if (!$produto) {
+            return redirect('/carrinho-vazio')->with('error', 'Produto não encontrado.');
+        }
+        session(['produto_id' => $produto_id]);
+        return view('Pagamento_Credito', compact('produto'));
+    });
     Route::get('/Carrinho_Pix', function (Request $request) {
         $produto_id = $request->query('produto_id') ?? session('produto_id');
         if ($produto_id) {
             session(['produto_id' => $produto_id]);
+            return view('Carrinho_Pix', ['produto_id' => $produto_id]);
+        } else {
+            return redirect('/carrinho-vazio')->with('error', 'Selecione um produto antes de finalizar a compra.');
         }
-        return view('Carrinho_Pix', ['produto_id' => $produto_id]);
     });
     Route::view('/carrinho-vazio', 'Carrinho_Vazio');
-    Route::get('/pagamento-debito', function () {
-        return view('Pagamento_Debito');
+    Route::get('/pagamento-debito', function (\Illuminate\Http\Request $request) {
+        $produto_id = $request->query('produto_id') ?? session('produto_id');
+        if (!$produto_id) {
+            return redirect('/carrinho-vazio')->with('error', 'Selecione um produto antes de finalizar a compra.');
+        }
+        $produto = \App\Models\Produto::find($produto_id);
+        if (!$produto) {
+            return redirect('/carrinho-vazio')->with('error', 'Produto não encontrado.');
+        }
+        session(['produto_id' => $produto_id]);
+        return view('Pagamento_Debito', compact('produto'));
     });
     Route::get('/perfil', [App\Http\Controllers\PerfilController::class, 'show'])->name('perfil.show');
     Route::post('/perfil/foto', [App\Http\Controllers\PerfilController::class, 'updateFoto'])->name('perfil.updateFoto');
@@ -70,13 +93,17 @@ Route::post('/logout', function (Request $request) {
 })->name('logout');
 
 Route::view('/confirmacao-cadastro', 'Confirmacao_Cadastro');
-Route::view('/compra-finalizada', 'Compra_Finalizada')->name('compra.finalizada');
+Route::view('/compra-finalizada', 'Compra_Finalizada')->name('compra.finalizada.view');
 Route::view('/Homepage_Com_Cadastro', 'Homepage_Com_Cadastro');
 Route::view('/Homepage_Fones', 'Homepage_Fones');
 Route::view('/recuperacao-senha', 'Recuperacao_Senha');
 Route::view('/confirmacao-adm', 'Confirmacao_ADM');
 Route::view('/Chatbot', 'Chatbot');
-Route::view('/sobre-nos', 'Sobre_Nós');
+Route::view('/Sobre_Nós', 'Sobre_Nós');
+Route::view('/Download_App', 'Download_App');
+Route::view('/Suporte', 'Suporte');
+Route::view('/Politica_Privacidade', 'Politica_Privacidade');
+Route::view('/Termos_Condicoes', 'Termos_Condicoes');
 Route::view('/confirmacao-adm2', 'Confirmacao_ADM2');
 Route::view('/recuperacao-senha2', 'Recuperacao_Senha2');
 Route::view('/Recuperacao_Senha_1', 'Recuperacao_Senha_1');

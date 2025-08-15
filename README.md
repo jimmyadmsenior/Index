@@ -97,12 +97,36 @@ Aperte no botão **Fork** na parte de cima dos arquivos, ao lado esquerdo da se�
 # Como iniciar o servidor local
 1. **Abra o terminal** no seu computador.
 2. **Navegue até a pasta "backend"** usando o comando:
-   ```bash
+  ```bash
    cd caminho/para/a/pasta/backend
+  ```
 Substitua caminho/para/a/pasta pelo caminho real onde a pasta "backend" está localizada.
-3. Execute o seguinte comando para iniciar o servidor:
 
-php artisan serve
+3. **Instale as dependências do PHP** usando o Composer:
+  ```bash
+   composer install
+  ```
+4. **Instale as dependências do Node.js** usando o npm:
+  ```bash
+  npm install
+  ```
+5. **Execute o comando para corrigir vulnerabilidade** (se necessário):
+  ```bash
+  npm audit fix
+  ```
+6. **Compile os arquivos** do projeto:
+  ```bash
+  npm run build
+  ```
+7. **Inicie o ambiente** de desenvolvimento:
+  ```bash
+  npm run dev
+  ```
+8. **Por fim, inicie o servidor** Laravel:
+  ```bash
+  php artisan serve
+  ```
+
 Agora o servidor estará rodando e você poderá acessá-lo através do seu navegador.
 o nosso projeto, lembre-se de enviar uma mensagem relatando o por quê
 que você gostaria de ajudar e como você pode contribuir para o nosso projeto.

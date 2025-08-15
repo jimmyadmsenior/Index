@@ -15,27 +15,6 @@
   <link rel="stylesheet" href="/media/Cursor/cursor-global.css">
 </head>
 <body>
-  <header style="background:#111;box-shadow:none;border:none;">
-    <div class="header-content">
-      <div class="logo">
-        <a href="/Homepage_Com_Cadastro"><img src="/media/Logo_Branca.png" alt="Logo da empresa"></a>
-      </div>
-      <nav style="background:#111;">
-        <ul class="menu">
-          <li><a href="/Homepage_Smartphones" style="color:#fff;background:#111;">Smartphones</a></li>
-          <li><a href="/Homepage_Tablets" style="color:#fff;background:#111;">Tablets</a></li>
-          <li><a href="/Homepage_Fones" style="color:#fff;background:#111;">Fones</a></li>
-          <li><a href="/Homepage_Relogios" style="color:#fff;background:#111;">Relógios</a></li>
-          <li><a href="/Homepage_Notebooks" style="color:#fff;background:#111;">Notebooks</a></li>
-        </ul>
-      </nav>
-      <div class="icons">
-        <i class="fas fa-search" style="color:#fff;"></i>
-        <i class="fas fa-shopping-bag" style="color:#fff;"></i>
-        <i class="fas fa-box" style="color:#fff;"></i>
-      </div>
-    </div>
-  </header>
   <main class="cadastro-main" style="min-height:100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 0; margin-top: 60px;">
     <form method="POST" action="/cadastro" autocomplete="off" class="cadastro-form-container cadastro-form">
       @csrf
@@ -74,6 +53,22 @@
       <button type="submit">CONCLUIR CADASTRO</button>
     </form>
     <style>
+      /* Remove cor de autofill do navegador nos inputs */
+      input:-webkit-autofill,
+      input:-webkit-autofill:focus,
+      input:-webkit-autofill:hover,
+      input:-webkit-autofill:active {
+        -webkit-box-shadow: 0 0 0 1000px transparent inset !important;
+        box-shadow: 0 0 0 1000px transparent inset !important;
+        background-color: transparent !important;
+        -webkit-text-fill-color: var(--form-title, #222) !important;
+        color: var(--form-title, #222) !important;
+        transition: background-color 9999s ease-in-out 0s;
+      }
+      html[data-theme="dark"] input:-webkit-autofill {
+        -webkit-text-fill-color: #fff !important;
+        color: #fff !important;
+      }
       /* Estilização isolada e moderna apenas para o formulário de cadastro */
       .cadastro-form-container.cadastro-form {
         background: var(--form-bg, rgba(255,255,255,0.06));
@@ -225,23 +220,23 @@
       </div>
       <div class="footer-section">
         <h4>Nossas regras</h4>
-        <a href="/Politica_Privacidade">Política de Privacidade</a>
-        <a href="/Termos_Condicoes">Termos e Condições</a>
-        <a href="/Suporte">Suporte</a>
-        <a href="/Sobre">Sobre</a>
+  <a href="/Politica_Privacidade">Política de Privacidade</a>
+  <a href="/Termos_Condicoes">Termos e Condições</a>
+  <a href="/Suporte">Suporte</a>
+  <a href="/Sobre_Nós">Sobre nós</a>
       </div>
       <div class="footer-section">
         <h4>Recursos</h4>
-        <a href="/Homepage_Smartphones">Smartphones</a>
-        <a href="/Homepage_Tablets">Tablets</a>
-        <a href="/Homepage_Fones">Fones</a>
-        <a href="/Homepage_Relogios">Relógios</a>
-        <a href="/Homepage_Notebooks">Notebooks</a>
+  <a href="/Homepage_Smartphones">Smartphones</a>
+  <a href="/Homepage_Tablets">Tablets</a>
+  <a href="/Homepage_Fones">Fones</a>
+  <a href="/Homepage_Relógios">Relógios</a>
+  <a href="/Homepage_Notebooks">Notebooks</a>
       </div>
       <div class="footer-section">
         <h4>Conecte-se</h4>
-        <a href="https://github.com/jimmyadmsenior/Index">Repositório</a>
-        <a href="/Download_App">Nosso App</a>
+  <a href="https://github.com/jimmyadmsenior/Index">Repositório</a>
+  <a href="/Download_App">Nosso App</a>
       </div>
     </div>
     <div class="copy">
