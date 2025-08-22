@@ -31,8 +31,8 @@ header, nav, .menu li a, .icons i, .navbar-btn, .navbar-btn-login, .navbar-btn-c
   </section>
 
   <!-- Carrossel de Produtos -->
-  <section class="produtos" style="background: #181818; border-radius: 24px; max-width: 1700px; margin: 64px auto 64px auto; box-shadow: 0 4px 32px 0 rgba(0,0,0,0.18); padding: 36px 0 32px 0; min-height: 520px;">
-    <h2 style="color: #fff; font-size: 2rem; font-weight: bold; margin-bottom: 36px; letter-spacing: 1px;">Os modelos mais vendidos</h2>
+  <section class="produtos" style="background: #181818; border-radius: 24px; max-width: 100vw; width: 100vw; margin: 64px calc(50% - 50vw) 64px calc(50% - 50vw); box-shadow: 0 4px 32px 0 rgba(0,0,0,0.18); padding: 36px 0 32px 0; min-height: 520px;">
+  <h2 style="color: #fff; font-size: 2rem; font-weight: bold; margin-bottom: 36px; letter-spacing: 1px; text-align: center; width: 100%;">Os modelos mais vendidos</h2>
     <div class="carousel">
       <div class="carousel-inner" id="carousel-inner" style="width: 100%; justify-content: center; min-height: 320px;">
         <div class="carousel-slide active" style="justify-content: center; gap: 48px; min-height: 320px;">
