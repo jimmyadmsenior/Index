@@ -15,7 +15,8 @@
         <div class="featured-imgs">
           <img src="/media/Iphone_14_Capa_Homepage.png" alt="Two hands holding a light blue iPhone 14, one showing the back with the Apple logo and dual cameras, the other displaying the lock screen with the time 941 and colorful abstract wallpaper, set against a clean white background, conveying a modern and premium feel" class="iphone14-img"/>
         </div>
-        <!-- Vídeo embaixo da imagem, ocupando toda a largura -->        <video class="video-fullwidth iphone-video-scroll" id="iphoneVideoScroll" autoplay muted loop>
+        <!-- Vídeo embaixo da imagem, ocupando toda a largura -->
+        <video class="video-fullwidth iphone-video-scroll" id="iphoneVideoScroll" autoplay muted loop style="border-radius: 22px; overflow: hidden;">
           <source src="/media/Vídeo_iPhone_Capa_Homepage.mp4" type="video/mp4">
           Seu navegador não suporta a tag de vídeo.
         </video>
@@ -53,7 +54,7 @@
           <h2>Explore nosso site e descubra o luxo</h2>
         </div>
         <div class="explore-img">
-          <img src="/media/Explore_Nosso_Site_E_Descubra.png" alt="Mascote Index"/>
+          <img src="/media/Explore_Nosso_Site_E_Descubra.png" alt="Mascote Index" style="max-width: 1150px; width: 100%; height: auto; display: block; margin: 12px auto;"/>
         </div>
       </div>
     </section>
