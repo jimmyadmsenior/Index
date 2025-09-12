@@ -83,21 +83,15 @@ Route::post('/login', function(Request $request) {
         return redirect('/Homepage_Com_Cadastro');
     }
     return back()->withErrors(['email' => 'E-mail ou senha inválidos'])->withInput();
-});
+})->middleware('throttle:5,1');
 
-Route::post('/logout', function (Request $request) {
+Route::post('/logout', function(Request $request) {
     Auth::logout();
     $request->session()->invalidate();
     $request->session()->regenerateToken();
     return redirect('/');
 })->name('logout');
 
-Route::view('/confirmacao-cadastro', 'Confirmacao_Cadastro');
-Route::view('/compra-finalizada', 'Compra_Finalizada')->name('compra.finalizada.view');
-Route::view('/Homepage_Com_Cadastro', 'Homepage_Com_Cadastro');
-Route::view('/Homepage_Fones', 'Homepage_Fones');
-Route::view('/recuperacao-senha', 'Recuperacao_Senha');
-Route::view('/confirmacao-adm', 'Confirmacao_ADM');
 Route::view('/Chatbot', 'Chatbot');
 Route::view('/Sobre_Nós', 'Sobre_Nós');
 Route::view('/Download_App', 'Download_App');
