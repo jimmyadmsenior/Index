@@ -19,20 +19,18 @@
       </nav>
       <div class="navbar-actions" style="display:flex;align-items:center;gap:18px;justify-self:end;padding-left:56px;">
         <a href="/sacola" class="navbar-btn navbar-btn-sacola" title="Sacola" style="color:#fff;background:#111;border:none;font-size:1.5rem;display:flex;align-items:center;justify-content:center;"><i class="fas fa-shopping-bag"></i></a>
-        @if (Request::is('/') || Request::is('Homepage_Sem_Cadastro') || Request::is('Homepage_Fones') || Request::is('Homepage_Smartphones') || Request::is('Homepage_Tablets') || Request::is('Homepage_Relógios') || Request::is('Homepage_Notebooks') || Request::is('login') || Request::is('cadastro') || Request::is('recuperacao-senha') || Request::is('confirmacao-adm') || Request::is('Chatbot') || Request::is('Sobre_Nós') || Request::is('Download_App') || Request::is('Suporte') || Request::is('Politica_Privacidade') || Request::is('Termos_Condicoes') || !Auth::check())
+        @auth
+          <a href="/perfil" class="navbar-btn navbar-btn-perfil" title="Meu perfil" style="display:flex;align-items:center;gap:8px;color:#fff;background:#111;border:none;">
+            @if(Auth::user() && Auth::user()->foto)
+              <img src="{{ Auth::user()->foto }}" alt="Foto de perfil" style="width:32px;height:32px;border-radius:50%;object-fit:cover;border:2px solid #fff;background:#222;">
+            @else
+              <i class="fas fa-user" style="font-size:24px;color:#fff;"></i>
+            @endif
+          </a>
+        @else
           <a href="/login" class="navbar-btn navbar-btn-login" style="color:#fff;background:#111;border:1.5px solid #fff;padding:7px 22px;border-radius:10px;font-weight:600;">Login</a>
           <a href="/cadastro" class="navbar-btn navbar-btn-cadastro" style="color:#fff;background:#111;border:1.5px solid #fff;padding:7px 22px;border-radius:10px;font-weight:600;">Cadastro</a>
-        @else
-          @auth
-            <a href="/perfil" class="navbar-btn navbar-btn-perfil" title="Meu perfil" style="display:flex;align-items:center;gap:8px;color:#fff;background:#111;border:none;">
-              @if(Auth::user() && Auth::user()->foto)
-                <img src="{{ Auth::user()->foto }}" alt="Foto de perfil" style="width:32px;height:32px;border-radius:50%;object-fit:cover;border:2px solid #fff;background:#222;">
-              @else
-                <i class="fas fa-user" style="font-size:24px;color:#fff;"></i>
-              @endif
-            </a>
-          @endauth
-        @endif
+        @endauth
       </div>
     </div>
     </div>
