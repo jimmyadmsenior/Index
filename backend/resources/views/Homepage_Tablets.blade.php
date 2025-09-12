@@ -4,12 +4,22 @@
 html { margin: 0 !important; padding: 0 !important; border: none !important; box-shadow: none !important; }
 body { margin: 0 !important; padding: 0 !important; }
 main.main-homepage { padding: 0 !important; margin: 0 !important; }
-header, nav, .menu li a, .icons i, .navbar-btn, .navbar-btn-login, .navbar-btn-cadastro, .navbar-btn-perfil {
+header, nav, .menu li a, .icons i, .navbar-btn, .navbar-btn-perfil {
   background: #111 !important;
   color: #fff !important;
   border: none !important;
   box-shadow: none !important;
   border-radius: 0 !important;
+}
+/* Garantir que os botões de login e cadastro mantenham suas bordas */
+.navbar-btn-login, .navbar-btn-cadastro {
+  background: #111 !important;
+  color: #fff !important;
+  border: 1.5px solid #fff !important;
+  box-shadow: none !important;
+  border-radius: 10px !important;
+  padding: 7px 22px !important;
+  font-weight: 600 !important;
 }
 header {
   margin: 0 !important;
