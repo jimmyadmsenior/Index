@@ -8,7 +8,11 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\RecuperacaoSenhaMail;
 
-Route::view('/', 'Homepage_Sem_Cadastro');
+Route::get('/', function () {
+    return Auth::check() 
+        ? view('Homepage_Com_Cadastro') 
+        : view('Homepage_Sem_Cadastro');
+});
 Route::view('/login', 'Login')->name('login');
 Route::view('/recuperacao-senha', 'Recuperacao_Senha');
 Route::view('/confirmacao-adm', 'Confirmacao_ADM');
