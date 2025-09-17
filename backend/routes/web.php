@@ -24,6 +24,7 @@ Route::get('/cadastro', [CadastroController::class, 'showCadastro']);
 Route::post('/cadastro', [CadastroController::class, 'processaCadastro']);
 Route::get('/verificacao', [CadastroController::class, 'showVerificacao']);
 Route::post('/verificacao', [CadastroController::class, 'verificaCodigo']);
+Route::view('/confirmacao-cadastro', 'Confirmacao_Cadastro');
 // Adicione outras rotas conforme necessário
 Route::get('/produto/{id}', [App\Http\Controllers\ProdutoController::class, 'show'])->name('produto.show');
 Route::view('/Chatbot', 'Chatbot');
