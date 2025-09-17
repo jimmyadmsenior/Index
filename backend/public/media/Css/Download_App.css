@@ -7,8 +7,8 @@ html, body {
   margin: 0;
   padding: 0;
   overflow-x: hidden; /* Remove a rolagem horizontal */
-  overflow-y: hidden; /* Remove a rolagem vertical */
-  height: 100vh; /* Define altura para 100% da viewport */
+  overflow-y: auto; /* Permite a rolagem vertical quando necessário */
+  min-height: 100vh; /* Define altura mínima para 100% da viewport */
 }
 
 /* Variáveis para tema claro (padrão) */
@@ -82,7 +82,7 @@ body {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding: 30px 40px; /* Reduzido de 80px para 30px */
+  padding: 80px 40px 30px 40px; /* Aumentado padding-top de 30px para 80px */
   flex-wrap: wrap;
   flex: 1; /* Faz o container crescer para ocupar espaço disponível */
 }
