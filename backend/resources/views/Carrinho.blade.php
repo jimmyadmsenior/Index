@@ -18,25 +18,6 @@ header, nav, .menu li a, .icons i, .navbar-btn, .navbar-btn-login, .navbar-btn-c
   align-items: center;
 }
 
-.carrinho-header {
-  text-align: center;
-  margin-bottom: 60px;
-}
-
-.carrinho-title {
-  color: #fff;
-  font-size: 3.5rem;
-  font-weight: 800;
-  margin-bottom: 16px;
-  letter-spacing: 1px;
-}
-
-.carrinho-subtitle {
-  color: #999;
-  font-size: 1.2rem;
-  font-weight: 400;
-}
-
 .carrinho-vazio {
   background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
   border-radius: 24px;
@@ -94,74 +75,10 @@ header, nav, .menu li a, .icons i, .navbar-btn, .navbar-btn-login, .navbar-btn-c
   transform: translateY(0px);
 }
 
-.carrinho-sugestoes {
-  margin-top: 80px;
-  text-align: center;
-  max-width: 800px;
-  width: 100%;
-}
-
-.sugestoes-title {
-  color: #fff;
-  font-size: 2rem;
-  font-weight: 700;
-  margin-bottom: 32px;
-}
-
-.sugestoes-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 24px;
-  margin-top: 32px;
-}
-
-.sugestao-card {
-  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
-  border-radius: 16px;
-  padding: 24px;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  border: 1px solid #333;
-  text-align: center;
-}
-
-.sugestao-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 32px rgba(46, 143, 255, 0.2);
-  border-color: #2e8fff;
-}
-
-.sugestao-icon {
-  font-size: 2.5rem;
-  color: #2e8fff;
-  margin-bottom: 16px;
-}
-
-.sugestao-title {
-  color: #fff;
-  font-size: 1.1rem;
-  font-weight: 600;
-  margin-bottom: 8px;
-}
-
-.sugestao-desc {
-  color: #aaa;
-  font-size: 0.9rem;
-}
-
 @media (max-width: 768px) {
   .carrinho-vazio {
     padding: 60px 40px;
     margin: 0 16px;
-  }
-  
-  .carrinho-title {
-    font-size: 2.8rem;
-  }
-  
-  .sugestoes-grid {
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 16px;
   }
 }
 </style>
@@ -169,11 +86,6 @@ header, nav, .menu li a, .icons i, .navbar-btn, .navbar-btn-login, .navbar-btn-c
 
 @section('content')
 <div class="carrinho-container">
-    <div class="carrinho-header">
-        <h1 class="carrinho-title">Seu Carrinho</h1>
-        <p class="carrinho-subtitle">Gerencie seus produtos selecionados</p>
-    </div>
-
     <div class="carrinho-vazio">
         <div class="carrinho-vazio-icon">
             <i class="fas fa-shopping-bag"></i>
@@ -187,40 +99,6 @@ header, nav, .menu li a, .icons i, .navbar-btn, .navbar-btn-login, .navbar-btn-c
             <i class="fas fa-store"></i>
             Explorar Produtos
         </a>
-    </div>
-
-    <div class="carrinho-sugestoes">
-        <h2 class="sugestoes-title">Explore por Categoria</h2>
-        <div class="sugestoes-grid">
-            <a href="/Homepage_Smartphones" class="sugestao-card">
-                <div class="sugestao-icon">
-                    <i class="fas fa-mobile-alt"></i>
-                </div>
-                <h3 class="sugestao-title">Smartphones</h3>
-                <p class="sugestao-desc">iPhone e Galaxy</p>
-            </a>
-            <a href="/Homepage_Tablets" class="sugestao-card">
-                <div class="sugestao-icon">
-                    <i class="fas fa-tablet-alt"></i>
-                </div>
-                <h3 class="sugestao-title">Tablets</h3>
-                <p class="sugestao-desc">iPad e Galaxy Tab</p>
-            </a>
-            <a href="/Homepage_Fones" class="sugestao-card">
-                <div class="sugestao-icon">
-                    <i class="fas fa-headphones"></i>
-                </div>
-                <h3 class="sugestao-title">Fones</h3>
-                <p class="sugestao-desc">AirPods e Galaxy Buds</p>
-            </a>
-            <a href="/Homepage_Notebooks" class="sugestao-card">
-                <div class="sugestao-icon">
-                    <i class="fas fa-laptop"></i>
-                </div>
-                <h3 class="sugestao-title">Notebooks</h3>
-                <p class="sugestao-desc">MacBook e Galaxy Book</p>
-            </a>
-        </div>
     </div>
 </div>
 @endsection
