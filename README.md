@@ -122,16 +122,12 @@ Substitua caminho/para/a/pasta pelo caminho real onde a pasta "backend" está lo
   ```bash
   npm run dev
   ```
-8. **Gere a key** do Laravel:
-  ```bash
-  php artisan key:generate
-  ```
 8. **Por fim, inicie o servidor** Laravel:
   ```bash
   php artisan serve
   ```
 
-Agora o servidor estará rodando e você poderá acessá-lo através do seu navegador
+Agora o servidor estará rodando e você poderá acessá-lo através do seu navegador.
 o nosso projeto, lembre-se de enviar uma mensagem relatando o por quê
 que você gostaria de ajudar e como você pode contribuir para o nosso projeto.
 

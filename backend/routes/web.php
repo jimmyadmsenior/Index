@@ -8,11 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\RecuperacaoSenhaMail;
 
-Route::get('/', function () {
-    return Auth::check() 
-        ? view('Homepage_Com_Cadastro') 
-        : view('Homepage_Sem_Cadastro');
-});
+Route::view('/', 'Homepage_Sem_Cadastro');
 Route::view('/login', 'Login')->name('login');
 Route::view('/recuperacao-senha', 'Recuperacao_Senha');
 Route::view('/confirmacao-adm', 'Confirmacao_ADM');
@@ -28,7 +24,6 @@ Route::get('/cadastro', [CadastroController::class, 'showCadastro']);
 Route::post('/cadastro', [CadastroController::class, 'processaCadastro']);
 Route::get('/verificacao', [CadastroController::class, 'showVerificacao']);
 Route::post('/verificacao', [CadastroController::class, 'verificaCodigo']);
-Route::view('/confirmacao-cadastro', 'Confirmacao_Cadastro');
 // Adicione outras rotas conforme necessário
 Route::get('/produto/{id}', [App\Http\Controllers\ProdutoController::class, 'show'])->name('produto.show');
 Route::view('/Chatbot', 'Chatbot');
