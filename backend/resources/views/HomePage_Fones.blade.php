@@ -11,49 +11,229 @@
   </div>
   
   <!-- Carrossel de Fones 3x3 -->
-  <section class="carousel-fones" style="max-width: 1400px; margin: 48px auto 0 auto; background: #181818; border-radius: 24px; box-shadow: 0 4px 32px 0 rgba(0,0,0,0.18); padding: 32px 0;">
-  <div class="carousel-inner-fones" style="position: relative; width: 100%; height: 240px; overflow: hidden;">
-      <div class="carousel-track-fones" style="display: flex; width: 300%; height: 100%; transition: transform 0.7s cubic-bezier(.77,0,.18,1); will-change: transform;">
-        <div class="carousel-slide-fones" style="display: flex; gap: 48px; width: 33.333%; justify-content: center; align-items: center;">
-          <img src="/media/airpods1.png" alt="AirPods 1" style="width: 220px; height: 220px; border-radius: 18px; object-fit: cover; background: #111;">
-          <img src="/media/airpods2.png" alt="AirPods 2" style="width: 220px; height: 220px; border-radius: 18px; object-fit: cover; background: #111;">
-          <img src="/media/airpods3.png" alt="AirPods 3" style="width: 220px; height: 220px; border-radius: 18px; object-fit: cover; background: #111;">
+  <section class="carousel-fones-novo">
+    <style>
+      .carousel-fones-novo {
+        max-width: 1200px;
+        margin: 48px auto 0 auto;
+        background: #181818;
+        border-radius: 24px;
+        box-shadow: 0 4px 32px 0 rgba(0,0,0,0.18);
+        padding: 32px 0;
+        position: relative;
+      }
+      .carousel-fones-novo .carousel-viewport {
+        overflow: hidden;
+        width: 100%;
+        height: 320px;
+        border-radius: 18px;
+        background: transparent;
+      }
+      .carousel-fones-novo .carousel-track {
+        display: flex;
+        transition: transform 0.7s cubic-bezier(.77,0,.18,1);
+        will-change: transform;
+      }
+      .carousel-fones-novo .carousel-slide {
+        min-width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: stretch;
+        gap: 48px;
+      }
+      .fone-card {
+        background: #fff;
+        border-radius: 20px;
+        box-shadow: 0 2px 16px 0 rgba(0,0,0,0.08);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 320px;
+        min-height: 280px;
+        padding: 32px 16px 28px 16px;
+        transition: box-shadow 0.2s, transform 0.2s;
+      }
+      .fone-card img {
+        width: 120px;
+        height: 120px;
+        object-fit: contain;
+        margin-bottom: 32px;
+        margin-top: 12px;
+        background: none;
+        border-radius: 0;
+        box-shadow: none;
+      }
+      .fone-model {
+        color: #222;
+        font-size: 1.08rem;
+        font-weight: 600;
+        margin-bottom: 12px;
+        text-align: center;
+        letter-spacing: 0.2px;
+      }
+      .fone-price {
+        color: #222;
+        font-size: 1.05rem;
+        font-weight: 400;
+        text-align: center;
+      }
+      .carousel-fones-novo .carousel-indicators {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 12px;
+        margin-top: 18px;
+      }
+      .carousel-fones-novo .carousel-dot {
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        border: 2px solid #fff;
+        background: transparent;
+        cursor: pointer;
+        transition: background 0.2s;
+      }
+      .carousel-fones-novo .carousel-dot.active {
+        background: #fff;
+      }
+      @media (max-width: 900px) {
+        .fone-card { width: 90vw; min-height: 180px; padding: 12px 4px 12px 4px; }
+        .fone-card img { width: 60px; height: 60px; margin-bottom: 10px; }
+        .carousel-fones-novo .carousel-viewport { height: 110px; }
+        .fone-model { font-size: 0.82rem; }
+        .fone-price { font-size: 0.8rem; }
+      }
+    </style>
+    <div class="carousel-viewport">
+      <div class="carousel-track">
+        <div class="carousel-slide">
+          <div class="fone-card">
+            <img src="/media/fone1.jpg" alt="Fone 1">
+            <div class="fone-model">AirPods (2ª geração)</div>
+            <div class="fone-price">R$359,99</div>
+          </div>
+          <div class="fone-card">
+            <img src="/media/fone2.jpg" alt="Fone 2">
+            <div class="fone-model">Samsung Galaxy Buds3 Pro</div>
+            <div class="fone-price">R$235,99</div>
+          </div>
+          <div class="fone-card">
+            <img src="/media/fone3.jpg" alt="Fone 3">
+            <div class="fone-model">Samsung Galaxy Buds Live</div>
+            <div class="fone-price">R$257,90</div>
+          </div>
         </div>
-        <div class="carousel-slide-fones" style="display: flex; gap: 48px; width: 33.333%; justify-content: center; align-items: center;">
-          <img src="/media/airpodsmax.png" alt="AirPods Max" style="width: 220px; height: 220px; border-radius: 18px; object-fit: cover; background: #111;">
-          <img src="/media/airpods1.png" alt="AirPods 1" style="width: 220px; height: 220px; border-radius: 18px; object-fit: cover; background: #111;">
-          <img src="/media/airpods2.png" alt="AirPods 2" style="width: 220px; height: 220px; border-radius: 18px; object-fit: cover; background: #111;">
+        <div class="carousel-slide">
+          <div class="fone-card">
+            <img src="/media/fone4.jpg" alt="Fone 4">
+            <div class="fone-model">Sony WH-1000XM4</div>
+            <div class="fone-price">R$1.799,00</div>
+          </div>
+          <div class="fone-card">
+            <img src="/media/fone5.jpg" alt="Fone 5">
+            <div class="fone-model">JBL Live 660NC</div>
+            <div class="fone-price">R$899,00</div>
+          </div>
+          <div class="fone-card">
+            <img src="/media/fone6.jpg" alt="Fone 6">
+            <div class="fone-model">Edifier W800BT</div>
+            <div class="fone-price">R$349,00</div>
+          </div>
         </div>
-        <div class="carousel-slide-fones" style="display: flex; gap: 48px; width: 33.333%; justify-content: center; align-items: center;">
-          <img src="/media/airpods3.png" alt="AirPods 3" style="width: 220px; height: 220px; border-radius: 18px; object-fit: cover; background: #111;">
-          <img src="/media/airpodsmax.png" alt="AirPods Max" style="width: 220px; height: 220px; border-radius: 18px; object-fit: cover; background: #111;">
-          <img src="/media/airpods1.png" alt="AirPods 1" style="width: 220px; height: 220px; border-radius: 18px; object-fit: cover; background: #111;">
+        <div class="carousel-slide">
+          <div class="fone-card">
+            <img src="/media/fone7.jpg" alt="Fone 7">
+            <div class="fone-model">Beats Studio3</div>
+            <div class="fone-price">R$1.499,00</div>
+          </div>
+          <div class="fone-card">
+            <img src="/media/fone8.jpg" alt="Fone 8">
+            <div class="fone-model">QCY T13</div>
+            <div class="fone-price">R$179,00</div>
+          </div>
+          <div class="fone-card">
+            <img src="/media/fone9.jpg" alt="Fone 9">
+            <div class="fone-model">Philips TAH4205</div>
+            <div class="fone-price">R$229,00</div>
+          </div>
         </div>
-      </div>
-      </div>
-  <div class="carousel-slide-fones" style="display: flex; gap: 48px; width: 100%; justify-content: center; position: absolute; left: 100%; top: 0; transition: left 0.7s cubic-bezier(.77,0,.18,1);">
-        <img src="/media/fone4.png" alt="Fone 4" style="width: 220px; height: 220px; border-radius: 18px; object-fit: cover; background: #111;">
-        <img src="/media/fone5.png" alt="Fone 5" style="width: 220px; height: 220px; border-radius: 18px; object-fit: cover; background: #111;">
-        <img src="/media/fone6.png" alt="Fone 6" style="width: 220px; height: 220px; border-radius: 18px; object-fit: cover; background: #111;">
       </div>
     </div>
+    <div class="carousel-indicators">
+      <button class="carousel-dot" data-slide="0"></button>
+      <button class="carousel-dot" data-slide="1"></button>
+      <button class="carousel-dot" data-slide="2"></button>
+    </div>
+    <script>
+      (function() {
+        const track = document.querySelector('.carousel-fones-novo .carousel-track');
+        const slides = document.querySelectorAll('.carousel-fones-novo .carousel-slide');
+        const dots = document.querySelectorAll('.carousel-fones-novo .carousel-dot');
+        let current = 0;
+        let interval = null;
+        function showSlide(idx) {
+          track.style.transform = `translateX(-${idx * 100}%)`;
+          dots.forEach((dot, i) => dot.classList.toggle('active', i === idx));
+          current = idx;
+        }
+        function nextSlide() {
+          let next = (current + 1) % slides.length;
+          showSlide(next);
+        }
+        function goToSlide(idx) {
+          showSlide(idx);
+          resetInterval();
+        }
+        function startInterval() {
+          interval = setInterval(nextSlide, 2000);
+        }
+        function resetInterval() {
+          clearInterval(interval);
+          startInterval();
+        }
+        dots.forEach((dot, i) => {
+          dot.addEventListener('click', () => goToSlide(i));
+        });
+        showSlide(0);
+        startInterval();
+      })();
+    </script>
   </section>
   <script>
-      // Carrossel automático com animação "puxando para o lado"
+    // Carrossel automático com animação "puxando para o lado" e bolinhas
     document.addEventListener('DOMContentLoaded', function() {
-        const track = document.querySelector('.carousel-track-fones');
-        const slides = document.querySelectorAll('.carousel-slide-fones');
+      const track = document.querySelector('.carousel-track-fones');
+      const slides = document.querySelectorAll('.carousel-slide-fones');
+      const dots = document.querySelectorAll('.carousel-dot-fones');
       let current = 0;
+      let interval = null;
       function showSlide(idx) {
-          track.style.transform = `translateX(-${idx * 100}%)`;
+        track.style.transform = `translateX(-${idx * 100}%)`;
+        dots.forEach((dot, i) => {
+          dot.style.background = i === idx ? '#fff' : 'transparent';
+        });
         current = idx;
       }
       function nextSlide() {
         let next = (current + 1) % slides.length;
         showSlide(next);
       }
+      function goToSlide(idx) {
+        showSlide(idx);
+        resetInterval();
+      }
+      function startInterval() {
+        interval = setInterval(nextSlide, 2000);
+      }
+      function resetInterval() {
+        clearInterval(interval);
+        startInterval();
+      }
+      dots.forEach((dot, i) => {
+        dot.addEventListener('click', () => goToSlide(i));
+      });
       showSlide(0);
-      setInterval(nextSlide, 2000);
+      startInterval();
     });
   </script>
   <section class="airpods" style="max-width: 1400px; margin: 64px auto 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 48px; background: #111; border-radius: 24px; box-shadow: 0 4px 32px 0 rgba(0,0,0,0.18); padding: 48px 48px 48px 64px;">
