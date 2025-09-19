@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('head')
+<meta name="page-type" content="homepage">
 @endsection
 @section('content')
   <main class="main-homepage">
