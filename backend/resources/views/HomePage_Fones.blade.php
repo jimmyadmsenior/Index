@@ -108,53 +108,53 @@
       <div class="carousel-track">
         <div class="carousel-slide">
           <div class="fone-card">
-            <img src="/media/fone1.jpg" alt="Fone 1">
-            <div class="fone-model">AirPods (2ª geração)</div>
-            <div class="fone-price">R$359,99</div>
+            <img src="/media/AirPods.png" alt="AirPods 2ª geração">
+            <div class="fone-model">Apple AirPods (2ª geração)</div>
+            <div class="fone-price">R$ 799,00</div>
           </div>
           <div class="fone-card">
-            <img src="/media/fone2.jpg" alt="Fone 2">
-            <div class="fone-model">Samsung Galaxy Buds3 Pro</div>
-            <div class="fone-price">R$235,99</div>
+            <img src="/media/AirPods 3.png" alt="AirPods 3ª geração">
+            <div class="fone-model">Apple AirPods (3ª geração)</div>
+            <div class="fone-price">R$ 1.099,00</div>
           </div>
           <div class="fone-card">
-            <img src="/media/fone3.jpg" alt="Fone 3">
+            <img src="/media/AirPods (2).png" alt="AirPods Pro">
+            <div class="fone-model">Apple AirPods Pro (2ª geração)</div>
+            <div class="fone-price">R$ 1.499,00</div>
+          </div>
+        </div>
+        <div class="carousel-slide">
+          <div class="fone-card">
+            <img src="/media/AirPods Max.png" alt="AirPods Max">
+            <div class="fone-model">Apple AirPods Max</div>
+            <div class="fone-price">R$ 4.999,00</div>
+          </div>
+          <div class="fone-card">
+            <img src="/media/Galaxy buds Live.png" alt="Galaxy Buds Live">
             <div class="fone-model">Samsung Galaxy Buds Live</div>
-            <div class="fone-price">R$257,90</div>
+            <div class="fone-price">R$ 599,00</div>
+          </div>
+          <div class="fone-card">
+            <img src="/media/Galaxy Buds Live2.png" alt="Galaxy Buds2 Pro">
+            <div class="fone-model">Samsung Galaxy Buds2 Pro</div>
+            <div class="fone-price">R$ 1.099,00</div>
           </div>
         </div>
         <div class="carousel-slide">
           <div class="fone-card">
-            <img src="/media/fone4.jpg" alt="Fone 4">
-            <div class="fone-model">Sony WH-1000XM4</div>
-            <div class="fone-price">R$1.799,00</div>
+            <img src="/media/Galaxy Buds Pro.png" alt="Galaxy Buds Pro">
+            <div class="fone-model">Samsung Galaxy Buds Pro</div>
+            <div class="fone-price">R$ 899,00</div>
           </div>
           <div class="fone-card">
-            <img src="/media/fone5.jpg" alt="Fone 5">
-            <div class="fone-model">JBL Live 660NC</div>
-            <div class="fone-price">R$899,00</div>
+            <img src="/media/galaxy-buds3-silver-mo 1.png" alt="Galaxy Buds3">
+            <div class="fone-model">Samsung Galaxy Buds3</div>
+            <div class="fone-price">R$ 1.299,00</div>
           </div>
           <div class="fone-card">
-            <img src="/media/fone6.jpg" alt="Fone 6">
-            <div class="fone-model">Edifier W800BT</div>
-            <div class="fone-price">R$349,00</div>
-          </div>
-        </div>
-        <div class="carousel-slide">
-          <div class="fone-card">
-            <img src="/media/fone7.jpg" alt="Fone 7">
-            <div class="fone-model">Beats Studio3</div>
-            <div class="fone-price">R$1.499,00</div>
-          </div>
-          <div class="fone-card">
-            <img src="/media/fone8.jpg" alt="Fone 8">
-            <div class="fone-model">QCY T13</div>
-            <div class="fone-price">R$179,00</div>
-          </div>
-          <div class="fone-card">
-            <img src="/media/fone9.jpg" alt="Fone 9">
-            <div class="fone-model">Philips TAH4205</div>
-            <div class="fone-price">R$229,00</div>
+            <img src="/media/Galaxy_Buds_live.png" alt="Galaxy Buds FE">
+            <div class="fone-model">Samsung Galaxy Buds FE</div>
+            <div class="fone-price">R$ 499,00</div>
           </div>
         </div>
       </div>

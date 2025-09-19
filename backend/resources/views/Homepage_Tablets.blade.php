@@ -86,76 +86,196 @@ header {
   </section>
 
   <!-- Carrossel de Produtos -->
-  <section class="produtos" style="background: #181818; border-radius: 24px; width: 100vw; max-width: 100vw; margin: 64px 0 64px 0; box-shadow: 0 4px 32px 0 rgba(0,0,0,0.18); padding: 36px 0 32px 0; min-height: 420px; display: flex; flex-direction: column; align-items: center; overflow-x: hidden;">
-    <h2 style="color: #fff; font-size: 2.4rem; font-weight: bold; margin-bottom: 36px; letter-spacing: 1px;">Os modelos mais vendidos</h2>
-    <div class="carousel" id="carousel-tablets" style="position:relative; width:100vw; max-width:100vw; margin:0; display: flex; flex-direction: column; align-items: center; overflow-x: hidden;">
-      <div class="carousel-inner" id="carousel-inner" style="width: 100vw; min-width: 100vw; max-width: 100vw; display: flex; transition: transform 0.7s cubic-bezier(.7,1.5,.5,1); will-change: transform; min-height: 320px; align-items: center; justify-content: center;">
-        <div class="carousel-slide active" style="justify-content: center; align-items: stretch; gap: 32px; min-height: 320px;">
-          <div class="card" style="width: 220px; height: 280px; background: #232323; border-radius: 18px; box-shadow: 0 2px 12px rgba(0,0,0,0.14); padding: 18px 12px 12px 12px; display: flex; flex-direction: column; align-items: center; justify-content: space-between; transition: box-shadow 0.2s;">
-            <img src="/media/ipad_air.png" alt="Ipad air" style="width: 90px; height: 90px; margin-bottom: 10px; border-radius: 10px; box-shadow: 0 2px 8px #0004; background: #181818; object-fit: contain;">
-            <p style="font-weight: bold; margin: 5px 0 0 0; color: #fff; font-size: 1.3rem; letter-spacing: 0.5px;">Ipad air</p>
-            <span style="color: #fff; font-weight: bold; font-size: 1.25rem; margin-top: 10px; letter-spacing: 0.5px;">R$5.119,99</span>
+  <!-- Carrossel de Fones (cópia exata) -->
+  <section class="carousel-fones-novo">
+    <style>
+      .carousel-fones-novo {
+        max-width: 1200px;
+        margin: 48px auto 0 auto;
+        background: #181818;
+        border-radius: 24px;
+        box-shadow: 0 4px 32px 0 rgba(0,0,0,0.18);
+        padding: 32px 0;
+        position: relative;
+      }
+      .carousel-fones-novo .carousel-viewport {
+        overflow: hidden;
+        width: 100%;
+        height: 320px;
+        border-radius: 18px;
+        background: transparent;
+        /* Remover qualquer padding lateral */
+        padding: 0;
+      }
+      .carousel-fones-novo .carousel-track {
+        display: flex;
+        transition: transform 0.7s cubic-bezier(.77,0,.18,1);
+        will-change: transform;
+      }
+      .carousel-fones-novo .carousel-slide {
+        min-width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: stretch;
+        gap: 48px;
+      }
+      .fone-card {
+        background: #fff;
+        border-radius: 20px;
+        box-shadow: 0 2px 16px 0 rgba(0,0,0,0.08);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 320px;
+        min-height: 280px;
+        padding: 32px 16px 28px 16px;
+        transition: box-shadow 0.2s, transform 0.2s;
+      }
+      .fone-card img {
+        width: 120px;
+        height: 120px;
+        object-fit: contain;
+        margin-bottom: 32px;
+        margin-top: 12px;
+        background: none;
+        border-radius: 0;
+        box-shadow: none;
+      }
+      .fone-model {
+        color: #222;
+        font-size: 1.08rem;
+        font-weight: 600;
+        margin-bottom: 12px;
+        text-align: center;
+        letter-spacing: 0.2px;
+      }
+      .fone-price {
+        color: #222;
+        font-size: 1.05rem;
+        font-weight: 400;
+        text-align: center;
+      }
+      .carousel-fones-novo .carousel-indicators {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 12px;
+        margin-top: 18px;
+      }
+      .carousel-fones-novo .carousel-dot {
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        border: 2px solid #fff;
+        background: transparent;
+        cursor: pointer;
+        transition: background 0.2s;
+      }
+      .carousel-fones-novo .carousel-dot.active {
+        background: #fff;
+      }
+      @media (max-width: 900px) {
+        .fone-card { width: 90vw; min-height: 180px; padding: 12px 4px 12px 4px; }
+        .fone-card img { width: 60px; height: 60px; margin-bottom: 10px; }
+        .carousel-fones-novo .carousel-viewport { height: 110px; }
+        .fone-model { font-size: 0.82rem; }
+        .fone-price { font-size: 0.8rem; }
+      }
+    </style>
+    <div class="carousel-viewport">
+      <div class="carousel-track">
+        <div class="carousel-slide">
+          <div class="fone-card">
+            <img src="/media/AirPods.png" alt="AirPods 2ª geração">
+            <div class="fone-model">Apple AirPods (2ª geração)</div>
+            <div class="fone-price">R$ 799,00</div>
           </div>
-          <div class="card" style="width: 220px; height: 280px; background: #232323; border-radius: 18px; box-shadow: 0 2px 12px rgba(0,0,0,0.14); padding: 18px 12px 12px 12px; display: flex; flex-direction: column; align-items: center; justify-content: space-between; transition: box-shadow 0.2s;">
-            <img src="/media/ipad_11th_gen.png" alt="Ipad 11th gen" style="width: 90px; height: 90px; margin-bottom: 10px; border-radius: 10px; box-shadow: 0 2px 8px #0004; background: #181818; object-fit: contain;">
-            <p style="font-weight: bold; margin: 5px 0 0 0; color: #fff; font-size: 1.3rem; letter-spacing: 0.5px;">Ipad 11th gen</p>
-            <span style="color: #fff; font-weight: bold; font-size: 1.25rem; margin-top: 10px; letter-spacing: 0.5px;">R$2.899,99</span>
+          <div class="fone-card">
+            <img src="/media/AirPods 3.png" alt="AirPods 3ª geração">
+            <div class="fone-model">Apple AirPods (3ª geração)</div>
+            <div class="fone-price">R$ 1.099,00</div>
           </div>
-          <div class="card" style="width: 220px; height: 280px; background: #232323; border-radius: 18px; box-shadow: 0 2px 12px rgba(0,0,0,0.14); padding: 18px 12px 12px 12px; display: flex; flex-direction: column; align-items: center; justify-content: space-between; transition: box-shadow 0.2s;">
-            <img src="/media/ipad_pro.png" alt="Ipad Pro" style="width: 90px; height: 90px; margin-bottom: 10px; border-radius: 10px; box-shadow: 0 2px 8px #0004; background: #181818; object-fit: contain;">
-            <p style="font-weight: bold; margin: 5px 0 0 0; color: #fff; font-size: 1.3rem; letter-spacing: 0.5px;">Ipad Pro</p>
-            <span style="color: #fff; font-weight: bold; font-size: 1.25rem; margin-top: 10px; letter-spacing: 0.5px;">R$7.799,99</span>
+          <div class="fone-card">
+            <img src="/media/AirPods (2).png" alt="AirPods Pro">
+            <div class="fone-model">Apple AirPods Pro (2ª geração)</div>
+            <div class="fone-price">R$ 1.499,00</div>
           </div>
         </div>
-        <div class="carousel-slide" style="justify-content: center; align-items: stretch; gap: 32px; min-height: 320px;">
-          <div class="card" style="width: 220px; height: 280px; background: #232323; border-radius: 18px; box-shadow: 0 2px 12px rgba(0,0,0,0.14); padding: 18px 12px 12px 12px; display: flex; flex-direction: column; align-items: center; justify-content: space-between; transition: box-shadow 0.2s;">
-            <img src="/media/Galaxy_tab_fe.png" alt="Galaxy Tab FE" style="width: 90px; height: 90px; margin-bottom: 10px; border-radius: 10px; box-shadow: 0 2px 8px #0004; background: #181818; object-fit: contain;">
-            <p style="font-weight: bold; margin: 5px 0 0 0; color: #fff; font-size: 1.3rem; letter-spacing: 0.5px;">Galaxy Tab FE</p>
-            <span style="color: #fff; font-weight: bold; font-size: 1.25rem; margin-top: 10px; letter-spacing: 0.5px;">R$4.999,99</span>
+        <div class="carousel-slide">
+          <div class="fone-card">
+            <img src="/media/AirPods Max.png" alt="AirPods Max">
+            <div class="fone-model">Apple AirPods Max</div>
+            <div class="fone-price">R$ 4.999,00</div>
           </div>
-          <div class="card" style="width: 220px; height: 280px; background: #232323; border-radius: 18px; box-shadow: 0 2px 12px rgba(0,0,0,0.14); padding: 18px 12px 12px 12px; display: flex; flex-direction: column; align-items: center; justify-content: space-between; transition: box-shadow 0.2s;">
-            <img src="/media/Galaxy_tab.png" alt="Galaxy Tab" style="width: 90px; height: 90px; margin-bottom: 10px; border-radius: 10px; box-shadow: 0 2px 8px #0004; background: #181818; object-fit: contain;">
-            <p style="font-weight: bold; margin: 5px 0 0 0; color: #fff; font-size: 1.3rem; letter-spacing: 0.5px;">Galaxy Tab</p>
-            <span style="color: #fff; font-weight: bold; font-size: 1.25rem; margin-top: 10px; letter-spacing: 0.5px;">R$1.299,90</span>
+          <div class="fone-card">
+            <img src="/media/Galaxy buds Live.png" alt="Galaxy Buds Live">
+            <div class="fone-model">Samsung Galaxy Buds Live</div>
+            <div class="fone-price">R$ 599,00</div>
           </div>
-          <div class="card" style="width: 220px; height: 280px; background: #232323; border-radius: 18px; box-shadow: 0 2px 12px rgba(0,0,0,0.14); padding: 18px 12px 12px 12px; display: flex; flex-direction: column; align-items: center; justify-content: space-between; transition: box-shadow 0.2s;">
-            <img src="/media/Galaxy_tab_fee.png" alt="Galaxy Tab FE+" style="width: 90px; height: 90px; margin-bottom: 10px; border-radius: 10px; box-shadow: 0 2px 8px #0004; background: #181818; object-fit: contain;">
-            <p style="font-weight: bold; margin: 5px 0 0 0; color: #fff; font-size: 1.3rem; letter-spacing: 0.5px;">Galaxy Tab FE+</p>
-            <span style="color: #fff; font-weight: bold; font-size: 1.25rem; margin-top: 10px; letter-spacing: 0.5px;">R$5.499,99</span>
-          </div>
-        </div>
-        <div class="carousel-slide" style="justify-content: center; align-items: stretch; gap: 32px; min-height: 320px;">
-          <div class="card" style="width: 220px; height: 280px; background: #232323; border-radius: 18px; box-shadow: 0 2px 12px rgba(0,0,0,0.14); padding: 18px 12px 12px 12px; display: flex; flex-direction: column; align-items: center; justify-content: space-between; transition: box-shadow 0.2s;">
-            <img src="/media/ipad_mini.png" alt="Ipad Mini" style="width: 90px; height: 90px; margin-bottom: 10px; border-radius: 10px; box-shadow: 0 2px 8px #0004; background: #181818; object-fit: contain;">
-            <p style="font-weight: bold; margin: 5px 0 0 0; color: #fff; font-size: 1.3rem; letter-spacing: 0.5px;">Ipad Mini</p>
-            <span style="color: #fff; font-weight: bold; font-size: 1.25rem; margin-top: 10px; letter-spacing: 0.5px;">R$1.290,90</span>
-          </div>
-          <div class="card" style="width: 220px; height: 280px; background: #232323; border-radius: 18px; box-shadow: 0 2px 12px rgba(0,0,0,0.14); padding: 18px 12px 12px 12px; display: flex; flex-direction: column; align-items: center; justify-content: space-between; transition: box-shadow 0.2s;">
-            <img src="/media/galaxy_s9_ultra.png" alt="Galaxy S9 Ultra" style="width: 90px; height: 90px; margin-bottom: 10px; border-radius: 10px; box-shadow: 0 2px 8px #0004; background: #181818; object-fit: contain;">
-            <p style="font-weight: bold; margin: 5px 0 0 0; color: #fff; font-size: 1.3rem; letter-spacing: 0.5px;">Galaxy S9 Ultra</p>
-            <span style="color: #fff; font-weight: bold; font-size: 1.25rem; margin-top: 10px; letter-spacing: 0.5px;">R$8.999,99</span>
-          </div>
-          <div class="card" style="width: 220px; height: 280px; background: #232323; border-radius: 18px; box-shadow: 0 2px 12px rgba(0,0,0,0.14); padding: 18px 12px 12px 12px; display: flex; flex-direction: column; align-items: center; justify-content: space-between; transition: box-shadow 0.2s;">
-            <img src="/media/Galaxy_A9.png" alt="Galaxy A9" style="width: 90px; height: 90px; margin-bottom: 10px; border-radius: 10px; box-shadow: 0 2px 8px #0004; background: #181818; object-fit: contain;">
-            <p style="font-weight: bold; margin: 5px 0 0 0; color: #fff; font-size: 1.3rem; letter-spacing: 0.5px;">Galaxy A9</p>
-            <span style="color: #fff; font-weight: bold; font-size: 1.25rem; margin-top: 10px; letter-spacing: 0.5px;">R$999,99</span>
+          <div class="fone-card">
+            <img src="/media/Galaxy Buds Live2.png" alt="Galaxy Buds2 Pro">
+            <div class="fone-model">Samsung Galaxy Buds2 Pro</div>
+            <div class="fone-price">R$ 1.099,00</div>
           </div>
         </div>
-      </div>
-      <div class="carousel-indicators" id="carousel-indicators" style="margin-top: 32px; display: flex; justify-content: center; align-items: center; gap: 18px;">
-        <button class="carousel-dot active" onclick="moveToSlide(0)" aria-label="Slide 1"></button>
-        <button class="carousel-dot" onclick="moveToSlide(1)" aria-label="Slide 2"></button>
-        <button class="carousel-dot" onclick="moveToSlide(2)" aria-label="Slide 3"></button>
-      </div>
-      <div style="position: relative; width: 100%; display: flex; justify-content: center; align-items: center; margin-top: 0; gap: 32px;">
-        <button onclick="prevSlide()" class="carousel-nav-btn" style="width: 44px; height: 44px; font-size: 22px; background: #232323; color: #fff; border: none; box-shadow: 0 2px 8px #0003; border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: background 0.2s;">
-          <i class="fas fa-arrow-left"></i>
-        </button>
-        <button onclick="nextSlide()" class="carousel-nav-btn" style="width: 44px; height: 44px; font-size: 22px; background: #232323; color: #fff; border: none; box-shadow: 0 2px 8px #0003; border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: background 0.2s;">
-          <i class="fas fa-arrow-right"></i>
-        </button>
+        <div class="carousel-slide">
+          <div class="fone-card">
+            <img src="/media/Galaxy Buds Pro.png" alt="Galaxy Buds Pro">
+            <div class="fone-model">Samsung Galaxy Buds Pro</div>
+            <div class="fone-price">R$ 899,00</div>
+          </div>
+          <div class="fone-card">
+            <img src="/media/galaxy-buds3-silver-mo 1.png" alt="Galaxy Buds3">
+            <div class="fone-model">Samsung Galaxy Buds3</div>
+            <div class="fone-price">R$ 1.299,00</div>
+          </div>
+          <div class="fone-card">
+            <img src="/media/Galaxy_Buds_live.png" alt="Galaxy Buds FE">
+            <div class="fone-model">Samsung Galaxy Buds FE</div>
+            <div class="fone-price">R$ 499,00</div>
+          </div>
+        </div>
       </div>
     </div>
+    <div class="carousel-indicators">
+      <button class="carousel-dot" data-slide="0"></button>
+      <button class="carousel-dot" data-slide="1"></button>
+      <button class="carousel-dot" data-slide="2"></button>
+    </div>
+    <script>
+      (function() {
+        const track = document.querySelector('.carousel-fones-novo .carousel-track');
+        const slides = document.querySelectorAll('.carousel-fones-novo .carousel-slide');
+        const dots = document.querySelectorAll('.carousel-fones-novo .carousel-dot');
+        let current = 0;
+        let interval = null;
+        function showSlide(idx) {
+          track.style.transform = `translateX(-${idx * 100}%)`;
+          dots.forEach((dot, i) => dot.classList.toggle('active', i === idx));
+          current = idx;
+        }
+        function nextSlide() {
+          let next = (current + 1) % slides.length;
+          showSlide(next);
+        }
+        function goToSlide(idx) {
+          showSlide(idx);
+          resetInterval();
+        }
+        function startInterval() {
+          interval = setInterval(nextSlide, 2000);
+        }
+        function resetInterval() {
+          clearInterval(interval);
+          startInterval();
+        }
+        dots.forEach((dot, i) => {
+          dot.addEventListener('click', () => goToSlide(i));
+        });
+        showSlide(0);
+        startInterval();
+      })();
+    </script>
   </section>
   <style>
   .carousel-inner {
@@ -320,3 +440,5 @@ function adicionarAoCarrinho(produto) {
 </script>
 
 @endsection
+
+
