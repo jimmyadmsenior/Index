@@ -9,80 +9,54 @@
       <p style="color: #fff; font-size: 1.35rem; font-weight: 500; margin-top: 18px; text-align: center; text-shadow: 0 2px 12px #000a; letter-spacing: 1px; text-transform: uppercase;">Todos com qualidade altíssima para curtir cada<br>momento!</p>
     </div>
   </div>
-  <!-- Carrossel de Produtos -->
-  <section class="produtos" style="background: #181818; border-radius: 24px; max-width: 1700px; margin: 64px auto 64px auto; box-shadow: 0 4px 32px 0 rgba(0,0,0,0.18); padding: 36px 0 32px 0; min-height: 520px;">
-    <h2 style="color: #fff; font-size: 2rem; font-weight: bold; margin-bottom: 36px; letter-spacing: 1px; text-align: center; width: 100%;">Os modelos mais vendidos</h2>
-    <div class="carousel">
-      <div class="carousel-inner" id="carousel-inner" style="width: 100%; justify-content: center; min-height: 320px; display: flex; transition: transform 0.7s cubic-bezier(.7,1.5,.5,1);">
-        <div class="carousel-slide" style="justify-content: center; gap: 48px; min-height: 320px; display: flex;">
-          <div class="card" style="width: 240px; height: 320px; background: #232323; border-radius: 18px; box-shadow: 0 2px 16px rgba(0,0,0,0.18); padding: 28px 18px 22px 18px; display: flex; flex-direction: column; align-items: center; transition: box-shadow 0.2s;">
-            <img src="/media/AirPods.png" alt="AirPods (2ª geração)" style="width: 140px; height: 140px; margin-bottom: 18px; border-radius: 12px; box-shadow: 0 2px 12px #0005; background: #181818; object-fit: contain;">
-            <p style="font-weight: bold; margin: 5px 0 0 0; color: #fff; font-size: 1.1rem; letter-spacing: 0.5px;">AirPods (2ª geração)</p>
-            <span style="color: #fff; font-weight: bold; font-size: 1.15rem; margin-top: 6px; letter-spacing: 0.5px;">R$359,99</span>
-          </div>
-          <div class="card" style="width: 240px; height: 320px; background: #232323; border-radius: 18px; box-shadow: 0 2px 16px rgba(0,0,0,0.18); padding: 28px 18px 22px 18px; display: flex; flex-direction: column; align-items: center; transition: box-shadow 0.2s;">
-            <img src="/media/galaxy-buds3-silver-mo 1.png" alt="Samsung Galaxy Buds Pro" style="width: 140px; height: 140px; margin-bottom: 18px; border-radius: 12px; box-shadow: 0 2px 12px #0005; background: #181818; object-fit: contain;">
-            <p style="font-weight: bold; margin: 5px 0 0 0; color: #fff; font-size: 1.1rem; letter-spacing: 0.5px;">Samsung Galaxy Buds Pro</p>
-            <span style="color: #fff; font-weight: bold; font-size: 1.15rem; margin-top: 6px; letter-spacing: 0.5px;">R$235,99</span>
-          </div>
-          <div class="card" style="width: 240px; height: 320px; background: #232323; border-radius: 18px; box-shadow: 0 2px 16px rgba(0,0,0,0.18); padding: 28px 18px 22px 18px; display: flex; flex-direction: column; align-items: center; transition: box-shadow 0.2s;">
-            <img src="/media/airPods (2).png" alt="AirPods Estojo" style="width: 140px; height: 140px; margin-bottom: 18px; border-radius: 12px; box-shadow: 0 2px 12px #0005; background: #181818; object-fit: contain;">
-            <p style="font-weight: bold; margin: 5px 0 0 0; color: #fff; font-size: 1.1rem; letter-spacing: 0.5px;">AirPods Pro</p>
-            <span style="color: #fff; font-weight: bold; font-size: 1.15rem; margin-top: 6px; letter-spacing: 0.5px;">R$849,90</span>
-          </div>
+  
+  <!-- Carrossel de Fones 3x3 -->
+  <section class="carousel-fones" style="max-width: 1400px; margin: 48px auto 0 auto; background: #181818; border-radius: 24px; box-shadow: 0 4px 32px 0 rgba(0,0,0,0.18); padding: 32px 0;">
+  <div class="carousel-inner-fones" style="position: relative; width: 100%; height: 240px; overflow: hidden;">
+      <div class="carousel-track-fones" style="display: flex; width: 300%; height: 100%; transition: transform 0.7s cubic-bezier(.77,0,.18,1); will-change: transform;">
+        <div class="carousel-slide-fones" style="display: flex; gap: 48px; width: 33.333%; justify-content: center; align-items: center;">
+          <img src="/media/airpods1.png" alt="AirPods 1" style="width: 220px; height: 220px; border-radius: 18px; object-fit: cover; background: #111;">
+          <img src="/media/airpods2.png" alt="AirPods 2" style="width: 220px; height: 220px; border-radius: 18px; object-fit: cover; background: #111;">
+          <img src="/media/airpods3.png" alt="AirPods 3" style="width: 220px; height: 220px; border-radius: 18px; object-fit: cover; background: #111;">
         </div>
-        <div class="carousel-slide" style="justify-content: center; gap: 48px; min-height: 320px; display: none;">
-          <div class="card" style="width: 240px; height: 320px; background: #232323; border-radius: 18px; box-shadow: 0 2px 16px rgba(0,0,0,0.18); padding: 28px 18px 22px 18px; display: flex; flex-direction: column; align-items: center; transition: box-shadow 0.2s;">
-            <img src="/media/AirPods Max.png" alt="Fone A" style="width: 140px; height: 140px; margin-bottom: 18px; border-radius: 12px; box-shadow: 0 2px 12px #0005; background: #181818; object-fit: contain;">
-            <p style="font-weight: bold; margin: 5px 0 0 0; color: #fff; font-size: 1.1rem; letter-spacing: 0.5px;">AirPods Max</p>
-            <span style="color: #fff; font-weight: bold; font-size: 1.15rem; margin-top: 6px; letter-spacing: 0.5px;">R$4.999,99</span>
-          </div>
-          <div class="card" style="width: 240px; height: 320px; background: #232323; border-radius: 18px; box-shadow: 0 2px 16px rgba(0,0,0,0.18); padding: 28px 18px 22px 18px; display: flex; flex-direction: column; align-items: center; transition: box-shadow 0.2s;">
-            <img src="/media/AirPods 3.png" alt="Fone B" style="width: 140px; height: 140px; margin-bottom: 18px; border-radius: 12px; box-shadow: 0 2px 12px #0005; background: #181818; object-fit: contain;">
-            <p style="font-weight: bold; margin: 5px 0 0 0; color: #fff; font-size: 1.1rem; letter-spacing: 0.5px;">AirPods (3ª geração)</p>
-            <span style="color: #fff; font-weight: bold; font-size: 1.15rem; margin-top: 6px; letter-spacing: 0.5px;">R$1.299,90</span>
-          </div>
-          <div class="card" style="width: 240px; height: 320px; background: #232323; border-radius: 18px; box-shadow: 0 2px 16px rgba(0,0,0,0.18); padding: 28px 18px 22px 18px; display: flex; flex-direction: column; align-items: center; transition: box-shadow 0.2s;">
-            <img src="/media/galaxy_Buds_live.png" alt="Fone C" style="width: 140px; height: 140px; margin-bottom: 18px; border-radius: 12px; box-shadow: 0 2px 12px #0005; background: #181818; object-fit: contain;">
-            <p style="font-weight: bold; margin: 5px 0 0 0; color: #fff; font-size: 1.1rem; letter-spacing: 0.5px;">Galaxy Buds Live</p>
-            <span style="color: #fff; font-weight: bold; font-size: 1.15rem; margin-top: 6px; letter-spacing: 0.5px;">R$229,90</span>
-          </div>
+        <div class="carousel-slide-fones" style="display: flex; gap: 48px; width: 33.333%; justify-content: center; align-items: center;">
+          <img src="/media/airpodsmax.png" alt="AirPods Max" style="width: 220px; height: 220px; border-radius: 18px; object-fit: cover; background: #111;">
+          <img src="/media/airpods1.png" alt="AirPods 1" style="width: 220px; height: 220px; border-radius: 18px; object-fit: cover; background: #111;">
+          <img src="/media/airpods2.png" alt="AirPods 2" style="width: 220px; height: 220px; border-radius: 18px; object-fit: cover; background: #111;">
         </div>
-        <div class="carousel-slide" style="justify-content: center; gap: 48px; min-height: 320px; display: none;">
-          <div class="card" style="width: 240px; height: 320px; background: #232323; border-radius: 18px; box-shadow: 0 2px 16px rgba(0,0,0,0.18); padding: 28px 18px 22px 18px; display: flex; flex-direction: column; align-items: center; transition: box-shadow 0.2s;">
-            <img src="/media/Galaxy Buds Pro.png" alt="Fone D" style="width: 140px; height: 140px; margin-bottom: 18px; border-radius: 12px; box-shadow: 0 2px 12px #0005; background: #181818; object-fit: contain;">
-            <p style="font-weight: bold; margin: 5px 0 0 0; color: #fff; font-size: 1.1rem; letter-spacing: 0.5px;">Galaxy Buds3 Pro</p>
-            <span style="color: #fff; font-weight: bold; font-size: 1.15rem; margin-top: 6px; letter-spacing: 0.5px;">R$1.290,90</span>
-          </div>
-          <div class="card" style="width: 240px; height: 320px; background: #232323; border-radius: 18px; box-shadow: 0 2px 16px rgba(0,0,0,0.18); padding: 28px 18px 22px 18px; display: flex; flex-direction: column; align-items: center; transition: box-shadow 0.2s;">
-            <img src="/media/Galaxy Buds Live.png" alt="Fone E" style="width: 140px; height: 140px; margin-bottom: 18px; border-radius: 12px; box-shadow: 0 2px 12px #0005; background: #181818; object-fit: contain;">
-            <p style="font-weight: bold; margin: 5px 0 0 0; color: #fff; font-size: 1.1rem; letter-spacing: 0.5px;">Galaxy Buds Live</p>
-            <span style="color: #fff; font-weight: bold; font-size: 1.15rem; margin-top: 6px; letter-spacing: 0.5px;">R$599,99</span>
-          </div>
-          <div class="card" style="width: 240px; height: 320px; background: #232323; border-radius: 18px; box-shadow: 0 2px 16px rgba(0,0,0,0.18); padding: 28px 18px 22px 18px; display: flex; flex-direction: column; align-items: center; transition: box-shadow 0.2s;">
-            <img src="/media/Galaxy Buds Live2.png" alt="Fone F" style="width: 140px; height: 140px; margin-bottom: 18px; border-radius: 12px; box-shadow: 0 2px 12px #0005; background: #181818; object-fit: contain;">
-            <p style="font-weight: bold; margin: 5px 0 0 0; color: #fff; font-size: 1.1rem; letter-spacing: 0.5px;">Galaxy Buds Live(ANC)</p>
-            <span style="color: #fff; font-weight: bold; font-size: 1.15rem; margin-top: 6px; letter-spacing: 0.5px;">R$999,99</span>
-          </div>
+        <div class="carousel-slide-fones" style="display: flex; gap: 48px; width: 33.333%; justify-content: center; align-items: center;">
+          <img src="/media/airpods3.png" alt="AirPods 3" style="width: 220px; height: 220px; border-radius: 18px; object-fit: cover; background: #111;">
+          <img src="/media/airpodsmax.png" alt="AirPods Max" style="width: 220px; height: 220px; border-radius: 18px; object-fit: cover; background: #111;">
+          <img src="/media/airpods1.png" alt="AirPods 1" style="width: 220px; height: 220px; border-radius: 18px; object-fit: cover; background: #111;">
         </div>
       </div>
-      <div class="carousel-indicators" style="margin-top: 24px;">
-        <button class="carousel-dot active" type="button" data-slide="0" aria-label="Slide 1"></button>
-        <button class="carousel-dot" type="button" data-slide="1" aria-label="Slide 2"></button>
-        <button class="carousel-dot" type="button" data-slide="2" aria-label="Slide 3"></button>
       </div>
-      <div style="position: relative; width: 100%; display: flex; justify-content: center; align-items: center; margin-top: 0; gap: 32px;">
-        <button id="carousel-prev" class="carousel-nav-btn" style="width: 44px; height: 44px; font-size: 22px; background: #232323; color: #fff; border: none; box-shadow: 0 2px 8px #0003; border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: background 0.2s;">
-          <i class="fas fa-arrow-left"></i>
-        </button>
-        <button id="carousel-next" class="carousel-nav-btn" style="width: 44px; height: 44px; font-size: 22px; background: #232323; color: #fff; border: none; box-shadow: 0 2px 8px #0003; border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: background 0.2s;">
-          <i class="fas fa-arrow-right"></i>
-        </button>
+  <div class="carousel-slide-fones" style="display: flex; gap: 48px; width: 100%; justify-content: center; position: absolute; left: 100%; top: 0; transition: left 0.7s cubic-bezier(.77,0,.18,1);">
+        <img src="/media/fone4.png" alt="Fone 4" style="width: 220px; height: 220px; border-radius: 18px; object-fit: cover; background: #111;">
+        <img src="/media/fone5.png" alt="Fone 5" style="width: 220px; height: 220px; border-radius: 18px; object-fit: cover; background: #111;">
+        <img src="/media/fone6.png" alt="Fone 6" style="width: 220px; height: 220px; border-radius: 18px; object-fit: cover; background: #111;">
       </div>
     </div>
   </section>
-  <!-- Seção: Destaque AirPods -->
-  <section class="airpods" style="max-width: 1400px; margin: 64px auto 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 48px; background: #181818; border-radius: 24px; box-shadow: 0 4px 32px 0 rgba(0,0,0,0.18); padding: 48px 48px 48px 64px;">
+  <script>
+      // Carrossel automático com animação "puxando para o lado"
+    document.addEventListener('DOMContentLoaded', function() {
+        const track = document.querySelector('.carousel-track-fones');
+        const slides = document.querySelectorAll('.carousel-slide-fones');
+      let current = 0;
+      function showSlide(idx) {
+          track.style.transform = `translateX(-${idx * 100}%)`;
+        current = idx;
+      }
+      function nextSlide() {
+        let next = (current + 1) % slides.length;
+        showSlide(next);
+      }
+      showSlide(0);
+      setInterval(nextSlide, 2000);
+    });
+  </script>
+  <section class="airpods" style="max-width: 1400px; margin: 64px auto 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 48px; background: #111; border-radius: 24px; box-shadow: 0 4px 32px 0 rgba(0,0,0,0.18); padding: 48px 48px 48px 64px;">
     <div class="text-content" style="flex: 1;">
       <h2 style="color: #fff; font-size: 2.2rem; font-weight: bold; margin-bottom: 18px;">AirPods</h2>
       <p class="sub" style="color: #b0b0b0; font-size: 1.2rem; margin-bottom: 10px;">Conforto Bluetooth. Mágico.</p>
