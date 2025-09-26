@@ -66,7 +66,7 @@ header {
 @endsection
 @section('content')
 <main class="main-homepage">
-  <section class="hero-section" style="display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; background: #000; padding: 0; margin: 0;">
+  <section class="hero-section" style="display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; background: #000; padding: 0; margin: 0 0 24px 0;">
     <h1 class="hero-title geoform-text" style="font-size: 4.2rem; font-weight: bold; margin-bottom: 18px; color: #fff; letter-spacing: 1px; text-align: center;">Galaxy Tab S9 Ultra Mockup</h1>
     <div style="display: flex; gap: 28px; flex-wrap: wrap; justify-content: center; margin-bottom: 38px; align-items: center;">
       <span style="font-size: 1.25rem; color: #fff;">Tela Escalável</span>
@@ -86,16 +86,16 @@ header {
   </section>
 
   <!-- Carrossel de Produtos -->
-  <!-- Carrossel de Fones (cópia exata) -->
+  <!-- Carrossel de Fones (cópia exata do HomePage_Fones) -->
   <section class="carousel-fones-novo">
     <style>
       .carousel-fones-novo {
-        max-width: 1200px;
-        margin: 48px auto 0 auto;
+        max-width: 1300px;
+        margin: 10px auto 0 auto;
         background: #181818;
-        border-radius: 24px;
-        box-shadow: 0 4px 32px 0 rgba(0,0,0,0.18);
-        padding: 32px 0;
+        border-radius: 28px;
+        box-shadow: 0 6px 36px 0 rgba(0,0,0,0.20);
+        padding: 48px 0 44px 0;
         position: relative;
       }
       .carousel-fones-novo .carousel-viewport {
@@ -104,8 +104,6 @@ header {
         height: 320px;
         border-radius: 18px;
         background: transparent;
-        /* Remover qualquer padding lateral */
-        padding: 0;
       }
       .carousel-fones-novo .carousel-track {
         display: flex;
@@ -117,50 +115,54 @@ header {
         display: flex;
         justify-content: center;
         align-items: stretch;
-        gap: 48px;
+        gap: 24px;
+        padding: 0 120px;
+        box-sizing: border-box;
       }
       .fone-card {
         background: #fff;
-        border-radius: 20px;
-        box-shadow: 0 2px 16px 0 rgba(0,0,0,0.08);
+        border-radius: 24px;
+        box-shadow: 0 4px 24px 0 rgba(0,0,0,0.10);
         display: flex;
         flex-direction: column;
         align-items: center;
         width: 320px;
-        min-height: 280px;
-        padding: 32px 16px 28px 16px;
+        min-height: 300px;
+        padding: 40px 24px 36px 24px;
+        margin: 0 0 0 0;
         transition: box-shadow 0.2s, transform 0.2s;
       }
       .fone-card img {
         width: 120px;
         height: 120px;
         object-fit: contain;
-        margin-bottom: 32px;
-        margin-top: 12px;
+        margin-bottom: 28px;
+        margin-top: 18px;
         background: none;
-        border-radius: 0;
-        box-shadow: none;
+        border-radius: 12px;
+        box-shadow: 0 2px 12px 0 rgba(0,0,0,0.06);
       }
       .fone-model {
         color: #222;
-        font-size: 1.08rem;
-        font-weight: 600;
-        margin-bottom: 12px;
+        font-size: 1.12rem;
+        font-weight: 700;
+        margin-bottom: 16px;
         text-align: center;
-        letter-spacing: 0.2px;
+        letter-spacing: 0.3px;
       }
       .fone-price {
-        color: #222;
-        font-size: 1.05rem;
-        font-weight: 400;
+        color: #444;
+        font-size: 1.08rem;
+        font-weight: 500;
         text-align: center;
+        margin-bottom: 0;
       }
       .carousel-fones-novo .carousel-indicators {
         display: flex;
         justify-content: center;
         align-items: center;
-        gap: 12px;
-        margin-top: 18px;
+        gap: 16px;
+        margin-top: 32px;
       }
       .carousel-fones-novo .carousel-dot {
         width: 16px;
@@ -186,53 +188,53 @@ header {
       <div class="carousel-track">
         <div class="carousel-slide">
           <div class="fone-card">
-            <img src="/media/AirPods.png" alt="AirPods 2ª geração">
-            <div class="fone-model">Apple AirPods (2ª geração)</div>
-            <div class="fone-price">R$ 799,00</div>
+            <img src="/media/ipad_pro.png" alt="iPad Pro">
+            <div class="fone-model">Apple iPad Pro</div>
+            <div class="fone-price">R$ 13.999,00</div>
           </div>
           <div class="fone-card">
-            <img src="/media/AirPods 3.png" alt="AirPods 3ª geração">
-            <div class="fone-model">Apple AirPods (3ª geração)</div>
-            <div class="fone-price">R$ 1.099,00</div>
+            <img src="/media/ipad_air.png" alt="iPad Air">
+            <div class="fone-model">Apple iPad Air</div>
+            <div class="fone-price">R$ 8.999,00</div>
           </div>
           <div class="fone-card">
-            <img src="/media/AirPods (2).png" alt="AirPods Pro">
-            <div class="fone-model">Apple AirPods Pro (2ª geração)</div>
-            <div class="fone-price">R$ 1.499,00</div>
+            <img src="/media/Ipad_mini.png" alt="iPad Mini">
+            <div class="fone-model">Apple iPad Mini</div>
+            <div class="fone-price">R$ 5.499,00</div>
           </div>
         </div>
         <div class="carousel-slide">
           <div class="fone-card">
-            <img src="/media/AirPods Max.png" alt="AirPods Max">
-            <div class="fone-model">Apple AirPods Max</div>
+            <img src="/media/ipad_11th_gen.png" alt="iPad 11ª geração">
+            <div class="fone-model">Apple iPad 11ª geração</div>
             <div class="fone-price">R$ 4.999,00</div>
           </div>
           <div class="fone-card">
-            <img src="/media/Galaxy buds Live.png" alt="Galaxy Buds Live">
-            <div class="fone-model">Samsung Galaxy Buds Live</div>
-            <div class="fone-price">R$ 599,00</div>
+            <img src="/media/Galaxy_tab.png" alt="Galaxy Tab S9 Ultra">
+            <div class="fone-model">Samsung Galaxy Tab S9 Ultra</div>
+            <div class="fone-price">R$ 7.999,00</div>
           </div>
           <div class="fone-card">
-            <img src="/media/Galaxy Buds Live2.png" alt="Galaxy Buds2 Pro">
-            <div class="fone-model">Samsung Galaxy Buds2 Pro</div>
-            <div class="fone-price">R$ 1.099,00</div>
+            <img src="/media/Galaxy_tab_fe.png" alt="Galaxy Tab FE">
+            <div class="fone-model">Samsung Galaxy Tab FE</div>
+            <div class="fone-price">R$ 3.999,00</div>
           </div>
         </div>
         <div class="carousel-slide">
           <div class="fone-card">
-            <img src="/media/Galaxy Buds Pro.png" alt="Galaxy Buds Pro">
-            <div class="fone-model">Samsung Galaxy Buds Pro</div>
-            <div class="fone-price">R$ 899,00</div>
+            <img src="/media/Samsung Galaxy Tab S6.png" alt="Galaxy Tab S6">
+            <div class="fone-model">Samsung Galaxy Tab S6</div>
+            <div class="fone-price">R$ 2.999,00</div>
           </div>
           <div class="fone-card">
-            <img src="/media/galaxy-buds3-silver-mo 1.png" alt="Galaxy Buds3">
-            <div class="fone-model">Samsung Galaxy Buds3</div>
-            <div class="fone-price">R$ 1.299,00</div>
+            <img src="/media/Samsung Galaxy Tab S6_id_produto.png" alt="Galaxy Tab S6 (ID)">
+            <div class="fone-model">Samsung Galaxy Tab S6 (ID)</div>
+            <div class="fone-price">R$ 2.999,00</div>
           </div>
           <div class="fone-card">
-            <img src="/media/Galaxy_Buds_live.png" alt="Galaxy Buds FE">
-            <div class="fone-model">Samsung Galaxy Buds FE</div>
-            <div class="fone-price">R$ 499,00</div>
+            <img src="/media/Galaxy_tab_fee.png" alt="Galaxy Tab FEE">
+            <div class="fone-model">Samsung Galaxy Tab FEE</div>
+            <div class="fone-price">R$ 2.499,00</div>
           </div>
         </div>
       </div>
@@ -263,7 +265,7 @@ header {
           resetInterval();
         }
         function startInterval() {
-          interval = setInterval(nextSlide, 2000);
+          interval = setInterval(nextSlide, 4000);
         }
         function resetInterval() {
           clearInterval(interval);
@@ -277,127 +279,6 @@ header {
       })();
     </script>
   </section>
-  <style>
-  .carousel-inner {
-    display: flex;
-    transition: transform 0.7s cubic-bezier(.7,1.5,.5,1);
-    will-change: transform;
-    min-width: 100vw;
-    max-width: 100vw;
-    width: 100vw;
-    align-items: center;
-    justify-content: center;
-  }
-  .carousel-slide {
-    flex: 0 0 100vw;
-    min-width: 100vw;
-    max-width: 100vw;
-    display: flex;
-    justify-content: center;
-    align-items: stretch;
-    gap: 32px;
-    min-height: 320px;
-    opacity: 1;
-    transition: opacity 0.3s;
-  }
-  .carousel {
-    width: 100vw;
-    max-width: 100vw;
-    margin: 0;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  .carousel-indicators {
-    margin-top: 32px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 18px;
-  }
-  .carousel-dot {
-    width: 18px;
-    height: 18px;
-    border-radius: 50%;
-    border: none;
-    background: #444;
-    opacity: 0.5;
-    transition: background 0.2s, opacity 0.2s, transform 0.2s;
-    cursor: pointer;
-    box-shadow: 0 2px 8px #0002;
-    outline: none;
-  }
-  .carousel-dot.active {
-    background: #fff;
-    opacity: 1;
-    transform: scale(1.18);
-    box-shadow: 0 4px 16px #0003;
-  }
-  .carousel-dot:focus {
-    outline: 2px solid #00bfff;
-  }
-  @media (max-width: 1200px) {
-    .carousel-inner, .carousel-slide, .carousel {
-      min-width: 100vw !important;
-      max-width: 100vw !important;
-      width: 100vw !important;
-    }
-  }
-  </style>
-  <script>
-    // Carrossel com efeito de deslizar lateral
-    const slides = document.querySelectorAll('.carousel-slide');
-    const indicators = document.querySelectorAll('.carousel-dot');
-    const carousel = document.getElementById('carousel-tablets');
-    const carouselInner = document.getElementById('carousel-inner');
-    let currentSlide = 0;
-    let autoSlideInterval = null;
-    function showSlide(idx) {
-      // Efeito de deslizar
-      carouselInner.style.transform = `translateX(-${idx * 100}vw)`;
-      slides.forEach((slide, i) => {
-        if (indicators[i]) indicators[i].classList.toggle('active', i === idx);
-        // Não altera o display, todos os slides permanecem visíveis para o efeito de deslizar
-      });
-      currentSlide = idx;
-    }
-    function moveToSlide(idx) {
-      showSlide(idx);
-      resetAutoSlide();
-    }
-    function prevSlide() {
-      let idx = (currentSlide - 1 + slides.length) % slides.length;
-      showSlide(idx);
-      resetAutoSlide();
-    }
-    function nextSlide() {
-      let idx = (currentSlide + 1) % slides.length;
-      showSlide(idx);
-      resetAutoSlide();
-    }
-    function startAutoSlide() {
-      autoSlideInterval = setInterval(() => {
-        let idx = (currentSlide + 1) % slides.length;
-        showSlide(idx);
-      }, 2000);
-    }
-    function stopAutoSlide() {
-      clearInterval(autoSlideInterval);
-    }
-    function resetAutoSlide() {
-      stopAutoSlide();
-      startAutoSlide();
-    }
-    // Pausa ao passar mouse
-    if (carousel) {
-      carousel.addEventListener('mouseenter', stopAutoSlide);
-      carousel.addEventListener('mouseleave', startAutoSlide);
-    }
-    // Inicializa carrossel
-    showSlide(0);
-    startAutoSlide();
-  </script>
 
   <!-- Seção: Destaque Galaxy Tab A -->
   <section class="galaxy-tab-a-banner" style="background: #000; width: 100vw; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 0; position: relative; min-height: 700px;">

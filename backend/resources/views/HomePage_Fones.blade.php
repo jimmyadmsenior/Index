@@ -185,7 +185,7 @@
           resetInterval();
         }
         function startInterval() {
-          interval = setInterval(nextSlide, 2000);
+          interval = setInterval(nextSlide, 4000);
         }
         function resetInterval() {
           clearInterval(interval);

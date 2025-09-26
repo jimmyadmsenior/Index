@@ -1,3 +1,13 @@
+/* Carrossel de Tablets - Espaçamento uniforme acima e abaixo */
+.carousel-fones-novo {
+  max-width: 1300px;
+  margin: 40px auto 40px auto;
+  background: #181818;
+  border-radius: 28px;
+  box-shadow: 0 6px 36px 0 rgba(0,0,0,0.20);
+  padding: 72px 0 72px 0;
+  position: relative;
+}
 /* --- Importa a fonte personalizada Geoform --- */
 @font-face {
   font-family: 'Geoform';
@@ -858,4 +868,22 @@ slider .sun, .slider .moon {
   filter: none !important;
   mix-blend-mode: normal !important;
   background: #000;
+}
+
+.carousel-fones-novo {
+  max-width: 1300px;
+  margin: 40px auto 40px auto;
+  background: #181818;
+  border-radius: 28px;
+  box-shadow: 0 6px 36px 0 rgba(0,0,0,0.20);
+  padding: 72px 0 72px 0;
+  position: relative;
+}
+
+.hero-section {
+  margin: 0 0 48px 0;
+}
+
+.galaxy-tab-a-banner {
+  margin-top: 48px;
 }
