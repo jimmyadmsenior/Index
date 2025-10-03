@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('head')
+<meta name="page-type" content="homepage">
 <style>
 header, nav, .menu li a, .icons i, .navbar-btn, .navbar-btn-login, .navbar-btn-cadastro, .navbar-btn-perfil {
   background: #111 !important;
