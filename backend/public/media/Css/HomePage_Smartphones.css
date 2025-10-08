@@ -1,0 +1,169 @@
+/* Título com degradê igual ao exemplo */
+.titulo-degrade {
+	font-weight: 700;
+	font-size: 3.6rem; /* aumentado para ficar mais uniforme */
+	background: linear-gradient(90deg, #2bb3ff 0%, #6a8cff 30%, #b97cff 55%, #ff6fae 70%, #e94e77 85%, #ff3a3a 100%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+	color: transparent;
+	margin-bottom: 10px;
+	line-height: 1.1;
+	text-align: center;
+}
+
+/* Botão comprar preto, borda branca, animação igual tablets */
+.comprar-btn-preto {
+	background: #111;
+	color: #ffffff;
+	font-family: 'Geoform', Arial, sans-serif;
+	font-weight: bold;
+	font-size: 1.8rem; /* maior para destaque */
+	border: 4px solid #fff;
+	border-radius: 28px;
+	padding: 16px 56px; /* maior padding para equilíbrio */
+	margin-bottom: 40px;
+	box-shadow: 0 4px 14px rgba(0,0,0,0.16);
+	cursor: pointer;
+	letter-spacing: 2px;
+	background-clip: padding-box;
+	transition: transform 0.18s, background 0.18s, box-shadow 0.18s;
+	display: inline-block;
+}
+.comprar-btn-preto:hover, .comprar-btn-preto:focus {
+	transform: scale(1.08);
+		background: #404040;
+		color: #d8d8d8;
+	box-shadow: 0 4px 18px rgba(0,0,0,0.18);
+}
+.comprar-btn-preto:active {
+	transform: scale(0.96) translateY(2px);
+	background: #333;
+	color: #111;
+	box-shadow: 0 1px 4px rgba(0,0,0,0.12);
+}
+
+/* Layout da seção destaque smartphones */
+.iphone15-destaque {
+	width: 100%;
+	max-width: 900px;
+	margin: 48px auto 0 auto;
+	text-align: center;
+}
+.iphone15-destaque .subtitulo {
+	margin-bottom: 18px;
+	color: #888;
+	font-size: 1.2rem;
+}
+.iphone15-destaque .preco {
+	font-size: 1.5rem; /* aumento para equilíbrio */
+	color: #222;
+	margin-bottom: 18px;
+}
+
+/* Link comprar simples (texto azul) parecido com o anexo */
+.comprar-link {
+	color: #0b78ff;
+	font-size: 1.05rem;
+	text-decoration: none;
+	font-weight: 600;
+}
+.comprar-link:hover {
+	text-decoration: underline;
+}
+.iphone15-destaque .imagens {
+	display: flex;
+	justify-content: center;
+	align-items: flex-end;
+	gap: 48px;
+	margin-top: 38px;
+	flex-wrap: wrap;
+}
+.iphone15-destaque .imagens img {
+	max-width: 640px; /* aumentado mais um pouco */
+	width: 100%;
+	background: transparent; /* força fundo transparente caso haja */
+	border-radius: 28px;
+	display: inline-block;
+	/* sombra mais natural com filtro, preservando transparência do PNG */
+	filter: drop-shadow(0 18px 36px rgba(0,0,0,0.20));
+}
+
+/* Imagem full-width sem borda arredondada */
+.imagem-full {
+	display: block;
+	width: 100%;
+	max-width: none;
+	border-radius: 0 !important;
+	box-shadow: none;
+	filter: none; /* remover sombra se preferir */
+}
+
+/* Fazer com que a seção não limite visualmente a imagem */
+.iphone15-destaque {
+	padding-left: 0;
+	padding-right: 0;
+}
+
+/* Full-bleed image */
+.imagem-bleed-wrap {
+	width: 100vw;
+	position: relative;
+	left: 50%;
+	right: 50%;
+	margin-left: -50vw;
+	margin-right: -50vw;
+	overflow: hidden;
+}
+.imagem-bleed {
+	display: block;
+	width: 100%;
+	height: auto;
+	max-width: none;
+	border-radius: 0 !important;
+	box-shadow: none;
+}
+
+/* Inner container to position overlay elements relative to the image */
+.imagem-bleed-inner {
+	position: relative;
+	width: 100%;
+}
+
+/* Comprar overlay dentro da imagem - centralizado abaixo do subtítulo */
+.comprar-link-overlay {
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	bottom: 61.5%; /* ajustado para subir o botão um pouco */
+	background: transparent;
+	color: #0b78ff;
+	font-weight: 700;
+	font-size: 1.15rem;
+	text-decoration: none;
+	padding: 8px 18px;
+}
+.comprar-link-overlay:hover { text-decoration: underline; }
+
+@media (max-width: 700px) {
+	.comprar-link-overlay { bottom: 10%; font-size: 1rem; }
+}
+
+@media (max-width: 700px) {
+	.titulo-degrade {
+		font-size: 1.8rem;
+	}
+	.comprar-btn-preto {
+		font-size: 1.3rem;
+		padding: 12px 32px;
+		border-width: 2px;
+		border-radius: 20px;
+	}
+	.iphone15-destaque .imagens {
+		gap: 18px;
+	}
+	.iphone15-destaque .imagens img {
+		max-width: 260px;
+		border-radius: 18px;
+	}
+}
