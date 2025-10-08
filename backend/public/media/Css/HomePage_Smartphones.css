@@ -403,3 +403,7 @@
   bottom: 139px;   /* 🔹 ajuste vertical — pode deixar diferente do outro */
   right: 29%;     /* 🔹 ajuste horizontal — menor valor vai mais pro centro */
 }
+.extra-image {
+    border-radius: 20px; /* você pode ajustar o valor para deixar mais ou menos arredondado */
+}
+
