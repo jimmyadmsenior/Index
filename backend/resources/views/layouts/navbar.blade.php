@@ -14,7 +14,16 @@
         </ul>
       </nav>
       <div class="navbar-actions" style="display:flex;align-items:center;gap:18px;justify-self:end;padding-left:56px;">
-        <a href="/carrinho" class="navbar-btn navbar-btn-sacola" title="Carrinho" style="color:#fff;background:#111;border:none;font-size:1.5rem;display:flex;align-items:center;justify-content:center;"><i class="fas fa-shopping-cart"></i></a>
+        <a href="/carrinho" class="navbar-btn navbar-btn-sacola" title="Carrinho" style="color:#fff;background:#111;border:none;font-size:1.5rem;display:flex;align-items:center;justify-content:center;position:relative;">
+          <i class="fas fa-shopping-cart"></i>
+          @php
+            $carrinho = session()->get('carrinho', []);
+            $cart_count = array_sum(array_column($carrinho, 'quantidade'));
+          @endphp
+          @if($cart_count > 0)
+            <span class="cart-count" style="position:absolute;top:-8px;right:-8px;background:#ff4757;color:#fff;border-radius:50%;width:20px;height:20px;font-size:0.75rem;display:flex;align-items:center;justify-content:center;font-weight:bold;min-width:20px;">{{ $cart_count }}</span>
+          @endif
+        </a>
         @auth
           <a href="/perfil" class="navbar-btn navbar-btn-perfil" title="Meu perfil" style="display:flex;align-items:center;gap:8px;color:#fff;background:#111;border:none;">
             @if(Auth::user() && Auth::user()->foto)
