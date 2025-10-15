@@ -198,7 +198,7 @@
     
     <!-- 🔹 Botão Galaxy S23 (embaixo do nome "Galaxy S23| S23+") -->
     @auth
-      <form action="{{ route('carrinho.adicionar') }}" method="POST" style="position: absolute; bottom: 70px; left: 32%; transform: translateX(-50%);">
+      <form action="{{ route('carrinho.adicionar') }}" method="POST" style="position: absolute; bottom: 70px; left: 34%; transform: translateX(-50%);">
           @csrf
           <input type="hidden" name="produto_id" value="15">
           <input type="hidden" name="quantidade" value="1">
@@ -207,12 +207,12 @@
           </button>
       </form>
     @else
-      <a href="/Login" style="position: absolute; bottom: 70px; left: 32%; transform: translateX(-50%); background: #000; color: #fff; text-decoration: none; padding: 8px 16px; border-radius: 20px; font-weight: 700; display: inline-block; font-size: 0.75rem;">LOGIN PARA COMPRAR</a>
+      <a href="/Login" style="position: absolute; bottom: 70px; left: 34%; transform: translateX(-50%); background: #000; color: #fff; text-decoration: none; padding: 8px 16px; border-radius: 20px; font-weight: 700; display: inline-block; font-size: 0.75rem;">LOGIN PARA COMPRAR</a>
     @endauth
 
     <!-- 🔹 Botão Galaxy S22 Ultra (embaixo do nome "Galaxy S22 Ultra") -->
     @auth
-      <form action="{{ route('carrinho.adicionar') }}" method="POST" style="position: absolute; bottom: 150px; right: 18%; transform: translateX(50%);">
+      <form action="{{ route('carrinho.adicionar') }}" method="POST" style="position: absolute; bottom: 150px; right: 16%; transform: translateX(50%);">
           @csrf
           <input type="hidden" name="produto_id" value="16">
           <input type="hidden" name="quantidade" value="1">
@@ -221,7 +221,7 @@
           </button>
       </form>
     @else
-      <a href="/Login" style="position: absolute; bottom: 150px; right: 18%; transform: translateX(50%); background: #000; color: #fff; text-decoration: none; padding: 8px 16px; border-radius: 20px; font-weight: 700; display: inline-block; font-size: 0.75rem;">LOGIN PARA COMPRAR</a>
+      <a href="/Login" style="position: absolute; bottom: 150px; right: 16%; transform: translateX(50%); background: #000; color: #fff; text-decoration: none; padding: 8px 16px; border-radius: 20px; font-weight: 700; display: inline-block; font-size: 0.75rem;">LOGIN PARA COMPRAR</a>
     @endauth
   </div>
 </div>
