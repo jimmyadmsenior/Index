@@ -30,7 +30,7 @@
         </div>
         <h2>Seu carrinho está vazio</h2>
         <p>Que tal dar uma olhada em nossos produtos incríveis?<br>Encontre smartphones, tablets, fones e muito mais!</p>
-        <a href="/" class="btn-continuar-comprando">
+        <a href="{{ route('carrinho.continuar') }}" class="btn-continuar-comprando">
           <i class="fas fa-arrow-left"></i>
           Continuar Comprando
         </a>
@@ -105,22 +105,30 @@
             <span>R$ {{ number_format($total, 2, ',', '.') }}</span>
           </div>
           
-          <button class="btn-finalizar" onclick="window.location.href='/Carrinho_Pagamento?total={{ $total }}'">
-            <i class="fas fa-credit-card"></i>
-            Finalizar Compra
-          </button>
-          
-          <form action="{{ route('carrinho.limpar') }}" method="POST">
-            @csrf
-            <button type="submit" class="btn-limpar" onclick="return confirm('Limpar todo o carrinho?')">
-              Limpar Carrinho
-            </button>
-          </form>
-          
-          <a href="/" class="btn-continuar-comprando" style="margin-top: 15px; display: inline-flex; width: 100%; justify-content: center; text-decoration: none; padding: 12px;">
-            <i class="fas fa-arrow-left"></i>
-            Continuar Comprando
-          </a>
+          <!-- Botões de ação principais -->
+          <div style="display: flex; flex-direction: column; gap: 15px; margin-top: 20px;">
+            <!-- Botão principal de finalizar -->
+            <a href="{{ route('carrinho.finalizar') }}" class="btn-finalizar" style="display: flex; align-items: center; justify-content: center; gap: 8px; padding: 16px; background: linear-gradient(135deg, #00bfff, #4db5ff); color: #fff; text-decoration: none; border-radius: 12px; font-weight: 600; font-size: 1.1rem;">
+              <i class="fas fa-credit-card"></i>
+              Finalizar Compra
+            </a>
+            
+            <!-- Botões secundários -->
+            <div style="display: flex; gap: 10px;">
+              <a href="{{ route('carrinho.continuar') }}" class="btn-continuar-comprando" style="flex: 1; display: inline-flex; align-items: center; justify-content: center; gap: 8px; text-decoration: none; padding: 12px; background: transparent; border: 2px solid #fff; color: #fff; border-radius: 8px; font-weight: 500; height: 48px; box-sizing: border-box;">
+                <i class="fas fa-arrow-left"></i>
+                Continuar Comprando
+              </a>
+              
+              <form action="{{ route('carrinho.limpar') }}" method="POST" style="flex: 1;">
+                @csrf
+                <button type="submit" class="btn-limpar" onclick="return confirm('Limpar todo o carrinho?')" style="width: 100%; height: 48px; padding: 12px; background: transparent; border: 2px solid #ff6b6b; color: #ff6b6b; border-radius: 8px; font-weight: 500; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; box-sizing: border-box;">
+                  <i class="fas fa-trash"></i>
+                  Limpar Carrinho
+                </button>
+              </form>
+            </div>
+          </div>
         </div>
       </div>
     @endif
