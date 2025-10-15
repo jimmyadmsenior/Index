@@ -46,7 +46,18 @@
         </div>
     <div id="frete-resultado" style="margin-top:8px;font-size:1.08em;color:#fff;"></div>
       </div>
-      <a href="/Carrinho_Pagamento?produto_id={{ $produto->id }}" class="btn-comprar verification-btn-adm">Comprar</a>
+      <div class="produto-acoes" style="display: flex; gap: 15px; align-items: center;">
+        <form action="{{ route('carrinho.adicionar') }}" method="POST" style="flex: 1;">
+          @csrf
+          <input type="hidden" name="produto_id" value="{{ $produto->id }}">
+          <input type="hidden" name="quantidade" value="1">
+          <button type="submit" class="btn-adicionar-carrinho" style="width: 100%; padding: 15px 20px; background: linear-gradient(135deg, #7fff7f, #51cf66); color: #000; border: none; border-radius: 12px; font-size: 1.1rem; font-weight: 700; cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; gap: 8px;">
+            <i class="fas fa-shopping-cart"></i>
+            Adicionar ao Carrinho
+          </button>
+        </form>
+        <a href="/Carrinho_Pagamento?produto_id={{ $produto->id }}" class="btn-comprar verification-btn-adm" style="flex: 1; text-align: center;">Comprar Agora</a>
+      </div>
     </div>
     </div>
   </div>
@@ -116,37 +127,39 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
   
-  // Add click animation to buy button
-  const buyButton = document.querySelector('.btn-comprar');
-  if (buyButton) {
-    buyButton.addEventListener('click', function(e) {
-      // Create ripple effect
-      const ripple = document.createElement('div');
-      const rect = this.getBoundingClientRect();
-      const size = Math.max(rect.width, rect.height);
-      const x = e.clientX - rect.left - size / 2;
-      const y = e.clientY - rect.top - size / 2;
-      
-      ripple.style.cssText = `
-        position: absolute;
-        width: ${size}px;
-        height: ${size}px;
-        left: ${x}px;
-        top: ${y}px;
-        background: rgba(255, 255, 255, 0.3);
-        border-radius: 50%;
-        transform: scale(0);
-        animation: ripple 0.6s ease-out;
-        pointer-events: none;
-      `;
-      
-      this.appendChild(ripple);
-      
-      setTimeout(() => {
-        ripple.remove();
-      }, 600);
-    });
-  }
+  // Add click animation to buy buttons
+  const buttons = document.querySelectorAll('.btn-comprar, .btn-adicionar-carrinho');
+  buttons.forEach(button => {
+    if (button) {
+      button.addEventListener('click', function(e) {
+        // Create ripple effect
+        const ripple = document.createElement('div');
+        const rect = this.getBoundingClientRect();
+        const size = Math.max(rect.width, rect.height);
+        const x = e.clientX - rect.left - size / 2;
+        const y = e.clientY - rect.top - size / 2;
+        
+        ripple.style.cssText = `
+          position: absolute;
+          width: ${size}px;
+          height: ${size}px;
+          left: ${x}px;
+          top: ${y}px;
+          background: rgba(255, 255, 255, 0.3);
+          border-radius: 50%;
+          transform: scale(0);
+          animation: ripple 0.6s ease-out;
+          pointer-events: none;
+        `;
+        
+        this.appendChild(ripple);
+        
+        setTimeout(() => {
+          ripple.remove();
+        }, 600);
+      });
+    }
+  });
 });
 
 // Add CSS for ripple animation

@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CadastroController;
 use App\Http\Controllers\CompraController;
+use App\Http\Controllers\CarrinhoController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -17,7 +18,6 @@ Route::view('/login', 'Login')->name('login');
 Route::view('/recuperacao-senha', 'Recuperacao_Senha');
 Route::view('/confirmacao-adm', 'Confirmacao_ADM');
 Route::view('/Homepage_Com_Cadastro', 'Homepage_Com_Cadastro');
-Route::view('/Carrinho_Pagamento', 'Carrinho_Pagamento');
 Route::view('/Homepage_Fones', 'HomePage_Fones');
 Route::view('/Homepage_Smartphones', 'Homepage_Smartphones');
 Route::view('/Homepage_Tablets', 'Homepage_Tablets');
@@ -28,13 +28,26 @@ Route::get('/cadastro', [CadastroController::class, 'showCadastro']);
 Route::post('/cadastro', [CadastroController::class, 'processaCadastro']);
 Route::get('/verificacao', [CadastroController::class, 'showVerificacao']);
 Route::post('/verificacao', [CadastroController::class, 'verificaCodigo']);
+Route::view('/confirmacao-cadastro', 'Confirmacao_Cadastro');
 // Adicione outras rotas conforme necessário
 Route::get('/produto/{id}', [App\Http\Controllers\ProdutoController::class, 'show'])->name('produto.show');
 Route::view('/Chatbot', 'Chatbot');
 
-// Rotas protegidas: carrinho e pagamento
+// Rota do carrinho (acessível a todos)
+Route::get('/Carrinho_Pagamento', function (Request $request) {
+    $produto_id = $request->query('produto_id');
+    if (!$produto_id) {
+        return redirect('/')->with('error', 'Selecione um produto antes de finalizar a compra.');
+    }
+    $produto = \App\Models\Produto::find($produto_id);
+    if (!$produto) {
+        return redirect('/')->with('error', 'Produto não encontrado.');
+    }
+    return view('Carrinho_Pagamento', compact('produto'));
+});
+
+// Rotas protegidas: pagamentos e perfil
 Route::middleware(['auth'])->group(function () {
-    Route::view('/Carrinho_Pagamento', 'Carrinho_Pagamento');
     Route::get('/Pagamento_Credito', function (Request $request) {
         $produto_id = $request->query('produto_id') ?? session('produto_id');
         if (!$produto_id) {
@@ -56,7 +69,9 @@ Route::middleware(['auth'])->group(function () {
             return redirect('/carrinho-vazio')->with('error', 'Selecione um produto antes de finalizar a compra.');
         }
     });
-    Route::view('/carrinho-vazio', 'Carrinho_Vazio');
+    Route::get('/carrinho-vazio', function() {
+        return redirect()->route('carrinho.index')->with('error', 'Seu carrinho está vazio.');
+    });
     Route::get('/pagamento-debito', function (\Illuminate\Http\Request $request) {
         $produto_id = $request->query('produto_id') ?? session('produto_id');
         if (!$produto_id) {
@@ -154,4 +169,9 @@ Route::post('/recuperacao-senha-nova', function(Request $request) {
     // Redireciona para a página de login
     return redirect('/login')->with('status', 'Senha redefinida com sucesso! Faça login com sua nova senha.');
 });
-Route::view('/carrinho', 'Carrinho');
+// Rotas do carrinho
+Route::get('/carrinho', [CarrinhoController::class, 'index'])->name('carrinho.index');
+Route::post('/carrinho/adicionar', [CarrinhoController::class, 'adicionar'])->name('carrinho.adicionar');
+Route::delete('/carrinho/remover/{produto_id}', [CarrinhoController::class, 'remover'])->name('carrinho.remover');
+Route::put('/carrinho/atualizar/{produto_id}', [CarrinhoController::class, 'atualizar'])->name('carrinho.atualizar');
+Route::post('/carrinho/limpar', [CarrinhoController::class, 'limpar'])->name('carrinho.limpar');

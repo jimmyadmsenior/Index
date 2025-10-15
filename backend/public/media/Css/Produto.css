@@ -345,6 +345,25 @@ nav ul.menu li a:hover {
   transform: translateY(-1px) scale(1.02);
 }
 
+/* Botão adicionar ao carrinho */
+.btn-adicionar-carrinho:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 8px 25px rgba(127, 255, 127, 0.4);
+  filter: brightness(1.1);
+}
+
+.btn-adicionar-carrinho:active {
+  transform: translateY(-1px) scale(1.01);
+}
+
+/* Ações do produto */
+.produto-acoes {
+  animation: fadeInUp 0.6s ease forwards;
+  animation-delay: 0.6s;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
 /* Responsive design */
 @media (max-width: 900px) {
   .produto-container {
