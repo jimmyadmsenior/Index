@@ -51,9 +51,9 @@
           @csrf
           <input type="hidden" name="produto_id" value="{{ $produto->id }}">
           <input type="hidden" name="quantidade" value="1">
-          <button type="submit" class="btn-adicionar-carrinho" style="width: 100%; padding: 15px 20px; background: linear-gradient(135deg, #00bfff, #4db5ff); color: #fff; border: none; border-radius: 12px; font-size: 1.1rem; font-weight: 700; cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; gap: 8px;">
-            <i class="fas fa-shopping-cart"></i>
-            Adicionar ao Carrinho
+          <button type="submit" class="btn-adicionar-carrinho" style="width: 100%; padding: 15px 20px; background: #000; color: #fff; border: none; border-radius: 12px; font-size: 1.1rem; font-weight: 700; cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; gap: 8px;">
+              <i class="fas fa-shopping-cart"></i>
+              Adicionar ao Carrinho
           </button>
         </form>
         <a href="/Carrinho_Pagamento?produto_id={{ $produto->id }}" class="btn-comprar verification-btn-adm" style="flex: 1; text-align: center;">Comprar Agora</a>

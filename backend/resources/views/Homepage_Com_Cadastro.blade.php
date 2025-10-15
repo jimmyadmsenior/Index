@@ -27,7 +27,7 @@ header, nav, .menu li a, .icons i, .navbar-btn, .navbar-btn-login, .navbar-btn-c
             @csrf
             <input type="hidden" name="produto_id" value="8">
             <input type="hidden" name="quantidade" value="1">
-            <button type="submit" class="featured-link" style="background: linear-gradient(135deg, #00bfff, #4db5ff); color: #fff; border: none; border-radius: 12px; width: 100%; font-weight: 700; display: flex; align-items: center; justify-content: center; gap: 8px; padding: 12px 20px; text-decoration: none;">
+            <button type="submit" class="featured-link" style="background: #000; color: #fff; border: none; border-radius: 12px; width: 100%; font-weight: 700; display: flex; align-items: center; justify-content: center; gap: 8px; padding: 12px 20px; text-decoration: none;">
               <i class="fas fa-shopping-cart"></i>
               Adicionar ao Carrinho
             </button>
@@ -50,7 +50,7 @@ header, nav, .menu li a, .icons i, .navbar-btn, .navbar-btn-login, .navbar-btn-c
               @csrf
               <input type="hidden" name="produto_id" value="6">
               <input type="hidden" name="quantidade" value="1">
-              <button type="submit" class="featured-link" style="background: linear-gradient(135deg, #00bfff, #4db5ff); color: #fff; border: none; width: 100%; font-size: 0.9rem; padding: 10px; display: flex; align-items: center; justify-content: center; gap: 5px;">
+              <button type="submit" class="featured-link" style="background: #000; color: #fff; border: none; width: 100%; font-size: 0.9rem; padding: 10px; display: flex; align-items: center; justify-content: center; gap: 5px;">
                 <i class="fas fa-shopping-cart"></i> Carrinho
               </button>
             </form>
@@ -66,7 +66,7 @@ header, nav, .menu li a, .icons i, .navbar-btn, .navbar-btn-login, .navbar-btn-c
               @csrf
               <input type="hidden" name="produto_id" value="60">
               <input type="hidden" name="quantidade" value="1">
-              <button type="submit" class="featured-link" style="background: linear-gradient(135deg, #00bfff, #4db5ff); color: #fff; border: none; width: 100%; font-size: 0.9rem; padding: 10px; display: flex; align-items: center; justify-content: center; gap: 5px;">
+              <button type="submit" class="featured-link" style="background: #000; color: #fff; border: none; width: 100%; font-size: 0.9rem; padding: 10px; display: flex; align-items: center; justify-content: center; gap: 5px;">
                 <i class="fas fa-shopping-cart"></i> Carrinho
               </button>
             </form>
@@ -82,7 +82,7 @@ header, nav, .menu li a, .icons i, .navbar-btn, .navbar-btn-login, .navbar-btn-c
               @csrf
               <input type="hidden" name="produto_id" value="167">
               <input type="hidden" name="quantidade" value="1">
-              <button type="submit" class="featured-link" style="background: linear-gradient(135deg, #00bfff, #4db5ff); color: #fff; border: none; width: 100%; font-size: 0.9rem; padding: 10px; display: flex; align-items: center; justify-content: center; gap: 5px;">
+              <button type="submit" class="featured-link" style="background: #000; color: #fff; border: none; width: 100%; font-size: 0.9rem; padding: 10px; display: flex; align-items: center; justify-content: center; gap: 5px;">
                 <i class="fas fa-shopping-cart"></i> Carrinho
               </button>
             </form>
@@ -98,7 +98,7 @@ header, nav, .menu li a, .icons i, .navbar-btn, .navbar-btn-login, .navbar-btn-c
               @csrf
               <input type="hidden" name="produto_id" value="109">
               <input type="hidden" name="quantidade" value="1">
-              <button type="submit" class="featured-link" style="background: linear-gradient(135deg, #00bfff, #4db5ff); color: #fff; border: none; width: 100%; font-size: 0.9rem; padding: 10px; display: flex; align-items: center; justify-content: center; gap: 5px;">
+              <button type="submit" class="featured-link" style="background: #000; color: #fff; border: none; width: 100%; font-size: 0.9rem; padding: 10px; display: flex; align-items: center; justify-content: center; gap: 5px;">
                 <i class="fas fa-shopping-cart"></i> Carrinho
               </button>
             </form>
