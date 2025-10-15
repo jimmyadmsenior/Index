@@ -73,44 +73,132 @@ Route::get('/Carrinho_Pagamento', function (Request $request) {
 Route::middleware(['auth'])->group(function () {
     Route::get('/Pagamento_Credito', function (Request $request) {
         $produto_id = $request->query('produto_id') ?? session('produto_id');
-        if (!$produto_id) {
-            return redirect('/carrinho-vazio')->with('error', 'Selecione um produto antes de finalizar a compra.');
+        $total = $request->query('total');
+        
+        // Se veio do carrinho com total
+        if ($total) {
+            $carrinho = session()->get('carrinho', []);
+            if (empty($carrinho)) {
+                return redirect()->route('carrinho.index')->with('error', 'Seu carrinho está vazio.');
+            }
+            
+            // Calcula o total real do carrinho
+            $totalCalculado = 0;
+            $produtos = [];
+            foreach ($carrinho as $id => $item) {
+                $produto = \App\Models\Produto::find($id);
+                if ($produto) {
+                    $totalCalculado += $produto->preco * $item['quantidade'];
+                    $produtos[] = [
+                        'produto' => $produto,
+                        'quantidade' => $item['quantidade'],
+                        'subtotal' => $produto->preco * $item['quantidade']
+                    ];
+                }
+            }
+            
+            return view('Pagamento_Credito', ['total' => $totalCalculado, 'carrinho' => $carrinho, 'produtos' => $produtos]);
         }
-        $produto = \App\Models\Produto::find($produto_id);
-        if (!$produto) {
-            return redirect('/carrinho-vazio')->with('error', 'Produto não encontrado.');
+        
+        // Se veio de produto individual
+        if ($produto_id) {
+            $produto = \App\Models\Produto::find($produto_id);
+            if (!$produto) {
+                return redirect('/carrinho-vazio')->with('error', 'Produto não encontrado.');
+            }
+            session(['produto_id' => $produto_id]);
+            return view('Pagamento_Credito', compact('produto'));
         }
-        session(['produto_id' => $produto_id]);
-        return view('Pagamento_Credito', compact('produto'));
+        
+        // Fallback
+        return redirect('/carrinho-vazio')->with('error', 'Selecione um produto antes de finalizar a compra.');
     });
     Route::get('/Carrinho_Pix', function (Request $request) {
         $produto_id = $request->query('produto_id') ?? session('produto_id');
+        $total = $request->query('total');
+        
+        // Se veio do carrinho com total
+        if ($total) {
+            $carrinho = session()->get('carrinho', []);
+            if (empty($carrinho)) {
+                return redirect()->route('carrinho.index')->with('error', 'Seu carrinho está vazio.');
+            }
+            
+            // Calcula o total real do carrinho para validação
+            $totalCalculado = 0;
+            foreach ($carrinho as $id => $item) {
+                $produto = \App\Models\Produto::find($id);
+                if ($produto) {
+                    $totalCalculado += $produto->preco * $item['quantidade'];
+                }
+            }
+            
+            return view('Carrinho_Pix', ['total' => $totalCalculado, 'carrinho' => $carrinho]);
+        }
+        
+        // Se veio de produto individual
         if ($produto_id) {
             session(['produto_id' => $produto_id]);
             return view('Carrinho_Pix', ['produto_id' => $produto_id]);
-        } else {
-            return redirect('/carrinho-vazio')->with('error', 'Selecione um produto antes de finalizar a compra.');
         }
+        
+        // Fallback
+        return redirect('/carrinho-vazio')->with('error', 'Selecione um produto antes de finalizar a compra.');
     });
     Route::get('/carrinho-vazio', function() {
         return redirect()->route('carrinho.index')->with('error', 'Seu carrinho está vazio.');
     });
     Route::get('/pagamento-debito', function (\Illuminate\Http\Request $request) {
         $produto_id = $request->query('produto_id') ?? session('produto_id');
-        if (!$produto_id) {
-            return redirect('/carrinho-vazio')->with('error', 'Selecione um produto antes de finalizar a compra.');
+        $total = $request->query('total');
+        
+        // Se veio do carrinho com total
+        if ($total) {
+            $carrinho = session()->get('carrinho', []);
+            if (empty($carrinho)) {
+                return redirect()->route('carrinho.index')->with('error', 'Seu carrinho está vazio.');
+            }
+            
+            // Calcula o total real do carrinho
+            $totalCalculado = 0;
+            $produtos = [];
+            foreach ($carrinho as $id => $item) {
+                $produto = \App\Models\Produto::find($id);
+                if ($produto) {
+                    $totalCalculado += $produto->preco * $item['quantidade'];
+                    $produtos[] = [
+                        'produto' => $produto,
+                        'quantidade' => $item['quantidade'],
+                        'subtotal' => $produto->preco * $item['quantidade']
+                    ];
+                }
+            }
+            
+            return view('Pagamento_Debito', ['total' => $totalCalculado, 'carrinho' => $carrinho, 'produtos' => $produtos]);
         }
-        $produto = \App\Models\Produto::find($produto_id);
-        if (!$produto) {
-            return redirect('/carrinho-vazio')->with('error', 'Produto não encontrado.');
+        
+        // Se veio de produto individual
+        if ($produto_id) {
+            $produto = \App\Models\Produto::find($produto_id);
+            if (!$produto) {
+                return redirect('/carrinho-vazio')->with('error', 'Produto não encontrado.');
+            }
+            session(['produto_id' => $produto_id]);
+            return view('Pagamento_Debito', compact('produto'));
         }
-        session(['produto_id' => $produto_id]);
-        return view('Pagamento_Debito', compact('produto'));
+        
+        // Fallback
+        return redirect('/carrinho-vazio')->with('error', 'Selecione um produto antes de finalizar a compra.');
     });
     Route::get('/perfil', [App\Http\Controllers\PerfilController::class, 'show'])->name('perfil.show');
     Route::post('/perfil/foto', [App\Http\Controllers\PerfilController::class, 'updateFoto'])->name('perfil.updateFoto');
     Route::post('/perfil/senha', [App\Http\Controllers\PerfilController::class, 'updateSenha'])->name('perfil.updateSenha');
+    Route::get('/perfil/pedidos', [App\Http\Controllers\PerfilController::class, 'pedidos'])->name('perfil.pedidos');
+    Route::get('/rastrear/{codigo}', [App\Http\Controllers\PerfilController::class, 'rastrearPedido'])->name('pedido.rastrear');
     Route::post('/finalizar-compra', [CompraController::class, 'finalizar'])->name('compra.finalizar');
+    Route::get('/compra-finalizada', function() {
+        return view('Compra_Finalizada');
+    })->name('compra.finalizada.view');
 });
 
 Route::post('/login', function(Request $request) {
