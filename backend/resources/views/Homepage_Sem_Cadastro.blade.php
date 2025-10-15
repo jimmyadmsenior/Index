@@ -12,7 +12,12 @@
       <div class="featured-iphone14">
         <h2>iPhone 14</h2>
         <p class="featured-desc">A tecnologia encontra o conforto</p>
-        <a href="#" class="featured-link">Comprar</a>
+        <div class="produto-acoes" style="display: flex; gap: 15px; align-items: center; margin: 15px 0;">
+          <a href="/Login" class="featured-link" style="flex: 1; background: linear-gradient(135deg, #7fff7f, #51cf66); color: #000; text-align: center;">
+            <i class="fas fa-shopping-cart"></i> Faça Login para Comprar
+          </a>
+          <a href="/Cadastro" class="featured-link" style="flex: 1; background: transparent; border: 2px solid #fff; color: #fff; text-align: center;">Cadastre-se</a>
+        </div>
         <div class="featured-imgs">
           <img src="/media/Iphone_14_Capa_Homepage.png" alt="Two hands holding a light blue iPhone 14, one showing the back with the Apple logo and dual cameras, the other displaying the lock screen with the time 941 and colorful abstract wallpaper, set against a clean white background, conveying a modern and premium feel" class="iphone14-img"/>
         </div>
@@ -26,25 +31,45 @@
         <div class="product-card dark">
           <h3>iPhone 14 Pro</h3>
           <p>Faz jus ao nome</p>
-          <a href="#" class="featured-link">Comprar</a>
+          <div class="card-buttons" style="display: flex; gap: 10px; margin: 10px 0;">
+            <a href="/Login" class="featured-link" style="flex: 1; background: linear-gradient(135deg, #7fff7f, #51cf66); color: #000; font-size: 0.8rem; padding: 8px; text-align: center;">
+              <i class="fas fa-shopping-cart"></i> Login
+            </a>
+            <a href="/Cadastro" class="featured-link" style="flex: 1; font-size: 0.8rem; padding: 8px; text-align: center;">Cadastrar</a>
+          </div>
           <img src="/media/Iphone_14_Pro_Capa_Homepage.png" alt="iPhone 14 Pro"/>
         </div>
         <div class="product-card dark">
           <h3>Galaxy Book4</h3>
           <p>Desempenho nunca antes visto</p>
-          <a href="#" class="featured-link">Comprar</a>
+          <div class="card-buttons" style="display: flex; gap: 10px; margin: 10px 0;">
+            <a href="/Login" class="featured-link" style="flex: 1; background: linear-gradient(135deg, #7fff7f, #51cf66); color: #000; font-size: 0.8rem; padding: 8px; text-align: center;">
+              <i class="fas fa-shopping-cart"></i> Login
+            </a>
+            <a href="/Cadastro" class="featured-link" style="flex: 1; font-size: 0.8rem; padding: 8px; text-align: center;">Cadastrar</a>
+          </div>
           <img src="/media/GalaxyBook4_Homepage.png" alt="Galaxy Book4"/>
         </div>
         <div class="product-card dark">
           <h3>Samsung Galaxy Tab S6</h3>
           <p>Profissionalismo e elegância</p>
-          <a href="#" class="featured-link">Comprar</a>
+          <div class="card-buttons" style="display: flex; gap: 10px; margin: 10px 0;">
+            <a href="/Login" class="featured-link" style="flex: 1; background: linear-gradient(135deg, #7fff7f, #51cf66); color: #000; font-size: 0.8rem; padding: 8px; text-align: center;">
+              <i class="fas fa-shopping-cart"></i> Login
+            </a>
+            <a href="/Cadastro" class="featured-link" style="flex: 1; font-size: 0.8rem; padding: 8px; text-align: center;">Cadastrar</a>
+          </div>
           <img src="/media/Samsung Galaxy Tab S6.png" alt="Samsung Galaxy Tab S6"/>
         </div>
         <div class="product-card dark">
           <h3><i class="fab fa-apple"></i> WATCH <span style="font-size:12px;">SERIES 8</span></h3>
           <p>Um salto de tecnologia</p>
-          <a href="#" class="featured-link">Comprar</a>
+          <div class="card-buttons" style="display: flex; gap: 10px; margin: 10px 0;">
+            <a href="/Login" class="featured-link" style="flex: 1; background: linear-gradient(135deg, #7fff7f, #51cf66); color: #000; font-size: 0.8rem; padding: 8px; text-align: center;">
+              <i class="fas fa-shopping-cart"></i> Login
+            </a>
+            <a href="/Cadastro" class="featured-link" style="flex: 1; font-size: 0.8rem; padding: 8px; text-align: center;">Cadastrar</a>
+          </div>
           <img src="/media/Watch_Series8.png" alt="Apple Watch Series 8"/>
         </div>
       </div>

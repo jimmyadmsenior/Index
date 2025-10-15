@@ -1,0 +1,138 @@
+/* Estilos para botões de carrinho em todas as páginas */
+
+.produto-acoes {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    margin: 15px 0;
+}
+
+.card-buttons {
+    display: flex;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+/* Botão Adicionar ao Carrinho */
+.btn-adicionar-carrinho,
+button[type="submit"].featured-link {
+    background: linear-gradient(135deg, #7fff7f, #51cf66) !important;
+    color: #000 !important;
+    border: none !important;
+    border-radius: 12px;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.btn-adicionar-carrinho:hover,
+button[type="submit"].featured-link:hover {
+    background: linear-gradient(135deg, #51cf66, #40c057) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(127, 255, 127, 0.3);
+}
+
+.btn-adicionar-carrinho:active,
+button[type="submit"].featured-link:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 10px rgba(127, 255, 127, 0.2);
+}
+
+/* Botão Ver Produto */
+.featured-link:not([type="submit"]) {
+    background: transparent !important;
+    border: 2px solid #fff !important;
+    color: #fff !important;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    font-weight: 700;
+    transition: all 0.3s ease;
+}
+
+.featured-link:not([type="submit"]):hover {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border-color: #7fff7f !important;
+    color: #7fff7f !important;
+    transform: translateY(-2px);
+}
+
+/* Botões para usuários não logados */
+a[href="/Login"].featured-link {
+    background: linear-gradient(135deg, #7fff7f, #51cf66) !important;
+    color: #000 !important;
+    border: none !important;
+}
+
+a[href="/Cadastro"].featured-link {
+    background: transparent !important;
+    border: 2px solid #fff !important;
+    color: #fff !important;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .produto-acoes,
+    .card-buttons {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .featured-link,
+    .btn-adicionar-carrinho {
+        width: 100% !important;
+        padding: 12px 20px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Animação para ícones do carrinho */
+.fas.fa-shopping-cart {
+    transition: transform 0.2s ease;
+}
+
+button:hover .fas.fa-shopping-cart {
+    transform: scale(1.1);
+}
+
+/* Estilo para mensagens de feedback */
+.carrinho-feedback {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: linear-gradient(135deg, #7fff7f, #51cf66);
+    color: #000;
+    padding: 15px 20px;
+    border-radius: 12px;
+    font-weight: 700;
+    z-index: 9999;
+    animation: slideIn 0.5s ease, slideOut 0.5s ease 2.5s forwards;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOut {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+}

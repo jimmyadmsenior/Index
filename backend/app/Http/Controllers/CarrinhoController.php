@@ -38,6 +38,9 @@ class CarrinhoController extends Controller
 
         $produto = Produto::find($produto_id);
         if (!$produto) {
+            if ($request->ajax()) {
+                return response()->json(['success' => false, 'message' => 'Produto não encontrado.']);
+            }
             return redirect()->back()->with('error', 'Produto não encontrado.');
         }
 
@@ -53,6 +56,19 @@ class CarrinhoController extends Controller
         }
 
         session()->put('carrinho', $carrinho);
+        
+        // Calcula o total de itens no carrinho
+        $cart_count = array_sum(array_column($carrinho, 'quantidade'));
+        
+        if ($request->ajax()) {
+            return response()->json([
+                'success' => true, 
+                'message' => 'Produto adicionado ao carrinho com sucesso!',
+                'cart_count' => $cart_count,
+                'produto_nome' => $produto->nome
+            ]);
+        }
+        
         return redirect()->back()->with('success', 'Produto adicionado ao carrinho!');
     }
 

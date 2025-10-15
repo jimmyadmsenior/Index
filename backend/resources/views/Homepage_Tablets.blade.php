@@ -79,7 +79,18 @@ header {
       <span style="color: #fff; font-size: 1.5rem;">|</span>
       <span style="font-size: 1.25rem; color: #fff;">Tela de 12 polegadas</span>
     </div>
-    <button class="comprar-btn" onclick="adicionarAoCarrinho('galaxy-tab-s9-ultra')">COMPRAR</button>
+    @auth
+        <form action="{{ route('carrinho.adicionar') }}" method="POST" style="display: inline-block;">
+            @csrf
+            <input type="hidden" name="produto_id" value="167">
+            <input type="hidden" name="quantidade" value="1">
+            <button type="submit" class="comprar-btn" style="background: linear-gradient(135deg, #7fff7f, #51cf66); color: #000;">
+                <i class="fas fa-shopping-cart"></i> ADICIONAR AO CARRINHO
+            </button>
+        </form>
+    @else
+        <a href="/Login" class="comprar-btn" style="text-decoration: none;">FAÇA LOGIN PARA COMPRAR</a>
+    @endauth
     <div style="width: 100%; display: flex; justify-content: center; align-items: center;">
       <img src="/media/Group 6.png" alt="Banner" class="group6-img" style="width: 100%; max-width: 1100px; height: auto; display: block; object-fit: contain; background: #000; margin: 0 auto; filter: none !important; mix-blend-mode: normal !important;" />
     </div>
@@ -286,7 +297,18 @@ header {
       <img src="/media/selecao de tablets.png" alt="Samsung Galaxy Tab A" style="position: absolute; left: 0; top: 0; width: 100vw; height: 700px; max-width: 100vw; max-height: 100%; min-width: 0; min-height: 0; margin: 0; display: block; object-fit: cover; background: transparent; z-index: 2;" />
       <div style="position: absolute; left: 0; right: 0; top: 50%; transform: translateY(-50%); z-index: 3; text-align: center;">
         <h2 class="geoform-text" style="font-size: 4.2rem; font-weight: bold; color: #fff; margin-bottom: 32px; line-height: 1.1; text-shadow: 0 2px 12px rgba(0,0,0,0.35);">Samsung Galaxy<br>Tab A</h2>
-        <button class="comprar-btn" onclick="adicionarAoCarrinho('galaxy-tab-a')" style="background: #fff; color: #111; font-weight: bold; font-size: 2.2rem; border: none; border-radius: 40px; padding: 22px 70px; margin-top: 24px; box-shadow: 0 4px 16px rgba(0,0,0,0.18); cursor: pointer; letter-spacing: 3px; transition: transform 0.18s, background 0.18s, box-shadow 0.18s;" onmouseover="this.style.transform='scale(1.08)';this.style.background='#e6e6e6';this.style.color='#111';this.style.boxShadow='0 4px 18px rgba(0,0,0,0.18)';" onmouseout="this.style.transform='scale(1)';this.style.background='#fff';this.style.color='#111';this.style.boxShadow='0 4px 16px rgba(0,0,0,0.18)';" onmousedown="this.style.transform='scale(0.96) translateY(2px)';this.style.background='#d1d1d1';this.style.color='#111';this.style.boxShadow='0 1px 4px rgba(0,0,0,0.12)';" onmouseup="this.style.transform='scale(1.08)';this.style.background='#e6e6e6';this.style.color='#111';this.style.boxShadow='0 4px 18px rgba(0,0,0,0.18)';">COMPRAR</button>
+        @auth
+            <form action="{{ route('carrinho.adicionar') }}" method="POST" style="display: inline-block;">
+                @csrf
+                <input type="hidden" name="produto_id" value="168">
+                <input type="hidden" name="quantidade" value="1">
+                <button type="submit" class="comprar-btn" style="background: linear-gradient(135deg, #7fff7f, #51cf66); color: #000; font-weight: bold; font-size: 2.2rem; border: none; border-radius: 40px; padding: 22px 70px; margin-top: 24px; box-shadow: 0 4px 16px rgba(0,0,0,0.18); cursor: pointer; letter-spacing: 3px; transition: transform 0.18s, background 0.18s, box-shadow 0.18s;">
+                    <i class="fas fa-shopping-cart"></i> ADICIONAR AO CARRINHO
+                </button>
+            </form>
+        @else
+            <a href="/Login" class="comprar-btn" style="background: #fff; color: #111; font-weight: bold; font-size: 2.2rem; border: none; border-radius: 40px; padding: 22px 70px; margin-top: 24px; box-shadow: 0 4px 16px rgba(0,0,0,0.18); cursor: pointer; letter-spacing: 3px; text-decoration: none; display: inline-block;">FAÇA LOGIN PARA COMPRAR</a>
+        @endauth
       </div>
     </div>
   </section>
