@@ -84,7 +84,7 @@ header {
             @csrf
             <input type="hidden" name="produto_id" value="167">
             <input type="hidden" name="quantidade" value="1">
-            <button type="submit" class="comprar-btn" style="background: linear-gradient(135deg, #7fff7f, #51cf66); color: #000;">
+            <button type="submit" class="comprar-btn" style="background: linear-gradient(135deg, #00bfff, #4db5ff); color: #fff;">
                 <i class="fas fa-shopping-cart"></i> ADICIONAR AO CARRINHO
             </button>
         </form>
@@ -302,7 +302,7 @@ header {
                 @csrf
                 <input type="hidden" name="produto_id" value="168">
                 <input type="hidden" name="quantidade" value="1">
-                <button type="submit" class="comprar-btn" style="background: linear-gradient(135deg, #7fff7f, #51cf66); color: #000; font-weight: bold; font-size: 2.2rem; border: none; border-radius: 40px; padding: 22px 70px; margin-top: 24px; box-shadow: 0 4px 16px rgba(0,0,0,0.18); cursor: pointer; letter-spacing: 3px; transition: transform 0.18s, background 0.18s, box-shadow 0.18s;">
+                <button type="submit" class="comprar-btn" style="background: linear-gradient(135deg, #00bfff, #4db5ff); color: #fff; font-weight: bold; font-size: 2.2rem; border: none; border-radius: 40px; padding: 22px 70px; margin-top: 24px; box-shadow: 0 4px 16px rgba(0,0,0,0.18); cursor: pointer; letter-spacing: 3px; transition: transform 0.18s, background 0.18s, box-shadow 0.18s;">
                     <i class="fas fa-shopping-cart"></i> ADICIONAR AO CARRINHO
                 </button>
             </form>

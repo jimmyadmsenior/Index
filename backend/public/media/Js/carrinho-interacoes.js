@@ -134,8 +134,8 @@ style.textContent = `
     }
     
     .carrinho-feedback.sucesso {
-        background: linear-gradient(135deg, #7fff7f, #51cf66) !important;
-        color: #000 !important;
+        background: linear-gradient(135deg, #00bfff, #4db5ff) !important;
+        color: #fff !important;
     }
     
     .carrinho-feedback i {
