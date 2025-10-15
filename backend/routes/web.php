@@ -18,11 +18,11 @@ Route::view('/login', 'Login')->name('login');
 Route::view('/recuperacao-senha', 'Recuperacao_Senha');
 Route::view('/confirmacao-adm', 'Confirmacao_ADM');
 Route::view('/Homepage_Com_Cadastro', 'Homepage_Com_Cadastro');
-Route::view('/Homepage_Fones', 'HomePage_Fones');
-Route::view('/Homepage_Smartphones', 'Homepage_Smartphones');
-Route::view('/Homepage_Tablets', 'Homepage_Tablets');
-Route::view('/Homepage_Relógios', 'Homepage_Relógios');
-Route::view('/Homepage_Notebooks', 'Homepage_Notebooks');
+Route::view('/Homepage_Fones', 'HomePage_Fones')->name('categoria.fones');
+Route::view('/Homepage_Smartphones', 'Homepage_Smartphones')->name('categoria.smartphones');
+Route::view('/Homepage_Tablets', 'Homepage_Tablets')->name('categoria.tablets');
+Route::view('/Homepage_Relógios', 'Homepage_Relógios')->name('categoria.relogios');
+Route::view('/Homepage_Notebooks', 'Homepage_Notebooks')->name('categoria.notebooks');
 
 Route::get('/cadastro', [CadastroController::class, 'showCadastro']);
 Route::post('/cadastro', [CadastroController::class, 'processaCadastro']);
@@ -36,14 +36,37 @@ Route::view('/Chatbot', 'Chatbot');
 // Rota do carrinho (acessível a todos)
 Route::get('/Carrinho_Pagamento', function (Request $request) {
     $produto_id = $request->query('produto_id');
-    if (!$produto_id) {
-        return redirect('/')->with('error', 'Selecione um produto antes de finalizar a compra.');
+    $total = $request->query('total');
+    
+    // Se veio de um produto específico
+    if ($produto_id) {
+        $produto = \App\Models\Produto::find($produto_id);
+        if (!$produto) {
+            return redirect('/')->with('error', 'Produto não encontrado.');
+        }
+        return view('Carrinho_Pagamento', compact('produto'));
     }
-    $produto = \App\Models\Produto::find($produto_id);
-    if (!$produto) {
-        return redirect('/')->with('error', 'Produto não encontrado.');
+    
+    // Se veio do carrinho com total
+    if ($total) {
+        $carrinho = session()->get('carrinho', []);
+        if (empty($carrinho)) {
+            return redirect()->route('carrinho.index')->with('error', 'Seu carrinho está vazio.');
+        }
+        
+        // Pega o primeiro produto do carrinho para compatibilidade com a view
+        $primeiro_produto_id = array_key_first($carrinho);
+        $produto = \App\Models\Produto::find($primeiro_produto_id);
+        
+        if (!$produto) {
+            return redirect()->route('carrinho.index')->with('error', 'Produto não encontrado.');
+        }
+        
+        return view('Carrinho_Pagamento', compact('produto', 'total', 'carrinho'));
     }
-    return view('Carrinho_Pagamento', compact('produto'));
+    
+    // Fallback
+    return redirect('/')->with('error', 'Selecione um produto antes de finalizar a compra.');
 });
 
 // Rotas protegidas: pagamentos e perfil
@@ -175,3 +198,5 @@ Route::post('/carrinho/adicionar', [CarrinhoController::class, 'adicionar'])->na
 Route::delete('/carrinho/remover/{produto_id}', [CarrinhoController::class, 'remover'])->name('carrinho.remover');
 Route::put('/carrinho/atualizar/{produto_id}', [CarrinhoController::class, 'atualizar'])->name('carrinho.atualizar');
 Route::post('/carrinho/limpar', [CarrinhoController::class, 'limpar'])->name('carrinho.limpar');
+Route::get('/continuar-comprando', [CarrinhoController::class, 'continuarComprando'])->name('carrinho.continuar');
+Route::get('/finalizar-carrinho', [CarrinhoController::class, 'finalizarCarrinho'])->name('carrinho.finalizar');
