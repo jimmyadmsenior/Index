@@ -40,6 +40,15 @@
             </div>
         @endif
     </div>
+    
+    <!-- Seção de Pedidos -->
+    <div style="text-align: center; margin: 30px 0;">
+        <h3 style="color: #fff; margin-bottom: 16px;">Meus Pedidos</h3>
+        <a href="{{ route('perfil.pedidos') }}" style="display: inline-block; background: linear-gradient(135deg, #00bfff, #4db5ff); color: #fff; text-decoration: none; padding: 12px 24px; border-radius: 8px; font-weight: 600; transition: all 0.3s ease;">
+            <i class="fas fa-package"></i> Ver Meus Pedidos e Rastreamentos
+        </a>
+    </div>
+    
     <form action="/logout" method="POST" style="margin-top: 24px; text-align: center;">
         @csrf
         <button type="submit" style="background: #e74c3c; color: #fff; border: none; border-radius: 8px; padding: 10px 32px; font-size: 1.1rem; font-weight: bold; cursor: pointer; transition: background 0.2s;">Sair</button>

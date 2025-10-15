@@ -114,15 +114,15 @@
             </a>
             
             <!-- Botões secundários -->
-            <div style="display: flex; gap: 10px;">
-              <a href="{{ route('carrinho.continuar') }}" class="btn-continuar-comprando" style="flex: 1; display: inline-flex; align-items: center; justify-content: center; gap: 8px; text-decoration: none; padding: 12px; background: transparent; border: 2px solid #fff; color: #fff; border-radius: 8px; font-weight: 500; height: 48px; box-sizing: border-box;">
+            <div style="display: flex; gap: 10px; align-items: stretch;">
+              <a href="{{ route('carrinho.continuar') }}" class="btn-continuar-comprando" style="flex: 1; display: flex; align-items: center; justify-content: center; gap: 8px; text-decoration: none; padding: 12px; background: transparent; border: 2px solid #fff; color: #fff; border-radius: 8px; font-weight: 500; min-height: 48px; box-sizing: border-box;">
                 <i class="fas fa-arrow-left"></i>
                 Continuar Comprando
               </a>
               
-              <form action="{{ route('carrinho.limpar') }}" method="POST" style="flex: 1;">
+              <form action="{{ route('carrinho.limpar') }}" method="POST" style="flex: 1; display: flex;">
                 @csrf
-                <button type="submit" class="btn-limpar" onclick="return confirm('Limpar todo o carrinho?')" style="width: 100%; height: 48px; padding: 12px; background: transparent; border: 2px solid #ff6b6b; color: #ff6b6b; border-radius: 8px; font-weight: 500; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; box-sizing: border-box;">
+                <button type="submit" class="btn-limpar" onclick="return confirm('Limpar todo o carrinho?')" style="width: 100%; min-height: 48px; padding: 12px; background: transparent; border: 2px solid #ff6b6b; color: #ff6b6b; border-radius: 8px; font-weight: 500; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; box-sizing: border-box; font-family: inherit;">
                   <i class="fas fa-trash"></i>
                   Limpar Carrinho
                 </button>
