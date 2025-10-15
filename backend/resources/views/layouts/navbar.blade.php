@@ -2,11 +2,7 @@
   <div class="navbar-content" style="width:100%;padding:0;">
     <div style="display:grid;grid-template-columns:1.2fr auto 1fr;align-items:center;max-width:1300px;width:100%;margin:0 auto;padding:0 32px 0 32px;height:64px;box-sizing:border-box;">
       <div style="justify-self:start;">
-        @auth
-          <a href="/Homepage_Com_Cadastro"><img src="/media/Logo_Branca.png" alt="Logo Index" style="height:32px;"></a>
-        @else
-          <a href="/"><img src="/media/Logo_Branca.png" alt="Logo Index" style="height:32px;"></a>
-        @endauth
+        <a href="/"><img src="/media/Logo_Branca.png" alt="Logo Index" style="height:32px;"></a>
       </div>
       <nav class="navbar-menu" style="justify-self:center;height:64px;display:flex;align-items:center;">
         <ul style="display:flex;gap:32px;margin:0 auto;padding:0;list-style:none;align-items:center;height:64px;">

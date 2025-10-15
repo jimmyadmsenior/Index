@@ -8,7 +8,11 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\RecuperacaoSenhaMail;
 
-Route::view('/', 'Homepage_Sem_Cadastro');
+Route::get('/', function () {
+    return Auth::check() 
+        ? view('Homepage_Com_Cadastro') 
+        : view('Homepage_Sem_Cadastro');
+});
 Route::view('/login', 'Login')->name('login');
 Route::view('/recuperacao-senha', 'Recuperacao_Senha');
 Route::view('/confirmacao-adm', 'Confirmacao_ADM');
@@ -80,7 +84,7 @@ Route::post('/login', function(Request $request) {
     // O Auth::attempt já faz o hash da senha automaticamente
     if (Auth::attempt($credentials, $remember)) {
         $request->session()->regenerate();
-        return redirect('/Homepage_Com_Cadastro');
+        return redirect('/');
     }
     return back()->withErrors(['email' => 'E-mail ou senha inválidos'])->withInput();
 })->middleware('throttle:5,1');
