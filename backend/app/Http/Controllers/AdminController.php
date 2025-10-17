@@ -107,6 +107,13 @@ class AdminController extends Controller
 
     public function logs()
     {
+        $logDirectory = storage_path('logs');
+        $arquivos_log = [];
+        
+        if (is_dir($logDirectory)) {
+            $arquivos_log = glob($logDirectory . '/*.log');
+        }
+        
         $logFile = storage_path('logs/laravel.log');
         $logs = [];
 
@@ -116,6 +123,6 @@ class AdminController extends Controller
             $logs = array_slice($lines, 0, 100); // Últimas 100 linhas
         }
 
-        return view('admin.logs', compact('logs'));
+        return view('admin.logs', compact('logs', 'arquivos_log'));
     }
 }
