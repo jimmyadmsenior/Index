@@ -10,20 +10,32 @@
 
 > Nosso site realiza a venda de eletrônicos, mais especificamente smartphones, fones de ouvido, relógios, tablets e notebooks. Ele foi criado com o intuito de simplicar a escolha de eletrônicos, utilizando de recursos gráficos e apresentações intuitivas.
 
-### Ajustes e melhorias
 
-O projeto ainda está em desenvolvimento e as próximas atualizações serão voltadas para as seguintes tarefas:
+### Status do Projeto
+O projeto está em desenvolvimento contínuo. As principais funcionalidades já implementadas incluem:
 
 - [X] Design e Elementos Gráficos
 - [X] ChatBot
 - [X] Layout Base
 - [X] Publicação dos produtos
 - [X] Páginas Iniciais
-- [ ] BackEnd
+- [X] BackEnd (cadastro, login, confirmação de cadastro, painel admin)
+
+#### Melhorias recentes
+- Página de confirmação de cadastro com ícone centralizado e efeito visual aprimorado
+- Correção de duplicidade do efeito de cursor
+- Ajustes no fluxo de autenticação e cadastro de usuários
 
 ## 📫 Contribuindo para o Index
 
 Para contribuir com o Index, siga estas etapas:
+
+## 🚀 Como funciona o cadastro
+O fluxo de cadastro foi aprimorado:
+- Após preencher o formulário, o usuário recebe um e-mail com código de verificação
+- Ao inserir o código, o cadastro é confirmado e o usuário é redirecionado para a página de confirmação
+- A página de confirmação exibe um ícone de check centralizado e mensagem de sucesso
+- O efeito de cursor foi ajustado para evitar duplicidade
 
 1. Bifurque este repositório.
 2. Crie um branch: `git checkout -b <nome_branch>`.
@@ -85,6 +97,10 @@ Esse projeto está sob licença. Veja o arquivo [LICENÇA](LICENSE) para mais de
 
 ## Instalação
 
+> **Observação:** Certifique-se de que as dependências do PHP e Node.js estejam instaladas corretamente. O backend utiliza Laravel e o frontend está integrado ao mesmo projeto.
+
+> O fluxo de cadastro e login está funcional, incluindo confirmação por e-mail.
+
 URL do site para ser acessada via navegador
 Em breve ainda iremos colocar (Site ainda em construção)
 
@@ -128,6 +144,11 @@ Substitua caminho/para/a/pasta pelo caminho real onde a pasta "backend" está lo
   ```
 
 Agora o servidor estará rodando e você poderá acessá-lo através do seu navegador.
+## Funcionalidades principais
+- Cadastro e login de usuários
+- Confirmação de cadastro por e-mail
+- Painel administrativo para gerenciamento de usuários e produtos
+- Efeitos visuais modernos e responsivos
 o nosso projeto, lembre-se de enviar uma mensagem relatando o por quê
 que você gostaria de ajudar e como você pode contribuir para o nosso projeto.
 
