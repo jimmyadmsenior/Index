@@ -11,23 +11,29 @@ class Administrador extends Authenticatable
     use HasFactory, Notifiable;
 
     protected $table = 'administradores';
-    protected $primaryKey = 'cod_administrador';
+    protected $primaryKey = 'id';
 
     protected $fillable = [
         'nome',
         'email',
-        'senha',
+        'password',
+        'nivel_acesso',
+        'ativo',
+        'email_verified_at',
     ];
 
     protected $hidden = [
-        'senha',
+        'password',
         'remember_token',
     ];
 
     protected function casts(): array
     {
         return [
-            'senha' => 'hashed',
+            'password' => 'hashed',
+            'email_verified_at' => 'datetime',
+            'ultimo_acesso' => 'datetime',
+            'ativo' => 'boolean',
         ];
     }
 
@@ -56,11 +62,11 @@ class Administrador extends Authenticatable
     }
 
     /**
-     * Método para autenticação - mapeia senha para password
+     * Método para autenticação - usa o campo password padrão do Laravel
      */
     public function getAuthPassword()
     {
-        return $this->senha;
+        return $this->password;
     }
 
     /**

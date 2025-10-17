@@ -26,29 +26,36 @@ class AdminAuthController extends Controller
      */
     public function login(Request $request)
     {
+        \Log::info('=== LOGIN ADMIN INICIADO ===');
+        \Log::info('URL: ' . $request->fullUrl());
+        \Log::info('Dados recebidos: ', $request->all());
+        
         $credentials = $request->validate([
             'email' => ['required', 'email'],
             'password' => ['required'],
         ]);
 
-        // Mapeia password para senha para compatibilidade com a estrutura do banco
-        $loginCredentials = [
-            'email' => $credentials['email'],
-            'senha' => $credentials['password'],
-        ];
-
-        if (Auth::guard('admin')->attempt($loginCredentials, $request->boolean('remember'))) {
+        \Log::info('Tentando autenticação para: ' . $credentials['email']);
+        
+        if (Auth::guard('admin')->attempt($credentials)) {
+            \Log::info('✅ LOGIN BEM-SUCEDIDO!');
+            
             $request->session()->regenerate();
             
-            // Atualiza último acesso
-            Auth::guard('admin')->user()->atualizarUltimoAcesso();
+            $user = Auth::guard('admin')->user();
+            \Log::info('Usuário logado: ' . $user->email . ' (ID: ' . $user->id . ')');
             
-            return redirect()->intended(route('admin.dashboard'));
+            $dashboardRoute = route('admin.dashboard');
+            \Log::info('Redirecionando para: ' . $dashboardRoute);
+            
+            return redirect($dashboardRoute);
+        } else {
+            \Log::warning('❌ Falha na autenticação');
+            
+            return back()->withErrors([
+                'email' => 'As credenciais fornecidas não conferem com nossos registros.',
+            ])->onlyInput('email');
         }
-
-        return back()->withErrors([
-            'email' => 'As credenciais fornecidas não conferem com nossos registros.',
-        ])->onlyInput('email');
     }
 
     /**

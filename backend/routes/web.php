@@ -15,6 +15,10 @@ Route::get('/', function () {
         : view('Homepage_Sem_Cadastro');
 });
 Route::view('/login', 'Login')->name('login');
+// Rota de compatibilidade para evitar erros
+Route::get('/user-login', function() {
+    return redirect()->route('login');
+})->name('user.login');
 Route::view('/recuperacao-senha', 'Recuperacao_Senha');
 Route::view('/confirmacao-adm', 'Confirmacao_ADM');
 Route::view('/Homepage_Com_Cadastro', 'Homepage_Com_Cadastro');
@@ -301,6 +305,21 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('/login', [App\Http\Controllers\AdminAuthController::class, 'showLoginForm'])->name('login');
     Route::post('/login', [App\Http\Controllers\AdminAuthController::class, 'login']);
     Route::post('/logout', [App\Http\Controllers\AdminAuthController::class, 'logout'])->name('logout');
+    
+    // Rota de teste sem autenticação
+    Route::get('/teste', function() {
+        return 'Admin área funcionando!';
+    })->name('teste');
+    
+    // Rota de teste com autenticação
+    Route::get('/teste-auth', function() {
+        if (Auth::guard('admin')->check()) {
+            $admin = Auth::guard('admin')->user();
+            return 'Admin logado: ' . $admin->email . ' (ID: ' . $admin->id . ')';
+        } else {
+            return 'Nenhum admin logado';
+        }
+    })->name('teste-auth');
     
     // Rotas protegidas do painel administrativo
     Route::middleware(['auth:admin'])->group(function () {

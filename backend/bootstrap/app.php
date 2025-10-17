@@ -18,6 +18,14 @@ return Application::configure(basePath: dirname(__DIR__))
             'admin' => App\Http\Middleware\AdminMiddleware::class,
             'admin.auth' => App\Http\Middleware\AdminAuthMiddleware::class,
         ]);
+        
+        // Substitui o middleware de autenticação padrão
+        $middleware->replace(\Illuminate\Auth\Middleware\Authenticate::class, \App\Http\Middleware\Authenticate::class);
+        
+        // Registra middleware de autenticação para guards específicos
+        $middleware->alias([
+            'auth' => \App\Http\Middleware\Authenticate::class,
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //

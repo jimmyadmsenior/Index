@@ -23,14 +23,20 @@ class AdminSeeder extends Seeder
         Administrador::create([
             'nome' => 'Administrador Master',
             'email' => 'admin@sistema.com',
-            'senha' => Hash::make('admin123456'),
+            'password' => Hash::make('admin123456'),
+            'nivel_acesso' => 'master',
+            'ativo' => true,
+            'email_verified_at' => now(),
         ]);
 
         // Cria o segundo administrador (Operador)
         Administrador::create([
             'nome' => 'Administrador Operador',
             'email' => 'operador@sistema.com',
-            'senha' => Hash::make('operador123'),
+            'password' => Hash::make('operador123'),
+            'nivel_acesso' => 'operador',
+            'ativo' => true,
+            'email_verified_at' => now(),
         ]);
 
         $this->command->info('Administradores criados com sucesso!');
