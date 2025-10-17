@@ -65,7 +65,14 @@ class AdminController extends Controller
             ->latest()
             ->paginate(20);
 
-        return view('admin.usuarios', compact('usuarios'));
+        $estatisticas = [
+            'total' => User::count(),
+            'ativos' => User::whereDate('updated_at', '>=', now()->subDays(30))->count(),
+            'novos_mes' => User::whereMonth('created_at', now()->month)->count(),
+            'com_pedidos' => User::has('pedidos')->count(),
+        ];
+
+        return view('admin.usuarios', compact('usuarios', 'estatisticas'));
     }
 
     public function produtos()
@@ -74,7 +81,16 @@ class AdminController extends Controller
             ->latest()
             ->paginate(20);
 
-        return view('admin.produtos', compact('produtos'));
+        $categorias = Categoria::all();
+
+        $estatisticas = [
+            'total' => Produto::count(),
+            'ativos' => Produto::where('disponivel', true)->count(),
+            'estoque_baixo' => Produto::where('estoque', '<', 10)->count(),
+            'sem_estoque' => Produto::where('estoque', 0)->count(),
+        ];
+
+        return view('admin.produtos', compact('produtos', 'categorias', 'estatisticas'));
     }
 
     public function atualizarStatusPedido(Request $request, $id)
@@ -91,6 +107,13 @@ class AdminController extends Controller
 
     public function logs()
     {
+        $logDirectory = storage_path('logs');
+        $arquivos_log = [];
+        
+        if (is_dir($logDirectory)) {
+            $arquivos_log = glob($logDirectory . '/*.log');
+        }
+        
         $logFile = storage_path('logs/laravel.log');
         $logs = [];
 
@@ -100,6 +123,6 @@ class AdminController extends Controller
             $logs = array_slice($lines, 0, 100); // Últimas 100 linhas
         }
 
-        return view('admin.logs', compact('logs'));
+        return view('admin.logs', compact('logs', 'arquivos_log'));
     }
 }

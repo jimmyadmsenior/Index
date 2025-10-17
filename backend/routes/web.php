@@ -74,7 +74,7 @@ Route::get('/Carrinho_Pagamento', function (Request $request) {
 });
 
 // Rotas protegidas: pagamentos e perfil
-Route::middleware(['auth', 'secure.payment'])->group(function () {
+Route::middleware(['auth'])->group(function () {
     Route::get('/Pagamento_Credito', function (Request $request) {
         $produto_id = $request->query('produto_id') ?? session('produto_id');
         $total = $request->query('total');
