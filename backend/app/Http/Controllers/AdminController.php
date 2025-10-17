@@ -77,7 +77,7 @@ class AdminController extends Controller
         return view('admin.produtos', compact('produtos'));
     }
 
-    public function updatePedidoStatus(Request $request, $id)
+    public function atualizarStatusPedido(Request $request, $id)
     {
         $request->validate([
             'status' => 'required|in:processando,enviado,entregue,cancelado'
@@ -86,10 +86,7 @@ class AdminController extends Controller
         $pedido = Pedido::findOrFail($id);
         $pedido->update(['status' => $request->status]);
 
-        return response()->json([
-            'success' => true,
-            'message' => 'Status atualizado com sucesso!'
-        ]);
+        return back()->with('success', 'Status atualizado com sucesso!');
     }
 
     public function logs()

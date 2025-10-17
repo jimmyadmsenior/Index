@@ -80,152 +80,13 @@
         </div>
     </div>
 
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-        <!-- Pedidos Recentes -->
-        <div class="glass-card rounded-xl p-6">
-            <div class="flex items-center justify-between mb-6">
-                <h2 class="text-xl font-semibold text-white">Pedidos Recentes</h2>
-                <a href="{{ route('admin.pedidos') }}" class="text-white hover:text-gray-300 font-medium transition-colors">Ver todos →</a>
-            </div>
-            
-            @if(isset($pedidos_recentes) && $pedidos_recentes->count() > 0)
-            <div class="overflow-x-auto">
-                <table class="min-w-full table-auto">
-                    <thead class="bg-white/10 rounded-lg">
-                        <tr>
-                            <th class="px-4 py-3 text-left text-xs font-medium text-gray-300 uppercase">Código</th>
-                            <th class="px-4 py-3 text-left text-xs font-medium text-gray-300 uppercase">Cliente</th>
-                            <th class="px-4 py-3 text-left text-xs font-medium text-gray-300 uppercase">Valor</th>
-                            <th class="px-4 py-3 text-left text-xs font-medium text-gray-300 uppercase">Status</th>
-                        </tr>
-                    </thead>
-                    <tbody class="divide-y divide-gray-700">
-                        @foreach($pedidos_recentes as $pedido)
-                        <tr class="hover:bg-white/5 transition-colors">
-                            <td class="px-4 py-3 text-sm font-mono text-gray-300">{{ substr($pedido->codigo_rastreamento, 0, 12) }}...</td>
-                            <td class="px-4 py-3 text-sm text-white">{{ $pedido->user->name ?? 'N/A' }}</td>
-                            <td class="px-4 py-3 text-sm font-semibold text-white">R$ {{ number_format($pedido->valor_total, 2, ',', '.') }}</td>
-                            <td class="px-4 py-3 text-sm">
-                                <span class="px-2 py-1 text-xs rounded-full font-medium border
-                                    @if($pedido->status === 'processando') bg-yellow-400/20 text-yellow-300 border-yellow-400/30
-                                    @elseif($pedido->status === 'enviado') bg-blue-400/20 text-blue-300 border-blue-400/30
-                                    @elseif($pedido->status === 'entregue') bg-green-400/20 text-green-300 border-green-400/30
-                                    @else bg-red-400/20 text-red-300 border-red-400/30 @endif">
-                                    {{ ucfirst($pedido->status) }}
-                                </span>
-                            </td>
-                        </tr>
-                        @endforeach
-                    </tbody>
-                </table>
-            </div>
-            @else
-            <div class="text-center py-12">
-                <div class="text-6xl mb-4">📦</div>
-                <p class="text-xl text-white mb-2">Nenhum pedido ainda</p>
-                <p class="text-sm text-gray-400">Os pedidos aparecerão aqui quando os clientes fizerem compras</p>
-            </div>
-            @endif
-        </div>
-
-        <!-- Vendas por Mês -->
-        <div class="glass-card rounded-xl p-6">
-            <h2 class="text-xl font-semibold text-white mb-6">Vendas por Mês ({{ date('Y') }})</h2>
-            
-            @if(isset($vendas_por_mes) && $vendas_por_mes->count() > 0)
-            <div class="space-y-4">
-                @php
-                $meses = ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'];
-                $maxVenda = $vendas_por_mes->max('total') ?: 1;
-                @endphp
-                
-                @foreach($meses as $index => $mes)
-                    @php
-                    $venda = $vendas_por_mes->firstWhere('mes', $index + 1);
-                    $valor = $venda ? $venda->total : 0;
-                    $porcentagem = ($valor / $maxVenda) * 100;
-                    @endphp
-                    
-                    <div class="flex items-center">
-                        <div class="w-8 text-sm font-medium text-gray-300">{{ $mes }}</div>
-                        <div class="flex-1 mx-4">
-                            <div class="bg-gray-700 rounded-full h-3">
-                                <div class="bg-gradient-to-r from-white to-gray-300 h-3 rounded-full transition-all duration-500" style="width: {{ $porcentagem }}%"></div>
-                            </div>
-                        </div>
-                        <div class="w-24 text-sm font-semibold text-right text-white">R$ {{ number_format($valor, 2, ',', '.') }}</div>
-                    </div>
-                @endforeach
-            </div>
-            @else
-            <div class="text-center py-12">
-                <div class="text-6xl mb-4">📊</div>
-                <p class="text-xl text-white mb-2">Sem dados de vendas</p>
-                <p class="text-sm text-gray-400">Os gráficos aparecerão quando houver vendas registradas</p>
-            </div>
-            @endif
-        </div>
-    </div>
-
-    <!-- Links de Navegação -->
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
-        <a href="{{ route('admin.pedidos') }}" class="glass-card rounded-xl p-6 text-center hover:scale-105 transition-all duration-300 group">
-            <div class="text-4xl mb-3">📦</div>
-            <div class="text-white font-medium group-hover:text-gray-300">Gerenciar Pedidos</div>
-            <div class="text-sm text-gray-400 mt-1">{{ $stats['total_pedidos'] ?? 0 }} pedidos</div>
-        </a>
-        
-        <a href="{{ route('admin.usuarios') }}" class="glass-card rounded-xl p-6 text-center hover:scale-105 transition-all duration-300 group">
-            <div class="text-4xl mb-3">👥</div>
-            <div class="text-white font-medium group-hover:text-gray-300">Gerenciar Usuários</div>
-            <div class="text-sm text-gray-400 mt-1">{{ $stats['total_usuarios'] ?? 0 }} usuários</div>
-        </a>
-        
-        <a href="{{ route('admin.produtos') }}" class="glass-card rounded-xl p-6 text-center hover:scale-105 transition-all duration-300 group">
-            <div class="text-4xl mb-3">🛍️</div>
-            <div class="text-white font-medium group-hover:text-gray-300">Gerenciar Produtos</div>
-            <div class="text-sm text-gray-400 mt-1">{{ $stats['total_produtos'] ?? 0 }} produtos</div>
-        </a>
-        
-        <a href="{{ route('admin.logs') }}" class="glass-card rounded-xl p-6 text-center hover:scale-105 transition-all duration-300 group">
-            <div class="text-4xl mb-3">📋</div>
-            <div class="text-white font-medium group-hover:text-gray-300">Ver Logs</div>
-            <div class="text-sm text-gray-400 mt-1">Sistema</div>
-        </a>
-    </div>
-</div>
-
-@push('scripts')
-<script>
-// Auto-refresh das estatísticas a cada 5 minutos
-setInterval(() => {
-    window.location.reload();
-}, 300000);
-
-// Animação dos cards ao carregar
-document.addEventListener('DOMContentLoaded', () => {
-    const cards = document.querySelectorAll('.glass-card');
-    cards.forEach((card, index) => {
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(20px)';
-        setTimeout(() => {
-            card.style.transition = 'all 0.5s ease';
-            card.style.opacity = '1';
-            card.style.transform = 'translateY(0)';
-        }, index * 100);
-    });
-});
-</script>
-@endpush
-</div>
-
     <!-- Seção de Pedidos Recentes e Vendas por Mês -->
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
         <!-- Pedidos Recentes -->
         <div class="glass-card rounded-xl p-6">
             <div class="flex items-center justify-between mb-6">
                 <h2 class="text-xl font-semibold text-white">Pedidos Recentes</h2>
-                <a href="{{ route('admin.pedidos') }}" class="text-white hover:text-gray-300 font-medium transition-colors">Ver todos →</a>
+                <span class="text-white hover:text-gray-300 font-medium transition-colors">Ver todos →</span>
             </div>
             
             <div class="overflow-x-auto">
@@ -239,22 +100,29 @@ document.addEventListener('DOMContentLoaded', () => {
                         </tr>
                     </thead>
                     <tbody class="divide-y divide-gray-700">
-                        @foreach($pedidos_recentes as $pedido)
+                        @forelse($pedidos_recentes as $pedido)
                         <tr class="hover:bg-white/5 transition-colors">
-                            <td class="px-4 py-3 text-sm font-mono text-gray-300">{{ substr($pedido->codigo_rastreamento, 0, 12) }}...</td>
+                            <td class="px-4 py-3 text-sm font-mono text-gray-300">{{ substr($pedido->codigo_rastreamento ?? 'N/A', 0, 12) }}...</td>
                             <td class="px-4 py-3 text-sm text-white">{{ $pedido->user->name ?? 'N/A' }}</td>
-                            <td class="px-4 py-3 text-sm font-semibold text-white">R$ {{ number_format($pedido->valor_total, 2, ',', '.') }}</td>
+                            <td class="px-4 py-3 text-sm font-semibold text-white">R$ {{ number_format($pedido->valor_total ?? 0, 2, ',', '.') }}</td>
                             <td class="px-4 py-3 text-sm">
                                 <span class="px-2 py-1 text-xs rounded-full font-medium border
                                     @if($pedido->status === 'processando') bg-yellow-400/20 text-yellow-300 border-yellow-400/30
                                     @elseif($pedido->status === 'enviado') bg-blue-400/20 text-blue-300 border-blue-400/30
                                     @elseif($pedido->status === 'entregue') bg-green-400/20 text-green-300 border-green-400/30
                                     @else bg-red-400/20 text-red-300 border-red-400/30 @endif">
-                                    {{ ucfirst($pedido->status) }}
+                                    {{ ucfirst($pedido->status ?? 'pendente') }}
                                 </span>
                             </td>
                         </tr>
-                        @endforeach
+                        @empty
+                        <tr>
+                            <td colspan="4" class="px-4 py-8 text-center text-gray-400">
+                                <div class="text-4xl mb-2">📦</div>
+                                <p class="text-sm">Nenhum pedido encontrado</p>
+                            </td>
+                        </tr>
+                        @endforelse
                     </tbody>
                 </table>
             </div>
@@ -267,12 +135,12 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="space-y-4">
                 @php
                 $meses = ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'];
-                $maxVenda = $vendas_por_mes->max('total') ?: 1;
+                $maxVenda = ($vendas_por_mes ?? collect())->max('total') ?: 1;
                 @endphp
                 
                 @foreach($meses as $index => $mes)
                     @php
-                    $venda = $vendas_por_mes->firstWhere('mes', $index + 1);
+                    $venda = ($vendas_por_mes ?? collect())->firstWhere('mes', $index + 1);
                     $valor = $venda ? $venda->total : 0;
                     $porcentagem = ($valor / $maxVenda) * 100;
                     @endphp
@@ -289,30 +157,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 @endforeach
             </div>
         </div>
-    </div>
-
-    <!-- Links de Navegação -->
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
-        <a href="{{ route('admin.pedidos') }}" class="glass-card rounded-xl p-6 text-center hover:scale-105 transition-all duration-300 group">
-            <div class="text-4xl mb-3">📦</div>
-            <div class="text-white font-medium group-hover:text-gray-300">Gerenciar Pedidos</div>
-        </a>
-        
-        <a href="{{ route('admin.usuarios') }}" class="glass-card rounded-xl p-6 text-center hover:scale-105 transition-all duration-300 group">
-            <div class="text-4xl mb-3">👥</div>
-            <div class="text-white font-medium group-hover:text-gray-300">Gerenciar Usuários</div>
-        </a>
-        
-        <a href="{{ route('admin.produtos') }}" class="glass-card rounded-xl p-6 text-center hover:scale-105 transition-all duration-300 group">
-            <div class="text-4xl mb-3">🛍️</div>
-            <div class="text-white font-medium group-hover:text-gray-300">Gerenciar Produtos</div>
-        </a>
-        
-        <a href="{{ route('admin.logs') }}" class="glass-card rounded-xl p-6 text-center hover:scale-105 transition-all duration-300 group">
-            <div class="text-4xl mb-3">📋</div>
-            <div class="text-white font-medium group-hover:text-gray-300">Ver Logs</div>
-            <div class="text-sm text-gray-400 mt-1">Sistema</div>
-        </a>
     </div>
 </div>
 
