@@ -14,7 +14,7 @@ class AdminMiddleware
     public function handle(Request $request, Closure $next)
     {
         if (!Auth::check()) {
-            return redirect()->route('login');
+            return redirect()->route('user.login');
         }
 
         // Verificar se o usuário é admin (você pode ajustar esta lógica)

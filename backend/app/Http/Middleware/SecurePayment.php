@@ -22,7 +22,7 @@ class SecurePayment
                 'url' => $request->url()
             ]);
 
-            return redirect()->route('login')
+            return redirect()->route('user.login')
                 ->with('error', 'Você precisa estar logado para realizar pagamentos.');
         }
 

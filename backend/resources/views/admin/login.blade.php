@@ -519,6 +519,15 @@
         
         // Adiciona nova partícula a cada 2 segundos
         setInterval(addRandomParticle, 2000);
+        
+        // Debug form submission
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            console.log('Form being submitted...');
+            console.log('Action:', this.action);
+            console.log('Method:', this.method);
+            console.log('Email:', document.getElementById('email').value);
+            console.log('Password length:', document.getElementById('password').value.length);
+        });
     </script>
 </body>
 </html>

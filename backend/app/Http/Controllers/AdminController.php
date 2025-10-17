@@ -25,7 +25,7 @@ class AdminController extends Controller
             'total_pedidos' => Pedido::count(),
             'pedidos_hoje' => Pedido::whereDate('created_at', today())->count(),
             'receita_total' => Pedido::sum('valor_total'),
-            'receita_mensal' => Pedido::whereMonth('created_at', now()->month)->sum('valor_total'),
+            'receita_mensal' => Pedido::where('created_at', '>=', now()->startOfMonth())->sum('valor_total'),
             'total_usuarios' => User::count(),
             'usuarios_ativos' => User::whereDate('updated_at', '>=', now()->subDays(30))->count(),
             'total_produtos' => Produto::count(),
@@ -37,12 +37,13 @@ class AdminController extends Controller
             ->take(10)
             ->get();
 
+        // Correção para SQLite - usar strftime ao invés de MONTH()
         $vendas_por_mes = Pedido::select(
-                DB::raw('MONTH(created_at) as mes'),
+                DB::raw('CAST(strftime("%m", created_at) AS INTEGER) as mes'),
                 DB::raw('SUM(valor_total) as total')
             )
-            ->whereYear('created_at', now()->year)
-            ->groupBy('mes')
+            ->where('created_at', '>=', now()->startOfYear())
+            ->groupBy(DB::raw('strftime("%m", created_at)'))
             ->orderBy('mes')
             ->get();
 
