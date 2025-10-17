@@ -148,7 +148,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/carrinho-vazio', function() {
         return redirect()->route('carrinho.index')->with('error', 'Seu carrinho está vazio.');
     });
-    Route::get('/pagamento-debito', function (\Illuminate\Http\Request $request) {
+    
+    // Rota para Cartão de Débito
+    Route::get('/Pagamento_Debito', function (\Illuminate\Http\Request $request) {
         $produto_id = $request->query('produto_id') ?? session('produto_id');
         $total = $request->query('total');
         

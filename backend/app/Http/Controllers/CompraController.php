@@ -19,6 +19,19 @@ class CompraController extends Controller
         // Debug: Log dos dados recebidos
         \Log::info('CompraController finalizar - Dados recebidos:', $request->all());
 
+        // Captura método de pagamento
+        $metodoPagamento = $request->input('metodo_pagamento', 'pix');
+        
+        // Log informações do pagamento
+        if (in_array($metodoPagamento, ['credito', 'debito'])) {
+            \Log::info('Pagamento com cartão:', [
+                'metodo' => $metodoPagamento,
+                'nome_cartao' => $request->input('nome_cartao'),
+                'numero_cartao_masked' => '****-****-****-' . substr($request->input('numero_cartao', ''), -4),
+                'parcelas' => $request->input('parcelas', 1)
+            ]);
+        }
+
         // Verifica se é compra do carrinho ou produto individual
         $tipoCompra = $request->input('tipo_compra', 'produto');
         
@@ -74,12 +87,18 @@ class CompraController extends Controller
             ]);
             
             try {
+                $observacoes = 'Método de pagamento: ' . ucfirst($metodoPagamento);
+                if ($metodoPagamento === 'credito' && $request->input('parcelas')) {
+                    $observacoes .= ' - ' . $request->input('parcelas') . 'x';
+                }
+                
                 $pedido = Pedido::create([
                     'user_id' => $user->id,
                     'codigo_rastreamento' => $codigoRastreamento,
                     'valor_total' => $valorTotal,
                     'produtos' => $produtosPedido,
-                    'status' => 'processando'
+                    'status' => 'processando',
+                    'observacoes' => $observacoes
                 ]);
                 
                 \Log::info('Pedido do carrinho salvo com sucesso:', ['pedido_id' => $pedido->id, 'codigo' => $codigoRastreamento]);
@@ -118,6 +137,11 @@ class CompraController extends Controller
             ]);
             
             try {
+                $observacoes = 'Método de pagamento: ' . ucfirst($metodoPagamento);
+                if ($metodoPagamento === 'credito' && $request->input('parcelas')) {
+                    $observacoes .= ' - ' . $request->input('parcelas') . 'x';
+                }
+                
                 $pedido = Pedido::create([
                     'user_id' => $user->id,
                     'codigo_rastreamento' => $codigoRastreamento,
@@ -129,7 +153,8 @@ class CompraController extends Controller
                         'quantidade' => 1,
                         'subtotal' => $produto->preco
                     ]],
-                    'status' => 'processando'
+                    'status' => 'processando',
+                    'observacoes' => $observacoes
                 ]);
                 
                 \Log::info('Pedido individual salvo com sucesso:', ['pedido_id' => $pedido->id, 'codigo' => $codigoRastreamento]);

@@ -44,7 +44,7 @@
         <i class="fas fa-credit-card" style="font-size:1.5rem;color:#fff;"></i>
         <span style="font-size:1.15rem;color:#fff;font-weight:600;">Cartão de Débito</span>
       </div>
-      <a href="/pagamento-debito?{{ isset($total) ? 'total=' . urlencode($total) : 'produto_id=' . (session('produto_id') ?? request('produto_id') ?? $produto->id ?? '') }}" id="btn-pagar-debito" class="btn-anim" style="padding:12px 28px;border-radius:8px;font-weight:700;font-size:1.08rem;text-decoration:none;background:#00bfff;color:#fff;box-shadow:0 2px 8px #00bfff33;transition:background 0.2s;">Pagar com Débito</a>
+      <a href="/Pagamento_Debito?{{ isset($total) ? 'total=' . urlencode($total) : 'produto_id=' . (session('produto_id') ?? request('produto_id') ?? $produto->id ?? '') }}" id="btn-pagar-debito" class="btn-anim" style="padding:12px 28px;border-radius:8px;font-weight:700;font-size:1.08rem;text-decoration:none;background:#00bfff;color:#fff;box-shadow:0 2px 8px #00bfff33;transition:background 0.2s;">Pagar com Débito</a>
     </div>
     <!-- Pix -->
     <div class="payment-card" style="background:linear-gradient(120deg,#23243a 60%,#00c86f 100%);border-radius:18px;padding:24px 20px;box-shadow:0 2px 12px #00c86f22;display:flex;align-items:center;justify-content:space-between;gap:18px;">
