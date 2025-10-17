@@ -70,7 +70,7 @@ Route::get('/Carrinho_Pagamento', function (Request $request) {
 });
 
 // Rotas protegidas: pagamentos e perfil
-Route::middleware(['auth'])->group(function () {
+Route::middleware(['auth', 'secure.payment'])->group(function () {
     Route::get('/Pagamento_Credito', function (Request $request) {
         $produto_id = $request->query('produto_id') ?? session('produto_id');
         $total = $request->query('total');
@@ -290,3 +290,25 @@ Route::put('/carrinho/atualizar/{produto_id}', [CarrinhoController::class, 'atua
 Route::post('/carrinho/limpar', [CarrinhoController::class, 'limpar'])->name('carrinho.limpar');
 Route::get('/continuar-comprando', [CarrinhoController::class, 'continuarComprando'])->name('carrinho.continuar');
 Route::get('/finalizar-carrinho', [CarrinhoController::class, 'finalizarCarrinho'])->name('carrinho.finalizar');
+
+// Rotas de autenticação administrativa
+Route::prefix('admin')->name('admin.')->group(function () {
+    // Rotas de configuração inicial (quando não há administradores)
+    Route::get('/setup', [App\Http\Controllers\AdminAuthController::class, 'showSetupForm'])->name('setup');
+    Route::post('/setup', [App\Http\Controllers\AdminAuthController::class, 'setup']);
+    
+    // Rotas de login/logout
+    Route::get('/login', [App\Http\Controllers\AdminAuthController::class, 'showLoginForm'])->name('login');
+    Route::post('/login', [App\Http\Controllers\AdminAuthController::class, 'login']);
+    Route::post('/logout', [App\Http\Controllers\AdminAuthController::class, 'logout'])->name('logout');
+    
+    // Rotas protegidas do painel administrativo
+    Route::middleware(['auth:admin'])->group(function () {
+        Route::get('/dashboard', [App\Http\Controllers\AdminController::class, 'dashboard'])->name('dashboard');
+        Route::get('/pedidos', [App\Http\Controllers\AdminController::class, 'pedidos'])->name('pedidos');
+        Route::patch('/pedidos/{id}/status', [App\Http\Controllers\AdminController::class, 'atualizarStatusPedido'])->name('pedidos.status');
+        Route::get('/usuarios', [App\Http\Controllers\AdminController::class, 'usuarios'])->name('usuarios');
+        Route::get('/produtos', [App\Http\Controllers\AdminController::class, 'produtos'])->name('produtos');
+        Route::get('/logs', [App\Http\Controllers\AdminController::class, 'logs'])->name('logs');
+    });
+});
