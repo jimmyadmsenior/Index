@@ -6,7 +6,7 @@
 @endsection
 
 @section('content')
-<div class="main-homepage" style="min-height:70vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding-top:100px;">
+<div class="main-homepage" style="min-height:70vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding-top:160px;">
 		<div id="confetti-canvas" style="position:fixed;top:0;left:0;width:100vw;height:100vh;pointer-events:none;z-index:9999;"></div>
 		<div class="confirmation-container" style="background:rgba(30,30,30,0.97);border-radius:24px;padding:48px 32px;box-shadow:0 8px 32px rgba(0,0,0,0.22);text-align:center;max-width:420px;width:100%;margin:0 auto;display:flex;flex-direction:column;align-items:center;">
 			<img src="/media/Ícone_Check_Verde.png" alt="Check" style="width:64px;margin-bottom:18px;display:block;align-self:center;"/>
