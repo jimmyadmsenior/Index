@@ -8,10 +8,50 @@ use Illuminate\Support\Facades\Mail;
 use App\Mail\CompraFinalizadaMail;
 use App\Models\Produto;
 use App\Models\Pedido;
+use App\Services\PedidoService;
+use App\Http\Requests\CompraRequest;
 
 class CompraController extends Controller
 {
-    public function finalizar(Request $request)
+    protected $pedidoService;
+
+    public function __construct(PedidoService $pedidoService)
+    {
+        $this->pedidoService = $pedidoService;
+    }
+
+    public function finalizar(CompraRequest $request)
+    {
+        $user = Auth::user();
+
+        // Debug: Log dos dados recebidos
+        \Log::info('CompraController finalizar - Dados validados:', $request->validated());
+
+        try {
+            // Cria o pedido usando o service
+            $pedido = $this->pedidoService->criarPedido($request->validated());
+
+            // Envia e-mail de confirmação
+            Mail::to($user->email)->send(new CompraFinalizadaMail($user, $pedido));
+
+            return redirect()->route('compra.finalizada', ['codigo' => $pedido->codigo_rastreamento])
+                ->with('success', 'Compra realizada com sucesso!');
+
+        } catch (\Exception $e) {
+            \Log::error('Erro ao processar compra:', [
+                'user_id' => $user->id,
+                'error' => $e->getMessage(),
+                'trace' => $e->getTraceAsString()
+            ]);
+
+            return redirect()->back()
+                ->with('error', 'Erro ao processar sua compra. Tente novamente.')
+                ->withInput();
+        }
+    }
+
+    // Método mantido para compatibilidade
+    public function finalizarLegado(Request $request)
     {
         $user = Auth::user();
         $codigoRastreamento = 'BR' . rand(100000000, 999999999) . 'SEDEX';
