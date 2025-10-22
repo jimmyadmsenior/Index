@@ -97,6 +97,21 @@
   <div class="verification-container">
     <h1>VERIFICAÇÃO</h1>
     <p>Um código foi enviado para o seu e-mail para verificação. Por favor insira-o abaixo:</p>
+    
+    @if(session('erro'))
+      <div style="background-color: #ff4444; color: white; padding: 12px; border-radius: 8px; margin-bottom: 20px; text-align: center; width: 320px;">
+        {{ session('erro') }}
+      </div>
+    @endif
+    
+    @if($errors->any())
+      <div style="background-color: #ff4444; color: white; padding: 12px; border-radius: 8px; margin-bottom: 20px; text-align: center; width: 320px;">
+        @foreach($errors->all() as $error)
+          {{ $error }}<br>
+        @endforeach
+      </div>
+    @endif
+    
     <form method="POST" action="/verificacao" onsubmit="return validarCampo()">
       @csrf
       <div class="input-container" id="campo-codigo">
