@@ -37,13 +37,13 @@ class AdminController extends Controller
             ->take(10)
             ->get();
 
-        // Correção para SQLite - usar strftime ao invés de MONTH()
+        // Usando sintaxe MySQL para extrair mês
         $vendas_por_mes = Pedido::select(
-                DB::raw('CAST(strftime("%m", created_at) AS INTEGER) as mes'),
+                DB::raw('MONTH(created_at) as mes'),
                 DB::raw('SUM(valor_total) as total')
             )
             ->where('created_at', '>=', now()->startOfYear())
-            ->groupBy(DB::raw('strftime("%m", created_at)'))
+            ->groupBy(DB::raw('MONTH(created_at)'))
             ->orderBy('mes')
             ->get();
 
