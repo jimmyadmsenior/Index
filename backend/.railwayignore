@@ -1,4 +1,5 @@
 node_modules/
+frontend/
 package.json.bak
 package-lock.json
 *.log
@@ -7,3 +8,6 @@ package-lock.json
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+vite.config.js
+postcss.config.cjs
+tailwind.config.js

@@ -1,0 +1,6 @@
+# Railway.app deployment
+railway.json
+.railwayignore
+
+# Forçar uso do Dockerfile
+.nixpacksignore
