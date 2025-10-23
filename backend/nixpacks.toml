@@ -1,11 +1,11 @@
 [phases.setup]
-nixPkgs = ["php81", "php81Extensions.pdo", "php81Extensions.pdo_mysql", "php81Extensions.mbstring", "php81Extensions.zip", "php81Extensions.exif", "php81Extensions.pcntl", "php81Extensions.gd"]
+nixPkgs = ["php82", "php82Extensions.pdo", "php82Extensions.pdo_mysql", "php82Extensions.mbstring", "php82Extensions.zip", "php82Extensions.exif", "php82Extensions.pcntl", "php82Extensions.gd", "composer"]
 
 [phases.install]
-cmds = ["composer install --optimize-autoloader --no-dev"]
+cmds = ["composer install --optimize-autoloader --no-dev --no-interaction"]
 
 [phases.build]
-cmds = ["php artisan config:cache", "php artisan route:cache", "php artisan view:cache"]
+cmds = ["php artisan config:clear", "php artisan cache:clear"]
 
 [start]
-cmd = "php artisan migrate --force && php artisan serve --host=0.0.0.0 --port=$PORT"
+cmd = "bash start.sh"
