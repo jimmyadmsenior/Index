@@ -1,49 +1,58 @@
-FROM php:8.2-fpm
+# Use PHP 8.2 CLI (não FPM) para Railway
+FROM php:8.2-cli
 
-# Instalar dependências do sistema
+# Instalar dependências do sistema em uma só camada
 RUN apt-get update && apt-get install -y \
-    build-essential \
     libpng-dev \
     libjpeg62-turbo-dev \
     libfreetype6-dev \
-    locales \
     zip \
-    jpegoptim optipng pngquant gifsicle \
-    vim \
     unzip \
     git \
     curl \
     libzip-dev \
     libonig-dev \
-    supervisor \
-    nginx
+    && rm -rf /var/lib/apt/lists/*
 
-# Limpar cache
-RUN apt-get clean && rm -rf /var/lib/apt/lists/*
-
-# Instalar extensões PHP
-RUN docker-php-ext-install pdo_mysql mbstring zip exif pcntl
-RUN docker-php-ext-configure gd --with-freetype --with-jpeg
-RUN docker-php-ext-install gd
+# Instalar extensões PHP necessárias
+RUN docker-php-ext-configure gd --with-freetype --with-jpeg \
+    && docker-php-ext-install -j$(nproc) \
+        pdo_mysql \
+        mbstring \
+        zip \
+        exif \
+        pcntl \
+        gd
 
 # Instalar Composer
-COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
-# Definir diretório de trabalho
-WORKDIR /var/www
+# Configurar diretório de trabalho
+WORKDIR /app
 
-# Copiar arquivos da aplicação
-COPY . /var/www
+# Copiar composer files primeiro (para cache layer)
+COPY composer.json composer.lock ./
 
-# Instalar dependências do Composer
-RUN composer install --optimize-autoloader --no-dev
+# Instalar dependências PHP
+RUN composer install --no-dev --optimize-autoloader --no-scripts
 
-# Definir permissões
-RUN chown -R www-data:www-data /var/www
-RUN chmod -R 755 /var/www/storage
+# Copiar código da aplicação
+COPY . .
 
-# Expor porta (Railway usa porta dinâmica)
+# Executar scripts do composer
+RUN composer run-script post-autoload-dump
+
+# Configurar permissões
+RUN chown -R www-data:www-data /app \
+    && chmod -R 755 /app/storage \
+    && chmod -R 755 /app/bootstrap/cache
+
+# Criar script de inicialização
+RUN echo '#!/bin/bash\nset -e\nphp artisan config:cache\nphp artisan migrate --force\nexec php artisan serve --host=0.0.0.0 --port=${PORT:-8000}' > /start.sh \
+    && chmod +x /start.sh
+
+# Expor porta
 EXPOSE 8000
 
-# Comando de inicialização
-CMD ["sh", "-c", "php artisan migrate --force && php artisan serve --host=0.0.0.0 --port=${PORT:-8000}"]
+# Usar script de inicialização
+CMD ["/start.sh"]
