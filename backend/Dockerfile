@@ -42,8 +42,8 @@ RUN composer install --optimize-autoloader --no-dev
 RUN chown -R www-data:www-data /var/www
 RUN chmod -R 755 /var/www/storage
 
-# Expor porta
-EXPOSE $PORT
+# Expor porta (Railway usa porta dinâmica)
+EXPOSE 8000
 
 # Comando de inicialização
-CMD php artisan migrate --force && php artisan serve --host=0.0.0.0 --port=$PORT
+CMD ["sh", "-c", "php artisan migrate --force && php artisan serve --host=0.0.0.0 --port=${PORT:-8000}"]
