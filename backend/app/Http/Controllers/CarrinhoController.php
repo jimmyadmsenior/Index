@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Produto;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Auth;
 
 class CarrinhoController extends Controller
 {
@@ -33,15 +35,28 @@ class CarrinhoController extends Controller
 
     public function adicionar(Request $request)
     {
-        $produto_id = $request->input('produto_id');
-        $quantidade = $request->input('quantidade', 1);
+        try {
+            Log::info('=== ADICIONAR AO CARRINHO ===');
+            Log::info('Produto ID recebido: ' . $request->input('produto_id'));
+            Log::info('Quantidade: ' . $request->input('quantidade', 1));
+            Log::info('Usuário logado: ' . (Auth::check() ? Auth::id() : 'NÃO'));
+            
+            $produto_id = $request->input('produto_id');
+            $quantidade = $request->input('quantidade', 1);
 
-        $produto = Produto::find($produto_id);
-        if (!$produto) {
-            if ($request->ajax()) {
-                return response()->json(['success' => false, 'message' => 'Produto não encontrado.']);
+            $produto = Produto::find($produto_id);
+            if (!$produto) {
+                Log::error('Produto não encontrado. ID: ' . $produto_id);
+                if ($request->ajax()) {
+                    return response()->json(['success' => false, 'message' => 'Produto não encontrado.']);
+                }
+                return redirect()->back()->with('error', 'Produto não encontrado.');
             }
-            return redirect()->back()->with('error', 'Produto não encontrado.');
+            
+            Log::info('Produto encontrado: ' . $produto->nome . ' - R$ ' . $produto->preco);
+        } catch (\Exception $e) {
+            Log::error('Erro no carrinho: ' . $e->getMessage() . ' - Line: ' . $e->getLine());
+            return redirect()->back()->with('error', 'Erro interno: ' . $e->getMessage());
         }
 
         $carrinho = session()->get('carrinho', []);
