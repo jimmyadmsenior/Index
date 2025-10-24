@@ -42,6 +42,10 @@ COPY . .
 # Executar scripts do composer
 RUN composer run-script post-autoload-dump
 
+# Copiar script de teste DB
+COPY test-db.sh /test-db.sh
+RUN chmod +x /test-db.sh
+
 # Configurar permissões
 RUN chown -R www-data:www-data /app \
     && chmod -R 755 /app/storage \
@@ -53,6 +57,7 @@ RUN echo '#!/bin/bash' > /start.sh && \
     echo '' >> /start.sh && \
     echo '# Espera o banco ficar disponível (usa PDO via php-cli)' >> /start.sh && \
     echo 'echo "Waiting for database to be available..."' >> /start.sh && \
+    echo '/test-db.sh' >> /start.sh && \
     echo 'MAX_RETRIES=${DB_WAIT_MAX_RETRIES:-30}' >> /start.sh && \
     echo 'COUNT=0' >> /start.sh && \
     echo 'until php -r "try { new PDO('\''mysql:host='\''.getenv('\''DB_HOST'\'').'\'';port='\''.getenv('\''DB_PORT'\'').'\'';dbname='\''.getenv('\''DB_DATABASE'\''), getenv('\''DB_USERNAME'\''), getenv('\''DB_PASSWORD'\'')); } catch (Exception \$e) { exit(1); }" ; do' >> /start.sh && \
