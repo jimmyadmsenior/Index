@@ -23,4 +23,40 @@ class CategoriaController extends Controller
         }
         return $categoria;
     }
+
+    // Métodos para páginas de categoria específicas
+    public function fones()
+    {
+        $categoria = Categoria::where('nome', 'Fones de Ouvido')->first();
+        $produtos = $categoria ? $categoria->produtos()->get() : collect();
+        return view('HomePage_Fones', compact('produtos', 'categoria'));
+    }
+
+    public function smartphones()
+    {
+        $categoria = Categoria::where('nome', 'Smartphones')->first();
+        $produtos = $categoria ? $categoria->produtos()->get() : collect();
+        return view('Homepage_Smartphones', compact('produtos', 'categoria'));
+    }
+
+    public function tablets()
+    {
+        $categoria = Categoria::where('nome', 'Tablets')->first();
+        $produtos = $categoria ? $categoria->produtos()->get() : collect();
+        return view('Homepage_Tablets', compact('produtos', 'categoria'));
+    }
+
+    public function relogios()
+    {
+        $categoria = Categoria::where('nome', 'Relógios')->first();
+        $produtos = $categoria ? $categoria->produtos()->get() : collect();
+        return view('Homepage_Relógios', compact('produtos', 'categoria'));
+    }
+
+    public function notebooks()
+    {
+        $categoria = Categoria::where('nome', 'Notebooks')->first();
+        $produtos = $categoria ? $categoria->produtos()->get() : collect();
+        return view('Homepage_Notebooks', compact('produtos', 'categoria'));
+    }
 }

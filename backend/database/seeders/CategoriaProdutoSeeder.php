@@ -106,15 +106,84 @@ class CategoriaProdutoSeeder extends Seeder
         ];
 
         foreach ($produtos as $produto) {
+            // Gerar dados realistas baseados na categoria e marca
+            $preco = $this->gerarPrecoRealista($produto['marca'], $produto['categoria']);
+            $estoque = rand(5, 50);
+            $cores = $this->gerarCores($produto['marca']);
+            
             Produto::create([
                 'nome' => $produto['nome'],
                 'marca' => $produto['marca'],
                 'categoria_id' => $idsCategorias[$produto['categoria']],
                 'descricao' => $produto['descricao'] ?? 'Descrição do produto ' . $produto['nome'],
                 'imagem' => $produto['imagem'] ?? 'default.png',
-                'preco' => $produto['preco'] ?? rand(1000, 10000),
+                'preco' => $produto['preco'] ?? $preco,
                 'modelo' => $produto['modelo'] ?? 'Modelo ' . $produto['nome'],
+                'estoque' => $estoque,
+                'ativo' => true,
+                'especificacoes' => $this->gerarEspecificacoes($produto['categoria']),
+                'peso' => $this->gerarPeso($produto['categoria']),
+                'cor' => $cores[array_rand($cores)],
+                'garantia_meses' => $produto['marca'] === 'Apple' ? 12 : 24,
             ]);
         }
+    }
+
+    private function gerarPrecoRealista($marca, $categoria)
+    {
+        $precos = [
+            'Apple' => [
+                'Smartphones' => [3500, 8000],
+                'Fones de Ouvido' => [800, 5000],
+                'Tablets' => [2500, 12000],
+                'Relógios' => [2500, 8000],
+                'Notebooks' => [8000, 25000]
+            ],
+            'Samsung' => [
+                'Smartphones' => [1500, 6000],
+                'Fones de Ouvido' => [300, 1200],
+                'Tablets' => [1200, 8000],
+                'Relógios' => [800, 3000],
+                'Notebooks' => [3000, 15000]
+            ]
+        ];
+        
+        $range = $precos[$marca][$categoria] ?? [500, 3000];
+        return rand($range[0], $range[1]);
+    }
+
+    private function gerarCores($marca)
+    {
+        if ($marca === 'Apple') {
+            return ['Preto Espacial', 'Branco', 'Azul', 'Rosa', 'Roxo'];
+        }
+        return ['Preto', 'Branco', 'Azul', 'Verde', 'Rosa', 'Cinza'];
+    }
+
+    private function gerarEspecificacoes($categoria)
+    {
+        $specs = [
+            'Smartphones' => 'Tela Super Retina, Câmera Profissional, 5G, Face ID, Resistente à água',
+            'Fones de Ouvido' => 'Cancelamento ativo de ruído, Áudio espacial, Bateria de longa duração',
+            'Tablets' => 'Tela Liquid Retina, Processador avançado, Apple Pencil compatível',
+            'Relógios' => 'GPS, Monitor cardíaco, À prova d\'água, Bateria de 18h',
+            'Notebooks' => 'Processador de alta performance, Tela Retina, Bateria de longa duração'
+        ];
+        
+        return $specs[$categoria] ?? 'Especificações técnicas avançadas';
+    }
+
+    private function gerarPeso($categoria)
+    {
+        $pesos = [
+            'Smartphones' => [0.150, 0.250],
+            'Fones de Ouvido' => [0.050, 0.600],
+            'Tablets' => [0.400, 0.800],
+            'Relógios' => [0.030, 0.080],
+            'Notebooks' => [1.200, 2.500]
+        ];
+        
+        $range = $pesos[$categoria] ?? [0.100, 1.000];
+        return round(rand($range[0] * 1000, $range[1] * 1000) / 1000, 3);
     }
 }

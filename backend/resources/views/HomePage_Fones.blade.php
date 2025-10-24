@@ -106,63 +106,45 @@
     </style>
     <div class="carousel-viewport">
       <div class="carousel-track">
-        <div class="carousel-slide">
-          <div class="fone-card">
-            <img src="/media/AirPods.png" alt="AirPods 2ª geração">
-            <div class="fone-model">Apple AirPods (2ª geração)</div>
-            <div class="fone-price">R$ 799,00</div>
+        @if($produtos->count() > 0)
+          @php
+            $produtosChunks = $produtos->chunk(3); // Agrupa produtos de 3 em 3 para cada slide
+          @endphp
+          
+          @foreach($produtosChunks as $chunk)
+            <div class="carousel-slide">
+              @foreach($chunk as $produto)
+                <div class="fone-card" onclick="window.location.href='{{ route('produto.show', $produto->id) }}';" style="cursor: pointer;">
+                  <img src="/media/{{ $produto->imagem }}" alt="{{ $produto->nome }}" onerror="this.src='/media/placeholder_produto.png'">
+                  <div class="fone-model">{{ $produto->nome }}</div>
+                  <div class="fone-price">R$ {{ number_format($produto->preco, 2, ',', '.') }}</div>
+                  @if($produto->estoque <= 5)
+                    <div style="color: #ff6b6b; font-size: 0.8rem; margin-top: 4px;">
+                      {{ $produto->estoque > 0 ? 'Últimas unidades!' : 'Esgotado' }}
+                    </div>
+                  @endif
+                </div>
+              @endforeach
+            </div>
+          @endforeach
+        @else
+          <div class="carousel-slide">
+            <div style="text-align: center; padding: 40px; color: #666;">
+              <p>Nenhum produto encontrado nesta categoria.</p>
+            </div>
           </div>
-          <div class="fone-card">
-            <img src="/media/AirPods 3.png" alt="AirPods 3ª geração">
-            <div class="fone-model">Apple AirPods (3ª geração)</div>
-            <div class="fone-price">R$ 1.099,00</div>
-          </div>
-          <div class="fone-card">
-            <img src="/media/AirPods (2).png" alt="AirPods Pro">
-            <div class="fone-model">Apple AirPods Pro (2ª geração)</div>
-            <div class="fone-price">R$ 1.499,00</div>
-          </div>
-        </div>
-        <div class="carousel-slide">
-          <div class="fone-card">
-            <img src="/media/AirPods Max.png" alt="AirPods Max">
-            <div class="fone-model">Apple AirPods Max</div>
-            <div class="fone-price">R$ 4.999,00</div>
-          </div>
-          <div class="fone-card">
-            <img src="/media/Galaxy buds Live.png" alt="Galaxy Buds Live">
-            <div class="fone-model">Samsung Galaxy Buds Live</div>
-            <div class="fone-price">R$ 599,00</div>
-          </div>
-          <div class="fone-card">
-            <img src="/media/Galaxy Buds Live2.png" alt="Galaxy Buds2 Pro">
-            <div class="fone-model">Samsung Galaxy Buds2 Pro</div>
-            <div class="fone-price">R$ 1.099,00</div>
-          </div>
-        </div>
-        <div class="carousel-slide">
-          <div class="fone-card">
-            <img src="/media/Galaxy Buds Pro.png" alt="Galaxy Buds Pro">
-            <div class="fone-model">Samsung Galaxy Buds Pro</div>
-            <div class="fone-price">R$ 899,00</div>
-          </div>
-          <div class="fone-card">
-            <img src="/media/galaxy-buds3-silver-mo 1.png" alt="Galaxy Buds3">
-            <div class="fone-model">Samsung Galaxy Buds3</div>
-            <div class="fone-price">R$ 1.299,00</div>
-          </div>
-          <div class="fone-card">
-            <img src="/media/Galaxy_Buds_live.png" alt="Galaxy Buds FE">
-            <div class="fone-model">Samsung Galaxy Buds FE</div>
-            <div class="fone-price">R$ 499,00</div>
-          </div>
-        </div>
+        @endif
       </div>
     </div>
     <div class="carousel-indicators">
-      <button class="carousel-dot" data-slide="0"></button>
-      <button class="carousel-dot" data-slide="1"></button>
-      <button class="carousel-dot" data-slide="2"></button>
+      @if($produtos->count() > 0)
+        @php
+          $totalSlides = ceil($produtos->count() / 3);
+        @endphp
+        @for($i = 0; $i < $totalSlides; $i++)
+          <button class="carousel-dot" data-slide="{{ $i }}"></button>
+        @endfor
+      @endif
     </div>
     <script>
       (function() {
