@@ -85,9 +85,9 @@ RUN echo '#!/bin/bash' > /start.sh && \
     echo 'done' >> /start.sh && \
     echo '' >> /start.sh && \
     echo 'echo "Database is available. Running migrations..."' >> /start.sh && \
-    echo 'php artisan config:cache' >> /start.sh && \
     echo 'php artisan migrate --force' >> /start.sh && \
     echo 'php artisan storage:link' >> /start.sh && \
+    echo 'php artisan config:cache' >> /start.sh && \
     echo '' >> /start.sh && \
 
     echo '# Iniciar servidor Laravel' >> /start.sh && \
