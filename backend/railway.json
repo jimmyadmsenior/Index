@@ -3,5 +3,10 @@
   "build": {
     "builder": "DOCKERFILE",
     "dockerfilePath": "Dockerfile"
+  },
+  "deploy": {
+    "startCommand": "/start.sh",
+    "healthcheckPath": "/",
+    "healthcheckTimeout": 300
   }
 }

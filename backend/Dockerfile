@@ -63,6 +63,10 @@ RUN echo '#!/bin/bash' > /start.sh && \
     echo 'export DB_PASSWORD="$MYSQL_PASSWORD"' >> /start.sh && \
     echo 'export DB_CONNECTION="mysql"' >> /start.sh && \
     echo '' >> /start.sh && \
+    echo '# Debug: Mostrar variáveis importantes' >> /start.sh && \
+    echo 'echo "PORT variable: ${PORT:-NOT_SET}"' >> /start.sh && \
+    echo 'echo "MYSQL_HOST: ${MYSQL_HOST:-NOT_SET}"' >> /start.sh && \
+    echo '' >> /start.sh && \
     echo '# Espera o banco ficar disponível (usa PDO via php-cli)' >> /start.sh && \
     echo 'echo "Waiting for database to be available..."' >> /start.sh && \
     echo '/test-db.sh' >> /start.sh && \
@@ -83,6 +87,7 @@ RUN echo '#!/bin/bash' > /start.sh && \
     echo 'php artisan migrate --force' >> /start.sh && \
     echo '' >> /start.sh && \
     echo '# Iniciar servidor Laravel' >> /start.sh && \
+    echo 'echo "Starting Laravel server on port ${PORT:-8000}..."' >> /start.sh && \
     echo 'exec php artisan serve --host=0.0.0.0 --port=${PORT:-8000}' >> /start.sh && \
     chmod +x /start.sh
 
