@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="/media/Cursor/cursor-global.css">
     <link rel="stylesheet" href="/media/Css/loading.css">
     <link rel="stylesheet" href="/media/Css/Carrinho_Botoes.css">
-    @vite('resources/css/app.css') <!-- Importação do CSS global app.css -->
+    {{-- @vite('resources/css/app.css') Comentado temporariamente para deploy --}}
     @yield('head')
 </head>
 <body>
