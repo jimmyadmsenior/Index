@@ -8,13 +8,22 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Log;
 
 class PerfilController extends Controller
 {
     public function show()
     {
-        $user = Auth::user();
-        return view('Perfil', compact('user'));
+        try {
+            $user = Auth::user();
+            if (!$user) {
+                return redirect('/login')->with('error', 'Usuário não autenticado.');
+            }
+            return view('Perfil', compact('user'));
+        } catch (\Exception $e) {
+            Log::error('Erro no perfil: ' . $e->getMessage());
+            return redirect('/')->with('error', 'Erro ao carregar perfil: ' . $e->getMessage());
+        }
     }
 
     public function updateFoto(Request $request)
