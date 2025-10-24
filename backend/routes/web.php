@@ -9,12 +9,13 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\RecuperacaoSenhaMail;
 
-// Health check endpoint
+// Health check endpoint - NO database dependency
 Route::get('/health', function () {
     return response()->json([
         'status' => 'OK',
-        'timestamp' => now(),
-        'app' => config('app.name')
+        'timestamp' => date('Y-m-d H:i:s'),
+        'app' => 'Index',
+        'php_version' => PHP_VERSION
     ]);
 });
 
