@@ -38,19 +38,34 @@ class CadastroController extends Controller
         Log::info('Código gerado: "' . $codigo . '"');
         Log::info('Código salvo na sessão: "' . Session::get('cadastro_codigo') . '"');
 
-        // Envia o e-mail
+        // Envia o e-mail via API MailerSend
         Log::info('Enviando código de verificação para: ' . $request->email . ' | Código: ' . $codigo);
         
         try {
-            Mail::raw("Seu código de verificação para cadastro na INDEX é: $codigo\n\nDigite este código na página de verificação para concluir seu cadastro.\n\nSe não foi você, ignore este e-mail.", function($message) use ($request) {
-                $message->to($request->email)
-                    ->subject('Código de verificação - INDEX');
-            });
-            Log::info('E-mail enviado com sucesso para: ' . $request->email);
+            $response = \Illuminate\Support\Facades\Http::withHeaders([
+                'Authorization' => 'Bearer ' . env('MAILERSEND_API_TOKEN'),
+                'Content-Type' => 'application/json'
+            ])->post('https://api.mailersend.com/v1/email', [
+                'from' => [
+                    'email' => 'MS_Pe3JsB@test-zxk54v811ezljy6v.mlsender.net',
+                    'name' => 'Index'
+                ],
+                'to' => [
+                    ['email' => $request->email]
+                ],
+                'subject' => 'Código de verificação - INDEX',
+                'text' => "Seu código de verificação para cadastro na INDEX é: $codigo\n\nDigite este código na página de verificação para concluir seu cadastro.\n\nSe não foi você, ignore este e-mail."
+            ]);
+            
+            if ($response->successful()) {
+                Log::info('✅ E-mail enviado com sucesso via API MailerSend para: ' . $request->email);
+            } else {
+                Log::error('❌ Erro na API MailerSend: ' . $response->body());
+                Log::warning('Código para teste: ' . $codigo);
+            }
         } catch (\Exception $e) {
-            Log::error('Erro ao enviar e-mail: ' . $e->getMessage());
-            Log::warning('AVISO: Email não enviado devido a problema SMTP. Código para teste: ' . $codigo);
-            // Continua mesmo com erro de email para não travar o cadastro
+            Log::error('❌ Erro ao enviar e-mail via API: ' . $e->getMessage());
+            Log::warning('AVISO: Email não enviado. Código para teste: ' . $codigo);
         }
 
         return redirect('/verificacao');

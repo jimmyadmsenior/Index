@@ -91,7 +91,7 @@ RUN echo '#!/bin/bash' > /start.sh && \
     echo '' >> /start.sh && \
     echo '# Iniciar servidor Laravel' >> /start.sh && \
     echo 'echo "Starting Laravel server on port ${PORT:-8000}..."' >> /start.sh && \
-    echo 'exec php artisan serve --host=0.0.0.0 --port=8000' >> /start.sh && \
+    echo 'exec php artisan serve --host=0.0.0.0 --port=${PORT:-8000}' >> /start.sh && \
     chmod +x /start.sh
 
 # Expor porta
