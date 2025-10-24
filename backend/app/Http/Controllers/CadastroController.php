@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Log;
 
 class CadastroController extends Controller
 {
@@ -33,16 +34,24 @@ class CadastroController extends Controller
         Session::put('cadastro_senha', $request->senha);
         Session::put('cadastro_codigo', $codigo);
 
-        \Log::info('=== PROCESSO CADASTRO ===');
-        \Log::info('Código gerado: "' . $codigo . '"');
-        \Log::info('Código salvo na sessão: "' . Session::get('cadastro_codigo') . '"');
+        Log::info('=== PROCESSO CADASTRO ===');
+        Log::info('Código gerado: "' . $codigo . '"');
+        Log::info('Código salvo na sessão: "' . Session::get('cadastro_codigo') . '"');
 
         // Envia o e-mail
-        \Log::info('Enviando código de verificação para: ' . $request->email . ' | Código: ' . $codigo);
-        Mail::raw("Seu código de verificação para cadastro na INDEX é: $codigo\n\nDigite este código na página de verificação para concluir seu cadastro.\n\nSe não foi você, ignore este e-mail.", function($message) use ($request) {
-            $message->to($request->email)
-                ->subject('Código de verificação - INDEX');
-        });
+        Log::info('Enviando código de verificação para: ' . $request->email . ' | Código: ' . $codigo);
+        
+        try {
+            Mail::raw("Seu código de verificação para cadastro na INDEX é: $codigo\n\nDigite este código na página de verificação para concluir seu cadastro.\n\nSe não foi você, ignore este e-mail.", function($message) use ($request) {
+                $message->to($request->email)
+                    ->subject('Código de verificação - INDEX');
+            });
+            Log::info('E-mail enviado com sucesso para: ' . $request->email);
+        } catch (\Exception $e) {
+            Log::error('Erro ao enviar e-mail: ' . $e->getMessage());
+            Log::warning('AVISO: Email não enviado devido a problema SMTP. Código para teste: ' . $codigo);
+            // Continua mesmo com erro de email para não travar o cadastro
+        }
 
         return redirect('/verificacao');
     }
@@ -72,9 +81,9 @@ class CadastroController extends Controller
         $codigoRecebido = trim(strtoupper($request->codigo));
         $codigoEsperado = trim(strtoupper($codigo));
         
-        \Log::info('Código recebido (limpo): "' . $codigoRecebido . '"');
-        \Log::info('Código esperado (limpo): "' . $codigoEsperado . '"');
-        \Log::info('Comparação: ' . ($codigoRecebido === $codigoEsperado ? 'IGUAL' : 'DIFERENTE'));
+        Log::info('Código recebido (limpo): "' . $codigoRecebido . '"');
+        Log::info('Código esperado (limpo): "' . $codigoEsperado . '"');
+        Log::info('Comparação: ' . ($codigoRecebido === $codigoEsperado ? 'IGUAL' : 'DIFERENTE'));
 
         if ($codigoRecebido === $codigoEsperado) {
             \Log::info('✅ Código correto! Verificando se email já existe...');
