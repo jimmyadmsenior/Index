@@ -9,6 +9,15 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\RecuperacaoSenhaMail;
 
+// Health check endpoint
+Route::get('/health', function () {
+    return response()->json([
+        'status' => 'OK',
+        'timestamp' => now(),
+        'app' => config('app.name')
+    ]);
+});
+
 Route::get('/', function () {
     return Auth::check() 
         ? view('Homepage_Com_Cadastro') 
