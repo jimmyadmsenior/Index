@@ -66,6 +66,8 @@ RUN echo '#!/bin/bash' > /start.sh && \
     echo '# Debug: Mostrar variáveis importantes' >> /start.sh && \
     echo 'echo "PORT variable: ${PORT:-NOT_SET}"' >> /start.sh && \
     echo 'echo "MYSQL_HOST: ${MYSQL_HOST:-NOT_SET}"' >> /start.sh && \
+    echo 'echo "APP_KEY: ${APP_KEY:-NOT_SET}"' >> /start.sh && \
+    echo 'echo "APP_DEBUG: ${APP_DEBUG:-NOT_SET}"' >> /start.sh && \
     echo '' >> /start.sh && \
     echo '# Espera o banco ficar disponível (usa PDO via php-cli)' >> /start.sh && \
     echo 'echo "Waiting for database to be available..."' >> /start.sh && \
