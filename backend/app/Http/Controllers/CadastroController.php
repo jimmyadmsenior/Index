@@ -47,7 +47,7 @@ class CadastroController extends Controller
                 'Content-Type' => 'application/json'
             ])->post('https://api.mailersend.com/v1/email', [
                 'from' => [
-                    'email' => 'jimmycastilho555@gmail.com',
+                    'email' => 'MS_Pe3JsB@test-zxk54v811ezljy6v.mlsender.net',
                     'name' => 'Index'
                 ],
                 'to' => [
