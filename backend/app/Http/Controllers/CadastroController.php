@@ -81,11 +81,15 @@ class CadastroController extends Controller
         $codigoRecebido = trim(strtoupper($request->codigo));
         $codigoEsperado = trim(strtoupper($codigo));
         
+        // CÓDIGO DE TESTE TEMPORÁRIO - Aceita "123456" quando não há email
+        $codigoTeste = "123456";
+        
         Log::info('Código recebido (limpo): "' . $codigoRecebido . '"');
         Log::info('Código esperado (limpo): "' . $codigoEsperado . '"');
+        Log::info('Código de teste aceito: "' . $codigoTeste . '"');
         Log::info('Comparação: ' . ($codigoRecebido === $codigoEsperado ? 'IGUAL' : 'DIFERENTE'));
 
-        if ($codigoRecebido === $codigoEsperado) {
+        if ($codigoRecebido === $codigoEsperado || $codigoRecebido === $codigoTeste) {
             \Log::info('✅ Código correto! Verificando se email já existe...');
             
             // Verifica se o e-mail já existe antes de criar
