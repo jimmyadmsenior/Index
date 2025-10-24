@@ -254,4 +254,153 @@
 </div>
 <!-- Fim do destaque MacBook Pro 14 -->
 
+
+
+
+<!-- vídeo demonstrativo abaixo da imagem -->
+
+  <div class="video-wrap" id="videoWrap">
+    <video id="heroVideo" class="hero-video" playsinline muted loop autoplay preload="auto">
+      <source src="{{ asset('media/Video Galaxy Book.mp4') }}" type="video/mp4">
+      Seu navegador não suporta o elemento de vídeo.
+    </video>
+  </div>
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var v = document.getElementById('heroVideo');
+    if(v) {
+      v.muted = true;
+      v.loop = true;
+      var playPromise = v.play();
+      if(playPromise !== undefined) {
+        playPromise.catch(function() {
+          // Tenta novamente ao interagir
+          var playOnInteract = function() {
+            v.play();
+            window.removeEventListener('click', playOnInteract);
+          };
+          window.addEventListener('click', playOnInteract);
+        });
+      }
+    }
+  });
+  </script>
+
+    <!-- Fullscreen-like overlay (simulado) com barra de controles personalizados -->
+    <div id="videoOverlay" class="fullscreen-video-overlay" aria-hidden="true">
+        <div class="fullscreen-video-inner">
+            <div id="overlayVideoContainer" class="overlay-video-container"></div>
+            <div class="overlay-controls" aria-label="Video controls">
+                <button id="playPauseBtn" class="control-btn" aria-label="Play/Pause">⏯</button>
+                <button id="muteBtn" class="control-btn" aria-label="Silenciar/Ativar som">🔈</button>
+                <div id="videoTime" class="control-time">0:00 / 0:00</div>
+                <button id="minimizeBtn" class="control-btn minimize" aria-label="Minimizar">Minimizar</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Comportamento do vídeo: autoplay (com fallback), exibir overlay somente após o usuário rolar além da imagem Galaxy S24
+        (function(){
+            var v = document.getElementById('heroVideo');
+            if(!v) return;
+
+            v.loop = true;
+            v.muted = true;
+
+            function tryPlay(){
+                var p = v.play();
+                if(p && p.catch){ p.catch(function(){ /* autoplay bloqueado */ }); }
+            }
+            v.addEventListener('loadedmetadata', tryPlay);
+            v.addEventListener('ended', function(){ v.currentTime = 0; v.play(); });
+            tryPlay();
+
+            var overlay = document.getElementById('videoOverlay');
+            var overlayContainer = document.getElementById('overlayVideoContainer');
+            var playPauseBtn = document.getElementById('playPauseBtn');
+            var muteBtn = document.getElementById('muteBtn');
+            var timeEl = document.getElementById('videoTime');
+            var minimizeBtn = document.getElementById('minimizeBtn');
+            var videoWrap = document.getElementById('videoWrap');
+
+            var opened = false;
+            var userClosed = false;
+
+            // localiza a imagem Galaxy S24 (assume .extra-image é a imagem do Galaxy)
+            var galaxyEl = document.querySelector('.extra-image');
+
+            function formatTime(s){
+                if(isNaN(s)) return '0:00';
+                var m = Math.floor(s/60), sec = Math.floor(s%60);
+                return m + ':' + (sec < 10 ? '0' + sec : sec);
+            }
+
+            function updateTime(){
+                var cur = formatTime(v.currentTime);
+                var dur = formatTime(v.duration || 0);
+                timeEl.textContent = cur + ' / ' + dur;
+            }
+
+            v.addEventListener('timeupdate', updateTime);
+            v.addEventListener('loadedmetadata', updateTime);
+
+            function openOverlay(){
+                if(opened || userClosed) return;
+                // só abrir se a imagem Galaxy foi rolada para cima (ou não existir)
+                if(galaxyEl){
+                    var gRect = galaxyEl.getBoundingClientRect();
+                    // condição: bottom do elemento Galaxy está acima do topo da viewport (ou seja, o usuário passou por ele)
+                    if(gRect.bottom > 0) return; // ainda não passou totalmente
+                }
+                overlayContainer.appendChild(v);
+                overlay.classList.add('open');
+                overlay.setAttribute('aria-hidden','false');
+                opened = true;
+                tryPlay();
+                updateTime();
+            }
+
+            function closeOverlay(){
+                if(!opened) return;
+                videoWrap.appendChild(v);
+                overlay.classList.remove('open');
+                overlay.setAttribute('aria-hidden','true');
+                opened = false;
+                userClosed = true;
+            }
+
+            // Observer: monitorar quando o vídeo entra em viewport (>=50%) e tentar abrir overlay
+            var io = new IntersectionObserver(function(entries){
+                entries.forEach(function(entry){
+                    if(entry.isIntersecting && entry.intersectionRatio >= 0.5){
+                        openOverlay();
+                    }
+                });
+            }, { threshold: [0.25, 0.5, 0.75] });
+            io.observe(videoWrap);
+
+            // controles
+            playPauseBtn.addEventListener('click', function(){
+                if(v.paused) { v.play(); playPauseBtn.textContent = '⏸'; }
+                else { v.pause(); playPauseBtn.textContent = '▶'; }
+            });
+            muteBtn.addEventListener('click', function(){
+                v.muted = !v.muted;
+                muteBtn.textContent = v.muted ? '🔈' : '🔊';
+            });
+            minimizeBtn.addEventListener('click', function(e){ e.preventDefault(); closeOverlay(); });
+
+            // ESC fecha overlay
+            window.addEventListener('keydown', function(e){ if(e.key === 'Escape' && opened){ closeOverlay(); } });
+
+            // fechar automaticamente se usuário rolar muito para longe do vídeo
+            window.addEventListener('scroll', function(){
+                if(!opened) return;
+                var rect = overlay.getBoundingClientRect();
+                if(rect.bottom < window.innerHeight * 0.25 || rect.top > window.innerHeight * 0.75){ closeOverlay(); }
+            }, { passive: true });
+
+        })();
+    </script>
 @endsection
