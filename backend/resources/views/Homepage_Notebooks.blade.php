@@ -252,7 +252,72 @@
         @endauth
     </div>
 </div>
-<!-- Fim do destaque MacBook Pro 14 -->
+
+
+<!-- Containers de produtos lado a lado (agora abaixo do vídeo) -->
+@section('after-video')
+<div style="display: flex; justify-content: center; align-items: flex-start; gap: 48px; margin: 60px 0 80px 0; flex-wrap: wrap;">
+  <!-- Container grande -->
+  <div style="background: #e5e5e5; border-radius: 22px; padding: 32px 32px 24px 32px; min-width: 320px; max-width: 400px; width: 100%; display: flex; flex-direction: column; align-items: center; box-shadow: 0 2px 16px 0 rgba(0,0,0,0.06);">
+  <img src="{{ asset('media/Galaxy Book pro.png') }}" alt="Notebook 1" style="width: 260px; height: 440px; object-fit: contain; max-width: 100%; margin-bottom: 18px;">
+    <div style="font-size: 1.5rem; font-weight: 600; color: #222; margin-bottom: 18px; text-align: center;">Galaxy Book Pro</div>
+    @auth
+      <form action="{{ route('carrinho.adicionar') }}" method="POST" style="margin-top: 8px;">
+        @csrf
+        <input type="hidden" name="produto_id" value="101">
+        <input type="hidden" name="quantidade" value="1">
+  <button type="submit" class="comprar-btn-efeito">COMPRAR</button>
+      </form>
+    @else
+  <a href="/Login" class="comprar-btn-efeito">LOGIN PARA COMPRAR</a>
+    @endauth
+  </div>
+  <!-- Container pequeno -->
+  <div style="background: #e5e5e5; border-radius: 22px; padding: 24px 24px 18px 24px; min-width: 200px; max-width: 260px; width: 100%; display: flex; flex-direction: column; align-items: center; box-shadow: 0 2px 16px 0 rgba(0,0,0,0.06);">
+  <img src="{{ asset('media/Galaxy Book ultra.png') }}" alt="Notebook 2" style="width: 120px; height: 230px; object-fit: contain; max-width: 100%; margin-bottom: 14px;">
+    <div style="font-size: 1.1rem; font-weight: 600; color: #222; margin-bottom: 14px; text-align: center;">Galaxy Book ultra</div>
+    @auth
+      <form action="{{ route('carrinho.adicionar') }}" method="POST" style="margin-top: 4px;">
+        @csrf
+        <input type="hidden" name="produto_id" value="102">
+        <input type="hidden" name="quantidade" value="1">
+  <button type="submit" class="comprar-btn-efeito">COMPRAR</button>
+      </form>
+    @else
+  <a href="/Login" class="comprar-btn-efeito">LOGIN PARA COMPRAR</a>
+<style>
+  .comprar-btn-efeito {
+    background: #000;
+    color: #fff;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 40px;
+    font-weight: 700;
+    cursor: pointer;
+    font-size: 0.95rem;
+    display: inline-block;
+    box-shadow: 0 2px 8px 0 rgba(0,0,0,0.10);
+    transition: transform 0.15s cubic-bezier(.4,0,.2,1), box-shadow 0.15s;
+    outline: none;
+    text-decoration: none;
+  }
+  .comprar-btn-efeito:hover, .comprar-btn-efeito:focus {
+    transform: translateY(-4px) scale(1.04);
+    box-shadow: 0 6px 18px 0 rgba(0,0,0,0.18);
+    background: #222;
+    color: #fff;
+  }
+  .comprar-btn-efeito:active {
+    transform: translateY(2px) scale(0.98);
+    box-shadow: 0 1px 4px 0 rgba(0,0,0,0.10);
+    background: #111;
+    color: #fff;
+  }
+</style>
+    @endauth
+  </div>
+</div>
+@endsection
 
 
 
@@ -286,7 +351,9 @@
   });
   </script>
 
-    <!-- Fullscreen-like overlay (simulado) com barra de controles personalizados -->
+  <!-- Fullscreen-like overlay (simulado) com barra de controles personalizados -->
+
+  @yield('after-video')
     <div id="videoOverlay" class="fullscreen-video-overlay" aria-hidden="true">
         <div class="fullscreen-video-inner">
             <div id="overlayVideoContainer" class="overlay-video-container"></div>
@@ -403,4 +470,12 @@
 
         })();
     </script>
+
+    <!-- imagem adicional abaixo -->
+    <div class="extra-image-wrap" style="text-align:center; margin:36px 0 80px;">
+        <div class="extra-image-inner" style="position:relative; display:inline-block;">
+            <img class="extra-image" src="{{ asset('media/Pedro_lindo.png') }}" alt="Galaxy S24 Ultra" style="border-radius: 18px;" />
+           
+        </div>
+    </div>
 @endsection
