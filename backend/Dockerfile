@@ -89,9 +89,10 @@ RUN echo '#!/bin/bash' > /start.sh && \
     echo 'php artisan migrate --force' >> /start.sh && \
     echo 'php artisan storage:link' >> /start.sh && \
     echo '' >> /start.sh && \
+
     echo '# Iniciar servidor Laravel' >> /start.sh && \
-    echo 'echo "Starting Laravel server on port ${PORT:-8080}..."' >> /start.sh && 
-    echo 'exec php artisan serve --host=0.0.0.0 --port=${PORT:-8080}' >> /start.sh && 
+    echo 'echo "Starting Laravel server on port ${PORT:-8080}..."' >> /start.sh && \
+    echo 'exec php artisan serve --host=0.0.0.0 --port=${PORT:-8080}' >> /start.sh && \
     chmod +x /start.sh
 
 # Expor porta
