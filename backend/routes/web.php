@@ -22,11 +22,11 @@ Route::get('/user-login', function() {
 Route::view('/recuperacao-senha', 'Recuperacao_Senha');
 Route::view('/confirmacao-adm', 'Confirmacao_ADM');
 Route::view('/Homepage_Com_Cadastro', 'Homepage_Com_Cadastro');
-Route::view('/Homepage_Fones', 'HomePage_Fones')->name('categoria.fones');
-Route::view('/Homepage_Smartphones', 'Homepage_Smartphones')->name('categoria.smartphones');
-Route::view('/Homepage_Tablets', 'Homepage_Tablets')->name('categoria.tablets');
-Route::view('/Homepage_Relógios', 'Homepage_Relógios')->name('categoria.relogios');
-Route::view('/Homepage_Notebooks', 'Homepage_Notebooks')->name('categoria.notebooks');
+Route::get('/Homepage_Fones', [App\Http\Controllers\CategoriaController::class, 'fones'])->name('categoria.fones');
+Route::get('/Homepage_Smartphones', [App\Http\Controllers\CategoriaController::class, 'smartphones'])->name('categoria.smartphones');
+Route::get('/Homepage_Tablets', [App\Http\Controllers\CategoriaController::class, 'tablets'])->name('categoria.tablets');
+Route::get('/Homepage_Relógios', [App\Http\Controllers\CategoriaController::class, 'relogios'])->name('categoria.relogios');
+Route::get('/Homepage_Notebooks', [App\Http\Controllers\CategoriaController::class, 'notebooks'])->name('categoria.notebooks');
 
 Route::get('/cadastro', [CadastroController::class, 'showCadastro']);
 Route::post('/cadastro', [CadastroController::class, 'processaCadastro']);
