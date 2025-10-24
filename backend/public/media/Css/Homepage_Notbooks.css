@@ -1,0 +1,94 @@
+.notebook-container {
+    position: relative;
+    width: 100%;
+}
+
+.no-margin-left {
+    width: 100vw;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    display: block;
+    object-fit: cover;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+}
+
+/* Container do botão - controla posição na imagem */
+.botao-comprar-container {
+    position: absolute;
+    bottom: 1000px;        /* ALTURA: aumente para subir mais, diminua para descer */
+    left: 50.5%;           /* POSIÇÃO HORIZONTAL: diminua para ir mais à esquerda, aumente para ir à direita */
+    transform: translateX(-50%);
+    z-index: 10;
+}
+
+/* Estilo do botão de comprar */
+.comprar-btn-preto {
+    background: #000;                    /* COR DE FUNDO: mude para outras cores (#fff, #blue, etc) */
+    color: #fff;                        /* COR DO TEXTO: mude para outras cores */
+    border: none;
+    padding: 12px 24px;                 /* TAMANHO DO BOTÃO: aumente os valores para botão maior */
+    border-radius: 15px;                /* ARREDONDAMENTO: aumente para mais redondo, diminua para menos redondo */
+    font-size: 16px;                    /* TAMANHO DA FONTE: aumente ou diminua o texto */
+    font-weight: 600;                   /* PESO DA FONTE: 400=normal, 600=semi-bold, 700=bold */
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;                          /* ESPAÇO ENTRE ÍCONE E TEXTO: aumente ou diminua */
+    transition: all 0.3s ease;
+}
+
+/* Botão exclusivo da seção destaque MacBook Pro 14 */
+.comprar-btn-macbook14 {
+    background: #000;                    /* COR DE FUNDO: mude para outras cores (#fff, #blue, etc) */
+    color: #fff;                        /* COR DO TEXTO: mude para outras cores */
+    border: none;
+    padding: 12px 24px;                 /* TAMANHO DO BOTÃO: aumente os valores para botão maior */
+    border-radius: 15px;                /* ARREDONDAMENTO: aumente para mais redondo, diminua para menos redondo */
+    font-size: 16px;                    /* TAMANHO DA FONTE: aumente ou diminua o texto */
+    font-weight: 600;                   /* PESO DA FONTE: 400=normal, 600=semi-bold, 700=bold */
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;                          /* ESPAÇO ENTRE ÍCONE E TEXTO: aumente ou diminua */
+    transition: all 0.3s ease;
+}
+
+.comprar-btn-macbook14:hover {
+    background: #333;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.comprar-btn-macbook14:active {
+    transform: translateY(2px);         /* AFUNDA o botão para baixo */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);  /* DIMINUI a sombra */
+    background: #111;                   /* ESCURECE um pouco mais */
+}
+
+.comprar-btn-macbook14 i {
+    font-size: 14px;
+}
+
+.comprar-btn-preto:hover {
+    background: #333;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* EFEITO DE AFUNDAR AO CLICAR */
+.comprar-btn-preto:active {
+    transform: translateY(2px);         /* AFUNDA o botão para baixo */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);  /* DIMINUI a sombra */
+    background: #111;                   /* ESCURECE um pouco mais */
+}
+
+.comprar-btn-preto i {
+    font-size: 14px;
+}
