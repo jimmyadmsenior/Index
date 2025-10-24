@@ -331,3 +331,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('/logs', [App\Http\Controllers\AdminController::class, 'logs'])->name('logs');
     });
 });
+
+Route::get('/health', function () {
+    return response()->json(['status' => 'ok']);
+});
