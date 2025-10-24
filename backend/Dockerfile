@@ -55,6 +55,14 @@ RUN chown -R www-data:www-data /app \
 RUN echo '#!/bin/bash' > /start.sh && \
     echo 'set -e' >> /start.sh && \
     echo '' >> /start.sh && \
+    echo '# Converter variáveis MYSQL_* para DB_* que o Laravel espera' >> /start.sh && \
+    echo 'export DB_HOST="$MYSQL_HOST"' >> /start.sh && \
+    echo 'export DB_PORT="$MYSQL_PORT"' >> /start.sh && \
+    echo 'export DB_DATABASE="$MYSQL_DATABASE"' >> /start.sh && \
+    echo 'export DB_USERNAME="$MYSQL_USER"' >> /start.sh && \
+    echo 'export DB_PASSWORD="$MYSQL_PASSWORD"' >> /start.sh && \
+    echo 'export DB_CONNECTION="mysql"' >> /start.sh && \
+    echo '' >> /start.sh && \
     echo '# Espera o banco ficar disponível (usa PDO via php-cli)' >> /start.sh && \
     echo 'echo "Waiting for database to be available..."' >> /start.sh && \
     echo '/test-db.sh' >> /start.sh && \
