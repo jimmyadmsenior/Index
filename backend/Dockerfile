@@ -90,12 +90,12 @@ RUN echo '#!/bin/bash' > /start.sh && \
     echo 'php artisan storage:link' >> /start.sh && \
     echo '' >> /start.sh && \
     echo '# Iniciar servidor Laravel' >> /start.sh && \
-    echo 'echo "Starting Laravel server on port ${PORT:-8000}..."' >> /start.sh && \
-    echo 'exec php artisan serve --host=0.0.0.0 --port=8000' >> /start.sh && \
+    echo 'echo "Starting Laravel server on port ${PORT:-8080}..."' >> /start.sh && 
+    echo 'exec php artisan serve --host=0.0.0.0 --port=${PORT:-8080}' >> /start.sh && 
     chmod +x /start.sh
 
 # Expor porta
-EXPOSE 8000
+EXPOSE 8080
 
 # Usar script de inicialização
 CMD ["/start.sh"]
