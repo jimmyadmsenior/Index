@@ -55,6 +55,9 @@ RUN chown -R www-data:www-data /app \
 RUN echo '#!/bin/bash' > /start.sh && \
     echo 'set -e' >> /start.sh && \
     echo '' >> /start.sh && \
+    echo '# Limpar cache de configuração' >> /start.sh && \
+    echo 'php artisan config:clear' >> /start.sh && \
+    echo '' >> /start.sh && \
     echo '# Converter variáveis MYSQL_* para DB_* que o Laravel espera' >> /start.sh && \
     echo 'export DB_HOST="$MYSQL_HOST"' >> /start.sh && \
     echo 'export DB_PORT="$MYSQL_PORT"' >> /start.sh && \
@@ -85,7 +88,6 @@ RUN echo '#!/bin/bash' > /start.sh && \
     echo 'done' >> /start.sh && \
     echo '' >> /start.sh && \
     echo 'echo "Database is available. Running migrations..."' >> /start.sh && \
-    echo 'php artisan config:cache' >> /start.sh && \
     echo 'php artisan migrate --force' >> /start.sh && \
     echo 'php artisan storage:link' >> /start.sh && \
     echo '' >> /start.sh && \
