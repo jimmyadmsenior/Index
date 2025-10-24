@@ -226,4 +226,32 @@
 }
 </style>
 
+<!-- Seção destaque MacBook Pro 14 -->
+<div style="position: relative; width: 100%; max-width: 900px; margin: 60px auto 0 auto;">
+    <img src="/media/MacBook.png" alt="MacBook Pro 14" style="width: 100%; max-width: 900px; display: block; margin: 0 auto; border-radius: 18px;">
+    <!-- Frase sobre a imagem -->
+  <div style="position: absolute; top: 5%; left: 50%; transform: translate(-50%, -50%); width: 100%; text-align: center;">
+    <!-- Para mudar a cor da frase, altere o valor de color abaixo -->
+    <span style="color: #000; font-size: 2.5rem; font-weight: bold; letter-spacing: 1px;">MacBook Pro 14</span>
+  </div>
+    <!-- Botão comprar -->
+  <div style="position: absolute; top: 12.5%; left: 50%; transform: translate(-50%, 0); width: 100%; text-align: center;">
+    <!-- Para subir ou descer o botão, altere o valor de top acima (ex: top: 30%; top: 60%) -->
+    <!-- Para mover para o lado, altere o valor de left acima (ex: left: 40%; left: 60%) -->
+        @auth
+            <form action="{{ route('carrinho.adicionar') }}" method="POST" style="display: inline-block;">
+                @csrf
+                <input type="hidden" name="produto_id" value="2">
+                <input type="hidden" name="quantidade" value="1">
+                <button type="submit" class="comprar-btn-macbook14">
+                    <i class="fas fa-shopping-cart"></i> Comprar
+                </button>
+            </form>
+        @else
+            <a href="/Login" class="comprar-btn-macbook14">Faça Login para Comprar</a>
+        @endauth
+    </div>
+</div>
+<!-- Fim do destaque MacBook Pro 14 -->
+
 @endsection
