@@ -637,15 +637,17 @@ nav, .navbar, header {
             </div>
             
             <div class="a19-section">
-                <h3 class="a19-title">A19 Pro</h3>
-                <p class="a19-desc">O chip mais poderoso em um smartphone</p>
-                <img src="{{ asset('media/A19pro.jpg') }}" alt="chip-a19-pro" class="a19-img" />
-                <ul class="a19-features">
-                    <li>- CPU 20% mais rápida</li>
-                    <li>- GPU 25% mais eficiente</li>
-                    <li>- Neural Engine com 16 núcleos</li>
-                    <li>- Ray Tracing acelerado por hardware</li>
-                </ul>
+                <div class="a19-center">
+                    <h3 class="a19-title" style="text-align:center; width:100%;">A19 Pro</h3>
+                    <p class="a19-desc" style="text-align:center; width:100%;">O chip mais poderoso em um smartphone</p>
+                    <img src="{{ asset('media/A19pro.jpg') }}" alt="chip-a19-pro" class="a19-img" />
+                    <ul class="a19-features">
+                        <li style="text-align:center;">- CPU 20% mais rápida</li>
+                        <li style="text-align:center;">- GPU 25% mais eficiente</li>
+                        <li style="text-align:center;">- Neural Engine com 16 núcleos</li>
+                        <li style="text-align:center;">- Ray Tracing acelerado por hardware</li>
+                    </ul>
+                </div>
             </div>
             
             <div class="unibody-section">
