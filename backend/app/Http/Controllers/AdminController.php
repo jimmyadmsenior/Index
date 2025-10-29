@@ -56,7 +56,11 @@ class AdminController extends Controller
             ->latest()
             ->paginate(20);
 
-        return view('admin.pedidos', compact('pedidos'));
+        $stats = [
+            'total_pedidos' => \App\Models\Pedido::count(),
+        ];
+
+        return view('admin.pedidos', compact('pedidos', 'stats'));
     }
 
     public function usuarios()
