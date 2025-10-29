@@ -1,5 +1,9 @@
 @extends('layouts.app')
 @section('content')
+
+{{-- Barra de Pesquisa de Fones de Ouvido --}}
+@include('partials.product-search', ['categoria' => 'Fones de Ouvido'])
+
 <main>
   <div class="banner-navbar" style="position: relative; width: 100vw; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; overflow: hidden; padding: 0; border-radius: 0;">
     <img src="/media/Capa_Fones.png" alt="Banner" style="width: 100vw; min-height: 320px; height: 380px; object-fit: cover; display: block; filter: brightness(0.65);">

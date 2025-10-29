@@ -20,3 +20,6 @@ Route::get('/debug-api', function () {
 
 Route::apiResource('produtos', ProdutoController::class);
 Route::apiResource('categorias', CategoriaController::class)->only(['index', 'show']);
+
+// Rota para busca de produtos com autocomplete
+Route::get('/produtos/buscar/{categoria?}', [ProdutoController::class, 'buscar']);
