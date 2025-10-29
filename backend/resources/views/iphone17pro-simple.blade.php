@@ -3,6 +3,10 @@
 @section('head')
 <meta name="csrf-token" content="{{ csrf_token() }}">
 <style>
+footer {
+    background: #fff !important;
+    color: #222 !important;
+}
 /* Reset e Base */
 * {
     margin: 0;
@@ -573,42 +577,6 @@ nav, .navbar, header {
         </div>
     </section>
 
-    {{-- Colors Section --}}
-    <section class="colors-section animate-fade-in-up" style="padding: 5rem 1.5rem; text-align: center;">
-        <div style="max-width: 60rem; margin: 0 auto;">
-            <h2 style="font-size: 2.5rem; font-weight: bold; margin-bottom: 1rem; background: linear-gradient(45deg, #3b82f6, #ef4444); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
-                Escolha sua cor
-            </h2>
-            <p style="font-size: 1.25rem; color: #9ca3af; margin-bottom: 3rem;">
-                Três acabamentos em titânio lindos
-            </p>
-            
-            <div style="position: relative; margin-bottom: 3rem;">
-             <img id="colorPreview" src="{{ asset('media/iphone-orange.jpg') }}" alt="iPhone 17 Pro" 
-                 style="width: 100%; max-width: 600px; height: auto; border-radius: 1rem; display: block; margin: 0 auto;" class="animate-zoom-in" />
-                <div style="position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%); background: rgba(0,0,0,0.7); color: #ff6b35; padding: 0.75rem 1.5rem; border-radius: 2rem; font-size: 1.125rem; font-weight: 600;">
-                    <span id="colorName">Titânio Laranja</span>
-                </div>
-            </div>
-            
-            <div style="display: flex; justify-content: center; gap: 1rem; margin-bottom: 1rem;">
-        <button class="color-btn active" id="indicator-laranja" data-color="laranja" data-name="Titânio Laranja" data-image="{{ asset('media/iphone-orange.jpg') }}" 
-            style="width: 3rem; height: 3rem; border-radius: 50%; background: #ff6b35; border: 3px solid #fff; cursor: pointer; transition: all 0.3s; box-shadow: 0 4px 15px rgba(255, 107, 53, 0.4); position: relative;">
-        </button>
-        <button class="color-btn" id="indicator-azul" data-color="azul" data-name="Titânio Azul" data-image="{{ asset('media/iphone-blue.jpg') }}" 
-            style="width: 3rem; height: 3rem; border-radius: 50%; background: #3b82f6; border: 3px solid #374151; cursor: pointer; transition: all 0.3s; position: relative;">
-        </button>
-        <button class="color-btn" id="indicator-prata" data-color="prata" data-name="Titânio Prata" data-image="{{ asset('media/iphone-silver.jpg') }}" 
-            style="width: 3rem; height: 3rem; border-radius: 50%; background: #e5e7eb; border: 3px solid #374151; cursor: pointer; transition: all 0.3s; position: relative;">
-        </button>
-            </div>
-            
-            <div style="display: flex; justify-content: center;">
-                <div id="color-indicator" style="width: 12px; height: 12px; border-radius: 50%; background: #fff; opacity: 0.7; position: relative; top: -2.2rem; left: 0; transition: left 0.3s;"></div>
-            </div>
-        </div>
-    </section>
-
     {{-- Highlights Section --}}
     <section id="Design" class="highlights-section">
         <div class="highlights-container">
@@ -660,6 +628,39 @@ nav, .navbar, header {
                     bateria e a durabilidade.
                 </p>
                 <img src="{{ asset('media/shell-titânio.webp') }}" alt="shell-titânio" class="unibody-img" />
+        </div>
+        {{-- Colors Section (movida para baixo da unibody) --}}
+        <section class="colors-section animate-fade-in-up" style="padding: 5rem 1.5rem; text-align: center;">
+            <div style="max-width: 60rem; margin: 0 auto;">
+                <h2 style="font-size: 2.5rem; font-weight: bold; margin-bottom: 1rem; background: linear-gradient(45deg, #3b82f6, #ef4444); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+                    Escolha sua cor
+                </h2>
+                <p style="font-size: 1.25rem; color: #9ca3af; margin-bottom: 3rem;">
+                    Três acabamentos em titânio lindos
+                </p>
+                <div style="position: relative; margin-bottom: 3rem;">
+                 <img id="colorPreview" src="{{ asset('media/iphone-orange.jpg') }}" alt="iPhone 17 Pro" 
+                     style="width: 100%; max-width: 750px; height: auto; border-radius: 1rem; display: block; margin: 0 auto;" class="animate-zoom-in" />
+                    <div style="position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%); background: rgba(0,0,0,0.7); color: #ff6b35; padding: 0.75rem 1.5rem; border-radius: 2rem; font-size: 1.125rem; font-weight: 600;">
+                        <span id="colorName">Titânio Laranja</span>
+                    </div>
+                </div>
+                <div style="display: flex; justify-content: center; gap: 1rem; margin-bottom: 1rem;">
+            <button class="color-btn active" id="indicator-laranja" data-color="laranja" data-name="Titânio Laranja" data-image="{{ asset('media/iphone-orange.jpg') }}" 
+                style="width: 3rem; height: 3rem; border-radius: 50%; background: #ff6b35; border: 3px solid #fff; cursor: pointer; transition: all 0.3s; box-shadow: 0 4px 15px rgba(255, 107, 53, 0.4); position: relative;">
+            </button>
+            <button class="color-btn" id="indicator-azul" data-color="azul" data-name="Titânio Azul" data-image="{{ asset('media/iphone-blue.jpg') }}" 
+                style="width: 3rem; height: 3rem; border-radius: 50%; background: #3b82f6; border: 3px solid #374151; cursor: pointer; transition: all 0.3s; position: relative;">
+            </button>
+            <button class="color-btn" id="indicator-prata" data-color="prata" data-name="Titânio Prata" data-image="{{ asset('media/iphone-silver.jpg') }}" 
+                style="width: 3rem; height: 3rem; border-radius: 50%; background: #e5e7eb; border: 3px solid #374151; cursor: pointer; transition: all 0.3s; position: relative;">
+            </button>
+                </div>
+                <div style="display: flex; justify-content: center;">
+                    <!-- Indicador removido conforme solicitado -->
+                </div>
+            </div>
+        </section>
             </div>
         </div>
     </section>
