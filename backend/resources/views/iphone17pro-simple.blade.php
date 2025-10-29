@@ -33,11 +33,7 @@ nav, .navbar, header {
     border: none !important;
 }
 
-/* Garantir que não há espaçamento entre navbar e conteúdo */
-.hero-section {
-    margin-top: 0 !important;
-    padding-top: 0 !important;
-}
+/* Forçar espaçamento entre navbar e conteúdo */
 
 /* Hero Section */
 .hero-section {
@@ -45,12 +41,16 @@ nav, .navbar, header {
     overflow: hidden;
     height: 60vh;
     min-height: 400px;
+    margin-top: 3rem !important;
+    padding-top: 2rem !important;
 }
 
 @media (min-width: 768px) {
     .hero-section {
         height: 80vh;
         min-height: 600px;
+        margin-top: 4rem !important;
+        padding-top: 3rem !important;
     }
 }
 
