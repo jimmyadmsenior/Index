@@ -3,6 +3,10 @@
 <link rel="stylesheet" href="{{ asset('media/Css/HomePage_Smartphones.css') }}">
 @endsection
 @section('content')
+
+{{-- Barra de Pesquisa de Smartphones --}}
+@include('partials.product-search', ['categoria' => 'Smartphones'])
+
 {{-- Hero - Homepage Smartphones --}}
 <div class="iphone15-destaque">
     <p class="subtitulo">Iphone 15</p>

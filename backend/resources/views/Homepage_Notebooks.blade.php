@@ -5,6 +5,10 @@
 @endsection
 
 @section('content')
+
+{{-- Barra de Pesquisa de Notebooks --}}
+@include('partials.product-search', ['categoria' => 'Notebooks'])
+
 <div class="notebook-container">
     <img src="{{ asset('media/mac pro.jpg') }}" alt="MacBook Pro" class="no-margin-left">
     <!-- Título principal: aumente o tamanho alterando font-size ou usando classes maiores -->

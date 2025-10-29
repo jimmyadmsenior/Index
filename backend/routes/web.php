@@ -28,6 +28,10 @@ Route::get('/Homepage_Tablets', [App\Http\Controllers\CategoriaController::class
 Route::get('/Homepage_Relógios', [App\Http\Controllers\CategoriaController::class, 'relogios'])->name('categoria.relogios');
 Route::get('/Homepage_Notebooks', [App\Http\Controllers\CategoriaController::class, 'notebooks'])->name('categoria.notebooks');
 
+// Rotas de busca
+Route::get('/buscar', [App\Http\Controllers\ProdutoController::class, 'buscarPagina'])->name('buscar');
+Route::post('/buscar', [App\Http\Controllers\ProdutoController::class, 'buscarPagina'])->name('buscar.post');
+
 Route::get('/cadastro', [CadastroController::class, 'showCadastro']);
 Route::post('/cadastro', [CadastroController::class, 'processaCadastro']);
 Route::get('/verificacao', [CadastroController::class, 'showVerificacao']);
