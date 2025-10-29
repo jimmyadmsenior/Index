@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @section('head')
 <link rel="stylesheet" href="{{ asset('media/Css/HomePage_Smartphones.css') }}">
+<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 @endsection
 @section('content')
 {{-- Hero - Homepage Smartphones --}}
