@@ -70,7 +70,6 @@
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Data Cadastro</th>
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Pedidos</th>
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Total Gasto</th>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Ações</th>
                     </tr>
                 </thead>
@@ -81,11 +80,13 @@
                             <div class="flex items-center">
                                 <div class="h-10 w-10 flex-shrink-0">
                                     @if($usuario->foto)
-                                        <img class="h-10 w-10 rounded-full object-cover" src="{{ asset('storage/' . $usuario->foto) }}" alt="{{ $usuario->name }}">
+                                        @php
+                                            $foto = $usuario->foto;
+                                            $isUrl = Str::startsWith($foto, ['http', '/']);
+                                        @endphp
+                                        <img class="h-10 w-10 rounded-full object-cover" src="{{ $isUrl ? asset($foto) : asset('storage/' . $foto) }}" alt="{{ $usuario->name }}">
                                     @else
-                                        <div class="h-10 w-10 rounded-full bg-gray-300 flex items-center justify-center">
-                                            <span class="text-sm font-medium text-gray-700">{{ substr($usuario->name, 0, 1) }}</span>
-                                        </div>
+                                        <img class="h-10 w-10 rounded-full object-cover" src="{{ asset('media/user-default.png') }}" alt="Usuário padrão">
                                     @endif
                                 </div>
                                 <div class="ml-4">
@@ -107,22 +108,11 @@
                         <td class="px-6 py-4 whitespace-nowrap text-sm font-semibold text-gray-900">
                             R$ {{ number_format($usuario->total_gasto ?? 0, 2, ',', '.') }}
                         </td>
-                        <td class="px-6 py-4 whitespace-nowrap">
-                            @if($usuario->email_verified_at)
-                                <span class="px-2 py-1 text-xs rounded-full bg-green-100 text-green-800">Ativo</span>
-                            @else
-                                <span class="px-2 py-1 text-xs rounded-full bg-yellow-100 text-yellow-800">Pendente</span>
-                            @endif
-                        </td>
                         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
                             <div class="flex space-x-2">
                                 <button onclick="verDetalhesUsuario({{ $usuario->id }})" 
                                         class="text-blue-600 hover:text-blue-900">
                                     Ver Detalhes
-                                </button>
-                                <button onclick="alternarStatusUsuario({{ $usuario->id }})" 
-                                        class="text-orange-600 hover:text-orange-900">
-                                    {{ $usuario->email_verified_at ? 'Desativar' : 'Ativar' }}
                                 </button>
                                 <button onclick="confirmarExclusaoUsuario({{ $usuario->id }})" 
                                         class="text-red-600 hover:text-red-900">
