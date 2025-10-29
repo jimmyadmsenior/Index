@@ -26,28 +26,42 @@ main {
     padding: 0 !important;
 }
 
+/* Remover linha/border da navbar */
+nav, .navbar, header {
+    border-bottom: none !important;
+    box-shadow: none !important;
+    border: none !important;
+}
+
+/* Garantir que não há espaçamento entre navbar e conteúdo */
+.hero-section {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
+
 /* Hero Section */
 .hero-section {
     position: relative;
     overflow: hidden;
-    height: 300px;
+    height: 60vh;
+    min-height: 400px;
 }
 
 @media (min-width: 768px) {
     .hero-section {
-        height: 100vh;
+        height: 80vh;
+        min-height: 600px;
     }
 }
 
 .hero-img {
     position: absolute;
     top: 0;
-    bottom: 0;
     left: 0;
-    right: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
+    object-position: center;
     opacity: 0.9;
 }
 
@@ -57,8 +71,10 @@ main {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, transparent 50%, rgba(0,0,0,0.8) 100%);
+    background: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, transparent 30%, transparent 70%, rgba(0,0,0,0.6) 100%);
 }
+
+
 
 .arrow-down {
     position: absolute;
