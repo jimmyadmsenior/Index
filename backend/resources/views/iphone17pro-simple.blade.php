@@ -519,6 +519,7 @@ nav, .navbar, header {
 .unibody-img {
     border-radius: 1rem;
     width: 80%;
+    margin-bottom: 0;
 }
 </style>
 @endsection
@@ -531,6 +532,8 @@ nav, .navbar, header {
         <div class="hero-overlay"></div>
         <div class="arrow-down">↓</div>
     </section>
+        {{-- Camera Specs Section --}}
+        <section class="camera-specs-section" style="padding: 3rem 1.5rem; text-align: center;">
 
     {{-- Intro Section --}}
     <section class="intro-section">
@@ -544,17 +547,18 @@ nav, .navbar, header {
         </div>
         
         <div class="button-container animate-zoom-in animate-delay-900">
-            @auth
-                <form action="{{ route('carrinho.adicionar') }}" method="POST" style="display: inline-block;">
-                    @csrf
-                    <input type="hidden" name="produto_id" value="4">
-                    <input type="hidden" name="quantidade" value="1">
-                    <button type="submit" class="btn btn-blue">Compre agora</button>
-                </form>
-            @else
-                <a href="/Login" class="btn btn-blue">Faça Login para Comprar</a>
-            @endauth
-            <a href="#Design" class="btn btn-white">Saiba mais</a>
+            <div style="width: 100%; display: flex; justify-content: center;">
+                @auth
+                    <form action="{{ route('carrinho.adicionar') }}" method="POST" style="display: inline-block;">
+                        @csrf
+                        <input type="hidden" name="produto_id" value="4">
+                        <input type="hidden" name="quantidade" value="1">
+                        <button type="submit" class="btn btn-blue">Compre agora</button>
+                    </form>
+                @else
+                    <a href="/Login" class="btn btn-blue">Faça Login para Comprar</a>
+                @endauth
+            </div>
         </div>
         
         <div class="specs-grid animate-fade-in-up animate-delay-900">
@@ -631,11 +635,11 @@ nav, .navbar, header {
         </div>
         {{-- Colors Section (movida para baixo da unibody) --}}
         <section class="colors-section animate-fade-in-up" style="padding: 5rem 1.5rem; text-align: center;">
-            <div style="max-width: 60rem; margin: 0 auto;">
+            <div style="max-width: 60rem; margin: 0 auto; margin-top: -4rem;">
                 <h2 style="font-size: 2.5rem; font-weight: bold; margin-bottom: 1rem; background: linear-gradient(45deg, #3b82f6, #ef4444); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
                     Escolha sua cor
                 </h2>
-                <p style="font-size: 1.25rem; color: #9ca3af; margin-bottom: 3rem;">
+                <p style="font-size: 1.25rem; color: #9ca3af; margin-bottom: 1rem;">
                     Três acabamentos em titânio lindos
                 </p>
                 <div style="position: relative; margin-bottom: 3rem;">
