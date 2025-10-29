@@ -30,13 +30,6 @@ O projeto está em desenvolvimento contínuo. As principais funcionalidades já 
 
 Para contribuir com o Index, siga estas etapas:
 
-## 🚀 Como funciona o cadastro
-O fluxo de cadastro foi aprimorado:
-- Após preencher o formulário, o usuário recebe um e-mail com código de verificação
-- Ao inserir o código, o cadastro é confirmado e o usuário é redirecionado para a página de confirmação
-- A página de confirmação exibe um ícone de check centralizado e mensagem de sucesso
-- O efeito de cursor foi ajustado para evitar duplicidade
-
 1. Bifurque este repositório.
 2. Crie um branch: `git checkout -b <nome_branch>`.
 3. Faça suas alterações e confirme-as: `git commit -m '<mensagem_commit>'`
