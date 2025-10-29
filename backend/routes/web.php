@@ -28,6 +28,11 @@ Route::get('/Homepage_Tablets', [App\Http\Controllers\CategoriaController::class
 Route::get('/Homepage_Relógios', [App\Http\Controllers\CategoriaController::class, 'relogios'])->name('categoria.relogios');
 Route::get('/Homepage_Notebooks', [App\Http\Controllers\CategoriaController::class, 'notebooks'])->name('categoria.notebooks');
 
+// Rota para iPhone 17 Pro
+Route::get('/iphone17pro', function() {
+    return view('iphone17pro-simple');
+})->name('iphone17pro');
+
 // Rotas de busca
 Route::get('/buscar', [App\Http\Controllers\ProdutoController::class, 'buscarPagina'])->name('buscar');
 Route::post('/buscar', [App\Http\Controllers\ProdutoController::class, 'buscarPagina'])->name('buscar.post');

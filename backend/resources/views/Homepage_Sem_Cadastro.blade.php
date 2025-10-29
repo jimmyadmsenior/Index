@@ -3,6 +3,254 @@
 <meta name="page-type" content="homepage">
 @endsection
 @section('content')
+
+{{-- Popup iPhone 17 Pro --}}
+<div id="iphone17Popup" class="popup-overlay">
+    <div class="popup-content">
+        <button class="popup-close" onclick="closePopup()">&times;</button>
+        <div class="popup-hero">
+            <img src="{{ asset('media/hero.jpg') }}" alt="iPhone 17 Pro" class="popup-img" />
+            <div class="popup-text">
+                <h2 class="popup-title">🚀 NOVIDADE!</h2>
+                <h3 class="popup-subtitle">iPhone 17 Pro</h3>
+                <p class="popup-desc">Titânio. Tão forte. Tão leve. Tão Pro.</p>
+                <p class="popup-features">✨ Chip A19 Pro • 📱 Display 6.3" • 📸 Câmera 48MP</p>
+                <div class="popup-buttons">
+                    <a href="{{ route('iphone17pro') }}" class="popup-btn primary">
+                        <i class="fas fa-eye"></i> Ver Detalhes
+                    </a>
+                    <a href="/Login" class="popup-btn secondary">
+                        <i class="fas fa-user"></i> Faça Login para Comprar
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    animation: fadeIn 0.3s ease;
+}
+
+.popup-content {
+    background: linear-gradient(135deg, #1a1a1a 0%, #000 100%);
+    border-radius: 20px;
+    padding: 0;
+    max-width: 600px;
+    width: 90%;
+    position: relative;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    animation: slideUp 0.4s ease;
+}
+
+.popup-close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: #fff;
+    font-size: 30px;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10001;
+    transition: all 0.3s;
+}
+
+.popup-close:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.1);
+}
+
+.popup-hero {
+    display: flex;
+    flex-direction: column;
+}
+
+.popup-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    opacity: 0.8;
+}
+
+.popup-text {
+    padding: 30px;
+    text-align: center;
+    color: #fff;
+}
+
+.popup-title {
+    font-size: 1.5rem;
+    margin: 0 0 10px;
+    background: linear-gradient(45deg, #ff6b35, #f7931e);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 800;
+}
+
+.popup-subtitle {
+    font-size: 2.2rem;
+    margin: 0 0 15px;
+    background: linear-gradient(45deg, #007aff, #ff3b30);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+}
+
+.popup-desc {
+    font-size: 1.2rem;
+    margin: 0 0 15px;
+    color: #ccc;
+}
+
+.popup-features {
+    font-size: 1rem;
+    color: #aaa;
+    margin: 0 0 25px;
+    font-weight: 500;
+}
+
+.popup-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.popup-btn {
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    border: none;
+    font-size: 1rem;
+    transition: all 0.3s;
+}
+
+.popup-btn.primary {
+    background: linear-gradient(45deg, #007aff, #0056b3);
+    color: white;
+}
+
+.popup-btn.primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 122, 255, 0.4);
+}
+
+.popup-btn.secondary {
+    background: linear-gradient(45deg, #ff3b30, #d32f2f);
+    color: white;
+}
+
+.popup-btn.secondary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(255, 59, 48, 0.4);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { 
+        opacity: 0;
+        transform: translateY(50px) scale(0.9);
+    }
+    to { 
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@media (max-width: 768px) {
+    .popup-content {
+        margin: 20px;
+        width: calc(100% - 40px);
+    }
+    
+    .popup-hero {
+        flex-direction: column;
+    }
+    
+    .popup-text {
+        padding: 25px 20px;
+    }
+    
+    .popup-subtitle {
+        font-size: 1.8rem;
+    }
+    
+    .popup-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .popup-btn {
+        width: 100%;
+        justify-content: center;
+        max-width: 250px;
+    }
+}
+
+.popup-hidden {
+    display: none;
+}
+</style>
+
+<script>
+// Mostrar popup após 2 segundos
+setTimeout(function() {
+    document.getElementById('iphone17Popup').style.display = 'flex';
+}, 2000);
+
+function closePopup() {
+    const popup = document.getElementById('iphone17Popup');
+    popup.style.animation = 'fadeOut 0.3s ease';
+    setTimeout(() => {
+        popup.style.display = 'none';
+    }, 300);
+    
+    // Salvar no localStorage para não mostrar novamente na sessão
+    localStorage.setItem('iphone17PopupShown', 'true');
+}
+
+// Verificar se já foi mostrado na sessão
+if (localStorage.getItem('iphone17PopupShown') === 'true') {
+    document.getElementById('iphone17Popup').style.display = 'none';
+}
+
+// Fechar ao clicar fora do popup
+document.getElementById('iphone17Popup').addEventListener('click', function(e) {
+    if (e.target === this) {
+        closePopup();
+    }
+});
+</script>
+
   <main class="main-homepage">
     <section class="hero-section">
       <h1 class="hero-title">Chegou o Index, o toque de classe que faltava!</h1>
