@@ -4,10 +4,8 @@ body {
   min-height: 100vh;
   transition: background 0.4s;
 }
-html[data-theme="dark"] body {
   background: linear-gradient(135deg, #232323 0%, #23272b 100%);
 }
-html[data-theme="light"] body {
   background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%);
 }
 .perfil-container {
@@ -84,3 +82,4 @@ html[data-theme="light"] body {
     height: 90px;
   }
 }
+

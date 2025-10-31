@@ -41,12 +41,7 @@
 <center><h1>Perguntas Frequentes</h1></center>
 <center><a>Termos e condições</a></center>
 
-
 <section class="politica-termos">
-
- 
-
-  
 
   <div class="section">
     <div class="section-header" onclick="toggleSection(this)">
@@ -58,15 +53,13 @@
         
           <span class="privacidade-titulo">1. Como faço para realizar uma compra?</span>
           <p>para realizar uma compra, basta nevegar pelo nosso site, escolher o produto desejado, selecionar a quantidade e clicar em "Adicionar ao Carrinho". Depois, vá para o carrinho de compras e finalize o pedido preenchendo seus dados de entrega e escolher a forma de pagamento.</p>
-        
-        
+
           <span class="privacidade-titulo">2. Posso comprar sem ter uma conta no site?</span>
           <p>Não, você não pode fazer compras como visitante. Ao criar uma conta, você terá acesso a um histórico de pedidos, facilitando para futuras compras e promoções exclusivas.</p>
         
           <span class="privacidade-titulo">3.  Como sei se meu pedido foi confirmado?</span>
           <p> Após a finalização do pedido, você receberá um e-mail de confirmação com os detalhes da compra. Além disso, você pode acompanhar o status do seu pedido na área "Meus Pedidos" do site.</p>
-          
-        
+
           <span class="privacidade-titulo">4. Quais informações preciso fornecer para finalizar a compra?</span>
           <p>Você precisará fornecer seu nome completo, endereço de entrega, e-mail, telefone e dados de pagamento (dependendo da forma de pagamento escolhida, como cartão de crédito, débito, PIX ou boleto bancário).</p>
         
@@ -75,8 +68,7 @@
         
           <span class="privacidade-titulo">6. Como posso alterar ou cancelar meu pedido?</span>
           <p>Caso precise alterar ou cancelar seu pedido, entre em contato imediatamente após a compra. Se o pedido já tiver sido processado e enviado, não será possível fazer alterações. Para trocas ou devoluções, consulte nossa política de trocas.</p>
-          
-        
+
           <span class="privacidade-titulo">7. Posso adicionar produtos ao meu pedido após a finalização?</span>
           <p>Infelizmente, não é possível adicionar produtos ao pedido depois que ele for finalizado. Se quiser adicionar mais itens, será necessário realizar uma nova compra.</p>
 
@@ -154,7 +146,6 @@
   </div>
 </section>
 
-
   <footer>
     <div class="footer-content">
         <div class="footer-logo">
@@ -197,20 +188,7 @@
       document.documentElement.setAttribute('data-theme', savedTheme);
       
       // Definir o estado inicial do checkbox com base no tema atual
-      document.getElementById('theme-toggle').checked = savedTheme === 'dark';
-      
-      // Adicionar evento de mudança ao toggle
-      document.getElementById('theme-toggle').addEventListener('change', function(e) {
-        if(e.target.checked) {
-          // Mudar para o tema escuro
-          document.documentElement.setAttribute('data-theme', 'dark');
-          localStorage.setItem('theme', 'dark');
-          
-          // Animação suave para a transição do tema
-          document.body.classList.add('theme-transition');
-          setTimeout(() => {
-            document.body.classList.remove('theme-transition');
-          }, 1000);
+      document.getElementById('theme-toggle').checked = , 1000);
         } else {
           // Mudar para o tema claro
           document.documentElement.setAttribute('data-theme', 'light');

@@ -28,7 +28,6 @@ html, body {
 }
 
 /* Variáveis para tema escuro */
-[data-theme="dark"] {
   --bg-color: #121212;
   --text-color: #f0f0f0;
   --header-bg: #1a1a1a;
@@ -215,7 +214,6 @@ footer a {
 }
 
 /* Alterar a logo no tema escuro */
-[data-theme="dark"] .github-icon {
   background-image: url('../Github_Logo_Branca.png'); /* Caminho da logo branca */
 }
 
@@ -298,7 +296,6 @@ nav ul.menu li a:hover {
 }
 
 /* Estilo para o toggle switch inspirado em uiverse */
-.theme-toggle {
   position: relative;
   display: inline-block;
   width: 50px; /* Reduzido de 60px para 50px */
@@ -307,8 +304,7 @@ nav ul.menu li a:hover {
   cursor: pointer;
 }
 
-.theme-toggle input {
-  opacity: 0;
+opacity: 0;
   width: 0;
   height: 0;
 }
@@ -364,3 +360,4 @@ slider .sun, .slider .moon {
 .theme-transition {
   transition: background-color 0.5s ease, color 0.5s ease;
 }
+
