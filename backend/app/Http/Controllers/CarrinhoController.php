@@ -78,30 +78,30 @@ class CarrinhoController extends Controller
             if ($categoria) {
                 $nomeCategoria = strtolower($categoria->nome);
                 // Mapeia nomes de categoria para as rotas corretas
-                $mapeamentoCategoria = [
-                    'smartphone' => 'smartphones',
-                    'smartphones' => 'smartphones',
-                    'tablet' => 'tablets',
-                    'tablets' => 'tablets',
-                    'fone' => 'fones',
-                    'fones' => 'fones',
-                    'relógio' => 'relogios',
-                    'relogios' => 'relogios',
-                    'notebook' => 'notebooks',
-                    'notebooks' => 'notebooks'
-                ];
-                
-                foreach ($mapeamentoCategoria as $busca => $resultado) {
-                    if (strpos($nomeCategoria, $busca) !== false) {
-                        session(['pagina_categoria' => $resultado]);
-                        break;
-                    }
+            $mapeamentoCategoria = [
+                'smartphone' => 'smartphones',
+                'smartphones' => 'smartphones',
+                'tablet' => 'tablets',
+                'tablets' => 'tablets',
+                'fone' => 'fones',
+                'fones' => 'fones',
+                'relógio' => 'relogios',
+                'relogios' => 'relogios',
+                'notebook' => 'notebooks',
+                'notebooks' => 'notebooks'
+            ];
+
+            foreach ($mapeamentoCategoria as $busca => $resultado) {
+                if (strpos($nomeCategoria, $busca) !== false) {
+                    session(['pagina_categoria' => $resultado]);
+                    break;
                 }
+            }
             }
         }
         
         // Calcula o total de itens no carrinho
-        $cart_count = array_sum(array_column($carrinho, 'quantidade'));
+    $cart_count = array_sum(array_map(function($item) { return $item['quantidade']; }, $carrinho));
         
         if ($request->ajax()) {
             return response()->json([
@@ -118,12 +118,14 @@ class CarrinhoController extends Controller
     public function remover($produto_id)
     {
         $carrinho = session()->get('carrinho', []);
-        
         if (isset($carrinho[$produto_id])) {
             unset($carrinho[$produto_id]);
-            session()->put('carrinho', $carrinho);
+            if (empty($carrinho)) {
+                session()->forget('carrinho');
+            } else {
+                session()->put('carrinho', $carrinho);
+            }
         }
-
         return redirect()->route('carrinho.index')->with('success', 'Produto removido do carrinho!');
     }
 
