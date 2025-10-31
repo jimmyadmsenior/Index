@@ -373,10 +373,10 @@ document.getElementById('iphone17Popup').addEventListener('click', function(e) {
     });
   </script>
   <!-- Cursor Motion Blur Effect -->
-  {{-- <link rel="stylesheet" href="/media/Cursor/EfeitoCursor/dist/style.css"> --}}
-  {{-- <script src="/media/Cursor/EfeitoCursor/src/script.js" defer></script> --}}
+  <link rel="stylesheet" href="/media/Cursor/EfeitoCursor/dist/style.css">
+  <script src="/media/Cursor/EfeitoCursor/src/script.js" defer></script>
   <!-- Elementos do efeito cursor -->
-  {{-- <div id="cursor-blur-boxes">
+  <div id="cursor-blur-boxes">
     <div class="box"></div>
     <div class="box"></div>
     <div class="box"></div>
@@ -394,7 +394,7 @@ document.getElementById('iphone17Popup').addEventListener('click', function(e) {
     <div class="box"></div>
     <div class="box"></div>
     <div class="box"></div>
-  </div> --}}
+  </div>
   <!-- Fim Cursor Motion Blur Effect -->
   <!-- Modal de login obrigatório -->
   <div id="login-required-modal" class="login-modal-hidden">
