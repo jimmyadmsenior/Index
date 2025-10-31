@@ -532,6 +532,56 @@ nav, .navbar, header {
         <div class="hero-overlay"></div>
         <div class="arrow-down">↓</div>
     </section>
+        <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.querySelector('form[action="{{ route('carrinho.adicionar') }}"]');
+            const btn = document.getElementById('btn-comprar-iphone17pro');
+            if (form && btn) {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const formData = new FormData(form);
+                    fetch(form.action, {
+                        method: 'POST',
+                        headers: {
+                            'X-Requested-With': 'XMLHttpRequest',
+                            'X-CSRF-TOKEN': formData.get('_token')
+                        },
+                        body: formData
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            // Atualiza o contador do carrinho na navbar
+                            const cartCountSpan = document.querySelector('.cart-count');
+                            if (cartCountSpan) {
+                                cartCountSpan.textContent = data.cart_count;
+                                cartCountSpan.style.display = data.cart_count > 0 ? 'flex' : 'none';
+                            } else {
+                                // Se não existe, cria o span
+                                const cartIcon = document.querySelector('.navbar-btn-sacola');
+                                if (cartIcon) {
+                                    const span = document.createElement('span');
+                                    span.className = 'cart-count';
+                                    span.textContent = data.cart_count;
+                                    span.style = 'position:absolute;top:-8px;right:-8px;background:#ff4757;color:#fff;border-radius:50%;width:20px;height:20px;font-size:0.75rem;display:flex;align-items:center;justify-content:center;font-weight:bold;min-width:20px;';
+                                    cartIcon.appendChild(span);
+                                }
+                            }
+                            btn.textContent = '✅ Adicionado!';
+                            setTimeout(() => { btn.textContent = '🛒 Comprar iPhone 17 Pro'; }, 2000);
+                        } else {
+                            btn.textContent = 'Erro ao adicionar';
+                            setTimeout(() => { btn.textContent = '🛒 Comprar iPhone 17 Pro'; }, 2000);
+                        }
+                    })
+                    .catch(() => {
+                        btn.textContent = 'Erro ao adicionar';
+                        setTimeout(() => { btn.textContent = '🛒 Comprar iPhone 17 Pro'; }, 2000);
+                    });
+                });
+            }
+        });
+        </script>
         {{-- Camera Specs Section --}}
         <section class="camera-specs-section" style="padding: 3rem 1.5rem; text-align: center;">
 
@@ -539,7 +589,7 @@ nav, .navbar, header {
     <section class="intro-section">
         <div style="max-width: 80rem; margin: 0 auto;">
             <h1 class="intro-title animate-fade-in-up">iPhone 17 Pro</h1>
-            <p class="intro-subtitle animate-fade-in-up animate-delay-300">Titânio. Tão forte. Tão leve. Tão Pro.</p>
+            <p class="intro-subtitle animate-fade-in-up animate-delay-300" style="font-weight: 700;">Titânio. Tão forte. Tão leve. Tão Pro.</p>
             <p class="intro-desc animate-fade-in-up animate-delay-600">
                 O design mais refinado que já criamos. Titânio de grau aeroespacial.
                 Chip A19 Pro
@@ -551,7 +601,7 @@ nav, .navbar, header {
                 @auth
                     <form action="{{ route('carrinho.adicionar') }}" method="POST" style="display: inline-block;">
                         @csrf
-                        <input type="hidden" name="produto_id" value="4">
+                            <input type="hidden" name="produto_id" value="6">
                         <input type="hidden" name="quantidade" value="1">
                         <button type="submit" class="btn btn-blue">Compre agora</button>
                     </form>
@@ -674,11 +724,11 @@ nav, .navbar, header {
         @auth
             <form action="{{ route('carrinho.adicionar') }}" method="POST" style="display: inline-block;">
                 @csrf
-                <input type="hidden" name="produto_id" value="4">
-                <input type="hidden" name="quantidade" value="1">
-                <button type="submit" style="background: #2563eb; color: white; padding: 1rem 3rem; border-radius: 2rem; font-size: 1.5rem; font-weight: 600; border: none; cursor: pointer; transition: all 0.3s;" onmouseover="this.style.background='#1d4ed8'; this.style.transform='scale(1.05)'" onmouseout="this.style.background='#2563eb'; this.style.transform='scale(1)'">
-                    🛒 Comprar iPhone 17 Pro
-                </button>
+                    <input type="hidden" name="produto_id" value="125">
+                    <input type="hidden" name="quantidade" value="1">
+                    <button type="submit" id="btn-comprar-iphone17pro" style="background: #2563eb; color: white; padding: 1rem 3rem; border-radius: 2rem; font-size: 1.5rem; font-weight: 600; border: none; cursor: pointer; transition: all 0.3s;" onmouseover="this.style.background='#1d4ed8'; this.style.transform='scale(1.05)'" onmouseout="this.style.background='#2563eb'; this.style.transform='scale(1)'">
+                        🛒 Comprar iPhone 17 Pro
+                    </button>
             </form>
         @else
             <a href="/Login" style="background: #dc2626; color: white; padding: 1rem 3rem; border-radius: 2rem; font-size: 1.5rem; font-weight: 600; text-decoration: none; display: inline-block; transition: all 0.3s;" onmouseover="this.style.background='#b91c1c'; this.style.transform='scale(1.05)'" onmouseout="this.style.background='#dc2626'; this.style.transform='scale(1)'">

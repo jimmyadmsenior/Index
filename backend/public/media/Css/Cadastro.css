@@ -276,17 +276,14 @@ nav ul.menu li a:hover {
   color: #181818;
   border-color: #ffd700;
 }
-.theme-toggle {
   display: flex;
   align-items: center;
   margin-left: 12px;
   cursor: pointer;
   position: relative;
 }
-.theme-toggle input[type="checkbox"] {
   display: none;
 }
-.theme-toggle .slider {
   display: flex;
   align-items: center;
   background: #232323;
@@ -297,22 +294,17 @@ nav ul.menu li a:hover {
   font-size: 1.1rem;
   gap: 6px;
 }
-.theme-toggle .sun {
   color: #ffd700;
   transition: color 0.2s;
 }
-.theme-toggle .moon {
   color: #fff;
   transition: color 0.2s;
 }
-.theme-toggle input[type="checkbox"]:checked + .slider {
   background: #181818;
   border-color: #ffd700;
 }
-.theme-toggle input[type="checkbox"]:checked + .slider .moon {
   color: #ffd700;
 }
-.theme-toggle input[type="checkbox"]:checked + .slider .sun {
   color: #fff;
 }
 

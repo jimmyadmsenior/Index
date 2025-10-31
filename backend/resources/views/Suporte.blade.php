@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="/media/Css/Suporte.css" />
   <link rel="stylesheet" href="/media/Cursor/EfeitoCursor/dist/style.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.15.0/TweenMax.min.js"></script>
+
   <script src="/media/Cursor/EfeitoCursor/src/script.js" defer></script>
   <style>
     #cursor-blur-boxes .box {
@@ -32,11 +32,11 @@
       cursor: none;
       transition: box-shadow 0.2s, border 0.2s;
     }
-    html[data-theme="light"] #cursor-blur-boxes .box {
+    html[] #cursor-blur-boxes .box {
       background: rgba(255, 255, 255, 0.9);
       border: 2px solid #000;
     }
-    html[data-theme="dark"] #cursor-blur-boxes .box {
+    html[] #cursor-blur-boxes .box {
       background: rgba(0, 0, 0, 0.9);
       border: 2px solid #fff;
     }

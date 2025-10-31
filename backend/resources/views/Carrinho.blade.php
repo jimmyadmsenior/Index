@@ -10,11 +10,14 @@
     <h1 class="carrinho-title">Meu Carrinho</h1>
     
     <!-- Mensagens de sucesso/erro -->
-    @if(session('success'))
-      <div class="alert alert-success">
-        {{ session('success') }}
-      </div>
-    @endif
+    <!-- Mensagem de sucesso movida para o final da página -->
+  <!-- ...existing code... -->
+
+@if(session('success'))
+  <div class="alert alert-success" style="position:fixed;bottom:24px;left:50%;transform:translateX(-50%);z-index:9999;min-width:280px;max-width:90vw;text-align:center;box-shadow:0 2px 12px #22c55e33;">
+    {{ session('success') }}
+  </div>
+@endif
     
     @if(session('error'))
       <div class="alert alert-error">

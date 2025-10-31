@@ -51,8 +51,8 @@ section {
 }
 @media (max-width: 700px) {
   body {
-   
-  main.main-homepage {
+
+main.main-homepage {
     min-height: calc(100vh - 120px);
   }
 }
@@ -68,25 +68,9 @@ section {
 }
 
 /* Tema claro para navbar/menu */
-[data-theme="light"] nav ul.menu li a {
   color: #222 !important;
   text-shadow: none !important;
 }
-[data-theme="light"] nav ul.menu li a:hover,
-[data-theme="light"] nav ul.menu li a:focus,
-[data-theme="light"] nav ul.menu li a:active,
-[data-theme="light"] .navbar-btn:hover,
-[data-theme="light"] .navbar-btn:focus,
-[data-theme="light"] .navbar-btn:active,
-[data-theme="light"] .navbar-btn-login:hover,
-[data-theme="light"] .navbar-btn-login:focus,
-[data-theme="light"] .navbar-btn-login:active,
-[data-theme="light"] .navbar-btn-cadastro:hover,
-[data-theme="light"] .navbar-btn-cadastro:focus,
-[data-theme="light"] .navbar-btn-cadastro:active,
-[data-theme="light"] .navbar-btn-perfil:hover,
-[data-theme="light"] .navbar-btn-perfil:focus,
-[data-theme="light"] .navbar-btn-perfil:active {
   background: #111 !important;
   color: #fff !important;
   text-decoration: none !important;
@@ -97,31 +81,24 @@ section {
   transition: none !important;
 }
 /* Tema escuro para navbar/menu */
-[data-theme="dark"] nav ul.menu li a {
   color: #fff !important;
 }
-[data-theme="dark"] nav ul.menu li a:hover,
-[data-theme="dark"] header nav ul.menu li a:hover {
   color: #ffd700 !important;
   background: #222 !important;
   border-radius: 6px;
 }
 /* Ajuste para header no tema claro */
-[data-theme="light"] header {
   background: rgba(255,255,255,0.95) !important;
   box-shadow: 0 2px 12px 0 rgba(0,0,0,0.08) !important;
   border-bottom: 1px solid #e0e0e0 !important;
 }
-[data-theme="light"] .header-content {
   background: transparent !important;
 }
 /* Ajuste para header no tema escuro */
-[data-theme="dark"] header {
   background: #181818 !important;
   box-shadow: 0 2px 12px 0 rgba(0,0,0,0.18) !important;
   border-bottom: 1px solid #222 !important;
 }
-[data-theme="dark"] .header-content {
   background: transparent !important;
 }
 .header-content {
@@ -147,7 +124,6 @@ nav ul.menu li a {
   text-decoration: none;
   transition: color 0.3s;
 }
-[data-theme="dark"] nav ul.menu li a {
   color: #fff !important;
 }
 nav ul.menu li a:hover {
@@ -174,18 +150,15 @@ nav ul.menu li a:hover {
 }
 
 /* Garante que o toggle de tema sempre apareça na navbar */
-.icons .theme-toggle {
   display: inline-block !important;
   margin-left: 12px;
 }
 
-.icons label.theme-toggle {
-  background: none;
+background: none;
   box-shadow: none;
 }
 
-.icons .theme-toggle input[type="checkbox"] {
-  display: inline-block !important;
+display: inline-block !important;
 }
 
 /* Corrige o efeito de "desaparecimento" da navbar ao passar o mouse */
@@ -199,7 +172,6 @@ header:hover, .header-content:hover, nav:hover, nav ul.menu:hover, nav ul.menu l
 nav ul.menu li a {
   color: #222 !important;
 }
-[data-theme="dark"] nav ul.menu li a {
   color: #fff !important;
 }
 nav ul.menu li a:hover {
@@ -213,7 +185,6 @@ header, header:hover, .header-content, .header-content:hover {
   box-shadow: 0 2px 12px 0 rgba(0,0,0,0.08) !important;
   border-bottom: 1px solid #e0e0e0 !important;
 }
-[data-theme="dark"] header, [data-theme="dark"] header:hover, [data-theme="dark"] .header-content, [data-theme="dark"] .header-content:hover {
   background: #181818 !important;
   box-shadow: 0 2px 12px 0 rgba(0,0,0,0.18) !important;
   border-bottom: 1px solid #222 !important;
@@ -246,17 +217,6 @@ nav ul.menu li a:active, .navbar-btn:active {
 nav ul.menu li a:visited {
   color: #fff !important;
 }
-[data-theme="dark"] header, [data-theme="light"] header,
-[data-theme="dark"] .header-content, [data-theme="light"] .header-content,
-[data-theme="dark"] nav, [data-theme="light"] nav,
-[data-theme="dark"] nav ul.menu, [data-theme="light"] nav ul.menu,
-[data-theme="dark"] nav ul.menu li, [data-theme="light"] nav ul.menu li,
-[data-theme="dark"] nav ul.menu li a, [data-theme="light"] nav ul.menu li a,
-[data-theme="dark"] .icons, [data-theme="light"] .icons,
-[data-theme="dark"] .navbar-btn, [data-theme="light"] .navbar-btn,
-[data-theme="dark"] .navbar-btn-login, [data-theme="light"] .navbar-btn-login,
-[data-theme="dark"] .navbar-btn-cadastro, [data-theme="light"] .navbar-btn-cadastro,
-[data-theme="dark"] .navbar-btn-perfil, [data-theme="light"] .navbar-btn-perfil {
   background: #111 !important;
   color: #fff !important;
 }
@@ -266,14 +226,6 @@ nav ul.menu li a:visited {
 }
 
 /* REMOVE QUALQUER EFEITO DE HOVER DA NAVBAR EM QUALQUER TEMA */
-[data-theme="light"] nav ul.menu li a,
-[data-theme="light"] nav ul.menu li a:hover,
-[data-theme="light"] nav ul.menu li a:focus,
-[data-theme="light"] nav ul.menu li a:active,
-[data-theme="dark"] nav ul.menu li a,
-[data-theme="dark"] nav ul.menu li a:hover,
-[data-theme="dark"] nav ul.menu li a:focus,
-[data-theme="dark"] nav ul.menu li a:active,
 nav ul.menu li a,
 nav ul.menu li a:hover,
 nav ul.menu li a:focus,
@@ -321,21 +273,6 @@ nav ul.menu li a:hover, nav ul.menu li a:focus, nav ul.menu li a:active,
   transition: none !important;
   border-radius: 0 !important;
 }
-[data-theme="light"] nav ul.menu li a:hover,
-[data-theme="light"] nav ul.menu li a:focus,
-[data-theme="light"] nav ul.menu li a:active,
-[data-theme="light"] .navbar-btn:hover,
-[data-theme="light"] .navbar-btn:focus,
-[data-theme="light"] .navbar-btn:active,
-[data-theme="light"] .navbar-btn-login:hover,
-[data-theme="light"] .navbar-btn-login:focus,
-[data-theme="light"] .navbar-btn-login:active,
-[data-theme="light"] .navbar-btn-cadastro:hover,
-[data-theme="light"] .navbar-btn-cadastro:focus,
-[data-theme="light"] .navbar-btn-cadastro:active,
-[data-theme="light"] .navbar-btn-perfil:hover,
-[data-theme="light"] .navbar-btn-perfil:focus,
-[data-theme="light"] .navbar-btn-perfil:active {
   background: #111 !important;
   color: #fff !important;
   text-decoration: none !important;
@@ -346,21 +283,6 @@ nav ul.menu li a:hover, nav ul.menu li a:focus, nav ul.menu li a:active,
   transition: none !important;
   border-radius: 0 !important;
 }
-[data-theme="dark"] nav ul.menu li a:hover,
-[data-theme="dark"] nav ul.menu li a:focus,
-[data-theme="dark"] nav ul.menu li a:active,
-[data-theme="dark"] .navbar-btn:hover,
-[data-theme="dark"] .navbar-btn:focus,
-[data-theme="dark"] .navbar-btn:active,
-[data-theme="dark"] .navbar-btn-login:hover,
-[data-theme="dark"] .navbar-btn-login:focus,
-[data-theme="dark"] .navbar-btn-login:active,
-[data-theme="dark"] .navbar-btn-cadastro:hover,
-[data-theme="dark"] .navbar-btn-cadastro:focus,
-[data-theme="dark"] .navbar-btn-cadastro:active,
-[data-theme="dark"] .navbar-btn-perfil:hover,
-[data-theme="dark"] .navbar-btn-perfil:focus,
-[data-theme="dark"] .navbar-btn-perfil:active {
   background: #111 !important;
   color: #fff !important;
   text-decoration: none !important;
@@ -373,30 +295,10 @@ nav ul.menu li a:hover, nav ul.menu li a:focus, nav ul.menu li a:active,
 }
 
 /* REMOVE TODAS AS REGRAS DE COR DA NAVBAR NO LIGHT MODE E FORÇA SEMPRE BRANCO */
-[data-theme="light"] nav ul.menu li a,
-[data-theme="light"] .navbar-btn,
-[data-theme="light"] .navbar-btn-login,
-[data-theme="light"] .navbar-btn-cadastro,
-[data-theme="light"] .navbar-btn-perfil {
   color: #fff !important;
   background: #111 !important;
   text-shadow: none !important;
 }
-[data-theme="light"] nav ul.menu li a:hover,
-[data-theme="light"] nav ul.menu li a:focus,
-[data-theme="light"] nav ul.menu li a:active,
-[data-theme="light"] .navbar-btn:hover,
-[data-theme="light"] .navbar-btn:focus,
-[data-theme="light"] .navbar-btn:active,
-[data-theme="light"] .navbar-btn-login:hover,
-[data-theme="light"] .navbar-btn-login:focus,
-[data-theme="light"] .navbar-btn-login:active,
-[data-theme="light"] .navbar-btn-cadastro:hover,
-[data-theme="light"] .navbar-btn-cadastro:focus,
-[data-theme="light"] .navbar-btn-cadastro:active,
-[data-theme="light"] .navbar-btn-perfil:hover,
-[data-theme="light"] .navbar-btn-perfil:focus,
-[data-theme="light"] .navbar-btn-perfil:active {
   color: #fff !important;
   background: #111 !important;
   text-decoration: none !important;
@@ -406,3 +308,4 @@ nav ul.menu li a:hover, nav ul.menu li a:focus, nav ul.menu li a:active,
   filter: none !important;
   transition: none !important;
 }
+

@@ -271,4 +271,4 @@ const observer = new MutationObserver(() => {
   // (CSS já cobre, mas pode forçar repaint se necessário)
   chatbotWindow.style.background = '';
 });
-observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+// Theme observer removed

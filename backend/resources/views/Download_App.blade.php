@@ -3,7 +3,7 @@
 @endsection
 @section('content')
 <!DOCTYPE html>
-<html lang="pt-br" data-theme="light">
+<html lang="pt-br">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -72,30 +72,7 @@
     document.addEventListener('DOMContentLoaded', function() {
       // Verificar se há uma preferência de tema salva no localStorage
       const savedTheme = localStorage.getItem('theme') || 'light';
-      document.documentElement.setAttribute('data-theme', savedTheme);
-      
-      // Definir o estado inicial do checkbox com base no tema atual
-      document.getElementById('theme-toggle').checked = savedTheme === 'dark';
-      
-      // Adicionar evento de mudança ao toggle
-      document.getElementById('theme-toggle').addEventListener('change', function(e) {
-        if(e.target.checked) {
-          // Mudar para o tema escuro
-          document.documentElement.setAttribute('data-theme', 'dark');
-          localStorage.setItem('theme', 'dark');
-          
-          // Animação suave para a transição do tema
-          document.body.classList.add('theme-transition');
-          setTimeout(() => {
-            document.body.classList.remove('theme-transition');
-          }, 1000);
-        } else {
-          // Mudar para o tema claro
-          document.documentElement.setAttribute('data-theme', 'light');
-          localStorage.setItem('theme', 'light');
-          
-          // Animação suave para a transição do tema
-          document.body.classList.add('theme-transition');
+      // Theme functionality removed
           setTimeout(() => {
             document.body.classList.remove('theme-transition');
           }, 1000);
