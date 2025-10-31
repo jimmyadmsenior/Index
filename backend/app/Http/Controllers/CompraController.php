@@ -20,34 +20,10 @@ class CompraController extends Controller
         $this->pedidoService = $pedidoService;
     }
 
-    public function finalizar(CompraRequest $request)
+    public function finalizar(Request $request)
     {
-        $user = Auth::user();
-
-        // Debug: Log dos dados recebidos
-        \Log::info('CompraController finalizar - Dados validados:', $request->validated());
-
-        try {
-            // Cria o pedido usando o service
-            $pedido = $this->pedidoService->criarPedido($request->validated());
-
-            // Envia e-mail de confirmação
-            Mail::to($user->email)->send(new CompraFinalizadaMail($user, $pedido));
-
-            return redirect()->route('compra.finalizada', ['codigo' => $pedido->codigo_rastreamento])
-                ->with('success', 'Compra realizada com sucesso!');
-
-        } catch (\Exception $e) {
-            \Log::error('Erro ao processar compra:', [
-                'user_id' => $user->id,
-                'error' => $e->getMessage(),
-                'trace' => $e->getTraceAsString()
-            ]);
-
-            return redirect()->back()
-                ->with('error', 'Erro ao processar sua compra. Tente novamente.')
-                ->withInput();
-        }
+        // Usar o método legado mais estável por enquanto
+        return $this->finalizarLegado($request);
     }
 
     // Método mantido para compatibilidade
@@ -151,11 +127,10 @@ class CompraController extends Controller
                 return redirect()->route('carrinho.index')->with('error', 'Erro ao processar pedido. Tente novamente.');
             }
             
-            // Envia e-mail (desabilitado temporariamente por problemas de rede)
+            // Envia e-mail de confirmação
             try {
-                // TEMPORÁRIO: Comentado devido a bloqueio de porta SMTP
-                // Mail::to($user->email)->send(new CompraFinalizadaMail($produto, $codigoRastreamento));
-                \Log::info('Email seria enviado para: ' . $user->email . ' - Código: ' . $codigoRastreamento);
+                Mail::to($user->email)->send(new CompraFinalizadaMail($pedido, $codigoRastreamento));
+                \Log::info('Email enviado com sucesso para: ' . $user->email . ' - Código: ' . $codigoRastreamento);
             } catch (\Exception $e) {
                 \Log::error('Erro ao enviar email (não crítico):', ['error' => $e->getMessage()]);
                 // Continua mesmo se o email falhar - pedido já foi salvo
@@ -204,11 +179,10 @@ class CompraController extends Controller
                 return redirect()->route('produtos.index')->with('error', 'Erro ao processar pedido. Tente novamente.');
             }
 
-            // Envia o e-mail (desabilitado temporariamente por problemas de rede)
+            // Envia o e-mail de confirmação
             try {
-                // TEMPORÁRIO: Comentado devido a bloqueio de porta SMTP
-                // Mail::to($user->email)->send(new CompraFinalizadaMail($produto, $codigoRastreamento));
-                \Log::info('Email seria enviado para: ' . $user->email . ' - Código: ' . $codigoRastreamento);
+                Mail::to($user->email)->send(new CompraFinalizadaMail($pedido, $codigoRastreamento));
+                \Log::info('Email enviado com sucesso para: ' . $user->email . ' - Código: ' . $codigoRastreamento);
             } catch (\Exception $e) {
                 \Log::error('Erro ao enviar email individual (não crítico):', ['error' => $e->getMessage()]);
                 // Continua mesmo se o email falhar - pedido já foi salvo
@@ -218,9 +192,7 @@ class CompraController extends Controller
         // Redireciona para a página de compra finalizada
         \Log::info('CompraController finalizar - Redirecionando para compra finalizada');
         
-        // Passa o código de rastreamento via sessão para mostrar na tela
-        session(['codigo_rastreamento' => $codigoRastreamento, 'email_usuario' => $user->email]);
-        
-        return redirect()->route('compra.finalizada.view');
+        return redirect()->route('compra.finalizada', ['codigo' => $codigoRastreamento])
+                ->with('success', 'Compra realizada com sucesso!');
     }
 }
