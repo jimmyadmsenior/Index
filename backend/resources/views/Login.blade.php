@@ -55,17 +55,12 @@
   <script>
     // Mudança de tema apenas na área do formulário (lado esquerdo)
     document.addEventListener('DOMContentLoaded', function() {
-      const themeToggle = document.getElementById('theme-toggle');
+      
       const loginLeft = document.querySelector('.login-left');
       // Salva o tema apenas para o formulário
       let savedTheme = localStorage.getItem('loginFormTheme') || 'light';
       if(loginLeft) loginLeft.setAttribute('data-theme', savedTheme);
-      if(themeToggle) themeToggle.checked = savedTheme === 'dark';
-      if(themeToggle) themeToggle.addEventListener('change', function(e) {
-        if(e.target.checked) {
-          if(loginLeft) loginLeft.setAttribute('data-theme', 'dark');
-          localStorage.setItem('loginFormTheme', 'dark');
-        } else {
+      if(themeToggle) themeToggle.checked =  else {
           if(loginLeft) loginLeft.setAttribute('data-theme', 'light');
           localStorage.setItem('loginFormTheme', 'light');
         }
@@ -100,76 +95,76 @@
       background: transparent !important;
     }
     /* Tema claro/escuro apenas na área do formulário */
-    .login-left[data-theme="dark"] {
+    .login-left[] {
       background: #232323 !important;
       color: #fff !important;
     }
-    .login-left[data-theme="dark"] .form-input,
-    .login-left[data-theme="dark"] input,
-    .login-left[data-theme="dark"] textarea {
+    .login-left[] .form-input,
+    .login-left[] input,
+    .login-left[] textarea {
       background: #181818 !important;
       color: #fff !important;
       border-color: #444 !important;
     }
-    .login-left[data-theme="dark"] label,
-    .login-left[data-theme="dark"] .form-label,
-    .login-left[data-theme="dark"] a {
+    .login-left[] label,
+    .login-left[] .form-label,
+    .login-left[] a {
       color: #fff !important;
     }
-    .login-left[data-theme="light"] {
+    .login-left[] {
       background: #fff !important;
       color: #232323 !important;
     }
-    .login-left[data-theme="light"] .form-input,
-    .login-left[data-theme="light"] input,
-    .login-left[data-theme="light"] textarea {
+    .login-left[] .form-input,
+    .login-left[] input,
+    .login-left[] textarea {
       background: #181818 !important;
       color: #fff !important;
       border-color: #444 !important;
       box-shadow: none !important;
     }
-    .login-left[data-theme="light"] label,
-    .login-left[data-theme="light"] .form-label,
-    .login-left[data-theme="light"] a,
-    .login-left[data-theme="light"] h1,
-    .login-left[data-theme="light"] h2,
-    .login-left[data-theme="light"] p,
-    .login-left[data-theme="light"] .register-link,
-    .login-left[data-theme="light"] .form-options,
-    .login-left[data-theme="light"] .lembrar-label,
-    .login-left[data-theme="light"] .esqueci-senha-link {
+    .login-left[] label,
+    .login-left[] .form-label,
+    .login-left[] a,
+    .login-left[] h1,
+    .login-left[] h2,
+    .login-left[] p,
+    .login-left[] .register-link,
+    .login-left[] .form-options,
+    .login-left[] .lembrar-label,
+    .login-left[] .esqueci-senha-link {
       color: #232323 !important;
     }
-    .login-left[data-theme="light"] .login-btn {
+    .login-left[] .login-btn {
       background: #232323 !important;
       color: #fff !important;
       border: none;
     }
-    .login-left[data-theme="light"] .login-btn:hover {
+    .login-left[] .login-btn:hover {
       background: #444 !important;
     }
-    .login-left[data-theme="dark"] .login-btn {
+    .login-left[] .login-btn {
       background: #fff !important;
       color: #232323 !important;
       border: none;
     }
-    .login-left[data-theme="dark"] .login-btn:hover {
+    .login-left[] .login-btn:hover {
       background: #e0e0e0 !important;
     }
     /* Botão de alternância de tema */
     .theme-toggle input[type="checkbox"] {
       accent-color: #232323;
     }
-    .login-left[data-theme="light"] h1 img {
+    .login-left[] h1 img {
       filter: invert(1) brightness(0.2) !important;
     }
-    .login-left[data-theme="dark"] h1 img {
+    .login-left[] h1 img {
       filter: none !important;
     }
-    .login-left[data-theme="light"] .toggle-password i {
+    .login-left[] .toggle-password i {
       color: #fff !important;
     }
-    .login-left[data-theme="dark"] .toggle-password i {
+    .login-left[] .toggle-password i {
       color: #fff !important;
     }
     .toggle-password {
@@ -187,3 +182,4 @@
 </body>
 </html>
 @endsection
+

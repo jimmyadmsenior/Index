@@ -1,5 +1,4 @@
 /* Estilo para o ícone do carrinho no tema escuro */
-[data-theme="dark"] .cart-icon img {
   font-family: 'Geoform'; /* Define a fonte Geoform */
   src: url('Geoform-Regular.ttf') format('truetype'); /* Caminho para a fonte */
 }
@@ -30,7 +29,6 @@ html, body {
 }
 
 /* Variáveis de tema escuro */
-[data-theme="dark"] {
   --bg-color: #121212; /* Cor de fundo */
   --text-color: #f0f0f0; /* Cor do texto */
   --header-bg: #1a1a1a; /* Cor de fundo do cabeçalho */
@@ -106,7 +104,6 @@ body {
 }
 
 /* Estilo do ícone do carrinho no tema escuro */
-[data-theme="dark"] .cart-icon {
   content: url('/media/carrinho_branco.png'); /* Caminho correto para o ícone branco */
 }
 
@@ -117,7 +114,6 @@ body {
 }
 
 /* Estilo do ícone do carrinho no tema escuro */
-[data-theme="dark"] .cart-icon img {
   content: url('../VIew/Media/cart-icon-white.png'); /* Caminho para o ícone branco */
 }
 
@@ -269,7 +265,6 @@ footer a {
 }
 
 /* Estilo do ícone do GitHub no tema escuro */
-[data-theme="dark"] .github-icon {
   background-image: url('../VIew/Media/Github_Logo_Branca.png'); /* Caminho para o ícone branco */
 }
 
@@ -364,7 +359,6 @@ nav ul.menu li a:hover {
 }
 
 /* Estilo do toggle de tema */
-.theme-toggle {
   position: relative; /* Posição relativa */
   display: inline-block; /* Exibe como bloco inline */
   width: 50px; /* Largura */
@@ -374,7 +368,6 @@ nav ul.menu li a:hover {
 }
 
 /* Estilo do input do toggle */
-.theme-toggle input {
   opacity: 0; /* Torna invisível */
   width: 0; /* Largura zero */
   height: 0; /* Altura zero */
@@ -431,6 +424,5 @@ slider .sun, .slider .moon {
 }
 
 /* Estilo para o texto do parágrafo na seção de carrinho vazio no tema escuro */
-[data-theme="dark"] .cart-empty-description {
   color: #e0e0e0;
 }
