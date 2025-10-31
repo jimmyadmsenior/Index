@@ -58,15 +58,12 @@ body {
     color: #fff !important;
 }
 
-[data-theme="dark"] .chatbox__support {
     background: #fff !important;
     background-color: #fff !important;
     color: #222 !important;
     border: 2px solid #9C1DE7;
 }
 
-[data-theme="dark"] .chatbox__support,
-[data-theme="dark"] .chatbox__support * {
     background: #fff !important;
     background-color: #fff !important;
     color: #222 !important;
@@ -126,10 +123,8 @@ body {
     transition: filter 0.3s;
 }
 
-[data-theme="dark"] .chatbox__button button {
     background: #fff;
 }
-[data-theme="dark"] .chatbox__button button img {
     filter: brightness(1) invert(1);
 }
 
@@ -151,12 +146,10 @@ body {
     background: transparent !important;
 }
 
-[data-theme="dark"] .chatbox__header {
     background: transparent !important;
     color: #222 !important;
 }
 
-[data-theme="dark"] .chatbox__header {
     background: transparent !important;
 }
 
@@ -185,11 +178,9 @@ body {
     display: block;
 }
 
-[data-theme="dark"] .chatbox__image--header {
     background: transparent;
 }
 
-[data-theme="dark"] .chatbox__image--header img {
     filter: brightness(1) invert(1); /* Ícone branco também no dark */
 }
 
@@ -206,8 +197,6 @@ body {
     margin-bottom: 0;
 }
 
-[data-theme="dark"] .chatbox__heading--header,
-[data-theme="dark"] .chatbox__description--header {
     color: #581B98;
 }
 
@@ -243,11 +232,9 @@ body {
     color: #fff !important; /* Garante texto branco */
 }
 
-[data-theme="dark"] .messages__item--operator {
     color: #fff !important; /* Garante texto branco no modo escuro */
 }
 
-[data-theme="dark"] .messages__item {
     color: #222 !important; /* Garante texto escuro no modo escuro */
 }
 
@@ -266,7 +253,6 @@ body {
     margin-top: 0;
 }
 
-[data-theme="dark"] .chatbox__footer {
     background: var(--primaryGradient) !important;
 }
 
@@ -281,7 +267,6 @@ body {
     color: #222 !important;
 }
 
-[data-theme="dark"] .chatbox__footer input {
     background: #eee !important;
     color: #222 !important;
 }
@@ -322,6 +307,5 @@ body {
     background: var(--primary);
     color: #fff !important;
 }
-[data-theme="dark"] .messages__item--operator {
     color: #fff !important;
 }
