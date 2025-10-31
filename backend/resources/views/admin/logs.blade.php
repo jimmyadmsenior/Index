@@ -232,8 +232,8 @@ function limparLogs() {
 }
 
 function exportarLogs() {
-    // Implementar exportação de logs
-    alert('Gerando relatório de logs...');
+    // Redireciona para a rota que gera o CSV
+    window.location.href = '/admin/logs/export-csv';
 }
 
 function configurarAlertas() {

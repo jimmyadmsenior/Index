@@ -342,6 +342,8 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('/usuarios', [App\Http\Controllers\AdminController::class, 'usuarios'])->name('usuarios');
         Route::get('/produtos', [App\Http\Controllers\AdminController::class, 'produtos'])->name('produtos');
         Route::get('/logs', [App\Http\Controllers\AdminController::class, 'logs'])->name('logs');
+        // Exportar relatório de logs em CSV
+        Route::get('/logs/export-csv', [App\Http\Controllers\LogController::class, 'exportCsv'])->name('admin.logs.exportCsv');
     });
 });
 
