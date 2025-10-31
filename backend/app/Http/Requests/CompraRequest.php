@@ -15,7 +15,19 @@ class CompraRequest extends FormRequest
     {
         $rules = [
             'tipo_compra' => 'required|in:produto,carrinho',
+            'metodo_pagamento' => 'nullable|in:pix,credito,debito',
         ];
+
+        // Para compra de produto individual
+        if ($this->tipo_compra === 'produto') {
+            $rules['produto_id'] = 'required|exists:produtos,id';
+        }
+
+        // Para compra do carrinho
+        if ($this->tipo_compra === 'carrinho') {
+            $rules['total'] = 'required|numeric|min:0';
+            $rules['produtos'] = 'required|array|min:1';
+        }
 
         // Validações específicas por método de pagamento
         if ($this->metodo_pagamento === 'credito' || $this->metodo_pagamento === 'debito') {

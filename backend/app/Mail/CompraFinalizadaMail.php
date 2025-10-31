@@ -13,15 +13,15 @@ class CompraFinalizadaMail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $produto;
+    public $pedido;
     public $codigoRastreamento;
 
     /**
      * Create a new message instance.
      */
-    public function __construct($produto, $codigoRastreamento)
+    public function __construct($pedido, $codigoRastreamento)
     {
-        $this->produto = $produto;
+        $this->pedido = $pedido;
         $this->codigoRastreamento = $codigoRastreamento;
     }
 

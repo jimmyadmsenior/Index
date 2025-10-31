@@ -214,6 +214,10 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/compra-finalizada', function() {
         return view('Compra_Finalizada');
     })->name('compra.finalizada.view');
+    
+    Route::get('/compra-finalizada/{codigo}', function($codigo) {
+        return view('Compra_Finalizada', compact('codigo'));
+    })->name('compra.finalizada');
 });
 
 Route::post('/login', function(Request $request) {
