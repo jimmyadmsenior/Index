@@ -150,7 +150,7 @@ class CarrinhoController extends Controller
     public function limpar()
     {
         session()->forget('carrinho');
-        return redirect()->route('carrinho.index')->with('success', 'Carrinho limpo!');
+        return redirect()->route('carrinho.index');
     }
 
     public function continuarComprando(Request $request)

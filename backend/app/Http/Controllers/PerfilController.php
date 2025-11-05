@@ -78,6 +78,19 @@ class PerfilController extends Controller
         return view('Perfil_Pedidos', compact('user', 'pedidos'));
     }
 
+    public function updateTelefone(Request $request)
+    {
+        $request->validate([
+            'telefone' => 'nullable|string|max:15',
+        ]);
+        
+        $user = Auth::user();
+        $user->telefone = $request->telefone;
+        $user->save();
+        
+        return back()->with('success', 'WhatsApp atualizado com sucesso!');
+    }
+
     public function rastrearPedido($codigo)
     {
         $user = Auth::user();

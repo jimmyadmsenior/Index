@@ -14,14 +14,14 @@
         </ul>
       </nav>
       <div class="navbar-actions" style="display:flex;align-items:center;gap:18px;justify-self:end;padding-left:56px;">
-        <a href="/carrinho" class="navbar-btn navbar-btn-sacola" title="Carrinho" style="color:#fff;background:#111;border:none;font-size:1.5rem;display:flex;align-items:center;justify-content:center;position:relative;">
-          <i class="fas fa-shopping-cart"></i>
+        <a href="/carrinho" class="navbar-btn navbar-btn-sacola" title="Carrinho" style="color:#fff;background:#111;border:none;font-size:1.5rem;display:flex;align-items:center;justify-content:center;position:relative;padding:8px;text-decoration:none;">
+          <i class="fas fa-shopping-cart" style="font-size:1.5rem;color:#fff;"></i>
           @php
             $carrinho = session()->get('carrinho', []);
             $cart_count = array_sum(array_column($carrinho, 'quantidade'));
           @endphp
           @if($cart_count > 0)
-            <span class="cart-count" style="position:absolute;top:-8px;right:-8px;background:#ff4757;color:#fff;border-radius:50%;width:20px;height:20px;font-size:0.75rem;display:flex;align-items:center;justify-content:center;font-weight:bold;min-width:20px;">{{ $cart_count }}</span>
+            <span class="cart-count" style="position:absolute;top:-2px;right:-2px;background:#ff4757;color:#fff;border-radius:50%;width:22px;height:22px;font-size:0.75rem;display:flex;align-items:center;justify-content:center;font-weight:bold;min-width:22px;font-family:'Geoform',Arial,sans-serif;">{{ $cart_count }}</span>
           @endif
         </a>
         @auth
