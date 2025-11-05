@@ -20,7 +20,19 @@
         <div class="perfil-info">
             <p><strong>Nome:</strong> {{ $user->name }}</p>
             <p><strong>E-mail:</strong> {{ $user->email }}</p>
+            <p><strong>WhatsApp:</strong> {{ $user->telefone ?? 'Não cadastrado' }}</p>
         </div>
+        
+        <form action="{{ route('perfil.updateTelefone') }}" method="POST" class="perfil-telefone-form">
+            @csrf
+            <h2>{{ $user->telefone ? 'Atualizar WhatsApp' : 'Cadastrar WhatsApp' }}</h2>
+            <p style="color: #ccc; margin-bottom: 10px; font-size: 0.9rem;">
+                Cadastre seu WhatsApp para receber notificações de compras finalizadas
+            </p>
+            <input type="tel" name="telefone" placeholder="(11) 99999-9999" 
+                   value="{{ $user->telefone }}" required>
+            <button type="submit">{{ $user->telefone ? 'Atualizar WhatsApp' : 'Cadastrar WhatsApp' }}</button>
+        </form>
         <form action="{{ route('perfil.updateSenha') }}" method="POST" class="perfil-senha-form">
             @csrf
             <h2>Alterar Senha</h2>

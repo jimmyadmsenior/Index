@@ -529,7 +529,7 @@ nav, .navbar, header {
     {{-- Hero Section --}}
     <section class="hero-section">
         <!-- Imagem do banner principal (hero) -->
-        <img src="{{ asset('media/Apple Watch Series 8.png') }}" alt="Apple Watch" class="hero-img" />
+        <img src="{{ asset('media/varios apples.jpg') }}" alt="iPhone 17 Pro" class="hero-img" />
         <div class="hero-overlay"></div>
         <div class="arrow-down">↓</div>
     </section>
@@ -615,7 +615,7 @@ nav, .navbar, header {
         <!-- Video Section: Substitua 'media/video-relogio.mp4' pelo caminho do seu vídeo -->
         <div style="width:50vw;max-width:50vw;display:flex;justify-content:center;align-items:center;margin:0 auto;padding:0;">
             <video
-                src="{{ asset('media/Video Galaxy Book.mp4') }}"
+                src="{{ asset('media/relogio.mp4') }}"
                 style="width:50vw;height:32vh;object-fit:contain;display:block;background:#000;border-radius:1.2rem;box-shadow:0 12px 32px -8px rgba(0,0,0,0.28);margin:0 auto;" /* Sombra sutil para relevo, ajuste box-shadow para mais/menos efeito */
                 autoplay
                 loop
@@ -638,14 +638,14 @@ nav, .navbar, header {
             <div class="highlights-grid">
                 <div class="highlight-card animate-slide-in-left animate-delay-300">
                     <!-- Imagens dos destaques -->
-                        <img src="{{ asset('media/Watch_Series8.png') }}" alt="apple-watch" class="highlight-img" style="width:100%;max-width:650px;height:400px;object-fit:contain;display:block;margin:0 auto;border-radius:2rem;" />
+                        <img src="{{ asset('media/apple.jpg') }}" alt="titanium-design" class="highlight-img" style="width:100%;max-width:650px;height:400px;object-fit:contain;display:block;margin:0 auto;border-radius:2rem;" />
                     <h3 class="highlight-card-title">Titânio Premium</h3>
                     <p class="highlight-card-desc">
                         Estrutura em titânio do grau aeroespacial. O smartWhatch mais forte e leve
                     </p>
                 </div>
                 <div class="highlight-card animate-slide-in-left animate-delay-600">
-                        <img src="{{ asset('media/Apple Watch Series 8.png') }}" alt="apple-watch-features" class="highlight-img" style="width:100%;max-width:600px;height:400px;object-fit:contain;display:block;margin:0 auto;border-radius:2rem;" />
+                        <img src="{{ asset('media/apple what series.jpg') }}" alt="ios-features" class="highlight-img" style="width:100%;max-width:600px;height:400px;object-fit:contain;display:block;margin:0 auto;border-radius:2rem;" />
                     <h3 class="highlight-card-title">iOS 19</h3>
                     <p class="highlight-card-desc">
                         Sistema operacional mais avançado do mundo com IA integrada
@@ -678,7 +678,7 @@ nav, .navbar, header {
                     bateria e a durabilidade.
                 </p>
                 <!-- Imagem da estrutura unibody -->
-                <img src="{{ asset('media/titanium-design.jpg') }}" alt="titanium-design" class="unibody-img" />
+                <img src="{{ asset('media/shell-titânio.webp') }}" alt="shell-titânio" class="unibody-img" />
         </div>
         {{-- Colors Section (movida para baixo da unibody) --}}
         <section class="colors-section animate-fade-in-up" style="padding: 5rem 1.5rem; text-align: center;">
@@ -691,20 +691,20 @@ nav, .navbar, header {
                 </p>
                 <div style="position: relative; margin-bottom: 3rem;">
                  <!-- Imagem da cor do iPhone (pode ser trocada pelas opções de cor) -->
-                 <img id="colorPreview" src="{{ asset('media/Watch_Series8.png') }}" alt="Apple Watch" 
+                 <img id="colorPreview" src="{{ asset('media/iphone-orange.jpg') }}" alt="iPhone 17 Pro" 
                      style="width: 100%; max-width: 750px; height: auto; border-radius: 1rem; display: block; margin: 0 auto;" class="animate-zoom-in" />
                     <div style="position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%); background: rgba(0,0,0,0.7); color: #ff6b35; padding: 0.75rem 1.5rem; border-radius: 2rem; font-size: 1.125rem; font-weight: 600;">
                         <span id="colorName">Titânio Laranja</span>
                     </div>
                 </div>
                 <div style="display: flex; justify-content: center; gap: 1rem; margin-bottom: 1rem;">
-            <button class="color-btn active" id="indicator-laranja" data-color="laranja" data-name="Titânio Laranja" data-image="{{ asset('media/Watch_Series8.png') }}" 
+            <button class="color-btn active" id="indicator-laranja" data-color="laranja" data-name="Titânio Laranja" data-image="{{ asset('media/iphone-orange.jpg') }}" 
                 style="width: 3rem; height: 3rem; border-radius: 50%; background: #ff6b35; border: 3px solid #fff; cursor: pointer; transition: all 0.3s; box-shadow: 0 4px 15px rgba(255, 107, 53, 0.4); position: relative;">
             </button>
-            <button class="color-btn" id="indicator-azul" data-color="azul" data-name="Titânio Azul" data-image="{{ asset('media/Apple Watch Series 8.png') }}" 
+            <button class="color-btn" id="indicator-azul" data-color="azul" data-name="Titânio Azul" data-image="{{ asset('media/iphone-blue.jpg') }}" 
                 style="width: 3rem; height: 3rem; border-radius: 50%; background: #3b82f6; border: 3px solid #374151; cursor: pointer; transition: all 0.3s; position: relative;">
             </button>
-            <button class="color-btn" id="indicator-prata" data-color="prata" data-name="Titânio Prata" data-image="{{ asset('media/Watch_Series8.png') }}" 
+            <button class="color-btn" id="indicator-prata" data-color="prata" data-name="Titânio Prata" data-image="{{ asset('media/iphone-silver.jpg') }}" 
                 style="width: 3rem; height: 3rem; border-radius: 50%; background: #e5e7eb; border: 3px solid #374151; cursor: pointer; transition: all 0.3s; position: relative;">
             </button>
                 </div>

@@ -208,6 +208,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/perfil', [App\Http\Controllers\PerfilController::class, 'show'])->name('perfil.show');
     Route::post('/perfil/foto', [App\Http\Controllers\PerfilController::class, 'updateFoto'])->name('perfil.updateFoto');
     Route::post('/perfil/senha', [App\Http\Controllers\PerfilController::class, 'updateSenha'])->name('perfil.updateSenha');
+    Route::post('/perfil/telefone', [App\Http\Controllers\PerfilController::class, 'updateTelefone'])->name('perfil.updateTelefone');
     Route::get('/perfil/pedidos', [App\Http\Controllers\PerfilController::class, 'pedidos'])->name('perfil.pedidos');
     Route::get('/rastrear/{codigo}', [App\Http\Controllers\PerfilController::class, 'rastrearPedido'])->name('pedido.rastrear');
     Route::post('/finalizar-compra', [CompraController::class, 'finalizar'])->name('compra.finalizar');

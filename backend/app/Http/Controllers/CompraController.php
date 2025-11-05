@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Http;
 use App\Mail\CompraFinalizadaMail;
 use App\Models\Produto;
 use App\Models\Pedido;
@@ -18,6 +19,43 @@ class CompraController extends Controller
     public function __construct(PedidoService $pedidoService)
     {
         $this->pedidoService = $pedidoService;
+    }
+
+    /**
+     * Envia notificação via WhatsApp através do n8n (se o usuário tiver telefone cadastrado)
+     */
+    private function enviarWhatsApp($user, $codigoRastreamento, $valorTotal = null)
+    {
+        // Só envia WhatsApp se o usuário tiver telefone cadastrado
+        if (empty($user->telefone)) {
+            \Log::info('WhatsApp não enviado - usuário sem telefone cadastrado: ' . $user->email);
+            return;
+        }
+
+        try {
+            $webhookUrl = 'https://jimmyadmpleno.app.n8n.cloud/webhook/purchase-confirmation';
+            
+            $mensagem = "🛒 *Compra finalizada com sucesso!*\n\n";
+            $mensagem .= "📦 Código de rastreamento: *{$codigoRastreamento}*\n";
+            if ($valorTotal) {
+                $mensagem .= "💰 Valor total: R$ " . number_format($valorTotal, 2, ',', '.') . "\n";
+            }
+            $mensagem .= "\nObrigado por comprar conosco! 😊";
+
+            $response = Http::post($webhookUrl, [
+                'telefone' => $user->telefone,
+                'nome' => $user->name,
+                'mensagem' => $mensagem
+            ]);
+
+            if ($response->successful()) {
+                \Log::info('WhatsApp enviado com sucesso para: ' . $user->telefone . ' - Código: ' . $codigoRastreamento);
+            } else {
+                \Log::warning('Falha ao enviar WhatsApp: ' . $response->body());
+            }
+        } catch (\Exception $e) {
+            \Log::error('Erro ao enviar WhatsApp (não crítico):', ['error' => $e->getMessage()]);
+        }
     }
 
     public function finalizar(Request $request)
@@ -135,6 +173,9 @@ class CompraController extends Controller
                 \Log::error('Erro ao enviar email (não crítico):', ['error' => $e->getMessage()]);
                 // Continua mesmo se o email falhar - pedido já foi salvo
             }
+
+            // Envia WhatsApp se usuário tiver telefone cadastrado
+            $this->enviarWhatsApp($user, $codigoRastreamento, $pedido->total);
             
         } else {
             // Compra de produto individual
@@ -187,6 +228,9 @@ class CompraController extends Controller
                 \Log::error('Erro ao enviar email individual (não crítico):', ['error' => $e->getMessage()]);
                 // Continua mesmo se o email falhar - pedido já foi salvo
             }
+
+            // Envia WhatsApp se usuário tiver telefone cadastrado
+            $this->enviarWhatsApp($user, $codigoRastreamento, $pedido->total);
         }
 
         // Redireciona para a página de compra finalizada

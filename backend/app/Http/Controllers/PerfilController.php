@@ -68,6 +68,23 @@ class PerfilController extends Controller
         return back()->with('success', 'Senha alterada com sucesso!');
     }
 
+    public function updateTelefone(Request $request)
+    {
+        $request->validate([
+            'telefone' => 'required|string|min:10|max:20',
+        ], [
+            'telefone.required' => 'O telefone é obrigatório.',
+            'telefone.min' => 'O telefone deve ter pelo menos 10 dígitos.',
+            'telefone.max' => 'O telefone deve ter no máximo 20 caracteres.',
+        ]);
+        
+        $user = Auth::user();
+        $user->telefone = $request->telefone;
+        $user->save();
+        
+        return back()->with('success', 'Telefone atualizado com sucesso! Agora você receberá notificações via WhatsApp.');
+    }
+
     public function pedidos()
     {
         $user = Auth::user();
