@@ -13,12 +13,12 @@
 				<h1 style="color:#00c86f;font-size:2rem;font-weight:800;margin-bottom:12px;">Compra Finalizada!</h1>
 				<p style="color:#fff;font-size:1.13rem;margin-bottom:22px;">Seu pagamento foi aprovado e sua compra foi concluída com sucesso.<br><b>Obrigado por comprar conosco!</b></p>
 				
-				@if(session('codigo_rastreamento'))
+				@if(isset($codigo))
 					<div style="background:rgba(0,200,111,0.1);border:2px solid #00c86f;border-radius:12px;padding:20px;margin:20px 0;">
 						<h3 style="color:#00c86f;margin-bottom:10px;font-size:1.1rem;">📦 Código de Rastreamento</h3>
-						<p style="color:#fff;font-size:1.2rem;font-weight:600;margin-bottom:8px;">{{ session('codigo_rastreamento') }}</p>
+						<p style="color:#fff;font-size:1.2rem;font-weight:600;margin-bottom:8px;">{{ $codigo }}</p>
 						<p style="color:#ccc;font-size:0.9rem;margin-bottom:12px;">Guarde este código para acompanhar sua entrega</p>
-						<a href="{{ route('pedido.rastrear', session('codigo_rastreamento')) }}" style="display: inline-block; background: #00c86f; color: white; padding: 8px 16px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: all 0.3s ease;">
+						<a href="{{ route('pedido.rastrear', $codigo) }}" style="display: inline-block; background: #00c86f; color: white; padding: 8px 16px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: all 0.3s ease;">
 							<i class="fas fa-search"></i> Rastrear Agora
 						</a>
 					</div>

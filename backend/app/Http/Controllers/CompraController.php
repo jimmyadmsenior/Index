@@ -20,23 +20,53 @@ class CompraController extends Controller
         $this->pedidoService = $pedidoService;
     }
 
-    public function finalizar(CompraRequest $request)
+    public function finalizar(Request $request)
     {
+        \Log::info('CompraController finalizar - INICIADO');
+        
         $user = Auth::user();
+        \Log::info('CompraController finalizar - Usuario:', ['user_id' => $user ? $user->id : 'null']);
 
         // Debug: Log dos dados recebidos
-        \Log::info('CompraController finalizar - Dados validados:', $request->validated());
+        \Log::info('CompraController finalizar - Dados recebidos:', $request->all());
 
         try {
+            // Validação básica
+            $request->validate([
+                'tipo_compra' => 'required|in:produto,carrinho',
+                'metodo_pagamento' => 'nullable|string',
+                'produto_id' => 'required_if:tipo_compra,produto|exists:produtos,id',
+                'produtos' => 'required_if:tipo_compra,carrinho|array',
+                'total' => 'required_if:tipo_compra,carrinho|numeric|min:0'
+            ]);
+            \Log::info('CompraController finalizar - Validação passou');
+
+        } catch (\Illuminate\Validation\ValidationException $e) {
+            \Log::error('CompraController finalizar - Erro de validação:', [
+                'errors' => $e->errors(),
+                'data' => $request->all()
+            ]);
+            return redirect()->back()->withErrors($e->errors())->withInput();
+        }
+
+        try {
+            \Log::info('CompraController finalizar - Criando pedido');
             // Cria o pedido usando o service
-            $pedido = $this->pedidoService->criarPedido($request->validated());
+            $pedido = $this->pedidoService->criarPedido($request->all());
+            \Log::info('CompraController finalizar - Pedido criado:', ['codigo' => $pedido->codigo_rastreamento]);
 
             // Envia e-mail de confirmação
-            Mail::to($user->email)->send(new CompraFinalizadaMail($user, $pedido));
+            try {
+                Mail::to($user->email)->send(new CompraFinalizadaMail($user, $pedido));
+                \Log::info('CompraController finalizar - Email enviado');
+            } catch (\Exception $mailError) {
+                \Log::warning('CompraController finalizar - Erro ao enviar email:', ['error' => $mailError->getMessage()]);
+            }
             
             // Envia WhatsApp se o usuário tiver telefone cadastrado
             $this->enviarWhatsApp($user, $pedido);
 
+            \Log::info('CompraController finalizar - Redirecionando para compra finalizada');
             return redirect()->route('compra.finalizada', ['codigo' => $pedido->codigo_rastreamento])
                 ->with('success', 'Compra realizada com sucesso!');
 
@@ -231,14 +261,21 @@ class CompraController extends Controller
      */
     private function enviarWhatsApp($user, $pedido)
     {
+        \Log::info('=== INICIANDO ENVIO WHATSAPP ===', [
+            'user_id' => $user->id,
+            'telefone' => $user->telefone,
+            'codigo_pedido' => $pedido->codigo_rastreamento
+        ]);
+
         // Verifica se o usuário tem telefone cadastrado
         if (!$user->telefone) {
-            \Log::info('WhatsApp não enviado: usuário sem telefone cadastrado', ['user_id' => $user->id]);
+            \Log::error('WhatsApp não enviado: usuário sem telefone cadastrado', ['user_id' => $user->id]);
             return;
         }
 
         try {
-            $webhook_url = 'http://localhost:5678/webhook/whatsapp-compra';
+            $webhook_url = 'https://jimmyadmpleno.app.n8n.cloud/webhook/purchase-confirmation';
+            \Log::info('WhatsApp - URL do webhook:', ['url' => $webhook_url]);
             
             $data = [
                 'nome' => $user->name,
@@ -247,6 +284,7 @@ class CompraController extends Controller
                 'valor_total' => $pedido->valor_total,
                 'data_compra' => $pedido->created_at->format('d/m/Y H:i')
             ];
+            \Log::info('WhatsApp - Dados a serem enviados:', $data);
 
             $ch = curl_init();
             curl_setopt($ch, CURLOPT_URL, $webhook_url);
@@ -259,14 +297,26 @@ class CompraController extends Controller
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
             curl_setopt($ch, CURLOPT_TIMEOUT, 10);
 
+            \Log::info('WhatsApp - Enviando requisição...');
             $response = curl_exec($ch);
             $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+            $curlError = curl_error($ch);
             curl_close($ch);
 
+            \Log::info('WhatsApp - Resposta recebida:', [
+                'http_code' => $httpCode,
+                'response' => $response,
+                'curl_error' => $curlError
+            ]);
+
             if ($httpCode === 200) {
-                \Log::info('WhatsApp enviado com sucesso', ['user_id' => $user->id, 'telefone' => $user->telefone]);
+                \Log::info('=== WhatsApp enviado com sucesso ===', ['user_id' => $user->id, 'telefone' => $user->telefone]);
             } else {
-                \Log::error('Erro ao enviar WhatsApp', ['http_code' => $httpCode, 'response' => $response]);
+                \Log::error('=== ERRO ao enviar WhatsApp ===', [
+                    'http_code' => $httpCode, 
+                    'response' => $response,
+                    'curl_error' => $curlError
+                ]);
             }
 
         } catch (\Exception $e) {
