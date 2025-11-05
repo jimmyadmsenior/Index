@@ -31,6 +31,7 @@
       <p class="pix-codigo" style="color:#fff;font-size:1.05rem;margin-bottom:24px;">123e4567-e89b-12d3-a456-426614174000</p>
       <form id="form-pix" action="/finalizar-compra" method="POST" style="margin:0;">
         @csrf
+        <input type="hidden" name="metodo_pagamento" value="pix">
         @if(isset($total) && isset($carrinho))
           <!-- Carrinho completo -->
           <input type="hidden" name="tipo_compra" value="carrinho">

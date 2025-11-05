@@ -10,12 +10,17 @@ class PedidoService
 {
     public function criarPedido(array $dados): Pedido
     {
+        \Log::info('PedidoService criarPedido - Dados recebidos:', $dados);
+        
         $codigoRastreamento = $this->gerarCodigoRastreamento();
+        \Log::info('PedidoService criarPedido - Código gerado:', ['codigo' => $codigoRastreamento]);
         
         if ($dados['tipo_compra'] === 'carrinho') {
+            \Log::info('PedidoService criarPedido - Criando pedido carrinho');
             return $this->criarPedidoCarrinho($dados, $codigoRastreamento);
         }
         
+        \Log::info('PedidoService criarPedido - Criando pedido individual');
         return $this->criarPedidoIndividual($dados, $codigoRastreamento);
     }
 
@@ -26,21 +31,41 @@ class PedidoService
 
     private function criarPedidoCarrinho(array $dados, string $codigo): Pedido
     {
-        $carrinho = session()->get('carrinho', []);
-        $valorTotal = 0;
-        $produtos = [];
+        // Se veio do formulário com produtos específicos, usa eles
+        if (isset($dados['produtos']) && is_array($dados['produtos'])) {
+            $valorTotal = $dados['total'] ?? 0;
+            $produtos = [];
+            
+            foreach ($dados['produtos'] as $produto_id => $quantidade) {
+                $produto = Produto::find($produto_id);
+                if ($produto) {
+                    $produtos[] = [
+                        'id' => $produto->id,
+                        'nome' => $produto->nome,
+                        'preco' => $produto->preco,
+                        'quantidade' => $quantidade,
+                        'subtotal' => $produto->preco * $quantidade
+                    ];
+                }
+            }
+        } else {
+            // Fallback para carrinho da sessão
+            $carrinho = session()->get('carrinho', []);
+            $valorTotal = 0;
+            $produtos = [];
 
-        foreach ($carrinho as $id => $item) {
-            $produto = Produto::find($id);
-            if ($produto) {
-                $valorTotal += $produto->preco * $item['quantidade'];
-                $produtos[] = [
-                    'id' => $produto->id,
-                    'nome' => $produto->nome,
-                    'preco' => $produto->preco,
-                    'quantidade' => $item['quantidade'],
-                    'subtotal' => $produto->preco * $item['quantidade']
-                ];
+            foreach ($carrinho as $id => $item) {
+                $produto = Produto::find($id);
+                if ($produto) {
+                    $valorTotal += $produto->preco * $item['quantidade'];
+                    $produtos[] = [
+                        'id' => $produto->id,
+                        'nome' => $produto->nome,
+                        'preco' => $produto->preco,
+                        'quantidade' => $item['quantidade'],
+                        'subtotal' => $produto->preco * $item['quantidade']
+                    ];
+                }
             }
         }
 

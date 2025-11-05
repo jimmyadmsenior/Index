@@ -212,9 +212,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/perfil/pedidos', [App\Http\Controllers\PerfilController::class, 'pedidos'])->name('perfil.pedidos');
     Route::get('/rastrear/{codigo}', [App\Http\Controllers\PerfilController::class, 'rastrearPedido'])->name('pedido.rastrear');
     Route::post('/finalizar-compra', [CompraController::class, 'finalizar'])->name('compra.finalizar');
-    Route::get('/compra-finalizada', function() {
-        return view('Compra_Finalizada');
-    })->name('compra.finalizada.view');
+    Route::get('/compra-finalizada/{codigo}', function($codigo) {
+        return view('Compra_Finalizada', ['codigo' => $codigo]);
+    })->name('compra.finalizada');
 });
 
 Route::post('/login', function(Request $request) {
