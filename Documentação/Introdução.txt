@@ -1,9 +1,0 @@
-Com o avanço da tecnologia e o aumento da demanda por produtos eletrônicos, nós do Silicon Devs, grupo de desenvolvedores, decidimos produzir um site de vendas de dispositivos eletrônicos que pode ser personalizado para empresas e empreendedores que desejam se destacar no atual mercado competitivo, garantido uma experiência inovadora. 
-
-Por meio de um sistema de login e cadastro, os usuários podem acessar a plataforma, de primeira vista é possível ver a homepage com os produtos em modelagem 3D que estão à venda a mostra. Os utilizadores possuem a possibilidade de acessar os eletrônicos da Apple e Samsung, organizados em subcategorias na aba de navegação (smartphones, tablets, fones, capinhas e notebook) suportando diversos formatos, como fotos e vídeos, proporcionando acesso rápido e simples. 
-
-A compra é o princípio da ideia, passando por etapas de adicionar ao carrinho, completar formulário de entrega, definir um método de pagamento e visualizar o seu pedido. Além disso, pode acessar uma página sobre nossa equipe, vídeos de reviews, perguntas frequentes, chatbot e documentos de política de privacidade e termos e condições.  
-
-Nosso site será direcionado aos jovens conectados com as últimas tendências, os adultos em busca de funcionalidade, reviewers e criadores de conteúdo para embasar suas recomendações e análises, além de profissionais que necessitam de aparelhos confiáveis e de alto desempenho.   
-
-A junção de todas as funções apresentadas promove um ambiente digital que busca por modernidade, praticidade e dispositivos de ponta. 

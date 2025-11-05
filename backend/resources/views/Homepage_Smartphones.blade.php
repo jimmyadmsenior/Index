@@ -4,6 +4,10 @@
 <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 @endsection
 @section('content')
+
+{{-- Barra de Pesquisa de Smartphones --}}
+@include('partials.product-search', ['categoria' => 'Smartphones'])
+
 {{-- Hero - Homepage Smartphones --}}
 <div class="iphone15-destaque">
     <p class="subtitulo">Iphone 15</p>
@@ -15,7 +19,7 @@
     @auth
         <form action="{{ route('carrinho.adicionar') }}" method="POST" style="display: inline-block;">
             @csrf
-            <input type="hidden" name="produto_id" value="7">
+            <input type="hidden" name="produto_id" value="4">
             <input type="hidden" name="quantidade" value="1">
             <button type="submit" class="comprar-btn-preto" style="background: #000; color: #fff; border: none;">
                 <i class="fas fa-shopping-cart"></i> Adicionar ao Carrinho
@@ -37,7 +41,7 @@
             @auth
                 <form action="{{ route('carrinho.adicionar') }}" method="POST" style="position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%);">
                     @csrf
-                    <input type="hidden" name="produto_id" value="7">
+                    <input type="hidden" name="produto_id" value="4">
                     <input type="hidden" name="quantidade" value="1">
                     <button type="submit" class="comprar-link-overlay" style="background: transparent; border: none; color: #0b78ff;">
                         <i class="fas fa-shopping-cart"></i> Adicionar ao Carrinho

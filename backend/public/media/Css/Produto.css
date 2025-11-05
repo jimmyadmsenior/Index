@@ -15,7 +15,6 @@
 }
 
 /* Light theme colors (optional override) */
-[data-theme="light"] {
   --bg-color: #fff;
   --text-color: #000;
   --card-bg: #f8f9fa;

@@ -32,6 +32,7 @@ class CategoriaProdutoSeeder extends Seeder
         // Produtos (exemplo para Smartphones Apple, adicione os outros seguindo o padrão)
         $produtos = [
             // Smartphones Apple
+            ['nome' => 'iPhone 17 Pro', 'marca' => 'Apple', 'categoria' => 'Smartphones'],
             ['nome' => 'iPhone 15 Pro Max', 'marca' => 'Apple', 'categoria' => 'Smartphones'],
             ['nome' => 'iPhone 15 Pro', 'marca' => 'Apple', 'categoria' => 'Smartphones'],
             ['nome' => 'iPhone 15 Plus', 'marca' => 'Apple', 'categoria' => 'Smartphones'],

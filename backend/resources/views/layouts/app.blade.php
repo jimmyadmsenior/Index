@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="/media/Css/Homepage_Sem_Cadastro_Custom.css">
     <link rel="stylesheet" href="/media/Css/Perfil.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link rel="stylesheet" href="/media/Cursor/cursor-global.css">
     <link rel="stylesheet" href="/media/Css/loading.css">
     <link rel="stylesheet" href="/media/Css/Carrinho_Botoes.css">
     {{-- @vite('resources/css/app.css') Comentado temporariamente para deploy --}}
@@ -57,51 +56,7 @@
         </footer>
     @endif
 
-    <!-- Cursor Motion Blur Effect: agora controlado apenas via JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/TweenLite.min.js"></script>
-    <script src="/media/Cursor/cursor-global.js" defer></script>
-    <script>
-      // Script para alternar entre os temas claro e escuro
-      document.addEventListener('DOMContentLoaded', function() {
-        const savedTheme = localStorage.getItem('theme') || 'light';
-        document.documentElement.setAttribute('data-theme', savedTheme);
-        const themeToggle = document.getElementById('theme-toggle');
-        if(themeToggle) themeToggle.checked = savedTheme === 'dark';
-        if(themeToggle) themeToggle.addEventListener('change', function(e) {
-          if(e.target.checked) {
-            document.documentElement.setAttribute('data-theme', 'dark');
-            localStorage.setItem('theme', 'dark');
-            document.body.classList.add('theme-transition');
-            setTimeout(() => {
-              document.body.classList.remove('theme-transition');
-            }, 1000);
-          } else {
-            document.documentElement.setAttribute('data-theme', 'light');
-            localStorage.setItem('theme', 'light');
-            document.body.classList.add('theme-transition');
-            setTimeout(() => {
-              document.body.classList.remove('theme-transition');
-            }, 1000);
-          }
-        });
-        const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
-        function syncWithSystemTheme(e) {
-          if (!localStorage.getItem('theme')) {
-            if (e.matches) {
-              document.documentElement.setAttribute('data-theme', 'dark');
-              if(themeToggle) themeToggle.checked = true;
-            } else {
-              document.documentElement.setAttribute('data-theme', 'light');
-              if(themeToggle) themeToggle.checked = false;
-            }
-          }
-        }
-        syncWithSystemTheme(prefersDarkScheme);
-        prefersDarkScheme.addEventListener('change', syncWithSystemTheme);
-      });
-    </script>
     <script src="/media/Js/loading.js"></script>
     <script src="/media/Js/carrinho-interacoes.js"></script>
 </body>

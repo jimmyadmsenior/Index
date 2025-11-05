@@ -80,4 +80,67 @@ class ProdutoController extends Controller
         $produto->delete();
         return response()->json(['mensagem' => 'Produto removido com sucesso']);
     }
+
+    /**
+     * Buscar produtos por nome com filtro opcional de categoria para autocomplete
+     */
+    public function buscar(Request $request, $categoria = null)
+    {
+        $termo = $request->query('q', '');
+        
+        if (strlen($termo) < 2) {
+            return response()->json([]);
+        }
+
+        $query = Produto::with('categoria')
+            ->where('nome', 'LIKE', '%' . $termo . '%')
+            ->where('ativo', true);
+
+        // Se categoria foi especificada, filtrar por ela
+        if ($categoria) {
+            $query->whereHas('categoria', function($q) use ($categoria) {
+                $q->where('nome', 'LIKE', '%' . $categoria . '%');
+            });
+        }
+
+        $produtos = $query->limit(10)->get(['id', 'nome', 'marca', 'preco', 'categoria_id']);
+
+        return response()->json($produtos);
+    }
+
+    /**
+     * Página de resultados de busca
+     */
+    public function buscarPagina(Request $request)
+    {
+        $termo = $request->input('q', '');
+        $categoria = $request->input('categoria', '');
+        $produtos = [];
+        $mensagemErro = null;
+
+        if ($termo) {
+            $query = Produto::with('categoria')
+                ->where('nome', 'LIKE', '%' . $termo . '%')
+                ->where('ativo', true);
+
+            // Se categoria foi especificada, filtrar por ela
+            if ($categoria) {
+                $query->whereHas('categoria', function($q) use ($categoria) {
+                    $q->where('nome', 'LIKE', '%' . $categoria . '%');
+                });
+            }
+
+            $produtos = $query->paginate(12);
+
+            if ($produtos->isEmpty()) {
+                $mensagemErro = "Nenhum produto encontrado para '{$termo}'";
+                if ($categoria) {
+                    $mensagemErro .= " na categoria {$categoria}";
+                }
+                $mensagemErro .= ". Tente uma busca diferente.";
+            }
+        }
+
+        return view('buscar', compact('produtos', 'termo', 'categoria', 'mensagemErro'));
+    }
 }

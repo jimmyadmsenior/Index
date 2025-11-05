@@ -1,0 +1,117 @@
+O levantamento de requisitos se baseia no apontamento das especificações que definem as características essenciais que o sistema de software deve atender, se baseando nas demandas dos usuários. 
+
+ 
+
+3.1 Atores 
+
+Usuário 
+
+Administrador 
+
+Sistema 
+
+ 
+
+3.2 Ações  
+
+Login 
+
+Cadastro 
+
+Verificação  
+
+Confirmação 
+
+Recuperação de senha 
+
+Adicionar ao carrinho 
+
+Visualização do carrinho 
+
+Acessar diferentes páginas 
+
+Cadastro de entrega 
+
+Escolher método de pagamento 
+
+Emitir nota fiscal 
+
+Confirmação de compra 
+
+Visualização do pedido 
+
+Acesso à FAQ 
+
+Acesso aos documentos 
+
+Navegação 
+
+Baixar app 
+
+ 
+
+3.3 Requisitos Funcionais 
+
+Os requisitos funcionais são as especificações das funcionalidades que o sistema deve executar, garantir o correto funcionamento dos processos definidos. 
+
+RF1:  O sistema deve permitir que o usuário se autentique informando e-mail e senha. 
+
+RF2: O sistema deve permitir o cadastro de novos usuários com nome, e-mail e senha. 
+
+RF3: O sistema deve enviar um código de verificação por e-mail para confirmar o cadastro, verificação de administrador e recuperação de senha. 
+
+RF4: O sistema deve permitir recuperação de senha. 
+
+RF5: O sistema deve permitir que o usuário adicione produtos ao carrinho de compras. 
+
+RF6: O sistema deve exibir os produtos que foram adicionados ao carrinho com seus respectivos valores. 
+
+RF7: O sistema deve permitir que o usuário prossiga para a página de entrega. 
+
+RF8: O sistema deve permitir que o usuário informe os dados de entrega (CEP, endereço, telefone, número, complemento, nome completo, cidade e estado). 
+
+RF9: O sistema deve permitir que o usuário prossiga para a página de pagamento. 
+
+RF10: O sistema deve permitir que o usuário selecione um método de pagamento (PIX, cartão de crédito ou débito). 
+
+RF11: O sistema deve solicitar a inserção de CPF para emissão de nota fiscal. 
+
+RF12: O sistema deve registrar o pedido e direcionar para a página de confirmação após a compra. 
+
+RF13: O sistema deve permitir a visualização dos pedidos feitos, exibindo foto e valor da compra. 
+
+RF14: O sistema deve apresentar uma página de perguntas frequentes sobre entrega, compra e pagamento. 
+
+RF15: O sistema deve exibir uma página de Política de Privacidade e Termos de Condições. 
+
+RF16: O sistema deve exibir homepages por barrada de busca ou categorias (Smartphones, Tablets, Fontes, Relógios, Notebooks e Sobre). 
+
+RF17: O sistema deve permitir o download do aplicativo via QRCode. 
+
+ 
+
+3.4 Requisitos Não Funcionais 
+
+Os requisitos não funcionais são características que definem como um sistema deve operar, incluindo aspectos como desempenho, segurança, usabilidade e confiabilidade. 
+
+RNF1: Uso da segurança de rede da CloudFlare, para proteger de possíveis invasões. 
+
+RNF2: Interface Intuitiva – Nosso sistema irá ter modelos 3Ds dos principais dispositivos. 
+
+RNF3: Criptografia à base de Hash – As senhas dos usuários irão possuir criptografia nas senhas dos usuários, utilizando o código Hash. 
+
+RNF4: Responsividade – O sistema deve ser funcional e possuir disponibilidade em diferentes sistemas operacionais. 
+
+RNF5: Suporte 24 horas disponível para ajudar qualquer divergência dos usuários. 
+
+RNF6: Usuários simultâneos - O sistema tem que suportar diversos usuários utilizando o site e realizando ações. 
+
+RNF7: Escalabilidade razoável de usuários, para que tenha no mínimo 1000 pessoas utilizando simultaneamente. 
+
+RNF8: Compatibilidade - O site deve ser acessível em navegadores modernos (Chrome, Firefox, Safari) e dispositivos móveis (iOS, Android). 
+
+RNF9: Log de Auditoria - (O sistema deve registrar todas as transações e alterações de dados para facilitar auditorias e investigações de segurança.) 
+
+RNF10: Repositório no Github – Onde terá o armazenamento dos nossos arquivos, logs e informações acerca do nosso projeto. 
+
+RNF11: Atualizações - O sistema tem que ser atualizado sem afetar a experiência dos usuários ou ter interrupção de serviço.
