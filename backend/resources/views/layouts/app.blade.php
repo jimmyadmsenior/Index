@@ -5,12 +5,69 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title', 'Index')</title>
     <link rel="icon" type="image/png" href="/media/Ícone_Guia_Navegador_Site.png">
+    <style>
+        @font-face {
+            font-family: 'Geoform';
+            src: url('/media/Css/Geoform-Regular.ttf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'Geoform';
+            src: url('/media/Css/Geoform-Medium.ttf') format('opentype');
+            font-weight: 500;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'Geoform';
+            src: url('/media/Css/Geoform-Bold.ttf') format('opentype');
+            font-weight: bold;
+            font-style: normal;
+        }
+        * {
+            font-family: 'Geoform', Arial, sans-serif !important;
+        }
+        body {
+            font-family: 'Geoform', Arial, sans-serif !important;
+        }
+    </style>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <!-- Site CSS -->
     <link rel="stylesheet" href="/media/Css/Homepage_Com_Cadastro.css">
     <link rel="stylesheet" href="/media/Css/Homepage_Sem_Cadastro_Custom.css">
     <link rel="stylesheet" href="/media/Css/Perfil.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="/media/Css/loading.css">
     <link rel="stylesheet" href="/media/Css/Carrinho_Botoes.css">
+    
+    <!-- Estilos para ícones -->
+    <style>
+        /* Garante que os ícones funcionem corretamente */
+        .fas, .far, .fab {
+            font-family: "Font Awesome 6 Free", "Font Awesome 6 Brands" !important;
+            font-weight: 900 !important;
+        }
+        
+        /* Ícone do carrinho na navbar */
+        .navbar-btn-sacola i {
+            font-size: 1.5rem !important;
+            color: #fff !important;
+        }
+        
+        /* Ícones nos botões de adicionar ao carrinho */
+        .btn-adicionar-carrinho i,
+        .featured-link i {
+            font-size: 1rem !important;
+            margin-right: 8px !important;
+        }
+        
+        /* Contador do carrinho */
+        .cart-count {
+            font-family: 'Geoform', Arial, sans-serif !important;
+            font-weight: bold !important;
+        }
+    </style>
     {{-- @vite('resources/css/app.css') Comentado temporariamente para deploy --}}
     @yield('head')
 </head>
