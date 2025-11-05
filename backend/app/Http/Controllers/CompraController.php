@@ -33,6 +33,9 @@ class CompraController extends Controller
 
             // Envia e-mail de confirmação
             Mail::to($user->email)->send(new CompraFinalizadaMail($user, $pedido));
+            
+            // Envia WhatsApp se o usuário tiver telefone cadastrado
+            $this->enviarWhatsApp($user, $pedido);
 
             return redirect()->route('compra.finalizada', ['codigo' => $pedido->codigo_rastreamento])
                 ->with('success', 'Compra realizada com sucesso!');
@@ -221,6 +224,53 @@ class CompraController extends Controller
         // Passa o código de rastreamento via sessão para mostrar na tela
         session(['codigo_rastreamento' => $codigoRastreamento, 'email_usuario' => $user->email]);
         
-        return redirect()->route('compra.finalizada.view');
+    }
+    
+    /**
+     * Envia notificação via WhatsApp usando n8n
+     */
+    private function enviarWhatsApp($user, $pedido)
+    {
+        // Verifica se o usuário tem telefone cadastrado
+        if (!$user->telefone) {
+            \Log::info('WhatsApp não enviado: usuário sem telefone cadastrado', ['user_id' => $user->id]);
+            return;
+        }
+
+        try {
+            $webhook_url = 'http://localhost:5678/webhook/whatsapp-compra';
+            
+            $data = [
+                'nome' => $user->name,
+                'telefone' => $user->telefone,
+                'codigo_rastreamento' => $pedido->codigo_rastreamento,
+                'valor_total' => $pedido->valor_total,
+                'data_compra' => $pedido->created_at->format('d/m/Y H:i')
+            ];
+
+            $ch = curl_init();
+            curl_setopt($ch, CURLOPT_URL, $webhook_url);
+            curl_setopt($ch, CURLOPT_POST, true);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
+            curl_setopt($ch, CURLOPT_HTTPHEADER, [
+                'Content-Type: application/json',
+                'Content-Length: ' . strlen(json_encode($data))
+            ]);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch, CURLOPT_TIMEOUT, 10);
+
+            $response = curl_exec($ch);
+            $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+            curl_close($ch);
+
+            if ($httpCode === 200) {
+                \Log::info('WhatsApp enviado com sucesso', ['user_id' => $user->id, 'telefone' => $user->telefone]);
+            } else {
+                \Log::error('Erro ao enviar WhatsApp', ['http_code' => $httpCode, 'response' => $response]);
+            }
+
+        } catch (\Exception $e) {
+            \Log::error('Exceção ao enviar WhatsApp: ' . $e->getMessage());
+        }
     }
 }

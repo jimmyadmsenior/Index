@@ -601,7 +601,7 @@ nav, .navbar, header {
                 @auth
                     <form action="{{ route('carrinho.adicionar') }}" method="POST" style="display: inline-block;">
                         @csrf
-                            <input type="hidden" name="produto_id" value="6">
+                            <input type="hidden" name="produto_id" value="125">
                         <input type="hidden" name="quantidade" value="1">
                         <button type="submit" class="btn btn-blue">Compre agora</button>
                     </form>
