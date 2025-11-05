@@ -1,0 +1,221 @@
+.notebook-container {
+    position: relative;
+    width: 100%;
+}
+
+.no-margin-left {
+    width: 100vw;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    display: block;
+    object-fit: cover;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+}
+
+/* Container do botão - controla posição na imagem */
+.botao-comprar-container {
+    position: absolute;
+    bottom: 1000px;        /* ALTURA: aumente para subir mais, diminua para descer */
+    left: 50.5%;           /* POSIÇÃO HORIZONTAL: diminua para ir mais à esquerda, aumente para ir à direita */
+    transform: translateX(-50%);
+    z-index: 10;
+}
+
+/* Estilo do botão de comprar */
+.comprar-btn-preto {
+    background: #000;                    /* COR DE FUNDO: mude para outras cores (#fff, #blue, etc) */
+    color: #fff;                        /* COR DO TEXTO: mude para outras cores */
+    border: none;
+    padding: 12px 24px;                 /* TAMANHO DO BOTÃO: aumente os valores para botão maior */
+    border-radius: 15px;                /* ARREDONDAMENTO: aumente para mais redondo, diminua para menos redondo */
+    font-size: 16px;                    /* TAMANHO DA FONTE: aumente ou diminua o texto */
+    font-weight: 600;                   /* PESO DA FONTE: 400=normal, 600=semi-bold, 700=bold */
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;                          /* ESPAÇO ENTRE ÍCONE E TEXTO: aumente ou diminua */
+    transition: all 0.3s ease;
+}
+
+/* Botão exclusivo da seção destaque MacBook Pro 14 */
+.comprar-btn-macbook14 {
+    background: #000;                    /* COR DE FUNDO: mude para outras cores (#fff, #blue, etc) */
+    color: #fff;                        /* COR DO TEXTO: mude para outras cores */
+    border: none;
+    padding: 12px 24px;                 /* TAMANHO DO BOTÃO: aumente os valores para botão maior */
+    border-radius: 15px;                /* ARREDONDAMENTO: aumente para mais redondo, diminua para menos redondo */
+    font-size: 16px;                    /* TAMANHO DA FONTE: aumente ou diminua o texto */
+    font-weight: 600;                   /* PESO DA FONTE: 400=normal, 600=semi-bold, 700=bold */
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;                          /* ESPAÇO ENTRE ÍCONE E TEXTO: aumente ou diminua */
+    transition: all 0.3s ease;
+}
+
+.comprar-btn-macbook14:hover {
+    background: #333;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.comprar-btn-macbook14:active {
+    transform: translateY(2px);         /* AFUNDA o botão para baixo */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);  /* DIMINUI a sombra */
+    background: #111;                   /* ESCURECE um pouco mais */
+}
+
+.comprar-btn-macbook14 i {
+    font-size: 14px;
+}
+
+.comprar-btn-preto:hover {
+    background: #333;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* EFEITO DE AFUNDAR AO CLICAR */
+.comprar-btn-preto:active {
+    transform: translateY(2px);         /* AFUNDA o botão para baixo */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);  /* DIMINUI a sombra */
+    background: #111;                   /* ESCURECE um pouco mais */
+}
+
+.comprar-btn-preto i {
+    font-size: 14px;
+}
+
+/* Vídeo demonstrativo full-bleed (sem margem lateral) */
+.video-wrap {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    margin-left: -50vw;
+    overflow: hidden;
+    margin-top: 48px;
+    margin-bottom: 96px;
+}
+
+.hero-video {
+    display: block;
+    width: 100%;
+    max-width: none; /* permitir full-bleed */
+    /* aumentar a altura vertical para dar mais presença */
+    max-height: 760px;
+    height: auto;
+    object-fit: cover; /* mantém preenchimento agradável, pode cortar levemente */
+    border-radius: 0; /* sem cantos arredondados para chegar às bordas */
+    box-shadow: none;
+}
+
+@media (max-width: 700px) {
+    /* mobile: vídeo com largura normalizada e altura reduzida, mas maior que antes */
+    .video-wrap { width: 100%; left: 0; margin-left: 0; }
+    .hero-video { max-width: 100%; max-height: 480px; border-radius: 10px; object-fit: cover; }
+}
+
+/* Fullscreen-like overlay styles (simulated fullscreen) */
+.fullscreen-video-overlay{
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0,0,0,0.82);
+    z-index: 9999;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 220ms ease;
+}
+.fullscreen-video-overlay.open{
+    opacity: 1;
+    pointer-events: auto;
+}
+.fullscreen-video-inner{
+    width: 100%;
+    max-width: 1400px;
+    padding: 18px;
+    box-sizing: border-box;
+}
+.overlay-video-container video{ width: 100%; height: auto; max-height: 90vh; object-fit: contain; }
+.overlay-close-btn{
+    position: absolute;
+    right: 22px;
+    top: 18px;
+    z-index: 10001;
+    background: rgba(255,255,255,0.06);
+    color: #fff;
+    border: none;
+    padding: 10px 14px;
+    border-radius: 10px;
+    font-weight: 700;
+    cursor: pointer;
+}
+.overlay-close-btn:hover{ background: rgba(255,255,255,0.12); }
+
+/* Barra de controles do overlay */
+.overlay-controls{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 12px;
+    color: #fff;
+}
+.control-btn{
+    background: rgba(255,255,255,0.06);
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 700;
+}
+.control-btn:hover{ background: rgba(255,255,255,0.12); }
+.control-time{
+    color: #ddd;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+.control-btn.minimize{ margin-left: 18px; background: rgba(255,255,255,0.04); }
+
+@media (max-width: 700px) {
+    .titulo-degrade {
+        font-size: 1.8rem;
+    }
+    .comprar-btn-preto {
+        font-size: 1.3rem;
+        padding: 12px 32px;
+        border-width: 2px;
+        border-radius: 20px;
+    }
+    .iphone15-destaque .imagens {
+        gap: 18px;
+    }
+    .iphone15-destaque .imagens img {
+        max-width: 260px;
+        border-radius: 18px;
+    }
+}
+.imagem-container {
+  position: relative;
+  display: block;        /* faz ocupar a linha inteira */
+  margin: 0 auto;        /* centraliza */
+  text-align: center;    /* alinha conteúdo interno */
+}
+
+.imagem-smartphone {
+  width: 800px;          /* tamanho da imagem */
+  height: auto;
+  border-radius: 10px;
+  display: block;
+  margin: 0 auto;
+}

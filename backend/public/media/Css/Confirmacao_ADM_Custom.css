@@ -1,0 +1,53 @@
+/* CSS migrado do <style> inline de Confirmacao_ADM.blade.php */
+.input-container {
+  position: relative;
+  width: 250px;
+  margin: 20px auto;
+}
+.input-field {
+  width: 100%;
+  padding: 10px 10px;
+  font-size: 16px;
+  border: 2px solid #ffffff;
+  border-radius: 5px;
+  background: none;
+  outline: none;
+  color: #ffffff;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+.input-label {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 16px;
+  color: #aaa;
+  pointer-events: none;
+  transition: 0.2s ease all;
+  background-color: transparent;
+}
+.input-field:focus + .input-label {
+  /* removido: regra vazia */
+}
+.input-container.erro .input-field {
+  border-color: #ff3333 !important;
+  box-shadow: 0 0 0 2px #ff333355;
+}
+.input-container .erro-mensagem {
+  display: none;
+  color: #ff3333;
+  font-size: 13px;
+  margin-top: 4px;
+  text-align: left;
+}
+.input-container.erro .erro-mensagem {
+  display: block;
+}
+.input-field:not(:placeholder-shown) + .input-label,
+.input-field:focus + .input-label {
+  top: -12px;
+  left: 8px;
+  font-size: 12px;
+  color: #00bfff;
+  background: #1a1a1a;
+  padding: 0 4px;
+}

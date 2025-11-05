@@ -1,0 +1,311 @@
+/* CSS migrado do <style> inline de Homepage_Sem_Cadastro.blade.php */
+
+.chatbox-float { display: none !important; }
+.iphone-video-scroll {
+  clip-path: inset(0% 0% 0% 0%);
+  transition: clip-path 0.3s cubic-bezier(.4,0,.2,1);
+  will-change: clip-path;
+  max-width: 100vw;
+  width: 100%;
+  height: auto;
+  display: block;
+  overflow: hidden;
+}
+@supports not (clip-path: inset(0% 0% 0% 0%)) {
+  .iphone-video-scroll {
+    border-radius: 20px;
+  }
+}
+header {
+  background: #111 !important;
+  color: #fff !important;
+  box-shadow: none !important;
+  border-bottom: none !important;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 8px 0;
+  transition: none !important;
+}
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+body {
+  padding-top: 160px;
+  min-height: 100vh;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+main.main-homepage {
+  width: 100%;
+  overflow: visible;
+  min-height: calc(100vh - 90px);
+}
+section {
+  overflow: visible;
+}
+@media (max-width: 700px) {
+  body {
+
+main.main-homepage {
+    min-height: calc(100vh - 120px);
+  }
+}
+#cursor-blur-boxes {
+  position: fixed !important;
+  pointer-events: none !important;
+  z-index: 1000002 !important;
+  top: 0; left: 0; width: 100vw; height: 100vh;
+}
+#cursor-blur-boxes .box {
+  pointer-events: none !important;
+  z-index: 1000002 !important;
+}
+
+/* Tema claro para navbar/menu */
+  color: #222 !important;
+  text-shadow: none !important;
+}
+  background: #111 !important;
+  color: #fff !important;
+  text-decoration: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+  border: none !important;
+  filter: none !important;
+  transition: none !important;
+}
+/* Tema escuro para navbar/menu */
+  color: #fff !important;
+}
+  color: #ffd700 !important;
+  background: #222 !important;
+  border-radius: 6px;
+}
+/* Ajuste para header no tema claro */
+  background: rgba(255,255,255,0.95) !important;
+  box-shadow: 0 2px 12px 0 rgba(0,0,0,0.08) !important;
+  border-bottom: 1px solid #e0e0e0 !important;
+}
+  background: transparent !important;
+}
+/* Ajuste para header no tema escuro */
+  background: #181818 !important;
+  box-shadow: 0 2px 12px 0 rgba(0,0,0,0.18) !important;
+  border-bottom: 1px solid #222 !important;
+}
+  background: transparent !important;
+}
+.header-content {
+  max-width: 1300px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+nav ul.menu {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+  margin: 0;
+  padding: 0;
+}
+nav ul.menu li a {
+  color: #222 !important;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.11em;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+  color: #fff !important;
+}
+nav ul.menu li a:hover {
+  color: #0078ff !important;
+  background: none !important;
+}
+.icons .navbar-btn-login,
+.icons .navbar-btn-cadastro {
+  display: inline-block !important;
+  background: #000;
+  color: #fff;
+  border-radius: 6px;
+  padding: 6px 18px;
+  margin-left: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+}
+.icons .navbar-btn-login:hover,
+.icons .navbar-btn-cadastro:hover {
+  background: #0078ff;
+  color: #fff;
+}
+
+/* Garante que o toggle de tema sempre apareça na navbar */
+  display: inline-block !important;
+  margin-left: 12px;
+}
+
+background: none;
+  box-shadow: none;
+}
+
+display: inline-block !important;
+}
+
+/* Corrige o efeito de "desaparecimento" da navbar ao passar o mouse */
+header:hover, .header-content:hover, nav:hover, nav ul.menu:hover, nav ul.menu li:hover, nav ul.menu li a:hover {
+  background: none !important;
+  filter: none !important;
+  opacity: 1 !important;
+}
+
+/* Garante contraste dos links da navbar em todos os estados */
+nav ul.menu li a {
+  color: #222 !important;
+}
+  color: #fff !important;
+}
+nav ul.menu li a:hover {
+  color: #0078ff !important;
+  background: none !important;
+}
+
+/* Corrige o fundo do header para não sumir no hover */
+header, header:hover, .header-content, .header-content:hover {
+  background: rgba(255,255,255,0.95) !important;
+  box-shadow: 0 2px 12px 0 rgba(0,0,0,0.08) !important;
+  border-bottom: 1px solid #e0e0e0 !important;
+}
+  background: #181818 !important;
+  box-shadow: 0 2px 12px 0 rgba(0,0,0,0.18) !important;
+  border-bottom: 1px solid #222 !important;
+}
+
+/* FORÇA NAVBAR SEMPRE PRETA E ELEMENTOS BRANCOS, INDEPENDENTE DO TEMA */
+header, .header-content, nav, nav ul.menu, nav ul.menu li, nav ul.menu li a, .icons, .navbar-btn, .navbar-btn-login, .navbar-btn-cadastro, .navbar-btn-perfil {
+  background: #111 !important;
+  color: #fff !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+nav ul.menu li a, .navbar-btn, .navbar-btn-login, .navbar-btn-cadastro, .navbar-btn-perfil {
+  color: #fff !important;
+  text-shadow: none !important;
+  transition: none !important;
+  background: #111 !important;
+}
+nav ul.menu li a:hover, .navbar-btn:hover, .navbar-btn-login:hover, .navbar-btn-cadastro:hover, .navbar-btn-perfil:hover {
+  background: #111 !important;
+  color: #33aaff !important;
+  text-decoration: underline;
+  filter: none !important;
+  transition: none !important;
+}
+nav ul.menu li a:active, .navbar-btn:active {
+  background: #111 !important;
+  color: #fff !important;
+}
+nav ul.menu li a:visited {
+  color: #fff !important;
+}
+  background: #111 !important;
+  color: #fff !important;
+}
+
+.hero-title {
+  margin-top: 120px !important;
+}
+
+/* REMOVE QUALQUER EFEITO DE HOVER DA NAVBAR EM QUALQUER TEMA */
+nav ul.menu li a,
+nav ul.menu li a:hover,
+nav ul.menu li a:focus,
+nav ul.menu li a:active,
+.navbar-btn,
+.navbar-btn:hover,
+.navbar-btn:focus,
+.navbar-btn:active,
+.navbar-btn-login,
+.navbar-btn-login:hover,
+.navbar-btn-login:focus,
+.navbar-btn-login:active,
+.navbar-btn-cadastro,
+.navbar-btn-cadastro:hover,
+.navbar-btn-cadastro:focus,
+.navbar-btn-cadastro:active,
+.navbar-btn-perfil,
+.navbar-btn-perfil:hover,
+.navbar-btn-perfil:focus,
+.navbar-btn-perfil:active {
+  background: #111 !important;
+  color: #fff !important;
+  text-decoration: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+  border: none !important;
+  filter: none !important;
+  transition: none !important;
+  border-radius: 0 !important;
+}
+
+/* Remove todos os efeitos de hover dos links da navbar, sobrescrevendo qualquer regra anterior */
+nav ul.menu li a:hover, nav ul.menu li a:focus, nav ul.menu li a:active,
+.navbar-btn:hover, .navbar-btn:focus, .navbar-btn:active,
+.navbar-btn-login:hover, .navbar-btn-login:focus, .navbar-btn-login:active,
+.navbar-btn-cadastro:hover, .navbar-btn-cadastro:focus, .navbar-btn-cadastro:active,
+.navbar-btn-perfil:hover, .navbar-btn-perfil:focus, .navbar-btn-perfil:active {
+  background: #111 !important;
+  color: #fff !important;
+  text-decoration: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+  border: none !important;
+  filter: none !important;
+  transition: none !important;
+  border-radius: 0 !important;
+}
+  background: #111 !important;
+  color: #fff !important;
+  text-decoration: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+  border: none !important;
+  filter: none !important;
+  transition: none !important;
+  border-radius: 0 !important;
+}
+  background: #111 !important;
+  color: #fff !important;
+  text-decoration: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+  border: none !important;
+  filter: none !important;
+  transition: none !important;
+  border-radius: 0 !important;
+}
+
+/* REMOVE TODAS AS REGRAS DE COR DA NAVBAR NO LIGHT MODE E FORÇA SEMPRE BRANCO */
+  color: #fff !important;
+  background: #111 !important;
+  text-shadow: none !important;
+}
+  color: #fff !important;
+  background: #111 !important;
+  text-decoration: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+  border: none !important;
+  filter: none !important;
+  transition: none !important;
+}
+
