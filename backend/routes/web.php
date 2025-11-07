@@ -419,3 +419,15 @@ Route::get('/teste-whatsapp', function () {
     return '<pre>' . json_encode($debug, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE) . '</pre>' . 
            '<br><br><strong>Resultado:</strong> ' . ($ok ? 'Mensagem enviada com sucesso!' : 'Falha ao enviar mensagem.');
 });
+
+Route::get('/teste-email', function () {
+    try {
+        Mail::raw('Este é um teste de email do sistema INDEX.', function($message) {
+            $message->to('jimmycastilho555@gmail.com')
+                    ->subject('Teste de Email - INDEX');
+        });
+        return 'Email de teste enviado com sucesso!';
+    } catch (\Exception $e) {
+        return 'Erro ao enviar email: ' . $e->getMessage();
+    }
+});

@@ -1,0 +1,308 @@
+/* Reset e configurações base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f5f5f5;
+  overflow-x: hidden;
+}
+
+/* Container principal */
+.main-login {
+  min-height: calc(100vh - 64px) !important; /* Subtrai altura da navbar */
+  margin-top: 0 !important; /* Remove espaço da navbar */
+  display: flex !important;
+  align-items: stretch !important;
+  justify-content: center !important;
+  background: #fff !important; /* Remove gradiente, fundo branco */
+  flex-direction: row !important;
+}
+
+/* Lado esquerdo - Formulário */
+.login-left {
+  flex: 1 !important;
+  max-width: 50% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+  padding: 40px !important;
+  background: #fff !important; /* Fundo branco simples */
+  position: relative !important;
+  min-height: calc(100vh - 64px) !important;
+}
+
+/* Lado direito - Imagem */
+.login-right {
+  flex: 1 !important;
+  max-width: 50% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: #fff !important; /* Remove gradiente */
+  position: relative !important;
+  overflow: hidden !important;
+  min-height: calc(100vh - 64px) !important;
+}
+
+.login-right img {
+  width: 100% !important;
+  height: calc(100vh - 64px) !important; /* Compensa navbar, imagem encosta na navbar */
+  object-fit: cover !important;
+  opacity: 1 !important; /* Remove transparência */
+  display: block !important;
+}
+
+.login-form {
+  width: 100% !important;
+  max-width: 400px !important;
+  background: #ffffff !important;
+  padding: 40px !important;
+  border-radius: 20px !important;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+.login-form h1 {
+  font-size: 1.8rem !important;
+  font-weight: 700 !important;
+  color: #333 !important;
+  margin-bottom: 8px !important;
+  text-align: center !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 12px !important;
+}
+
+.login-form p {
+  color: #666 !important;
+  font-size: 1rem !important;
+  margin-bottom: 30px !important;
+  text-align: center !important;
+}
+
+/* Grupos de formulário */
+.form-group {
+  margin-bottom: 20px !important;
+}
+
+.form-label {
+  display: block !important;
+  font-weight: 600 !important;
+  color: #333 !important;
+  margin-bottom: 8px !important;
+  font-size: 0.95rem !important;
+}
+
+/* Container de input com ícone */
+.input-wrapper {
+  position: relative !important;
+  display: flex !important;
+  align-items: center !important;
+  min-height: 48px !important;
+  height: 48px !important;
+}
+
+.input-wrapper i {
+  position: absolute !important;
+  left: 15px !important;
+  color: #999 !important;
+  font-size: 1.1rem !important;
+  z-index: 2 !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+}
+
+.form-input {
+  width: 100% !important;
+  height: 48px !important;
+  padding: 0 40px 0 45px !important;
+  border: 2px solid #e1e5e9 !important;
+  border-radius: 12px !important;
+  font-size: 1rem !important;
+  background: #fff !important;
+  color: #333 !important;
+  outline: none !important;
+  transition: all 0.3s ease !important;
+  box-sizing: border-box !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+.form-input:focus {
+  border-color: #333 !important; /* Preto ao invés de roxo */
+  box-shadow: 0 0 0 3px rgba(51, 51, 51, 0.1) !important; /* Sombra preta */
+  background: #fff !important;
+}
+
+.form-input::placeholder {
+  color: #aaa !important;
+}
+
+/* Botão de mostrar/ocultar senha */
+.toggle-password {
+  position: absolute !important;
+  right: 15px !important;
+  top: 0 !important;
+  bottom: 0 !important;
+  margin: auto !important;
+  height: 24px !important;
+  background: none !important;
+  border: none !important;
+  color: #999 !important;
+  cursor: pointer !important;
+  padding: 0 !important;
+  font-size: 1.3rem !important;
+  line-height: 1 !important;
+  transition: color 0.2s ease !important;
+  z-index: 10 !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+.toggle-password:hover {
+  color: #333 !important; /* Preto ao invés de roxo */
+}
+
+/* Opções do formulário */
+.form-options {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  margin-bottom: 25px !important;
+  flex-wrap: wrap !important;
+  gap: 10px !important;
+}
+
+.lembrar-label {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  font-size: 0.9rem !important;
+  color: #666 !important;
+  cursor: pointer !important;
+}
+
+.lembrar-label input[type="checkbox"] {
+  width: 16px !important;
+  height: 16px !important;
+  accent-color: #333 !important; /* Preto ao invés de roxo */
+}
+
+.esqueci-senha-link {
+  color: #333 !important; /* Preto ao invés de roxo */
+  text-decoration: none !important;
+  font-size: 0.9rem !important;
+  font-weight: 500 !important;
+  transition: color 0.2s ease !important;
+}
+
+.esqueci-senha-link:hover {
+  color: #000 !important; /* Preto mais escuro */
+  text-decoration: underline !important;
+}
+
+/* Botão de login */
+.login-btn {
+  width: 100% !important;
+  padding: 15px !important;
+  background: #333 !important; /* Preto ao invés de gradiente */
+  color: white !important;
+  border: none !important;
+  border-radius: 12px !important;
+  font-size: 1.1rem !important;
+  font-weight: 600 !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+  letter-spacing: 0.5px !important;
+  text-transform: uppercase !important;
+}
+
+.login-btn:hover {
+  background: #000 !important; /* Preto mais escuro */
+  transform: translateY(-2px) !important;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3) !important; /* Sombra preta */
+}
+
+.login-btn:active {
+  transform: translateY(0) !important;
+}
+
+/* Link de registro */
+.register-link {
+  text-align: center !important;
+  margin-top: 25px !important;
+  color: #666 !important;
+  font-size: 0.95rem !important;
+}
+
+.register-link a {
+  color: #333 !important; /* Preto ao invés de roxo */
+  text-decoration: none !important;
+  font-weight: 600 !important;
+  transition: color 0.2s ease !important;
+}
+
+.register-link a:hover {
+  color: #000 !important; /* Preto mais escuro */
+  text-decoration: underline !important;
+}
+
+/* Mensagens de erro/sucesso */
+.alert {
+  padding: 12px 18px !important;
+  border-radius: 8px !important;
+  margin-bottom: 20px !important;
+  font-size: 0.95rem !important;
+  text-align: center !important;
+}
+
+.alert-error {
+  background: #ffeaea !important;
+  color: #e74c3c !important;
+  border: 1px solid #f5b7b1 !important;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .main-login {
+    flex-direction: column !important;
+  }
+  
+  .login-right {
+    display: none !important;
+  }
+  
+  .login-left {
+    min-height: calc(100vh - 64px) !important;
+    max-width: 100% !important;
+    padding: 20px !important;
+  }
+  
+  .login-form {
+    padding: 30px 25px !important;
+    margin: 0 !important;
+  }
+}
+
+/* Estilo limpo da navbar - apenas remove conflitos */
+body .navbar-index {
+  background: #111 !important; /* Volta cor original */
+}
+
+body .navbar-index a {
+  color: #fff !important; /* Volta cor original */
+}
+
+body .navbar-index .navbar-menu a:hover {
+  color: #fff !important; /* Remove hover roxo */
+}
+
+body .navbar-index .navbar-btn-sacola i {
+  color: #fff !important; /* Volta cor original do carrinho */
+}

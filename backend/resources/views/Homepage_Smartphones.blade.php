@@ -25,7 +25,7 @@
             </button>
         </form>
     @else
-        <a href="/Login" class="comprar-btn-preto">Faça Login para Comprar</a>
+    <a href="/Login" class="comprar-btn-preto" style="text-decoration: none;">Faça Login para Comprar</a>
     @endauth
 
     <div class="imagens" style="margin-top:28px;">
@@ -47,7 +47,7 @@
                     </button>
                 </form>
             @else
-                <a href="/Login" class="comprar-link-overlay">Faça Login para Comprar</a>
+                <a href="/Login" class="comprar-link-overlay" style="text-decoration: none;">Faça Login para Comprar</a>
             @endauth
         </div>
     </div>
@@ -67,7 +67,7 @@
                     </button>
                 </form>
             @else
-                <a href="/Login" class="extra-comprar-btn" style="position: absolute; bottom: 15px; left: 50%; transform: translateX(-50%); background: #000; color: #fff; text-decoration: none; padding: 12px 24px; border-radius: 25px; font-weight: 700; display: inline-block; font-size: 0.9rem;">FAÇA LOGIN PARA COMPRAR</a>
+                <a href="/Login" class="extra-comprar-btn" style="position: absolute; bottom: 15px; left: 50%; transform: translateX(-50%); background: #000; color: #fff; text-decoration: none; padding: 12px 24px; border-radius: 25px; font-weight: 700; display: inline-block; font-size: 0.9rem; text-decoration: none;">FAÇA LOGIN PARA COMPRAR</a>
             @endauth
         </div>
     </div>

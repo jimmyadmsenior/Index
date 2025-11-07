@@ -332,11 +332,12 @@ input[type="radio"] {
 }
 
 footer {
-  background-color: var(--footer-bg);
+  background-color: #f9f9f9 !important; /* Força fundo branco sempre */
   padding: 20px 60px 0; /* Reduzido de 40px para 20px no topo */
   margin: 0;
   font-size: 12px;
   transition: background-color 0.3s;
+  color: #333 !important;
 }
 
 footer a {

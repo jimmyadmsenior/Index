@@ -6,8 +6,8 @@
 <div class="container mx-auto px-4 py-8">
     <div class="flex items-center justify-between mb-8">
         <div>
-            <h1 class="text-3xl font-bold text-gray-800 mb-2">Logs do Sistema</h1>
-            <p class="text-gray-600">Monitore a atividade e eventos do sistema</p>
+            <h1 class="text-3xl font-bold text-white mb-2">Logs do Sistema</h1>
+            <p class="text-white">Monitore a atividade e eventos do sistema</p>
         </div>
 
     </div>

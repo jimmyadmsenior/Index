@@ -29,14 +29,15 @@ html, body {
 }
 
 /* Variáveis de tema escuro */
+[data-theme="dark"] {
   --bg-color: #121212; /* Cor de fundo */
   --text-color: #f0f0f0; /* Cor do texto */
   --header-bg: #1a1a1a; /* Cor de fundo do cabeçalho */
   --header-text: #ffffff; /* Cor do texto do cabeçalho */
-  --footer-bg: #1a1a1a; /* Cor de fundo do rodapé */
+  --footer-bg: #f9f9f9 !important; /* Força fundo branco sempre */
   --button-bg: #ffffff; /* Cor de fundo do botão */
   --button-text: #000000; /* Cor do texto do botão */
-  --footer-text: #cccccc; /* Cor do texto do rodapé */
+  --footer-text: #555555 !important; /* Força texto escuro sempre */
   --hover-color: #4db5ff; /* Cor ao passar o mouse */
   --copy-color: #aaaaaa; /* Cor do texto de copyright */
   --toggle-bg: #333; /* Cor de fundo do toggle */

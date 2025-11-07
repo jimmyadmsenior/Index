@@ -67,7 +67,7 @@
   text-decoration: none;
 }
 .navbar-index a:hover, .navbar-index ul li a:hover {
-  color: #33aaff !important;
+  color: #fff !important; /* Remove hover azul, mantém branco */
 }
 
 </style>
