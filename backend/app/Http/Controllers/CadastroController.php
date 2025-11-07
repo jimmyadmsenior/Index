@@ -41,16 +41,24 @@ class CadastroController extends Controller
         // Envia o e-mail
         Log::info('Enviando código de verificação para: ' . $request->email . ' | Código: ' . $codigo);
         
+        $emailEnviado = false;
         try {
             Mail::raw("Seu código de verificação para cadastro na INDEX é: $codigo\n\nDigite este código na página de verificação para concluir seu cadastro.\n\nSe não foi você, ignore este e-mail.", function($message) use ($request) {
                 $message->to($request->email)
                     ->subject('Código de verificação - INDEX');
             });
             Log::info('E-mail enviado com sucesso para: ' . $request->email);
+            $emailEnviado = true;
         } catch (\Exception $e) {
             Log::error('Erro ao enviar e-mail: ' . $e->getMessage());
             Log::warning('AVISO: Email não enviado devido a problema SMTP. Código para teste: ' . $codigo);
             // Continua mesmo com erro de email para não travar o cadastro
+        }
+        
+        // Se o email não foi enviado, salva uma mensagem para mostrar na tela
+        if (!$emailEnviado) {
+            Session::put('codigo_debug', $codigo);
+            Session::put('email_falhou', true);
         }
 
         return redirect('/verificacao');
@@ -107,7 +115,7 @@ class CadastroController extends Controller
             ]);
             
             \Log::info('✅ Usuário criado com sucesso!');
-            Session::forget(['cadastro_email', 'cadastro_nome', 'cadastro_senha', 'cadastro_codigo']);
+            Session::forget(['cadastro_email', 'cadastro_nome', 'cadastro_senha', 'cadastro_codigo', 'codigo_debug', 'email_falhou']);
             \Log::info('Redirecionando para confirmação...');
             return redirect('/confirmacao-cadastro');
         } else {
