@@ -11,13 +11,17 @@ use App\Models\Pedido;
 use App\Services\PedidoService;
 use App\Http\Requests\CompraRequest;
 
+use App\Services\WhatsAppService;
+
 class CompraController extends Controller
 {
     protected $pedidoService;
+    protected $whatsappService;
 
-    public function __construct(PedidoService $pedidoService)
+    public function __construct(PedidoService $pedidoService, WhatsAppService $whatsappService)
     {
         $this->pedidoService = $pedidoService;
+        $this->whatsappService = $whatsappService;
     }
 
     public function finalizar(Request $request)
@@ -64,7 +68,7 @@ class CompraController extends Controller
             }
             
             // Envia WhatsApp se o usuário tiver telefone cadastrado
-            $this->enviarWhatsApp($user, $pedido);
+            $this->whatsappService->enviarConfirmacaoCompra($user, $pedido);
 
             \Log::info('CompraController finalizar - Redirecionando para compra finalizada');
             return redirect()->route('compra.finalizada', ['codigo' => $pedido->codigo_rastreamento])
@@ -186,13 +190,15 @@ class CompraController extends Controller
             
             // Envia e-mail (desabilitado temporariamente por problemas de rede)
             try {
-                // TEMPORÁRIO: Comentado devido a bloqueio de porta SMTP
-                // Mail::to($user->email)->send(new CompraFinalizadaMail($produto, $codigoRastreamento));
+                Mail::to($user->email)->send(new CompraFinalizadaMail($user, $pedido));
                 \Log::info('Email seria enviado para: ' . $user->email . ' - Código: ' . $codigoRastreamento);
             } catch (\Exception $e) {
                 \Log::error('Erro ao enviar email (não crítico):', ['error' => $e->getMessage()]);
                 // Continua mesmo se o email falhar - pedido já foi salvo
             }
+            
+            // Envia WhatsApp se o usuário tiver telefone cadastrado
+            $this->whatsappService->enviarConfirmacaoCompra($user, $pedido);
             
         } else {
             // Compra de produto individual
@@ -239,13 +245,15 @@ class CompraController extends Controller
 
             // Envia o e-mail (desabilitado temporariamente por problemas de rede)
             try {
-                // TEMPORÁRIO: Comentado devido a bloqueio de porta SMTP
-                // Mail::to($user->email)->send(new CompraFinalizadaMail($produto, $codigoRastreamento));
+                Mail::to($user->email)->send(new CompraFinalizadaMail($user, $pedido));
                 \Log::info('Email seria enviado para: ' . $user->email . ' - Código: ' . $codigoRastreamento);
             } catch (\Exception $e) {
                 \Log::error('Erro ao enviar email individual (não crítico):', ['error' => $e->getMessage()]);
                 // Continua mesmo se o email falhar - pedido já foi salvo
             }
+            
+            // Envia WhatsApp se o usuário tiver telefone cadastrado
+            $this->whatsappService->enviarConfirmacaoCompra($user, $pedido);
         }
 
         // Redireciona para a página de compra finalizada
@@ -254,73 +262,5 @@ class CompraController extends Controller
         // Passa o código de rastreamento via sessão para mostrar na tela
         session(['codigo_rastreamento' => $codigoRastreamento, 'email_usuario' => $user->email]);
         
-    }
-    
-    /**
-     * Envia notificação via WhatsApp usando n8n
-     */
-    private function enviarWhatsApp($user, $pedido)
-    {
-        \Log::info('=== INICIANDO ENVIO WHATSAPP ===', [
-            'user_id' => $user->id,
-            'telefone' => $user->telefone,
-            'codigo_pedido' => $pedido->codigo_rastreamento
-        ]);
-
-        // Verifica se o usuário tem telefone cadastrado
-        if (!$user->telefone) {
-            \Log::error('WhatsApp não enviado: usuário sem telefone cadastrado', ['user_id' => $user->id]);
-            return;
-        }
-
-        try {
-            $webhook_url = 'https://jimmyadmpleno.app.n8n.cloud/webhook/purchase-confirmation';
-            \Log::info('WhatsApp - URL do webhook:', ['url' => $webhook_url]);
-            
-            $data = [
-                'nome' => $user->name,
-                'telefone' => $user->telefone,
-                'codigo_rastreamento' => $pedido->codigo_rastreamento,
-                'valor_total' => $pedido->valor_total,
-                'data_compra' => $pedido->created_at->format('d/m/Y H:i')
-            ];
-            \Log::info('WhatsApp - Dados a serem enviados:', $data);
-
-            $ch = curl_init();
-            curl_setopt($ch, CURLOPT_URL, $webhook_url);
-            curl_setopt($ch, CURLOPT_POST, true);
-            curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
-            curl_setopt($ch, CURLOPT_HTTPHEADER, [
-                'Content-Type: application/json',
-                'Content-Length: ' . strlen(json_encode($data))
-            ]);
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-            curl_setopt($ch, CURLOPT_TIMEOUT, 10);
-
-            \Log::info('WhatsApp - Enviando requisição...');
-            $response = curl_exec($ch);
-            $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-            $curlError = curl_error($ch);
-            curl_close($ch);
-
-            \Log::info('WhatsApp - Resposta recebida:', [
-                'http_code' => $httpCode,
-                'response' => $response,
-                'curl_error' => $curlError
-            ]);
-
-            if ($httpCode === 200) {
-                \Log::info('=== WhatsApp enviado com sucesso ===', ['user_id' => $user->id, 'telefone' => $user->telefone]);
-            } else {
-                \Log::error('=== ERRO ao enviar WhatsApp ===', [
-                    'http_code' => $httpCode, 
-                    'response' => $response,
-                    'curl_error' => $curlError
-                ]);
-            }
-
-        } catch (\Exception $e) {
-            \Log::error('Exceção ao enviar WhatsApp: ' . $e->getMessage());
-        }
     }
 }
