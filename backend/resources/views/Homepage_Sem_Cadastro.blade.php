@@ -19,9 +19,9 @@
                     <a href="{{ route('iphone17pro') }}" class="popup-btn primary">
                         <i class="fas fa-eye"></i> Ver Detalhes
                     </a>
-                    <a href="/Login" class="popup-btn secondary">
-                        <i class="fas fa-user"></i> Faça Login para Comprar
-                    </a>
+          <a href="/Login" class="popup-btn secondary" style="text-decoration: none;">
+            <i class="fas fa-user"></i> Faça Login para Comprar
+          </a>
                 </div>
             </div>
         </div>
@@ -401,7 +401,7 @@ document.getElementById('iphone17Popup').addEventListener('click', function(e) {
     <div class="login-modal-content">
       <button class="login-modal-close" id="loginModalClose" title="Fechar">&times;</button>
       <div class="login-modal-icon"><i class="fa-solid fa-lock"></i></div>
-      <h2>Faça login para comprar</h2>
+  <h2 style="text-decoration: none;">Faça login para comprar</h2>
       <p>Você precisa estar logado para comprar um produto.</p>
       <div class="login-modal-actions">
         <a href="/login" class="login-modal-btn login">Fazer login</a>

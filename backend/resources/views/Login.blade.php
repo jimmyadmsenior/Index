@@ -1,185 +1,78 @@
 @extends('layouts.app')
-@section('head')
-@endsection
+@php($hideFooter = true)
+
 @section('content')
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login - Index</title>
-  <link rel="icon" type="image/png" href="/media/Ícone_Guia_Navegador_Site.png">  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-  <link rel="stylesheet" href="/media/Css/Login.css">
-</head>
-<body>
-  <main class="main-login" style="min-height:100vh;display:flex;align-items:stretch;justify-content:center;">
-    <section class="login-left" style="display:flex;flex-direction:column;justify-content:flex-start;min-height:100vh;padding-top:40px;">
-      <form class="login-form" autocomplete="off" method="POST" action="/login">
-        @csrf
-        <h1><img src="/media/Icon Login.png" alt="Ícone Login" style="height: 38px;vertical-align:middle;margin-right:12px;"> Faça seu login</h1>
-        <p>Entre com suas informações de login.</p>
-        @if($errors->any())
-          <div style="color:#ffd700; background:#232323; border-radius:6px; padding:10px 18px; margin-bottom:18px; font-size:1.08rem; text-align:center;">
-            {{ $errors->first() }}
-          </div>
-        @endif
-        <div class="form-group">
-          <label class="form-label" for="email">E-mail</label>
-          <div class="input-wrapper">
-            <i class="fas fa-envelope"></i>
-            <input class="form-input" type="email" id="email" name="email" placeholder="Digite seu e-mail" required>
-          </div>
-        </div>
-        <div class="form-group">
-          <label class="form-label" for="senha">Senha</label>
-          <div class="input-wrapper">
-            <i class="fas fa-lock"></i>
-            <input class="form-input" type="password" id="senha" name="senha" placeholder="Digite sua senha" required>
-            <button type="button" class="toggle-password" onclick="togglePassword()"><i class="fas fa-eye"></i></button>
-          </div>
-        </div>
-        <div class="form-options">
-          <label class="lembrar-label"><input type="checkbox" name="lembrar"> Lembre-me</label>
-          <a href="/Recuperacao_Senha_1" class="esqueci-senha-link">Esqueci minha senha</a>
-        </div>
-        <button class="login-btn" type="submit">ENTRAR</button>
-        <div class="register-link">
-          Não tem uma conta? <a href="/cadastro">Cadastre-se</a>
-        </div>
-      </form>
-    </section>
-    <section class="login-right">
-      <img src="/media/Imagem homem deitado.png" alt="Login Ilustração" style="width:100%;height:100vh;object-fit:cover;display:block;margin:0 auto;"/>
-    </section>
-  </main>
-  <script>
-    // Mudança de tema apenas na área do formulário (lado esquerdo)
-    document.addEventListener('DOMContentLoaded', function() {
+<main class="main-login">
+  <section class="login-left">
+    <form class="login-form" autocomplete="off" method="POST" action="/login">
+      @csrf
+      <h1>
+        <img src="/media/Icon Login.png" alt="Ícone Login" style="height: 38px;">
+        Faça seu login
+      </h1>
+      <p>Entre com suas informações de login.</p>
       
-      const loginLeft = document.querySelector('.login-left');
-      // Salva o tema apenas para o formulário
-      let savedTheme = localStorage.getItem('loginFormTheme') || 'light';
-      if(loginLeft) loginLeft.setAttribute('data-theme', savedTheme);
-      if(themeToggle) themeToggle.checked =  else {
-          if(loginLeft) loginLeft.setAttribute('data-theme', 'light');
-          localStorage.setItem('loginFormTheme', 'light');
-        }
-      });
-    });
-    function togglePassword() {
-      const senhaInput = document.getElementById('senha');
-      const btn = document.querySelector('.toggle-password i');
-      if (senhaInput.type === 'password') {
-        senhaInput.type = 'text';
-        btn.classList.remove('fa-eye');
-        btn.classList.add('fa-eye-slash');
-      } else {
-        senhaInput.type = 'password';
-        btn.classList.remove('fa-eye-slash');
-        btn.classList.add('fa-eye');
-      }
-    }
-  </script>
-  <style>
-    /* Remove autofill background dos inputs (deixa transparente) */
-    input:-webkit-autofill,
-    input:-webkit-autofill:focus,
-    input:-webkit-autofill:hover,
-    input:-webkit-autofill:active {
-      -webkit-box-shadow: 0 0 0 1000px transparent inset !important;
-      box-shadow: 0 0 0 1000px transparent inset !important;
-      -webkit-text-fill-color: inherit !important;
-      color: inherit !important;
-      border: none !important;
-      transition: background-color 5000s ease-in-out 0s;
-      background: transparent !important;
-    }
-    /* Tema claro/escuro apenas na área do formulário */
-    .login-left[] {
-      background: #232323 !important;
-      color: #fff !important;
-    }
-    .login-left[] .form-input,
-    .login-left[] input,
-    .login-left[] textarea {
-      background: #181818 !important;
-      color: #fff !important;
-      border-color: #444 !important;
-    }
-    .login-left[] label,
-    .login-left[] .form-label,
-    .login-left[] a {
-      color: #fff !important;
-    }
-    .login-left[] {
-      background: #fff !important;
-      color: #232323 !important;
-    }
-    .login-left[] .form-input,
-    .login-left[] input,
-    .login-left[] textarea {
-      background: #181818 !important;
-      color: #fff !important;
-      border-color: #444 !important;
-      box-shadow: none !important;
-    }
-    .login-left[] label,
-    .login-left[] .form-label,
-    .login-left[] a,
-    .login-left[] h1,
-    .login-left[] h2,
-    .login-left[] p,
-    .login-left[] .register-link,
-    .login-left[] .form-options,
-    .login-left[] .lembrar-label,
-    .login-left[] .esqueci-senha-link {
-      color: #232323 !important;
-    }
-    .login-left[] .login-btn {
-      background: #232323 !important;
-      color: #fff !important;
-      border: none;
-    }
-    .login-left[] .login-btn:hover {
-      background: #444 !important;
-    }
-    .login-left[] .login-btn {
-      background: #fff !important;
-      color: #232323 !important;
-      border: none;
-    }
-    .login-left[] .login-btn:hover {
-      background: #e0e0e0 !important;
-    }
-    /* Botão de alternância de tema */
-    .theme-toggle input[type="checkbox"] {
-      accent-color: #232323;
-    }
-    .login-left[] h1 img {
-      filter: invert(1) brightness(0.2) !important;
-    }
-    .login-left[] h1 img {
-      filter: none !important;
-    }
-    .login-left[] .toggle-password i {
-      color: #fff !important;
-    }
-    .login-left[] .toggle-password i {
-      color: #fff !important;
-    }
-    .toggle-password {
-      background: transparent !important;
-      border: none !important;
-      box-shadow: none !important;
-      padding: 0 !important;
-    }
-    .toggle-password i {
-      background: transparent !important;
-      border: none !important;
-      box-shadow: none !important;
-    }
-  </style>
-</body>
-</html>
+      @if($errors->any())
+        <div class="alert alert-error">
+          {{ $errors->first() }}
+        </div>
+      @endif
+      
+      <div class="form-group">
+        <label class="form-label" for="email">E-mail</label>
+        <div class="input-wrapper">
+          <i class="fas fa-envelope"></i>
+          <input class="form-input" type="email" id="email" name="email" placeholder="Digite seu e-mail" required value="{{ old('email') }}">
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label class="form-label" for="senha">Senha</label>
+        <div class="input-wrapper">
+          <i class="fas fa-lock"></i>
+          <input class="form-input" type="password" id="senha" name="senha" placeholder="Digite sua senha" required>
+          <button type="button" class="toggle-password" onclick="togglePassword()">
+            <i class="fas fa-eye"></i>
+          </button>
+        </div>
+      </div>
+      
+      <div class="form-options">
+        <label class="lembrar-label">
+          <input type="checkbox" name="lembrar"> Lembre-me
+        </label>
+        <a href="/Recuperacao_Senha_1" class="esqueci-senha-link">Esqueci minha senha</a>
+      </div>
+      
+      <button class="login-btn" type="submit">ENTRAR</button>
+      
+      <div class="register-link">
+        Não tem uma conta? <a href="/cadastro">Cadastre-se</a>
+      </div>
+    </form>
+  </section>
+  
+  <section class="login-right">
+    <img src="/media/Imagem homem deitado.png" alt="Login Ilustração" />
+  </section>
+</main>
 @endsection
+
+@push('scripts')
+<script>
+function togglePassword() {
+  const senhaInput = document.getElementById('senha');
+  const btn = document.querySelector('.toggle-password i');
+  if (senhaInput.type === 'password') {
+    senhaInput.type = 'text';
+    btn.classList.remove('fa-eye');
+    btn.classList.add('fa-eye-slash');
+  } else {
+    senhaInput.type = 'password';
+    btn.classList.remove('fa-eye-slash');
+    btn.classList.add('fa-eye');
+  }
+}
+</script>
+@endpush
 

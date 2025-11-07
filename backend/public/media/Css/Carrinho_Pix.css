@@ -25,18 +25,20 @@
     --toggle-circle: #333;
   }
   
+      [data-theme="dark"] {
     --bg-color: #121212;
     --text-color: #f0f0f0;
     --header-bg: #1a1a1a;
     --header-text: #ffffff;
-    --footer-bg: #1a1a1a;
+    --footer-bg: #f9f9f9 !important; /* Força fundo branco sempre */
     --button-bg: #ffffff;
     --button-text: #000000;
-    --footer-text: #cccccc;
+    --footer-text: #555555 !important; /* Força texto escuro sempre */
     --hover-color: #4db5ff;
     --copy-color: #aaaaaa;
     --toggle-bg: #333;
     --toggle-circle: #f0f0f0;
+  }
   }
   
   body {
