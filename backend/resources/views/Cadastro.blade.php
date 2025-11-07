@@ -33,6 +33,14 @@
         @enderror
       </div>
       
+      <div class="input-group">
+        <label for="senha_confirm">Confirme a senha</label>
+        <input type="password" name="senha_confirm" id="senha_confirm" required placeholder="Digite a senha novamente">
+        @error('senha_confirm')
+          <span class="error-message">{{ $message }}</span>
+        @enderror
+      </div>
+      
       <button type="submit" class="btn-primary">
         Cadastrar
       </button>
