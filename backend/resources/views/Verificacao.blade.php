@@ -112,7 +112,17 @@
       </div>
     @endif
     
-    <form method="POST" action="/verificacao" onsubmit="return validarCampo()">
+    @if(session('email_falhou') && session('codigo_debug'))
+      <div style="background-color: #ff9800; color: white; padding: 15px; border-radius: 8px; margin-bottom: 20px; text-align: center; width: 320px; font-weight: bold;">
+        📧 Email não enviado!<br>
+        <span style="font-size: 18px; background: rgba(255,255,255,0.2); padding: 8px; border-radius: 4px; margin-top: 8px; display: inline-block;">
+          Código: {{ session('codigo_debug') }}
+        </span><br>
+        <small style="font-size: 12px; opacity: 0.9;">Use este código para continuar</small>
+      </div>
+    @endif
+    
+    <form method="POST" action="/verificacao" onsubmit="return validarCampo()">>
       @csrf
       <div class="input-container" id="campo-codigo">
         <input class="input-field" type="text" id="input-field" name="codigo" placeholder=" " autocomplete="one-time-code">
