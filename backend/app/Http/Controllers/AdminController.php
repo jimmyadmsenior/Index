@@ -50,14 +50,35 @@ class AdminController extends Controller
         return view('admin.dashboard', compact('stats', 'pedidos_recentes', 'vendas_por_mes'));
     }
 
-    public function pedidos()
+    public function pedidos(Request $request)
     {
-        $pedidos = Pedido::with('user')
-            ->latest()
-            ->paginate(20);
+        $query = Pedido::with('user');
+
+        // Filtro por status
+        if ($request->filled('status')) {
+            $query->where('status', $request->status);
+        }
+
+        // Filtro por método de pagamento
+        if ($request->filled('pagamento')) {
+            $query->where('metodo_pagamento', $request->pagamento);
+        }
+
+        // Filtro por data inicial
+        if ($request->filled('data_inicio')) {
+            $query->whereDate('created_at', '>=', $request->data_inicio);
+        }
+
+        // Filtro por data final
+        if ($request->filled('data_fim')) {
+            $query->whereDate('created_at', '<=', $request->data_fim);
+        }
+
+        $pedidos = $query->latest()->paginate(20);
 
         $stats = [
             'total_pedidos' => \App\Models\Pedido::count(),
+            'pedidos_filtrados' => $query->count(),
         ];
 
         return view('admin.pedidos', compact('pedidos', 'stats'));
