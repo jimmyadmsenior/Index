@@ -7,7 +7,7 @@
 <div class="space-y-6">
     <!-- Filtros -->
     <div class="glass-card rounded-xl p-6">
-        <form method="GET" action="{{ route('admin.pedidos') }}" class="grid grid-cols-1 md:grid-cols-4 gap-4">
+        <form method="GET" action="{{ route('admin.pedidos') }}" class="grid grid-cols-1 md:grid-cols-5 gap-4">
             <div>
                 <label class="block text-sm font-medium text-gray-300 mb-2">Status</label>
                 <select name="status" class="w-full bg-gray-800 border border-gray-600 rounded-lg px-3 py-2 text-white">
@@ -32,6 +32,12 @@
             <div>
                 <label class="block text-sm font-medium text-gray-300 mb-2">Data Inicial</label>
                 <input type="date" name="data_inicio" value="{{ request('data_inicio') }}" 
+                       class="w-full bg-gray-800 border border-gray-600 rounded-lg px-3 py-2 text-white">
+            </div>
+
+            <div>
+                <label class="block text-sm font-medium text-gray-300 mb-2">Data Final</label>
+                <input type="date" name="data_fim" value="{{ request('data_fim') }}" 
                        class="w-full bg-gray-800 border border-gray-600 rounded-lg px-3 py-2 text-white">
             </div>
 
