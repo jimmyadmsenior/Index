@@ -88,22 +88,6 @@ Quer fazer parte desse projeto? Clique [AQUI](TUTORIAL.md) e leia como contribui
 Esse projeto está sob licença. Veja o arquivo [LICENÇA](LICENSE) para mais detalhes.
 
 
-## Instalação
-
-> **Observação:** Certifique-se de que as dependências do PHP e Node.js estejam instaladas corretamente. O backend utiliza Laravel e o frontend está integrado ao mesmo projeto.
-
-> O fluxo de cadastro e login está funcional, incluindo confirmação por e-mail.
-
-**IMPORTANTE:**
-Para que o upload de fotos de perfil funcione corretamente, execute o comando abaixo após instalar o projeto:
-
-```bash
-php artisan storage:link
-```
-Esse comando cria o link simbólico necessário para que as imagens salvas em `storage/app/public` fiquem acessíveis via navegador.
-
-URL do site para ser acessada via navegador
-Em breve ainda iremos colocar (Site ainda em construção)
 
 ## Como clonar o repositório para sua máquina local
 Para clonar o repositório para sua máquina local, você deve enviar uma solicitação para nós (Pull Request) propondo ser um afiliado ou ajudante para o nosso projeto. Lembre-se de enviar uma mensagem relatando o porquê você gostaria de ajudar e como pode contribuir para o nosso projeto.
@@ -165,13 +149,6 @@ Aperte no botão **Fork** na parte de cima dos arquivos, ao lado esquerdo da se�
   ```
 
 Agora o servidor estará rodando e você poderá acessá-lo através do seu navegador em http://localhost:8000.
-## Funcionalidades principais
-- Cadastro e login de usuários
-- Confirmação de cadastro por e-mail
-- Painel administrativo para gerenciamento de usuários e produtos
-- Efeitos visuais modernos e responsivos
-o nosso projeto, lembre-se de enviar uma mensagem relatando o por quê
-que você gostaria de ajudar e como você pode contribuir para o nosso projeto.
 
 # Como clonar o repositório para seu perfil do GitHub
 Aperte no botão Fork na parte de cima dos arquivos,
