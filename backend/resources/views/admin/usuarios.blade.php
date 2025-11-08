@@ -149,7 +149,7 @@
         <div class="bg-gray-900 rounded-lg shadow-xl max-w-3xl w-full max-h-screen overflow-y-auto">
             <div class="p-6">
                 <div class="flex items-center justify-between mb-4">
-                    <h2 class="text-xl font-bold text-gray-800">Detalhes do Usuário</h2>
+                    <h2 class="text-xl font-bold text-white">Detalhes do Usuário</h2>
                     <button onclick="fecharModalUsuario()" class="text-gray-500 hover:text-gray-700">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>

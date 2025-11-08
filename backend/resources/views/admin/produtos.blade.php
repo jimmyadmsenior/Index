@@ -30,7 +30,7 @@
             <div>
                 <label class="block text-sm font-medium text-gray-700 mb-2">Categoria</label>
                 <select name="categoria" class="w-full rounded-lg border-gray-300 focus:ring-blue-500 focus:border-blue-500">
-                    <option value="">Todas as categorias</option>
+                    <option value="" class="text-gray-700">Todas as categorias</option>
                     @foreach($categorias as $categoria)
                         <option value="{{ $categoria->id }}" {{ request('categoria') == $categoria->id ? 'selected' : '' }}>
                             {{ $categoria->nome }}
@@ -42,9 +42,9 @@
             <div>
                 <label class="block text-sm font-medium text-gray-700 mb-2">Status</label>
                 <select name="ativo" class="w-full rounded-lg border-gray-300 focus:ring-blue-500 focus:border-blue-500">
-                    <option value="">Todos</option>
-                    <option value="1" {{ request('ativo') === '1' ? 'selected' : '' }}>Ativo</option>
-                    <option value="0" {{ request('ativo') === '0' ? 'selected' : '' }}>Inativo</option>
+                    <option value="" class="text-gray-700">Todos</option>
+                    <option value="1" class="text-gray-700" {{ request('ativo') === '1' ? 'selected' : '' }}>Ativo</option>
+                    <option value="0" class="text-gray-700" {{ request('ativo') === '0' ? 'selected' : '' }}>Inativo</option>
                 </select>
             </div>
             
@@ -170,10 +170,10 @@
 <!-- Modal de Produto -->
 <div id="modalProduto" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50">
     <div class="flex items-center justify-center min-h-screen p-4">
-        <div class="bg-white rounded-lg shadow-xl max-w-2xl w-full max-h-screen overflow-y-auto">
+        <div class="bg-gray-900 rounded-lg shadow-xl max-w-2xl w-full max-h-screen overflow-y-auto">
             <div class="p-6">
                 <div class="flex items-center justify-between mb-4">
-                    <h2 id="tituloModal" class="text-xl font-bold text-gray-800">Novo Produto</h2>
+                    <h2 id="tituloModal" class="text-xl font-bold text-white">Novo Produto</h2>
                     <button onclick="fecharModalProduto()" class="text-gray-500 hover:text-gray-700">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
@@ -186,13 +186,13 @@
                     
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2">Nome do Produto</label>
+                            <label class="block text-sm font-medium text-white mb-2">Nome do Produto</label>
                             <input type="text" id="nomeProduto" name="nome" required 
                                    class="w-full rounded-lg border-gray-300 focus:ring-blue-500 focus:border-blue-500">
                         </div>
                         
                         <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2">Categoria</label>
+                            <label class="block text-sm font-medium text-white mb-2">Categoria</label>
                             <select id="categoriaProduto" name="categoria_id" required 
                                     class="w-full rounded-lg border-gray-300 focus:ring-blue-500 focus:border-blue-500">
                                 <option value="">Selecione uma categoria</option>
@@ -205,26 +205,26 @@
                     
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2">Preço (R$)</label>
+                            <label class="block text-sm font-medium text-white mb-2">Preço (R$)</label>
                             <input type="number" id="precoProduto" name="preco" step="0.01" min="0" required 
                                    class="w-full rounded-lg border-gray-300 focus:ring-blue-500 focus:border-blue-500">
                         </div>
                         
                         <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2">Quantidade em Estoque</label>
+                            <label class="block text-sm font-medium text-white mb-2">Quantidade em Estoque</label>
                             <input type="number" id="estoqueProduto" name="quantidade_estoque" min="0" required 
                                    class="w-full rounded-lg border-gray-300 focus:ring-blue-500 focus:border-blue-500">
                         </div>
                     </div>
                     
                     <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">Descrição</label>
+                        <label class="block text-sm font-medium text-white mb-2">Descrição</label>
                         <textarea id="descricaoProduto" name="descricao" rows="3" 
                                   class="w-full rounded-lg border-gray-300 focus:ring-blue-500 focus:border-blue-500"></textarea>
                     </div>
                     
                     <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">Imagem do Produto</label>
+                        <label class="block text-sm font-medium text-white mb-2">Imagem do Produto</label>
                         <input type="file" id="imagemProduto" name="imagem" accept="image/*" 
                                class="w-full rounded-lg border-gray-300 focus:ring-blue-500 focus:border-blue-500">
                     </div>
@@ -232,12 +232,12 @@
                     <div class="flex items-center">
                         <input type="checkbox" id="ativoProduto" name="ativo" checked 
                                class="rounded border-gray-300 text-blue-600 focus:ring-blue-500">
-                        <label for="ativoProduto" class="ml-2 text-sm text-gray-700">Produto ativo</label>
+                        <label for="ativoProduto" class="ml-2 text-sm text-white">Produto ativo</label>
                     </div>
                     
                     <div class="flex justify-end space-x-3 pt-4">
                         <button type="button" onclick="fecharModalProduto()" 
-                                class="px-4 py-2 text-gray-600 border border-gray-300 rounded-lg hover:bg-gray-50">
+                            class="px-4 py-2 text-white border border-gray-300 rounded-lg hover:bg-gray-700">
                             Cancelar
                         </button>
                         <button type="submit" 
