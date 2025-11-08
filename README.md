@@ -94,6 +94,14 @@ Esse projeto está sob licença. Veja o arquivo [LICENÇA](LICENSE) para mais de
 
 > O fluxo de cadastro e login está funcional, incluindo confirmação por e-mail.
 
+**IMPORTANTE:**
+Para que o upload de fotos de perfil funcione corretamente, execute o comando abaixo após instalar o projeto:
+
+```bash
+php artisan storage:link
+```
+Esse comando cria o link simbólico necessário para que as imagens salvas em `storage/app/public` fiquem acessíveis via navegador.
+
 URL do site para ser acessada via navegador
 Em breve ainda iremos colocar (Site ainda em construção)
 
@@ -106,37 +114,57 @@ Aperte no botão **Fork** na parte de cima dos arquivos, ao lado esquerdo da se�
 # Como iniciar o servidor local
 1. **Abra o terminal** no seu computador.
 2. **Navegue até a pasta "backend"** usando o comando:
+
   ```bash
-   cd caminho/para/a/pasta/backend
+  cd caminho/para/a/pasta/backend
   ```
-Substitua caminho/para/a/pasta pelo caminho real onde a pasta "backend" está localizada.
+  Substitua caminho/para/a/pasta pelo caminho real onde a pasta "backend" está localizada.
 
 3. **Instale as dependências do PHP** usando o Composer:
+
   ```bash
-   composer install
+  composer install
   ```
+
 4. **Instale as dependências do Node.js** usando o npm:
+
   ```bash
   npm install
   ```
-5. **Execute o comando para corrigir vulnerabilidade** (se necessário):
+
+5. **Configure o arquivo `.env`** com suas próprias APIs e Tokens (copie `.env.example` para `.env` e edite conforme necessário).
+
+6. **Gere a chave da aplicação Laravel:**
+
   ```bash
-  npm audit fix
-  ```
-6. **Compile os arquivos** do projeto:
-  ```bash
-  npm run build
-  ```
-7. **Inicie o ambiente** de desenvolvimento:
-  ```bash
-  npm run dev
-  ```
-8. **Por fim, inicie o servidor** Laravel:
-  ```bash
-  php artisan serve
+  php artisan key:generate
   ```
 
-Agora o servidor estará rodando e você poderá acessá-lo através do seu navegador.
+7. **Execute as migrações do banco de dados:**
+
+  ```bash
+  php artisan migrate
+  ```
+
+8. **Popule o banco de dados com dados iniciais (opcional):**
+
+  ```bash
+  php artisan db:seed
+  ```
+
+9. **Crie o link simbólico para o storage (obrigatório para upload de fotos):**
+
+  ```bash
+  php artisan storage:link
+  ```
+
+10. **Inicie o servidor Laravel:**
+
+  ```bash
+  php artisan serve --host=localhost --port=8000
+  ```
+
+Agora o servidor estará rodando e você poderá acessá-lo através do seu navegador em http://localhost:8000.
 ## Funcionalidades principais
 - Cadastro e login de usuários
 - Confirmação de cadastro por e-mail
