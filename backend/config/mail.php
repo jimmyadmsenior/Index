@@ -38,6 +38,10 @@ return [
     'mailers' => [
         'mailersend' => [
             'transport' => 'mailersend',
+            'client' => [
+                'verify' => env('APP_ENV') !== 'local',
+                'timeout' => 60,
+            ],
         ],
 
         'smtp' => [
