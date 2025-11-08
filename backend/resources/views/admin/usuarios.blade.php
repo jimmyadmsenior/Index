@@ -146,7 +146,7 @@
 <!-- Modal de Detalhes do Usuário -->
 <div id="modalDetalhesUsuario" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50">
     <div class="flex items-center justify-center min-h-screen p-4">
-        <div class="bg-white rounded-lg shadow-xl max-w-3xl w-full max-h-screen overflow-y-auto">
+        <div class="bg-gray-900 rounded-lg shadow-xl max-w-3xl w-full max-h-screen overflow-y-auto">
             <div class="p-6">
                 <div class="flex items-center justify-between mb-4">
                     <h2 class="text-xl font-bold text-gray-800">Detalhes do Usuário</h2>
@@ -179,58 +179,55 @@ function verDetalhesUsuario(usuarioId) {
         document.getElementById('conteudoDetalhesUsuario').innerHTML = `
             <div class="space-y-6">
                 <div class="flex items-center space-x-4">
-                    <div class="h-16 w-16 rounded-full bg-gray-300 flex items-center justify-center">
-                        <span class="text-xl font-bold text-gray-700">U</span>
+                    <div class="h-16 w-16 rounded-full bg-gray-700 flex items-center justify-center">
+                        <span class="text-xl font-bold text-gray-100">U</span>
                     </div>
                     <div>
-                        <h3 class="text-lg font-semibold">Usuário #${usuarioId}</h3>
-                        <p class="text-gray-600">user${usuarioId}@example.com</p>
+                        <h3 class="text-lg font-semibold text-gray-100">Usuário #${usuarioId}</h3>
+                        <p class="text-gray-300">user${usuarioId}@example.com</p>
                     </div>
                 </div>
-                
                 <div class="grid grid-cols-2 gap-4">
-                    <div class="bg-gray-50 p-4 rounded-lg">
-                        <h4 class="font-semibold text-gray-800 mb-2">Estatísticas</h4>
+                    <div class="bg-gray-800 p-4 rounded-lg">
+                        <h4 class="font-semibold text-gray-100 mb-2">Estatísticas</h4>
                         <div class="space-y-2 text-sm">
-                            <div class="flex justify-between">
+                            <div class="flex justify-between text-gray-200">
                                 <span>Total de Pedidos:</span>
                                 <span class="font-semibold">5</span>
                             </div>
-                            <div class="flex justify-between">
+                            <div class="flex justify-between text-gray-200">
                                 <span>Total Gasto:</span>
                                 <span class="font-semibold">R$ 1.250,00</span>
                             </div>
-                            <div class="flex justify-between">
+                            <div class="flex justify-between text-gray-200">
                                 <span>Último Pedido:</span>
                                 <span class="font-semibold">15/12/2024</span>
                             </div>
                         </div>
                     </div>
-                    
-                    <div class="bg-gray-50 p-4 rounded-lg">
-                        <h4 class="font-semibold text-gray-800 mb-2">Informações</h4>
+                    <div class="bg-gray-800 p-4 rounded-lg">
+                        <h4 class="font-semibold text-gray-100 mb-2">Informações</h4>
                         <div class="space-y-2 text-sm">
-                            <div class="flex justify-between">
+                            <div class="flex justify-between text-gray-200">
                                 <span>Data Cadastro:</span>
                                 <span>01/01/2024</span>
                             </div>
-                            <div class="flex justify-between">
+                            <div class="flex justify-between text-gray-200">
                                 <span>Status:</span>
-                                <span class="px-2 py-1 text-xs rounded-full bg-green-100 text-green-800">Ativo</span>
+                                <span class="px-2 py-1 text-xs rounded-full bg-green-700 text-white">Ativo</span>
                             </div>
-                            <div class="flex justify-between">
+                            <div class="flex justify-between text-gray-200">
                                 <span>Último Acesso:</span>
                                 <span>Hoje</span>
                             </div>
                         </div>
                     </div>
                 </div>
-                
                 <div>
-                    <h4 class="font-semibold text-gray-800 mb-3">Histórico de Pedidos</h4>
+                    <h4 class="font-semibold text-gray-100 mb-3">Histórico de Pedidos</h4>
                     <div class="border rounded overflow-hidden">
                         <table class="w-full text-sm">
-                            <thead class="bg-gray-50">
+                            <thead class="bg-gray-800 text-gray-100">
                                 <tr>
                                     <th class="text-left p-3">Data</th>
                                     <th class="text-left p-3">Código</th>
@@ -238,21 +235,21 @@ function verDetalhesUsuario(usuarioId) {
                                     <th class="text-left p-3">Status</th>
                                 </tr>
                             </thead>
-                            <tbody class="divide-y divide-gray-200">
-                                <tr>
+                            <tbody class="divide-y divide-gray-700">
+                                <tr class="text-gray-100">
                                     <td class="p-3">15/12/2024</td>
                                     <td class="p-3 font-mono">BR123456789</td>
                                     <td class="p-3 font-semibold">R$ 299,90</td>
                                     <td class="p-3">
-                                        <span class="px-2 py-1 text-xs rounded-full bg-green-100 text-green-800">Entregue</span>
+                                        <span class="px-2 py-1 text-xs rounded-full bg-green-700 text-white">Entregue</span>
                                     </td>
                                 </tr>
-                                <tr>
+                                <tr class="text-gray-100">
                                     <td class="p-3">10/12/2024</td>
                                     <td class="p-3 font-mono">BR987654321</td>
                                     <td class="p-3 font-semibold">R$ 150,00</td>
                                     <td class="p-3">
-                                        <span class="px-2 py-1 text-xs rounded-full bg-blue-100 text-blue-800">Enviado</span>
+                                        <span class="px-2 py-1 text-xs rounded-full bg-blue-700 text-white">Enviado</span>
                                     </td>
                                 </tr>
                             </tbody>
