@@ -254,14 +254,14 @@ Route::post('/recuperacao-senha-email', function(Request $request) {
         'email' => 'required|email',
     ]);
 
-    // Gera um código de recuperação aleatório (ex: 6 dígitos ou XXX-XXX)
-    $codigo = strtoupper(substr(bin2hex(random_bytes(3)), 0, 3)) . '-' . strtoupper(substr(bin2hex(random_bytes(3)), 0, 3));
+    // Cria código de verificação no banco de dados para recuperação de senha
+    $verificationCode = \App\Models\VerificationCode::create_code(
+        $request->email, 
+        'password_reset'
+    );
 
     // Envia o e-mail
-    Mail::to($request->email)->send(new RecuperacaoSenhaMail($codigo));
-
-    // Salva o código na sessão para validação posterior (ou no banco, se preferir)
-    session(['codigo_recuperacao' => $codigo, 'email_recuperacao' => $request->email]);
+    Mail::to($request->email)->send(new RecuperacaoSenhaMail($verificationCode->code));
 
     // Redireciona para a página de digitação do código
     return redirect('/Recuperacao_Senha_2');
@@ -270,12 +270,28 @@ Route::post('/recuperacao-senha-codigo', function(Request $request) {
     $request->validate([
         'codigo' => 'required',
     ]);
-    $codigoSalvo = session('codigo_recuperacao');
-    if ($request->codigo !== $codigoSalvo) {
+    
+    // Verifica código no banco de dados para recuperação de senha
+    $verificationCode = \App\Models\VerificationCode::verify_code(
+        $request->codigo, 
+        'password_reset'
+    );
+    
+    if (!$verificationCode || $verificationCode->isExpired()) {
         // Gera um código de erro aleatório para exibir ao usuário
         $codigoErro = strtoupper(substr(bin2hex(random_bytes(3)), 0, 6));
+        
+        if ($verificationCode && $verificationCode->isExpired()) {
+            $verificationCode->delete();
+            return back()->withErrors(['codigo' => 'Código expirado! (Erro: ' . $codigoErro . ')'])->withInput();
+        }
+        
         return back()->withErrors(['codigo' => 'Código inválido! (Erro: ' . $codigoErro . ')'])->withInput();
     }
+    
+    // Salva temporariamente o ID do código para usar na próxima etapa
+    session(['verification_code_id' => $verificationCode->id]);
+    
     return redirect('/Recuperacao_Senha_3');
 });
 Route::view('/Recuperacao_Senha_3', 'Recuperacao_Senha_3');
@@ -284,16 +300,29 @@ Route::post('/recuperacao-senha-nova', function(Request $request) {
         'nova_senha' => 'required|min:6',
         'confirma_senha' => 'required|same:nova_senha',
     ]);
-    // Aqui você pode implementar a lógica para atualizar a senha do usuário no banco de dados
-    // usando session('email_recuperacao') para identificar o usuário
-    // Exemplo:
-    // $user = \App\Models\User::where('email', session('email_recuperacao'))->first();
-    // if ($user) {
-    //     $user->password = Hash::make($request->nova_senha);
-    //     $user->save();
-    // }
-    // Limpa a sessão de recuperação
-    session()->forget(['codigo_recuperacao', 'email_recuperacao']);
+    
+    // Recupera o código de verificação pela sessão
+    $verificationCodeId = session('verification_code_id');
+    if (!$verificationCodeId) {
+        return redirect('/Recuperacao_Senha_1')->withErrors(['erro' => 'Sessão expirada. Inicie o processo novamente.']);
+    }
+    
+    $verificationCode = \App\Models\VerificationCode::find($verificationCodeId);
+    if (!$verificationCode) {
+        return redirect('/Recuperacao_Senha_1')->withErrors(['erro' => 'Código não encontrado. Inicie o processo novamente.']);
+    }
+    
+    // Atualiza a senha do usuário
+    $user = \App\Models\User::where('email', $verificationCode->email)->first();
+    if ($user) {
+        $user->password = $request->nova_senha; // O cast 'hashed' já faz o hash
+        $user->save();
+    }
+    
+    // Remove o código usado e limpa a sessão
+    $verificationCode->delete();
+    session()->forget(['verification_code_id']);
+    
     // Redireciona para a página de login
     return redirect('/login')->with('status', 'Senha redefinida com sucesso! Faça login com sua nova senha.');
 });

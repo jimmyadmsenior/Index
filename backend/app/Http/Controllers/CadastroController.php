@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Log;
+use App\Models\VerificationCode;
 
 class CadastroController extends Controller
 {
@@ -23,27 +24,26 @@ class CadastroController extends Controller
             'nome' => 'required',
         ]);
 
-        // Gera código aleatório de 6 caracteres (letras e números)
-        $caracteres = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
-        $codigo = '';
-        for ($i = 0; $i < 6; $i++) {
-            $codigo .= $caracteres[random_int(0, strlen($caracteres) - 1)];
-        }
-        Session::put('cadastro_email', $request->email);
-        Session::put('cadastro_nome', $request->nome);
-        Session::put('cadastro_senha', $request->senha);
-        Session::put('cadastro_codigo', $codigo);
+        // Cria código de verificação no banco de dados
+        $verificationCode = VerificationCode::create_code(
+            $request->email, 
+            'registration', 
+            [
+                'nome' => $request->nome,
+                'senha' => $request->senha
+            ]
+        );
 
         Log::info('=== PROCESSO CADASTRO ===');
-        Log::info('Código gerado: "' . $codigo . '"');
-        Log::info('Código salvo na sessão: "' . Session::get('cadastro_codigo') . '"');
+        Log::info('Código gerado: "' . $verificationCode->code . '"');
+        Log::info('Email: ' . $request->email);
 
         // Envia o e-mail
-        Log::info('Enviando código de verificação para: ' . $request->email . ' | Código: ' . $codigo);
+        Log::info('Enviando código de verificação para: ' . $request->email . ' | Código: ' . $verificationCode->code);
         
         $emailEnviado = false;
         try {
-            Mail::raw("Seu código de verificação para cadastro na INDEX é: $codigo\n\nDigite este código na página de verificação para concluir seu cadastro.\n\nSe não foi você, ignore este e-mail.", function($message) use ($request) {
+            Mail::raw("Seu código de verificação para cadastro na INDEX é: {$verificationCode->code}\n\nDigite este código na página de verificação para concluir seu cadastro.\n\nSe não foi você, ignore este e-mail.", function($message) use ($request) {
                 $message->to($request->email)
                     ->subject('Código de verificação - INDEX');
             });
@@ -51,13 +51,13 @@ class CadastroController extends Controller
             $emailEnviado = true;
         } catch (\Exception $e) {
             Log::error('Erro ao enviar e-mail: ' . $e->getMessage());
-            Log::warning('AVISO: Email não enviado devido a problema SMTP. Código para teste: ' . $codigo);
+            Log::warning('AVISO: Email não enviado devido a problema SMTP. Código para teste: ' . $verificationCode->code);
             // Continua mesmo com erro de email para não travar o cadastro
         }
         
         // Se o email não foi enviado, salva uma mensagem para mostrar na tela
         if (!$emailEnviado) {
-            Session::put('codigo_debug', $codigo);
+            Session::put('codigo_debug', $verificationCode->code);
             Session::put('email_falhou', true);
         }
 
@@ -75,52 +75,61 @@ class CadastroController extends Controller
             'codigo' => 'required|string|size:6'
         ]);
 
-        $codigo = Session::get('cadastro_codigo');
-        $email = Session::get('cadastro_email');
-        $nome = Session::get('cadastro_nome');
-        $senha = Session::get('cadastro_senha');
-
         \Log::info('=== VERIFICAÇÃO DE CÓDIGO ===');
         \Log::info('Código recebido: "' . $request->codigo . '"');
-        \Log::info('Código esperado: "' . $codigo . '"');
-        \Log::info('Email na sessão: ' . $email);
-        
-        // Limpar espaços em branco dos códigos
-        $codigoRecebido = trim(strtoupper($request->codigo));
-        $codigoEsperado = trim(strtoupper($codigo));
-        
+
+        // Verifica código no banco de dados (busca apenas pelo código)
+        $verificationCode = VerificationCode::verify_code(
+            $request->codigo, 
+            'registration'
+        );
+
         // CÓDIGO DE TESTE TEMPORÁRIO - Aceita "123456" quando não há email
         $codigoTeste = "123456";
-        
-        Log::info('Código recebido (limpo): "' . $codigoRecebido . '"');
-        Log::info('Código esperado (limpo): "' . $codigoEsperado . '"');
-        Log::info('Código de teste aceito: "' . $codigoTeste . '"');
-        Log::info('Comparação: ' . ($codigoRecebido === $codigoEsperado ? 'IGUAL' : 'DIFERENTE'));
+        $codigoRecebido = trim(strtoupper($request->codigo));
 
-        if ($codigoRecebido === $codigoEsperado || $codigoRecebido === $codigoTeste) {
+        Log::info('Código recebido (limpo): "' . $codigoRecebido . '"');
+        Log::info('Código de teste aceito: "' . $codigoTeste . '"');
+        
+        if ($verificationCode && !$verificationCode->isExpired()) {
             \Log::info('✅ Código correto! Verificando se email já existe...');
             
             // Verifica se o e-mail já existe antes de criar
-            if (\App\Models\User::where('email', $email)->exists()) {
-                \Log::info('❌ Email já existe: ' . $email);
+            if (\App\Models\User::where('email', $verificationCode->email)->exists()) {
+                \Log::info('❌ Email já existe: ' . $verificationCode->email);
+                $verificationCode->delete(); // Remove o código usado
                 return redirect('/login')->withErrors(['email' => 'Este e-mail já está cadastrado. Faça login.']);
             }
             
-            \Log::info('Criando usuário: ' . $email);
-            // NÃO faça hash manualmente, pois o model já faz isso pelo cast
+            \Log::info('Criando usuário: ' . $verificationCode->email);
+            // Cria o usuário com os dados salvos no código de verificação
             \App\Models\User::create([
-                'name' => $nome,
-                'email' => $email,
-                'password' => $senha, // O cast 'hashed' já faz o hash
+                'name' => $verificationCode->data['nome'],
+                'email' => $verificationCode->email,
+                'password' => $verificationCode->data['senha'], // O cast 'hashed' já faz o hash
             ]);
             
             \Log::info('✅ Usuário criado com sucesso!');
-            Session::forget(['cadastro_email', 'cadastro_nome', 'cadastro_senha', 'cadastro_codigo', 'codigo_debug', 'email_falhou']);
+            
+            // Remove o código usado e limpa a sessão
+            $verificationCode->delete();
+            Session::forget(['codigo_debug', 'email_falhou']);
+            
             \Log::info('Redirecionando para confirmação...');
             return redirect('/confirmacao-cadastro');
+        } elseif ($codigoRecebido === $codigoTeste) {
+            // Mantém a funcionalidade de código de teste
+            \Log::info('✅ Código de teste usado!');
+            return redirect('/confirmacao-cadastro');
         } else {
-            \Log::info('❌ Código incorreto!');
-            return redirect('/verificacao')->with('erro', 'Código incorreto. Tente novamente.');
+            if ($verificationCode && $verificationCode->isExpired()) {
+                \Log::info('❌ Código expirado!');
+                $verificationCode->delete();
+                return redirect('/verificacao')->with('erro', 'Código expirado. Solicite um novo código.');
+            } else {
+                \Log::info('❌ Código incorreto!');
+                return redirect('/verificacao')->with('erro', 'Código incorreto. Tente novamente.');
+            }
         }
     }
 }
