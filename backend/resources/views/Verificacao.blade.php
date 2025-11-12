@@ -122,7 +122,7 @@
       </div>
     @endif
     
-    <form method="POST" action="/verificacao" onsubmit="return validarCampo()">>
+    <form method="POST" action="/verificacao" onsubmit="return validarCampo()">
       @csrf
       <div class="input-container" id="campo-codigo">
         <input class="input-field" type="text" id="input-field" name="codigo" placeholder=" " autocomplete="one-time-code">
@@ -150,5 +150,8 @@
     const container = document.getElementById("campo-codigo");
     container.classList.remove("erro");
   }
+  
+  // Remove erro quando o usuário começa a digitar
+  document.getElementById("input-field").addEventListener('input', removerErro);
 </script>
 @endsection
