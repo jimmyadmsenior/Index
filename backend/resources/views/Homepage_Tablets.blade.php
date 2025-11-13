@@ -346,6 +346,29 @@ function adicionarAoCarrinho(produto) {
 }
 </script>
 
+  <!-- Novo Chatbot Widget -->
+  <link rel="stylesheet" href="/media/ChatBot/ModernChatBot.css">
+  <div id="modern-chatbot-widget">
+    <div class="modern-chatbot-fab" id="modernChatbotFab" title="Falar com Índigo">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="12" fill="currentColor"/></svg>
+    </div>
+    <div class="modern-chatbot-window" id="modernChatbotWindow">
+      <div class="modern-chatbot-header">
+        <div class="modern-chatbot-avatar">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="12" fill="currentColor"/></svg>
+        </div>
+        <div>
+          <div class="modern-chatbot-title">Índigo</div>
+          <div class="modern-chatbot-desc">Assistente Virtual</div>
+        </div>
+        <button class="modern-chatbot-close" id="modernChatbotClose" title="Fechar">×</button>
+      </div>
+      <div class="modern-chatbot-messages" id="modernChatbotMessages"></div>
+      <div class="modern-chatbot-footer" id="modernChatbotFooter"></div>
+    </div>
+  </div>
+  <script src="/media/ChatBot/ModernChatBot.js" defer></script>
+  <!-- Fim do novo Chatbot Widget -->
 @endsection
 
 
