@@ -61,9 +61,6 @@ header {
 @endsection
 @section('content')
 
-{{-- Barra de Pesquisa de Tablets --}}
-@include('partials.product-search', ['categoria' => 'Tablets'])
-
 <main class="main-homepage">
   <section class="hero-section" style="display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; background: #000; padding: 0; margin: 0 0 24px 0;">
     <h1 class="hero-title geoform-text" style="font-size: 4.2rem; font-weight: bold; margin-bottom: 18px; color: #fff; letter-spacing: 1px; text-align: center;">Galaxy Tab S9 Ultra Mockup</h1>
@@ -104,6 +101,9 @@ header {
       <img src="/media/Group 6.png" alt="Banner" class="group6-img" style="width: 100%; max-width: 1100px; height: auto; display: block; object-fit: contain; background: #000; margin: 0 auto; filter: none !important; mix-blend-mode: normal !important;" />
     </div>
   </section>
+
+  {{-- Barra de Pesquisa de Tablets movida para baixo da imagem --}}
+  @include('partials.product-search', ['categoria' => 'Tablets'])
 
   <!-- Carrossel de Produtos -->
   <!-- Carrossel de Fones (cópia exata do HomePage_Fones) -->
