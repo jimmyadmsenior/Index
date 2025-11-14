@@ -1,32 +1,6 @@
 @extends('layouts.app')
 
 @section('head')
-<header class="navbar-index" style="background:#111; width:100%; min-width:0; box-shadow:none; border:none; margin:0; padding:0; position:relative; z-index:1001;">
-  <div class="navbar-content" style="width:100%;padding:0;">
-    <div style="display:grid;grid-template-columns:1.2fr auto 1fr;align-items:center;max-width:1300px;width:100%;margin:0 auto;padding:0 32px 0 32px;height:64px;box-sizing:border-box;">
-      <div style="justify-self:start;">
-        <a href="/"><img src="/media/Logo_Branca.png" alt="Logo Index" style="height:32px;"></a>
-      </div>
-      <nav class="navbar-menu" style="justify-self:center;height:64px;display:flex;align-items:center;">
-        <ul style="display:flex;gap:32px;margin:0 auto;padding:0;list-style:none;align-items:center;height:64px;">
-          <li><a href="/Homepage_Smartphones" style="color:#fff;font-weight:600;text-decoration:none;font-size:1rem;">Smartphones</a></li>
-          <li><a href="/Homepage_Tablets" style="color:#fff;font-weight:600;text-decoration:none;font-size:1rem;">Tablets</a></li>
-          <li><a href="/Homepage_Fones" style="color:#fff;font-weight:600;text-decoration:none;font-size:1rem;">Fones</a></li>
-          <li><a href="/Homepage_Relógios" style="color:#fff;font-weight:600;text-decoration:none;font-size:1rem;">Relógios</a></li>
-          <li><a href="/Homepage_Notebooks" style="color:#fff;font-weight:600;text-decoration:none;font-size:1rem;">Notebooks</a></li>
-        </ul>
-      </nav>
-      <div class="navbar-actions" style="display:flex;align-items:center;gap:18px;justify-self:end;padding-left:56px;">
-        <a href="/carrinho" class="navbar-btn navbar-btn-sacola" title="Carrinho" style="color:#fff;background:#111;border:none;font-size:1.5rem;display:flex;align-items:center;justify-content:center;position:relative;">
-          <i class="fas fa-shopping-cart"></i>
-                            </a>
-                  <a href="/login" class="navbar-btn navbar-btn-login" style="color:#fff;background:#111;border:1.5px solid #fff;padding:7px 22px;border-radius:10px;font-weight:600;">Login</a>
-          <a href="/cadastro" class="navbar-btn navbar-btn-cadastro" style="color:#fff;background:#111;border:1.5px solid #fff;padding:7px 22px;border-radius:10px;font-weight:600;">Cadastro</a>
-              </div>
-    </div>
-    </div>
-  
-</header>
 <meta name="csrf-token" content="{{ csrf_token() }}">
 <style>
 footer {
@@ -52,14 +26,18 @@ html {
 
 main {
     background: #000 !important;
-    padding: 0 !important;
+    padding-top: 80px !important; /* Espaço para a navbar fixa */
+    padding-bottom: 48px !important;
 }
 
-/* Remover linha/border da navbar */
-nav, .navbar, header {
-    border-bottom: none !important;
-    box-shadow: none !important;
-    border: none !important;
+/* Garantir que a navbar fique fixa no topo */
+.navbar-index {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    z-index: 1001 !important;
 }
 
 /* Forçar espaçamento entre navbar e conteúdo */
@@ -859,14 +837,14 @@ nav, .navbar, header {
         @auth
             <form action="{{ route('carrinho.adicionar') }}" method="POST" style="display: inline-block;">
                 @csrf
-                    <input type="hidden" name="produto_id" value="125">
+                    <input type="hidden" name="produto_id" value="6">
                     <input type="hidden" name="quantidade" value="1">
-                    <button type="submit" id="btn-comprar-iphone17pro" style="background: #2563eb; color: white; padding: 1rem 3rem; border-radius: 2rem; font-size: 1.5rem; font-weight: 600; border: none; cursor: pointer; transition: all 0.3s;" onmouseover="this.style.background='#1d4ed8'; this.style.transform='scale(1.05)'" onmouseout="this.style.background='#2563eb'; this.style.transform='scale(1)'">
-                        🛒 Comprar iPhone 17 Pro
+                    <button type="submit" id="btn-comprar-fone" style="background: #2563eb; color: white; padding: 1rem 3rem; border-radius: 2rem; font-size: 1.5rem; font-weight: 600; border: none; cursor: pointer; transition: all 0.3s;" onmouseover="this.style.background='#1d4ed8'; this.style.transform='scale(1.05)'" onmouseout="this.style.background='#2563eb'; this.style.transform='scale(1)'">
+                        🛒 Comprar Fone Agora
                     </button>
             </form>
         @else
-            <a href="/Login" style="background: #dc2626; color: white; padding: 1rem 3rem; border-radius: 2rem; font-size: 1.5rem; font-weight: 600; text-decoration: none; display: inline-block; transition: all 0.3s;" onmouseover="this.style.background='#b91c1c'; this.style.transform='scale(1.05)'" onmouseout="this.style.background='#dc2626'; this.style.transform='scale(1)'">
+            <a href="/login" style="background: #dc2626; color: white; padding: 1rem 3rem; border-radius: 2rem; font-size: 1.5rem; font-weight: 600; text-decoration: none; display: inline-block; transition: all 0.3s;" onmouseover="this.style.background='#b91c1c'; this.style.transform='scale(1.05)'" onmouseout="this.style.background='#dc2626'; this.style.transform='scale(1)'">
                 👤 Faça Login para Comprar
             </a>
         @endauth
@@ -955,5 +933,4 @@ document.addEventListener('DOMContentLoaded', function() {
     updateIndicator();
 });
 </script>
-    @include('components.apple-watch')
 @endsection
