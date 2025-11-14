@@ -1,32 +1,6 @@
 @extends('layouts.app')
 
 @section('head')
-<header class="navbar-index" style="background:#111; width:100%; min-width:0; box-shadow:none; border:none; margin:0; padding:0; position:relative; z-index:1001;">
-  <div class="navbar-content" style="width:100%;padding:0;">
-    <div style="display:grid;grid-template-columns:1.2fr auto 1fr;align-items:center;max-width:1300px;width:100%;margin:0 auto;padding:0 32px 0 32px;height:64px;box-sizing:border-box;">
-      <div style="justify-self:start;">
-        <a href="/"><img src="/media/Logo_Branca.png" alt="Logo Index" style="height:32px;"></a>
-      </div>
-      <nav class="navbar-menu" style="justify-self:center;height:64px;display:flex;align-items:center;">
-        <ul style="display:flex;gap:32px;margin:0 auto;padding:0;list-style:none;align-items:center;height:64px;">
-          <li><a href="/Homepage_Smartphones" style="color:#fff;font-weight:600;text-decoration:none;font-size:1rem;">Smartphones</a></li>
-          <li><a href="/Homepage_Tablets" style="color:#fff;font-weight:600;text-decoration:none;font-size:1rem;">Tablets</a></li>
-          <li><a href="/Homepage_Fones" style="color:#fff;font-weight:600;text-decoration:none;font-size:1rem;">Fones</a></li>
-          <li><a href="/Homepage_Relógios" style="color:#fff;font-weight:600;text-decoration:none;font-size:1rem;">Relógios</a></li>
-          <li><a href="/Homepage_Notebooks" style="color:#fff;font-weight:600;text-decoration:none;font-size:1rem;">Notebooks</a></li>
-        </ul>
-      </nav>
-      <div class="navbar-actions" style="display:flex;align-items:center;gap:18px;justify-self:end;padding-left:56px;">
-        <a href="/carrinho" class="navbar-btn navbar-btn-sacola" title="Carrinho" style="color:#fff;background:#111;border:none;font-size:1.5rem;display:flex;align-items:center;justify-content:center;position:relative;">
-          <i class="fas fa-shopping-cart"></i>
-                            </a>
-                  <a href="/login" class="navbar-btn navbar-btn-login" style="color:#fff;background:#111;border:1.5px solid #fff;padding:7px 22px;border-radius:10px;font-weight:600;">Login</a>
-          <a href="/cadastro" class="navbar-btn navbar-btn-cadastro" style="color:#fff;background:#111;border:1.5px solid #fff;padding:7px 22px;border-radius:10px;font-weight:600;">Cadastro</a>
-              </div>
-    </div>
-    </div>
-  
-</header>
 <meta name="csrf-token" content="{{ csrf_token() }}">
 <style>
 footer {
@@ -547,7 +521,9 @@ nav, .navbar, header {
     margin-bottom: 0;
 }
 </style>
+@endsection
 
+@section('content')
 <div style="background: #000; min-height: 100vh; color: #fff;">
     {{-- Hero Section --}}
     <section class="hero-section">
@@ -591,16 +567,16 @@ nav, .navbar, header {
                                     cartIcon.appendChild(span);
                                 }
                             }
-                            btn.textContent = '✅ Adicionado!';
-                            setTimeout(() => { btn.textContent = '🛒 Comprar iPhone 17 Pro'; }, 2000);
+                            btn.innerHTML = '<span style="position: relative; z-index: 2; display: flex; align-items: center; justify-content: center; gap: 8px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 8px;"><path d="M20 6L9 17l-5-5"/></svg>Adicionado!</span>';
+                            setTimeout(() => { btn.innerHTML = '<span style="position: relative; z-index: 2; display: flex; align-items: center; justify-content: center; gap: 8px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 8px;"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>Comprar Apple Watch</span>'; }, 2000);
                         } else {
-                            btn.textContent = 'Erro ao adicionar';
-                            setTimeout(() => { btn.textContent = '🛒 Comprar iPhone 17 Pro'; }, 2000);
+                            btn.innerHTML = '<span style="position: relative; z-index: 2; display: flex; align-items: center; justify-content: center; gap: 8px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 8px;"><path d="M18 6L6 18M6 6l12 12"/></svg>Erro ao adicionar</span>';
+                            setTimeout(() => { btn.innerHTML = '<span style="position: relative; z-index: 2; display: flex; align-items: center; justify-content: center; gap: 8px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 8px;"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>Comprar Apple Watch</span>'; }, 2000);
                         }
                     })
                     .catch(() => {
-                        btn.textContent = 'Erro ao adicionar';
-                        setTimeout(() => { btn.textContent = '🛒 Comprar iPhone 17 Pro'; }, 2000);
+                        btn.innerHTML = '<span style="position: relative; z-index: 2; display: flex; align-items: center; justify-content: center; gap: 8px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 8px;"><path d="M18 6L6 18M6 6l12 12"/></svg>Erro ao adicionar</span>';
+                        setTimeout(() => { btn.innerHTML = '<span style="position: relative; z-index: 2; display: flex; align-items: center; justify-content: center; gap: 8px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 8px;"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>Comprar Apple Watch</span>'; }, 2000);
                     });
                 });
             }
@@ -681,9 +657,9 @@ nav, .navbar, header {
                 <!-- End ScrollMagic Animation Block -->
             </div>
         </div>
-        
        
-        
+       
+       
        
     </section>
 
@@ -696,7 +672,7 @@ nav, .navbar, header {
                     Cada detalhe foi pensado para criar a melhor experiência.
                 </p>
             </div>
-            
+           
             <div class="highlights-grid">
                 <div class="highlight-card animate-slide-in-left animate-delay-300">
                     <!-- Imagens dos destaques -->
@@ -714,11 +690,11 @@ nav, .navbar, header {
                     </p>
                 </div>
             </div>
-            
+           
             <div class="a19-section">
                 <div class="a19-center">
                     <h3 class="a19-title" style="text-align:center; width:100%;">S9 Pro</h3>
-                    <p class="a19-desc" style="text-align:center; width:100%;">O chip mais poderoso em um Smart Watch</p>
+                    <p class="a19-desc" style="text-align:center; width:100%;">O chip mais poderoso em um smartphone</p>
                     <!-- Imagem do chip -->
                     <img src="{{ asset('media/Apple-S9-SiP.jpg') }}" alt="chip-a19-pro" class="a19-img" />
                     <ul class="a19-features">
@@ -729,7 +705,7 @@ nav, .navbar, header {
                     </ul>
                 </div>
             </div>
-            
+           
             <div class="unibody-section">
                 <h3 class="unibody-title">Estrutura unibody. Eles têm a força.</h3>
                 <p class="unibody-desc">
@@ -750,23 +726,23 @@ do monitoramento de atividades e saúde ao controle instantâneo de chamadas e m
                     Três acabamentos em titânio lindos
                 </p>
                 <div style="position: relative; margin-bottom: 3rem;">
-                 <!-- Imagem da cor do iPhone (pode ser trocada pelas opções de cor) -->
-                 <img id="colorPreview" src="{{ asset('media/Apple branco.png') }}" alt="iPhone 17 Pro" 
+                 <!-- Imagem da cor do Apple Watch (pode ser trocada pelas opções de cor) -->
+                 <img id="colorPreview" src="{{ asset('media/Apple azul.png') }}" alt="Apple Watch"
                      style="width: 100%; max-width: 220px; height: auto; border-radius: 1rem; display: block; margin: 0 auto;" class="animate-zoom-in" id="colorPreviewImg" />
-                    <div style="position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%); background: rgba(0,0,0,0.7); color: #fff; padding: 0.75rem 1.5rem; border-radius: 2rem; font-size: 1.125rem; font-weight: 600;">
-                        <span id="colorName">Titânio Branco</span>
+                    <div style="position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%); background: rgba(0,0,0,0.7); color: #2563eb; padding: 0.75rem 1.5rem; border-radius: 2rem; font-size: 1.125rem; font-weight: 600;">
+                        <span id="colorName">Titânio Azul</span>
                     </div>
                 </div>
                 <div style="display: flex; justify-content: center; gap: 1rem; margin-bottom: 1rem;">
-            <button class="color-btn active" id="indicator-azul" data-color="azul" data-name="Titânio Azul" data-image="{{ asset('media/Apple azul.png') }}" 
+            <button class="color-btn active" id="indicator-azul" data-color="azul" data-name="Titânio Azul" data-image="{{ asset('media/Apple azul.png') }}"
                 style="width: 3rem; height: 3rem; border-radius: 50%; background: #2563eb; border: 3px solid #fff; cursor: pointer; transition: all 0.3s; box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4); position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center;">
                     <!-- imagem do relógio removida do botão laranja -->
             </button>
-            <button class="color-btn" id="indicator-branco" data-color="branco" data-name="Titânio Branco" data-image="{{ asset('media/Apple branco.png') }}" 
+            <button class="color-btn" id="indicator-branco" data-color="branco" data-name="Titânio Branco" data-image="{{ asset('media/Apple branco.png') }}"
                 style="width: 3rem; height: 3rem; border-radius: 50%; background: #e5e7eb; border: 3px solid #fff; cursor: pointer; transition: all 0.3s; box-shadow: 0 4px 15px rgba(128, 128, 128, 0.4); position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center;">
                     <!-- imagem do relógio removida do botão laranja -->
             </button>
-            <button class="color-btn" id="indicator-preto" data-color="preto" data-name="Titânio Preto" data-image="{{ asset('media/Apple preto.png') }}" 
+            <button class="color-btn" id="indicator-preto" data-color="preto" data-name="Titânio Preto" data-image="{{ asset('media/Apple preto.png') }}"
                 style="width: 3rem; height: 3rem; border-radius: 50%; background: #222; border: 3px solid #fff; cursor: pointer; transition: all 0.3s; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7); position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center;">
                     <!-- imagem do relógio removida do botão laranja -->
             </button>
@@ -787,13 +763,25 @@ do monitoramento de atividades e saúde ao controle instantâneo de chamadas e m
                 @csrf
                     <input type="hidden" name="produto_id" value="125">
                     <input type="hidden" name="quantidade" value="1">
-                    <button type="submit" id="btn-comprar-iphone17pro" style="background: #2563eb; color: white; padding: 1rem 3rem; border-radius: 2rem; font-size: 1.5rem; font-weight: 600; border: none; cursor: pointer; transition: all 0.3s;" onmouseover="this.style.background='#1d4ed8'; this.style.transform='scale(1.05)'" onmouseout="this.style.background='#2563eb'; this.style.transform='scale(1)'">
-                        🛒 Comprar iPhone 17 Pro
+                    <button type="submit" id="btn-comprar-applewatch" style="background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%); color: white; padding: 1.2rem 4rem; border-radius: 3rem; font-size: 1.4rem; font-weight: 700; border: none; cursor: pointer; transition: all 0.4s ease; box-shadow: 0 8px 32px rgba(37, 99, 235, 0.4); position: relative; overflow: hidden;" onmouseover="this.style.transform='translateY(-3px) scale(1.02)'; this.style.boxShadow='0 12px 40px rgba(37, 99, 235, 0.6)';" onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='0 8px 32px rgba(37, 99, 235, 0.4)';">
+                        <span style="position: relative; z-index: 2; display: flex; align-items: center; justify-content: center; gap: 8px;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 8px;">
+                                <path d="M9 12l2 2 4-4"/>
+                                <circle cx="12" cy="12" r="9"/>
+                            </svg>
+                            Comprar Apple Watch
+                        </span>
                     </button>
             </form>
         @else
-            <a href="/Login" style="background: #dc2626; color: white; padding: 1rem 3rem; border-radius: 2rem; font-size: 1.5rem; font-weight: 600; text-decoration: none; display: inline-block; transition: all 0.3s;" onmouseover="this.style.background='#b91c1c'; this.style.transform='scale(1.05)'" onmouseout="this.style.background='#dc2626'; this.style.transform='scale(1)'">
-                👤 Faça Login para Comprar
+            <a href="/Login" style="background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%); color: white; padding: 1.2rem 4rem; border-radius: 3rem; font-size: 1.4rem; font-weight: 700; text-decoration: none; display: inline-block; transition: all 0.4s ease; box-shadow: 0 8px 32px rgba(220, 38, 38, 0.4); position: relative; overflow: hidden;" onmouseover="this.style.transform='translateY(-3px) scale(1.02)'; this.style.boxShadow='0 12px 40px rgba(220, 38, 38, 0.6)';" onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='0 8px 32px rgba(220, 38, 38, 0.4)';">
+                <span style="position: relative; z-index: 2; display: flex; align-items: center; justify-content: center; gap: 8px;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 8px;">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                        <circle cx="12" cy="7" r="4"/>
+                    </svg>
+                    Faça Login para Comprar
+                </span>
             </a>
         @endauth
     </section>
@@ -882,4 +870,28 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
     @include('components.apple-watch')
+
+  <!-- Novo Chatbot Widget -->
+  <link rel="stylesheet" href="/media/ChatBot/ModernChatBot.css">
+  <div id="modern-chatbot-widget">
+    <div class="modern-chatbot-fab" id="modernChatbotFab" title="Falar com Índigo">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="12" fill="currentColor"/></svg>
+    </div>
+    <div class="modern-chatbot-window" id="modernChatbotWindow">
+      <div class="modern-chatbot-header">
+        <div class="modern-chatbot-avatar">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="12" fill="currentColor"/></svg>
+        </div>
+        <div>
+          <div class="modern-chatbot-title">Índigo</div>
+          <div class="modern-chatbot-desc">Assistente Virtual</div>
+        </div>
+        <button class="modern-chatbot-close" id="modernChatbotClose" title="Fechar">×</button>
+      </div>
+      <div class="modern-chatbot-messages" id="modernChatbotMessages"></div>
+      <div class="modern-chatbot-footer" id="modernChatbotFooter"></div>
+    </div>
+  </div>
+  <script src="/media/ChatBot/ModernChatBot.js" defer></script>
+  <!-- Fim do novo Chatbot Widget -->
 @endsection

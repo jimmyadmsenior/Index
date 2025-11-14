@@ -37,37 +37,29 @@ header {
 .menu li a { text-decoration: none !important; }
 
 .comprar-btn {
-  background: #fff;
-  color: #111;
-  font-weight: bold;
-  font-size: 2rem;
-  border: none;
-  border-radius: 32px;
-  padding: 18px 64px;
-  margin-bottom: 40px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
   cursor: pointer;
-  letter-spacing: 3px;
-  transition: transform 0.18s, background 0.18s, box-shadow 0.18s;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
 }
-.comprar-btn:hover, .comprar-btn:focus {
-  transform: scale(1.08);
-  background: #e6e6e6;
-  color: #111;
-  box-shadow: 0 4px 18px rgba(0,0,0,0.18);
+.comprar-btn:hover {
+  transform: translateY(-3px) scale(1.02);
 }
 .comprar-btn:active {
-  transform: scale(0.96) translateY(2px);
-  background: #d1d1d1;
-  color: #111;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.12);
+  transform: translateY(-1px) scale(0.98);
+}
+
+/* Melhor espaçamento entre seções */
+.hero-section {
+  margin-bottom: 60px;
+}
+.galaxy-tab-a-banner {
+  margin-top: 80px;
+  margin-bottom: 60px;
 }
 </style>
 @endsection
 @section('content')
-
-{{-- Barra de Pesquisa de Tablets --}}
-@include('partials.product-search', ['categoria' => 'Tablets'])
 
 <main class="main-homepage">
   <section class="hero-section" style="display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; background: #000; padding: 0; margin: 0 0 24px 0;">
@@ -88,17 +80,30 @@ header {
             @csrf
             <input type="hidden" name="produto_id" value="167">
             <input type="hidden" name="quantidade" value="1">
-            <button type="submit" class="comprar-btn" style="background: #000; color: #fff;">
-                <i class="fas fa-shopping-cart"></i> ADICIONAR AO CARRINHO
+            <button type="submit" class="comprar-btn" style="background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%); color: white; padding: 1.2rem 3rem; border-radius: 3rem; font-size: 1.3rem; font-weight: 700; border: none; cursor: pointer; transition: all 0.4s ease; box-shadow: 0 8px 32px rgba(37, 99, 235, 0.4); letter-spacing: 1px;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 8px; display: inline-block; vertical-align: middle;">
+                    <path d="M9 12l2 2 4-4"/>
+                    <circle cx="12" cy="12" r="9"/>
+                </svg>
+                ADICIONAR AO CARRINHO
             </button>
         </form>
     @else
-        <a href="/Login" class="comprar-btn" style="text-decoration: none;">FAÇA LOGIN PARA COMPRAR</a>
+        <a href="/Login" class="comprar-btn" style="background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%); color: white; padding: 1.2rem 3rem; border-radius: 3rem; font-size: 1.3rem; font-weight: 700; text-decoration: none; display: inline-block; transition: all 0.4s ease; box-shadow: 0 8px 32px rgba(220, 38, 38, 0.4); letter-spacing: 1px;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 8px; display: inline-block; vertical-align: middle;">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                <circle cx="12" cy="7" r="4"/>
+            </svg>
+            FAÇA LOGIN PARA COMPRAR
+        </a>
     @endauth
     <div style="width: 100%; display: flex; justify-content: center; align-items: center;">
       <img src="/media/Group 6.png" alt="Banner" class="group6-img" style="width: 100%; max-width: 1100px; height: auto; display: block; object-fit: contain; background: #000; margin: 0 auto; filter: none !important; mix-blend-mode: normal !important;" />
     </div>
   </section>
+
+  {{-- Barra de Pesquisa de Tablets movida para baixo da imagem --}}
+  @include('partials.product-search', ['categoria' => 'Tablets'])
 
   <!-- Carrossel de Produtos -->
   <!-- Carrossel de Fones (cópia exata do HomePage_Fones) -->
@@ -106,7 +111,7 @@ header {
     <style>
       .carousel-fones-novo {
         max-width: 1300px;
-        margin: 10px auto 0 auto;
+        margin: 60px auto 80px auto;
         background: #181818;
         border-radius: 28px;
         box-shadow: 0 6px 36px 0 rgba(0,0,0,0.20);
@@ -306,19 +311,29 @@ header {
                 @csrf
                 <input type="hidden" name="produto_id" value="168">
                 <input type="hidden" name="quantidade" value="1">
-                <button type="submit" class="comprar-btn" style="background: #000; color: #fff; font-weight: bold; font-size: 2.2rem; border: none; border-radius: 40px; padding: 22px 70px; margin-top: 24px; box-shadow: 0 4px 16px rgba(0,0,0,0.18); cursor: pointer; letter-spacing: 3px; transition: transform 0.18s, background 0.18s, box-shadow 0.18s;">
-                    <i class="fas fa-shopping-cart"></i> ADICIONAR AO CARRINHO
+                <button type="submit" class="comprar-btn" style="background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%); color: white; padding: 1.5rem 4rem; border-radius: 3rem; font-size: 1.6rem; font-weight: 700; border: none; cursor: pointer; transition: all 0.4s ease; box-shadow: 0 12px 40px rgba(37, 99, 235, 0.5); letter-spacing: 1px; margin-top: 24px;" onmouseover="this.style.transform='translateY(-3px) scale(1.02)'; this.style.boxShadow='0 16px 48px rgba(37, 99, 235, 0.7)';" onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='0 12px 40px rgba(37, 99, 235, 0.5)';">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 10px; display: inline-block; vertical-align: middle;">
+                        <path d="M9 12l2 2 4-4"/>
+                        <circle cx="12" cy="12" r="9"/>
+                    </svg>
+                    ADICIONAR AO CARRINHO
                 </button>
             </form>
         @else
-            <a href="/Login" class="comprar-btn" style="background: #fff; color: #111; font-weight: bold; font-size: 2.2rem; border: none; border-radius: 40px; padding: 22px 70px; margin-top: 24px; box-shadow: 0 4px 16px rgba(0,0,0,0.18); cursor: pointer; letter-spacing: 3px; text-decoration: none; display: inline-block;">FAÇA LOGIN PARA COMPRAR</a>
+            <a href="/Login" class="comprar-btn" style="background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%); color: white; padding: 1.5rem 4rem; border-radius: 3rem; font-size: 1.6rem; font-weight: 700; text-decoration: none; display: inline-block; transition: all 0.4s ease; box-shadow: 0 12px 40px rgba(220, 38, 38, 0.5); letter-spacing: 1px; margin-top: 24px;" onmouseover="this.style.transform='translateY(-3px) scale(1.02)'; this.style.boxShadow='0 16px 48px rgba(220, 38, 38, 0.7)';" onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='0 12px 40px rgba(220, 38, 38, 0.5)';">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 10px; display: inline-block; vertical-align: middle;">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                    <circle cx="12" cy="7" r="4"/>
+                </svg>
+                FAÇA LOGIN PARA COMPRAR
+            </a>
         @endauth
       </div>
     </div>
   </section>
 
   <!-- Seção: Explore nosso site -->
-  <section class="explore-section" style="margin: 64px 0 64px 0;">
+  <section class="explore-section" style="margin: 100px 0 80px 0; padding: 40px 0;">
     <div class="explore-banner">
       <div class="explore-text">
         <h2>Explore nosso site e descubra o luxo</h2>
@@ -346,6 +361,29 @@ function adicionarAoCarrinho(produto) {
 }
 </script>
 
+  <!-- Novo Chatbot Widget -->
+  <link rel="stylesheet" href="/media/ChatBot/ModernChatBot.css">
+  <div id="modern-chatbot-widget">
+    <div class="modern-chatbot-fab" id="modernChatbotFab" title="Falar com Índigo">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="12" fill="currentColor"/></svg>
+    </div>
+    <div class="modern-chatbot-window" id="modernChatbotWindow">
+      <div class="modern-chatbot-header">
+        <div class="modern-chatbot-avatar">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="12" fill="currentColor"/></svg>
+        </div>
+        <div>
+          <div class="modern-chatbot-title">Índigo</div>
+          <div class="modern-chatbot-desc">Assistente Virtual</div>
+        </div>
+        <button class="modern-chatbot-close" id="modernChatbotClose" title="Fechar">×</button>
+      </div>
+      <div class="modern-chatbot-messages" id="modernChatbotMessages"></div>
+      <div class="modern-chatbot-footer" id="modernChatbotFooter"></div>
+    </div>
+  </div>
+  <script src="/media/ChatBot/ModernChatBot.js" defer></script>
+  <!-- Fim do novo Chatbot Widget -->
 @endsection
 
 
