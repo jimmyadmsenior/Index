@@ -663,13 +663,98 @@ nav, .navbar, header {
                         </div>
                     </div>
                 </div>
-                <!-- Vídeo de destaque estático, igual smartphones -->
-                <div style="width:100vw; height:80vh; max-width:100%; display:flex; align-items:center; justify-content:center; background:#000; overflow:hidden; border-radius:2rem; margin:2rem 0;">
-                    <video autoplay loop muted playsinline style="width:100vw; height:100%; object-fit:cover; border-radius:2rem; display:block;">
+                <!-- Vídeo de destaque (restaurado) + botão 3D -->
+                <div style="width:100vw; height:80vh; max-width:100%; display:flex; align-items:center; justify-content:center; background:#000; overflow:hidden; border-radius:2rem; margin:2rem 0; position:relative;">
+                    <video id="homepageFonesVideo" autoplay loop muted playsinline style="width:100vw; height:100%; object-fit:cover; border-radius:2rem; display:block;">
                         <source src="{{ asset('media/air.mp4') }}" type="video/mp4">
                         Seu navegador não suporta a tag de vídeo.
                     </video>
                 </div>
+                    <!-- Botão para abrir o 3D removido -->
+
+                <!-- Modal de anúncio (aparece ao carregar) -->
+                <div id="adModal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.6); z-index:1900; align-items:center; justify-content:center;">
+                    <div style="width:90%; max-width:420px; background:#000; border-radius:18px; padding:24px 18px 18px 18px; display:flex; flex-direction:column; align-items:center; box-shadow:0 10px 40px rgba(0,0,0,0.6);">
+                        <img src="{{ asset('media/air p.png') }}" alt="Anúncio Fone" style="width:180px; height:180px; object-fit:cover; border-radius:12px; margin-bottom:18px;" />
+                        <h3 style="margin:0 0 8px 0; font-size:1.5rem; color:#fff;">Novo fone</h3>
+                        <p style="margin:0 0 18px 0; color:#cfcfcf; font-size:1.1rem;">Visualizar em 3D</p>
+                        <div style="display:flex; gap:12px;">
+                            <button id="adViewBtn" style="background:#2563eb; color:#fff; border:none; padding:10px 16px; border-radius:8px; cursor:pointer; font-size:1rem;">🔍 Visualizar em 3D</button>
+                            <button id="adCloseBtn" style="background:transparent; color:#fff; border:1px solid rgba(255,255,255,0.12); padding:10px 16px; border-radius:8px; cursor:pointer; font-size:1rem;">✕ Fechar</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal do visualizador 3D (inicia oculto) -->
+                <div id="viewerModal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.85); z-index:2000; align-items:center; justify-content:center;">
+                    <div style="width:90%; max-width:1100px; height:80vh; position:relative; border-radius:12px; overflow:hidden; background:#000; display:flex; align-items:center; justify-content:center;">
+                        <button id="close3D" aria-label="Fechar visualizador 3D" style="position:absolute; top:12px; right:12px; z-index:2010; background:transparent; color:#fff; border:2px solid rgba(255,255,255,0.12); padding:6px 10px; border-radius:8px; cursor:pointer;">✕</button>
+                        <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+                            <model-viewer id="foneModel" src="{{ asset('media/airpods_max.glb') }}" alt="Fone 3D" poster="{{ asset('media/fone-poster.jpg') }}"
+                          shadow-intensity="1" camera-controls auto-rotate autoplay exposure="1"
+                              loading="lazy" style="width:100%; max-width:800px; height:520px; background:#000; display:block;">
+                        </model-viewer>
+                    </div>
+                </div>
+
+                <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    var openBtn = document.getElementById('open3DBtn');
+                    var viewerModal = document.getElementById('viewerModal');
+                    var closeBtn = document.getElementById('close3D');
+                    var video = document.getElementById('homepageFonesVideo');
+                    var adModal = document.getElementById('adModal');
+                    var adViewBtn = document.getElementById('adViewBtn');
+                    var adCloseBtn = document.getElementById('adCloseBtn');
+
+                    function openViewer() {
+                        if(!viewerModal) return;
+                        viewerModal.style.display = 'flex';
+                        document.body.style.overflow = 'hidden';
+                        if(video && !video.paused) video.pause();
+                    }
+
+                    function closeViewer() {
+                        if(!viewerModal) return;
+                        viewerModal.style.display = 'none';
+                        document.body.style.overflow = '';
+                        if(video && video.paused) try { video.play(); } catch(e) {}
+                    }
+
+                    function openAd() {
+                        if(!adModal) return;
+                        adModal.style.display = 'flex';
+                        document.body.style.overflow = 'hidden';
+                        if(video && !video.paused) video.pause();
+                    }
+
+                    function closeAd() {
+                        if(!adModal) return;
+                        adModal.style.display = 'none';
+                        document.body.style.overflow = '';
+                        if(video && video.paused) try { video.play(); } catch(e) {}
+                    }
+
+                    // abrir o modal de anúncio ao carregar (tipo anúncio)
+                    setTimeout(function(){ openAd(); }, 700);
+
+                    // botão sobre o vídeo abre o visualizador direto
+                    if(openBtn) openBtn.addEventListener('click', openViewer);
+                    if(closeBtn) closeBtn.addEventListener('click', closeViewer);
+
+                    // ações do anúncio
+                    if(adViewBtn) adViewBtn.addEventListener('click', function(){ closeAd(); openViewer(); });
+                    if(adCloseBtn) adCloseBtn.addEventListener('click', function(){ closeAd(); });
+
+                    // Fecha modal ao apertar Escape (fecha ad ou viewer se estiverem abertos)
+                    document.addEventListener('keydown', function(e){
+                        if(e.key === 'Escape') {
+                            if(adModal && adModal.style.display === 'flex') { closeAd(); }
+                            if(viewerModal && viewerModal.style.display === 'flex') { closeViewer(); }
+                        }
+                    });
+                });
+                </script>
             </div>
         </div>
         
@@ -708,10 +793,10 @@ nav, .navbar, header {
             
             <div class="a19-section">
                 <div class="a19-center">
-                    <h3 class="a19-title" style="text-align:center; width:100%;">S9 Pro</h3>
-                    <p class="a19-desc" style="text-align:center; width:100%;">O chip mais poderoso em um smartphone</p>
+                    <h3 class="a19-title" style="text-align:center; width:100%;">N1 Pro</h3>
+                    <p class="a19-desc" style="text-align:center; width:100%;">O chip mais poderoso em um dispositivo apple</p>
                     <!-- Imagem do chip -->
-                    <img src="{{ asset('media/Apple-S9-SiP.jpg') }}" alt="chip-a19-pro" class="a19-img" />
+                    <img src="{{ asset('media/processador.jpg') }}" alt="chip-a19-pro" class="a19-img" />
                     <ul class="a19-features">
                         <li style="text-align:center;">- CPU 20% mais rápida</li>
                         <li style="text-align:center;">- GPU 25% mais eficiente</li>
@@ -724,12 +809,10 @@ nav, .navbar, header {
             <div class="unibody-section">
                 <h3 class="unibody-title">Estrutura unibody. Eles têm a força.</h3>
                 <p class="unibody-desc">
-                   Projetado para ser mais do que um relógio, ele é uma extensão inteligente do seu dia.
-Do design ao desempenho, cada detalhe foi pensado para oferecer funcionalidade, estilo e precisão em um único dispositivo. O Apple Watch acompanha você em tudo:
-do monitoramento de atividades e saúde ao controle instantâneo de chamadas e mensagens — tudo diretamente do seu pulso.
+                  Criados para ir além de um simples fone de ouvido, eles elevam cada momento com um som imersivo e sofisticado. Do design ao desempenho acústico, cada detalhe dos AirPods Max foi pensado para entregar conforto, elegância e qualidade sonora excepcional em um único equipamento. Com cancelamento ativo de ruído, modo ambiente e áudio espacial, eles acompanham você em tudo: do foco absoluto no trabalho aos momentos de descanso com sua música favorita — tudo com a sensação de estar em um novo nível de experiência.
                 </p>
                 <!-- Imagem da estrutura unibody -->
-                <img src="{{ asset('media/carcaca.png') }}" alt="shell-titânio" class="unibody-img" />
+                <img src="{{ asset('media/desmontado.png') }}" alt="shell-titânio" class="unibody-img" />
         </div>
         {{-- Colors Section (movida para baixo da unibody) --}}
         <section class="colors-section animate-fade-in-up" style="padding: 5rem 1.5rem; text-align: center;">
@@ -742,22 +825,22 @@ do monitoramento de atividades e saúde ao controle instantâneo de chamadas e m
                 </p>
                 <div style="position: relative; margin-bottom: 3rem;">
                  <!-- Imagem da cor do iPhone (pode ser trocada pelas opções de cor) -->
-                 <img id="colorPreview" src="{{ asset('media/iphone-orange.jpg') }}" alt="iPhone 17 Pro" 
+                 <img id="colorPreview" src="{{ asset('media/1.png') }}" alt="iPhone 17 Pro" 
                      style="width: 100%; max-width: 220px; height: auto; border-radius: 1rem; display: block; margin: 0 auto;" class="animate-zoom-in" id="colorPreviewImg" />
-                    <div style="position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%); background: rgba(0,0,0,0.7); color: #ff6b35; padding: 0.75rem 1.5rem; border-radius: 2rem; font-size: 1.125rem; font-weight: 600;">
-                        <span id="colorName">Titânio Laranja</span>
+                    <div style="position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%); background: rgba(0,0,0,0.7); color: #fff; padding: 0.75rem 1.5rem; border-radius: 2rem; font-size: 1.125rem; font-weight: 600;">
+                        <span id="colorName">Titânio Branco</span>
                     </div>
                 </div>
                 <div style="display: flex; justify-content: center; gap: 1rem; margin-bottom: 1rem;">
-            <button class="color-btn active" id="indicator-azul" data-color="azul" data-name="Titânio Azul" data-image="{{ asset('media/Apple azul.png') }}" 
+            <button class="color-btn active" id="indicator-azul" data-color="azul" data-name="Titânio Azul" data-image="{{ asset('media/2 (2).png') }}" 
                 style="width: 3rem; height: 3rem; border-radius: 50%; background: #2563eb; border: 3px solid #fff; cursor: pointer; transition: all 0.3s; box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4); position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center;">
                     <!-- imagem do relógio removida do botão laranja -->
             </button>
-            <button class="color-btn" id="indicator-branco" data-color="branco" data-name="Titânio Branco" data-image="{{ asset('media/Apple branco.png') }}" 
+            <button class="color-btn" id="indicator-branco" data-color="branco" data-name="Titânio Branco" data-image="{{ asset('media/1.png') }}" 
                 style="width: 3rem; height: 3rem; border-radius: 50%; background: #e5e7eb; border: 3px solid #fff; cursor: pointer; transition: all 0.3s; box-shadow: 0 4px 15px rgba(128, 128, 128, 0.4); position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center;">
                     <!-- imagem do relógio removida do botão laranja -->
             </button>
-            <button class="color-btn" id="indicator-preto" data-color="preto" data-name="Titânio Preto" data-image="{{ asset('media/Apple preto.png') }}" 
+            <button class="color-btn" id="indicator-preto" data-color="preto" data-name="Titânio Preto" data-image="{{ asset('media/3(3).png') }}" 
                 style="width: 3rem; height: 3rem; border-radius: 50%; background: #222; border: 3px solid #fff; cursor: pointer; transition: all 0.3s; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7); position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center;">
                     <!-- imagem do relógio removida do botão laranja -->
             </button>

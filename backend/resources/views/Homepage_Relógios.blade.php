@@ -657,9 +657,9 @@ nav, .navbar, header {
                 <!-- End ScrollMagic Animation Block -->
             </div>
         </div>
-        
        
-        
+       
+       
        
     </section>
 
@@ -672,7 +672,7 @@ nav, .navbar, header {
                     Cada detalhe foi pensado para criar a melhor experiência.
                 </p>
             </div>
-            
+           
             <div class="highlights-grid">
                 <div class="highlight-card animate-slide-in-left animate-delay-300">
                     <!-- Imagens dos destaques -->
@@ -690,7 +690,7 @@ nav, .navbar, header {
                     </p>
                 </div>
             </div>
-            
+           
             <div class="a19-section">
                 <div class="a19-center">
                     <h3 class="a19-title" style="text-align:center; width:100%;">S9 Pro</h3>
@@ -705,7 +705,7 @@ nav, .navbar, header {
                     </ul>
                 </div>
             </div>
-            
+           
             <div class="unibody-section">
                 <h3 class="unibody-title">Estrutura unibody. Eles têm a força.</h3>
                 <p class="unibody-desc">
@@ -727,22 +727,22 @@ do monitoramento de atividades e saúde ao controle instantâneo de chamadas e m
                 </p>
                 <div style="position: relative; margin-bottom: 3rem;">
                  <!-- Imagem da cor do Apple Watch (pode ser trocada pelas opções de cor) -->
-                 <img id="colorPreview" src="{{ asset('media/Apple azul.png') }}" alt="Apple Watch" 
+                 <img id="colorPreview" src="{{ asset('media/Apple azul.png') }}" alt="Apple Watch"
                      style="width: 100%; max-width: 220px; height: auto; border-radius: 1rem; display: block; margin: 0 auto;" class="animate-zoom-in" id="colorPreviewImg" />
                     <div style="position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%); background: rgba(0,0,0,0.7); color: #2563eb; padding: 0.75rem 1.5rem; border-radius: 2rem; font-size: 1.125rem; font-weight: 600;">
                         <span id="colorName">Titânio Azul</span>
                     </div>
                 </div>
                 <div style="display: flex; justify-content: center; gap: 1rem; margin-bottom: 1rem;">
-            <button class="color-btn active" id="indicator-azul" data-color="azul" data-name="Titânio Azul" data-image="{{ asset('media/Apple azul.png') }}" 
+            <button class="color-btn active" id="indicator-azul" data-color="azul" data-name="Titânio Azul" data-image="{{ asset('media/Apple azul.png') }}"
                 style="width: 3rem; height: 3rem; border-radius: 50%; background: #2563eb; border: 3px solid #fff; cursor: pointer; transition: all 0.3s; box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4); position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center;">
                     <!-- imagem do relógio removida do botão laranja -->
             </button>
-            <button class="color-btn" id="indicator-branco" data-color="branco" data-name="Titânio Branco" data-image="{{ asset('media/Apple branco.png') }}" 
+            <button class="color-btn" id="indicator-branco" data-color="branco" data-name="Titânio Branco" data-image="{{ asset('media/Apple branco.png') }}"
                 style="width: 3rem; height: 3rem; border-radius: 50%; background: #e5e7eb; border: 3px solid #fff; cursor: pointer; transition: all 0.3s; box-shadow: 0 4px 15px rgba(128, 128, 128, 0.4); position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center;">
                     <!-- imagem do relógio removida do botão laranja -->
             </button>
-            <button class="color-btn" id="indicator-preto" data-color="preto" data-name="Titânio Preto" data-image="{{ asset('media/Apple preto.png') }}" 
+            <button class="color-btn" id="indicator-preto" data-color="preto" data-name="Titânio Preto" data-image="{{ asset('media/Apple preto.png') }}"
                 style="width: 3rem; height: 3rem; border-radius: 50%; background: #222; border: 3px solid #fff; cursor: pointer; transition: all 0.3s; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7); position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center;">
                     <!-- imagem do relógio removida do botão laranja -->
             </button>
