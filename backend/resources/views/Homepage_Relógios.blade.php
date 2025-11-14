@@ -718,7 +718,7 @@ nav, .navbar, header {
             <div class="a19-section">
                 <div class="a19-center">
                     <h3 class="a19-title" style="text-align:center; width:100%;">S9 Pro</h3>
-                    <p class="a19-desc" style="text-align:center; width:100%;">O chip mais poderoso em um smartphone</p>
+                    <p class="a19-desc" style="text-align:center; width:100%;">O chip mais poderoso em um Smart Watch</p>
                     <!-- Imagem do chip -->
                     <img src="{{ asset('media/Apple-S9-SiP.jpg') }}" alt="chip-a19-pro" class="a19-img" />
                     <ul class="a19-features">
@@ -751,10 +751,10 @@ do monitoramento de atividades e saúde ao controle instantâneo de chamadas e m
                 </p>
                 <div style="position: relative; margin-bottom: 3rem;">
                  <!-- Imagem da cor do iPhone (pode ser trocada pelas opções de cor) -->
-                 <img id="colorPreview" src="{{ asset('media/iphone-orange.jpg') }}" alt="iPhone 17 Pro" 
+                 <img id="colorPreview" src="{{ asset('media/Apple branco.png') }}" alt="iPhone 17 Pro" 
                      style="width: 100%; max-width: 220px; height: auto; border-radius: 1rem; display: block; margin: 0 auto;" class="animate-zoom-in" id="colorPreviewImg" />
-                    <div style="position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%); background: rgba(0,0,0,0.7); color: #ff6b35; padding: 0.75rem 1.5rem; border-radius: 2rem; font-size: 1.125rem; font-weight: 600;">
-                        <span id="colorName">Titânio Laranja</span>
+                    <div style="position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%); background: rgba(0,0,0,0.7); color: #fff; padding: 0.75rem 1.5rem; border-radius: 2rem; font-size: 1.125rem; font-weight: 600;">
+                        <span id="colorName">Titânio Branco</span>
                     </div>
                 </div>
                 <div style="display: flex; justify-content: center; gap: 1rem; margin-bottom: 1rem;">

@@ -532,6 +532,31 @@ nav, .navbar, header {
         <div class="hero-overlay"></div>
         <div class="arrow-down">↓</div>
     </section>
+
+    <!-- Modal de anúncio 3D -->
+    <div id="adModalIphone" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.6); z-index:1900; align-items:center; justify-content:center;">
+        <div style="width:90%; max-width:420px; background:#000; border-radius:18px; padding:24px 18px 18px 18px; display:flex; flex-direction:column; align-items:center; box-shadow:0 10px 40px rgba(0,0,0,0.6);">
+            <img src='{{ asset('media/hero.jpg') }}' alt='Anúncio iPhone 17 Pro' style='width:180px; height:180px; object-fit:cover; border-radius:12px; margin-bottom:18px;' />
+            <h3 style='margin:0 0 8px 0; font-size:1.5rem; color:#fff;'>Novo iPhone 17 Pro</h3>
+            <p style='margin:0 0 18px 0; color:#cfcfcf; font-size:1.1rem;'>Visualizar projeção em 3D</p>
+            <div style='display:flex; gap:12px;'>
+                <button id="adViewBtnIphone" style="background:#2563eb; color:#fff; border:none; padding:10px 16px; border-radius:8px; cursor:pointer; font-size:1rem;">🔍 Visualizar em 3D</button>
+                <button id="adCloseBtnIphone" style="background:transparent; color:#fff; border:1px solid rgba(255,255,255,0.12); padding:10px 16px; border-radius:8px; cursor:pointer; font-size:1rem;">✕ Fechar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal visualizador 3D -->
+    <div id="viewerModalIphone" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.85); z-index:2000; align-items:center; justify-content:center;">
+            <div style="width:98vw; max-width:1100px; background:#18181b; border-radius:32px; padding:48px 40px 40px 40px; display:flex; flex-direction:column; align-items:center; box-shadow:0 10px 60px rgba(0,0,0,0.8); position:relative;">
+            <button id="close3DIphone" style="position:absolute; top:80px; right:32px; background:rgba(0,0,0,0.5); color:#fff; border:none; font-size:3rem; cursor:pointer; border-radius:50%; width:56px; height:56px; display:flex; align-items:center; justify-content:center; transition:background 0.2s; z-index:10;" onmouseover="this.style.background='#dc2626'" onmouseout="this.style.background='rgba(0,0,0,0.5)'">✕</button>
+            <!-- CDN do model-viewer -->
+            <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+                <model-viewer src="{{ asset('media/phone_17_pro_max.glb') }}" poster="{{ asset('media/iphone17pro-poster.jpg') }}" shadow-intensity="1" camera-controls auto-rotate style="width:100%; max-width:1000px; height:700px; background:#222; border-radius:18px;"></model-viewer>
+            <div style="color:#fff; margin-top:12px; font-size:1.1rem;">Gire e aproxime para ver todos os detalhes</div>
+                <div style="color:#fff; margin-top:18px; font-size:1.25rem; font-weight:500; text-align:center;">Gire e aproxime para ver todos os detalhes</div>
+        </div>
+    </div>
         <script>
         document.addEventListener('DOMContentLoaded', function() {
             const form = document.querySelector('form[action="{{ route('carrinho.adicionar') }}"]');
@@ -741,6 +766,49 @@ nav, .navbar, header {
 <script>
 // Funcionalidade de troca de cores
 document.addEventListener('DOMContentLoaded', function() {
+    // Modal anúncio 3D
+    var adModal = document.getElementById('adModalIphone');
+    var adViewBtn = document.getElementById('adViewBtnIphone');
+    var adCloseBtn = document.getElementById('adCloseBtnIphone');
+    var viewerModal = document.getElementById('viewerModalIphone');
+    var closeBtn = document.getElementById('close3DIphone');
+
+    function openAd() {
+        if(!adModal) return;
+        adModal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeAd() {
+        if(!adModal) return;
+        adModal.style.display = 'none';
+        document.body.style.overflow = '';
+    }
+
+    function openViewer() {
+        if(!viewerModal) return;
+        viewerModal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeViewer() {
+        if(!viewerModal) return;
+        viewerModal.style.display = 'none';
+        document.body.style.overflow = '';
+    }
+
+    setTimeout(function(){ openAd(); }, 700);
+    if(adViewBtn) adViewBtn.addEventListener('click', function(){ closeAd(); openViewer(); });
+    if(adCloseBtn) adCloseBtn.addEventListener('click', function(){ closeAd(); });
+    if(closeBtn) closeBtn.addEventListener('click', closeViewer);
+    document.addEventListener('keydown', function(e){
+        if(e.key === 'Escape') {
+            if(adModal && adModal.style.display === 'flex') { closeAd(); }
+            if(viewerModal && viewerModal.style.display === 'flex') { closeViewer(); }
+        }
+    });
+
+    // ...existing code for color buttons...
     const colorButtons = document.querySelectorAll('.color-btn');
     const colorPreview = document.getElementById('colorPreview');
     const colorName = document.getElementById('colorName');
