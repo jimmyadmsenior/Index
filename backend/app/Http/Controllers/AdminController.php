@@ -150,4 +150,46 @@ class AdminController extends Controller
 
         return view('admin.logs', compact('logs', 'arquivos_log'));
     }
+
+    /**
+     * Exclui um usuário do sistema.
+     */
+    public function excluirUsuario($id)
+    {
+        try {
+            $usuario = User::findOrFail($id);
+            
+            // Verifica se o usuário tem pedidos
+            if ($usuario->pedidos()->count() > 0) {
+                return response()->json([
+                    'success' => false, 
+                    'message' => 'Não é possível excluir usuário com pedidos associados.'
+                ], 400);
+            }
+            
+            $usuario->delete();
+            
+            return response()->json([
+                'success' => true, 
+                'message' => 'Usuário excluído com sucesso!'
+            ]);
+        } catch (\Exception $e) {
+            return response()->json([
+                'success' => false, 
+                'message' => 'Erro ao excluir usuário: ' . $e->getMessage()
+            ], 500);
+        }
+    }
+
+    /**
+     * Limpa o arquivo de log principal do sistema.
+     */
+    public function limparLogs(Request $request)
+    {
+        $logFile = storage_path('logs/laravel.log');
+        if (file_exists($logFile)) {
+            file_put_contents($logFile, '');
+        }
+        return response()->json(['success' => true, 'message' => 'Logs limpos com sucesso!']);
+    }
 }
