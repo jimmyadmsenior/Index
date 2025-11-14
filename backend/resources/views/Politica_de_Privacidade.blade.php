@@ -1,4 +1,5 @@
-@extends('layouts.app')
+
+0+263@extends('layouts.app')
 
 @section('content')
 <main class="container" style="padding-top: 80px;">
