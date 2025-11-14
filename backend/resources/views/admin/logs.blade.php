@@ -2,6 +2,10 @@
 
 @section('title', 'Logs do Sistema')
 
+@push('head')
+<meta name="csrf-token" content="{{ csrf_token() }}">
+@endpush
+
 @section('content')
 <div class="container mx-auto px-4 py-8">
     <div class="flex items-center justify-between mb-8">
@@ -225,9 +229,26 @@ function carregarMaisLogs() {
 
 function limparLogs() {
     if (confirm('Tem certeza que deseja limpar os logs antigos? Esta ação não pode ser desfeita.')) {
-        // Implementar limpeza de logs
-        alert('Logs antigos foram limpos com sucesso!');
-        location.reload();
+        fetch('/admin/logs/limpar', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert(data.message);
+                location.reload();
+            } else {
+                alert('Erro ao limpar logs. Tente novamente.');
+            }
+        })
+        .catch(error => {
+            console.error('Erro:', error);
+            alert('Erro ao limpar logs. Tente novamente.');
+        });
     }
 }
 

@@ -2,6 +2,10 @@
 
 @section('title', 'Gerenciar Usuários')
 
+@push('head')
+<meta name="csrf-token" content="{{ csrf_token() }}">
+@endpush
+
 @section('content')
 <div class="container mx-auto px-4 py-8">
     <div class="flex items-center justify-between mb-8">
@@ -275,9 +279,26 @@ function alternarStatusUsuario(usuarioId) {
 
 function confirmarExclusaoUsuario(usuarioId) {
     if (confirm('Tem certeza que deseja excluir este usuário? Esta ação não pode ser desfeita.')) {
-        // Implementar exclusão aqui
-        alert('Usuário excluído com sucesso!');
-        location.reload();
+        fetch(`/admin/usuarios/${usuarioId}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert(data.message);
+                location.reload();
+            } else {
+                alert('Erro: ' + data.message);
+            }
+        })
+        .catch(error => {
+            console.error('Erro:', error);
+            alert('Erro ao excluir usuário. Tente novamente.');
+        });
     }
 }
 
