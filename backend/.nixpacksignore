@@ -1,5 +1,13 @@
-# Railway.app deployment
-railway.json
-.railwayignore
+# Deployment ignore
+.env
+.env.local
+.env.production
+.env.development
+*.log
+node_modules/
+vendor/
+storage/
+bootstrap/cache/
+public/storage
 
 .nixpacksignore

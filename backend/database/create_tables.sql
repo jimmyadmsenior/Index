@@ -1,5 +1,5 @@
--- Script SQL para criar todas as tabelas necessárias no MySQL do Railway
--- Execute este script diretamente no MySQL do Railway
+-- Script SQL para criar todas as tabelas necessárias no MySQL
+-- Execute este script diretamente no MySQL
 
 -- 1. Tabela migrations (Laravel precisa dela para controlar migrações)
 CREATE TABLE IF NOT EXISTS `migrations` (
@@ -129,7 +129,7 @@ CREATE TABLE IF NOT EXISTS `categorias` (
     PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- 12. Tabela produtos
+-- 12. Tabela produtos (estrutura completa)
 CREATE TABLE IF NOT EXISTS `produtos` (
     `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
     `nome` varchar(255) NOT NULL,
@@ -139,6 +139,12 @@ CREATE TABLE IF NOT EXISTS `produtos` (
     `descricao` text,
     `imagem` varchar(255) DEFAULT NULL,
     `categoria_id` bigint(20) unsigned NOT NULL,
+    `estoque` int(11) DEFAULT '0',
+    `ativo` tinyint(1) DEFAULT '1',
+    `especificacoes` text,
+    `peso` decimal(8,3) DEFAULT NULL,
+    `cor` varchar(100) DEFAULT NULL,
+    `garantia_meses` int(11) DEFAULT '12',
     `created_at` timestamp NULL DEFAULT NULL,
     `updated_at` timestamp NULL DEFAULT NULL,
     PRIMARY KEY (`id`),
@@ -177,13 +183,13 @@ INSERT IGNORE INTO `migrations` (`migration`, `batch`) VALUES
 ('2025_06_03_211700_add_foto_to_users_table', 1),
 ('2025_10_15_161039_create_pedidos_table', 1);
 
--- Inserir algumas categorias iniciais (opcional)
+-- Inserir categorias reais do site
 INSERT IGNORE INTO `categorias` (`id`, `nome`, `created_at`, `updated_at`) VALUES
-(1, 'Eletrônicos', NOW(), NOW()),
-(2, 'Roupas', NOW(), NOW()),
-(3, 'Casa e Jardim', NOW(), NOW()),
-(4, 'Esportes', NOW(), NOW()),
-(5, 'Livros', NOW(), NOW());
+(1, 'Smartphones', NOW(), NOW()),
+(2, 'Fones de Ouvido', NOW(), NOW()),
+(3, 'Tablets', NOW(), NOW()),
+(4, 'Relógios', NOW(), NOW()),
+(5, 'Notebooks', NOW(), NOW());
 
 -- Script concluído com sucesso!
--- Agora você pode fazer o deploy da aplicação no Railway
+-- Agora você pode fazer o deploy da aplicação
