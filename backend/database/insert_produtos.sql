@@ -1,8 +1,85 @@
--- Inserir produtos de exemplo para teste
-INSERT IGNORE INTO `produtos` (`id`, `nome`, `modelo`, `marca`, `preco`, `descricao`, `imagem`, `categoria_id`, `created_at`, `updated_at`) VALUES
-(1, 'iPhone 14', 'iPhone 14', 'Apple', 4999.00, 'A tecnologia se redefine a cada escolha', '/media/Iphone_14_Capa_Homepage.png', 1, NOW(), NOW()),
-(2, 'iPhone 14 Pro', 'iPhone 14 Pro', 'Apple', 5999.00, 'Tecnologia de ponta com câmera profissional', '/media/Iphone_14_Pro_Capa_Homepage.png', 1, NOW(), NOW()),
-(3, 'Apple Watch Series 8', 'Series 8', 'Apple', 2999.00, 'O futuro no seu pulso', '/media/Watch_Series8.png', 1, NOW(), NOW()),
-(4, 'Samsung Galaxy Tab S6', 'Galaxy Tab S6', 'Samsung', 1999.00, 'Produtividade em suas mãos', '/media/Samsung Galaxy Tab S6.png', 1, NOW(), NOW()),
-(5, 'Galaxy Book 4', 'Galaxy Book 4', 'Samsung', 3999.00, 'Performance profissional', '/media/GalaxyBook4_Homepage.png', 1, NOW(), NOW()),
-(6, 'iPhone 17 Pro', 'iPhone 17 Pro', 'Apple', 8999.00, 'O smartphone mais avançado da Apple, com titânio aeroespacial, chip A19 Pro, câmera profissional e design inovador.', '/media/hero.jpg', 1, NOW(), NOW());
+-- Inserir TODOS os produtos reais do site (baseado no CategoriaProdutoSeeder.php)
+INSERT IGNORE INTO `produtos` (`id`, `nome`, `modelo`, `marca`, `preco`, `descricao`, `imagem`, `categoria_id`, `estoque`, `ativo`, `especificacoes`, `peso`, `cor`, `garantia_meses`, `created_at`, `updated_at`) VALUES
+
+-- SMARTPHONES APPLE (Categoria ID: 1)
+(1, 'iPhone 17 Pro', 'iPhone 17 Pro', 'Apple', 12999.00, 'O smartphone mais avançado da Apple, com titânio aeroespacial, chip A19 Pro, câmera profissional e design inovador. Três acabamentos em titânio lindos.', '/media/1.png', 1, 25, 1, 'Tela Super Retina, Câmera Profissional, 5G, Face ID, Resistente à água', 0.210, 'Titânio Branco', 12, NOW(), NOW()),
+(2, 'iPhone 15 Pro Max', 'iPhone 15 Pro Max', 'Apple', 7899.00, 'iPhone 15 Pro Max com chip A17 Pro, sistema de câmera profissional e design em titânio premium.', '/media/iphone15promax.png', 1, 30, 1, 'Tela Super Retina, Câmera Profissional, 5G, Face ID, Resistente à água', 0.221, 'Titânio Natural', 12, NOW(), NOW()),
+(3, 'iPhone 15 Pro', 'iPhone 15 Pro', 'Apple', 6899.00, 'iPhone 15 Pro com chip A17 Pro e câmera profissional de 48MP.', '/media/iphone15pro.png', 1, 35, 1, 'Tela Super Retina, Câmera Profissional, 5G, Face ID, Resistente à água', 0.187, 'Titânio Azul', 12, NOW(), NOW()),
+(4, 'iPhone 15 Plus', 'iPhone 15 Plus', 'Apple', 5899.00, 'iPhone 15 Plus com tela de 6,7 polegadas e câmera principal de 48MP.', '/media/iphone15plus.png', 1, 40, 1, 'Tela Super Retina, Câmera Profissional, 5G, Face ID, Resistente à água', 0.201, 'Rosa', 12, NOW(), NOW()),
+(5, 'iPhone 15', 'iPhone 15', 'Apple', 4899.00, 'iPhone 15 com chip A16 Bionic e nova câmera principal de 48MP.', '/media/iphone15.png', 1, 45, 1, 'Tela Super Retina, Câmera Profissional, 5G, Face ID, Resistente à água', 0.171, 'Azul', 12, NOW(), NOW()),
+(6, 'iPhone 14 Pro Max', 'iPhone 14 Pro Max', 'Apple', 6499.00, 'iPhone 14 Pro Max com chip A16 Bionic e Dynamic Island.', '/media/iphone14promax.png', 1, 20, 1, 'Tela Super Retina, Câmera Profissional, 5G, Face ID, Resistente à água', 0.240, 'Roxo Profundo', 12, NOW(), NOW()),
+(7, 'iPhone 14 Pro', 'iPhone 14 Pro', 'Apple', 5999.00, 'Tecnologia de ponta com câmera profissional. Chip A16 Bionic Pro e sistema de câmera tripla com modo Ação.', '/media/Iphone_14_Pro_Capa_Homepage.png', 1, 25, 1, 'Tela Super Retina, Câmera Profissional, 5G, Face ID, Resistente à água', 0.206, 'Preto Espacial', 12, NOW(), NOW()),
+(8, 'iPhone 14 Plus', 'iPhone 14 Plus', 'Apple', 4999.00, 'iPhone 14 Plus com tela grande e bateria de longa duração.', '/media/iphone14plus.png', 1, 30, 1, 'Tela Super Retina, Câmera Profissional, 5G, Face ID, Resistente à água', 0.203, 'Azul', 12, NOW(), NOW()),
+(9, 'iPhone 14', 'iPhone 14', 'Apple', 4499.00, 'A tecnologia se redefine a cada escolha. Design elegante com chip A16 Bionic e sistema de câmera dual avançado.', '/media/Iphone_14_Capa_Homepage.png', 1, 35, 1, 'Tela Super Retina, Câmera Profissional, 5G, Face ID, Resistente à água', 0.172, 'Branco', 12, NOW(), NOW()),
+(10, 'iPhone 13', 'iPhone 13', 'Apple', 3899.00, 'iPhone 13 com chip A15 Bionic e sistema de câmera dupla avançado.', '/media/iphone13.png', 1, 40, 1, 'Tela Super Retina, Câmera Profissional, 5G, Face ID, Resistente à água', 0.174, 'Rosa', 12, NOW(), NOW()),
+(11, 'iPhone SE (3ª geração)', 'iPhone SE 3ª gen', 'Apple', 2899.00, 'iPhone SE com chip A15 Bionic no design clássico.', '/media/iphonese3.png', 1, 50, 1, 'Tela Retina, Touch ID, 5G, Câmera de 12MP', 0.144, 'Preto', 12, NOW(), NOW()),
+
+-- SMARTPHONES SAMSUNG (Categoria ID: 1)  
+(12, 'Galaxy S24 Ultra', 'Galaxy S24 Ultra', 'Samsung', 6999.00, 'Galaxy S24 Ultra com S Pen integrada e câmeras profissionais.', '/media/galaxys24ultra.png', 1, 25, 1, 'Tela Dynamic AMOLED, S Pen, Câmera 200MP, 5G', 0.232, 'Preto', 24, NOW(), NOW()),
+(13, 'Galaxy S24+', 'Galaxy S24+', 'Samsung', 5499.00, 'Galaxy S24+ com tela grande e performance premium.', '/media/galaxys24plus.png', 1, 30, 1, 'Tela Dynamic AMOLED, Câmera tripla, 5G', 0.196, 'Verde', 24, NOW(), NOW()),
+(14, 'Galaxy S24', 'Galaxy S24', 'Samsung', 4299.00, 'Galaxy S24 compacto com tecnologia avançada.', '/media/galaxys24.png', 1, 35, 1, 'Tela Dynamic AMOLED, Câmera tripla, 5G', 0.167, 'Cinza', 24, NOW(), NOW()),
+(15, 'Galaxy S23 Ultra', 'Galaxy S23 Ultra', 'Samsung', 5999.00, 'Galaxy S23 Ultra com S Pen e câmera de 200MP.', '/media/galaxys23ultra.png', 1, 20, 1, 'Tela Dynamic AMOLED, S Pen, Câmera 200MP, 5G', 0.234, 'Preto', 24, NOW(), NOW()),
+(16, 'Galaxy S23+', 'Galaxy S23+', 'Samsung', 4799.00, 'Galaxy S23+ com design premium e performance avançada.', '/media/galaxys23plus.png', 1, 25, 1, 'Tela Dynamic AMOLED, Câmera tripla, 5G', 0.196, 'Rosa', 24, NOW(), NOW()),
+(17, 'Galaxy S23', 'Galaxy S23', 'Samsung', 3899.00, 'Galaxy S23 com câmera noturna aprimorada.', '/media/galaxys23.png', 1, 30, 1, 'Tela Dynamic AMOLED, Câmera tripla, 5G', 0.168, 'Branco', 24, NOW(), NOW()),
+(18, 'Galaxy S23 FE', 'Galaxy S23 FE', 'Samsung', 3299.00, 'Galaxy S23 FE com recursos premium a preço acessível.', '/media/galaxys23fe.png', 1, 40, 1, 'Tela Dynamic AMOLED, Câmera tripla, 5G', 0.209, 'Azul', 24, NOW(), NOW()),
+(19, 'Galaxy Z Fold 5', 'Galaxy Z Fold 5', 'Samsung', 9999.00, 'Smartphone dobrável com tela interna de 7,6 polegadas.', '/media/galaxyfold5.png', 1, 15, 1, 'Tela dobrável, S Pen compatível, Múltiplas câmeras', 0.253, 'Preto', 24, NOW(), NOW()),
+(20, 'Galaxy Z Flip 5', 'Galaxy Z Flip 5', 'Samsung', 5999.00, 'Smartphone dobrável compacto com design inovador.', '/media/galaxyflip5.png', 1, 20, 1, 'Tela dobrável, Tela externa, Câmera dupla', 0.187, 'Rosa', 24, NOW(), NOW()),
+(21, 'Galaxy A55', 'Galaxy A55', 'Samsung', 2299.00, 'Galaxy A55 com ótima relação custo-benefício.', '/media/galaxya55.png', 1, 45, 1, 'Tela Super AMOLED, Câmera tripla, 5G', 0.213, 'Azul', 24, NOW(), NOW()),
+(22, 'Galaxy A35', 'Galaxy A35', 'Samsung', 1799.00, 'Galaxy A35 com recursos essenciais e design moderno.', '/media/galaxya35.png', 1, 50, 1, 'Tela Super AMOLED, Câmera tripla, 4G', 0.209, 'Preto', 24, NOW(), NOW()),
+(23, 'Galaxy A15', 'Galaxy A15', 'Samsung', 1299.00, 'Galaxy A15 com tela grande e bateria duradoura.', '/media/galaxya15.png', 1, 60, 1, 'Tela Super AMOLED, Câmera tripla, 4G', 0.200, 'Verde', 24, NOW(), NOW()),
+
+-- FONES DE OUVIDO APPLE (Categoria ID: 2)
+(24, 'AirPods Pro (2ª geração)', 'AirPods Pro 2', 'Apple', 2299.00, 'AirPods Pro com cancelamento ativo de ruído de próxima geração.', '/media/airpodspro2.png', 2, 40, 1, 'Cancelamento ativo de ruído, Áudio espacial, Bateria de longa duração', 0.056, 'Branco', 12, NOW(), NOW()),
+(25, 'AirPods (3ª geração)', 'AirPods 3', 'Apple', 1799.00, 'AirPods com áudio espacial e design ergonômico.', '/media/airpods3.png', 2, 50, 1, 'Áudio espacial, Resistente à água, Bateria de longa duração', 0.043, 'Branco', 12, NOW(), NOW()),
+(26, 'AirPods (2ª geração)', 'AirPods 2', 'Apple', 1299.00, 'AirPods clássicos com qualidade de som excepcional.', '/media/airpods2.png', 2, 45, 1, 'Chip H1, Siri por voz, Bateria de longa duração', 0.040, 'Branco', 12, NOW(), NOW()),
+(27, 'AirPods Max', 'AirPods Max', 'Apple', 4999.00, 'Conecte-se ao que importa — som premium, design elegante e tecnologia Apple. Cancelamento ativo de ruído e áudio espacial.', '/media/hero.jpg', 2, 20, 1, 'Cancelamento ativo de ruído, Áudio espacial, Bateria de longa duração', 0.385, 'Prata', 12, NOW(), NOW()),
+(28, 'EarPods com conector Lightning', 'EarPods Lightning', 'Apple', 199.00, 'EarPods com fio e conector Lightning para iPhone.', '/media/earpods.png', 2, 100, 1, 'Conector Lightning, Design ergonômico, Controles integrados', 0.015, 'Branco', 12, NOW(), NOW()),
+
+-- FONES DE OUVIDO SAMSUNG (Categoria ID: 2)
+(29, 'Galaxy Buds2 Pro', 'Galaxy Buds2 Pro', 'Samsung', 1299.00, 'Galaxy Buds2 Pro com cancelamento inteligente de ruído.', '/media/galaxybuds2pro.png', 2, 35, 1, 'Cancelamento ativo de ruído, Áudio 360, Bateria de longa duração', 0.052, 'Preto', 24, NOW(), NOW()),
+(30, 'Galaxy Buds2', 'Galaxy Buds2', 'Samsung', 899.00, 'Galaxy Buds2 com som de alta qualidade e design compacto.', '/media/galaxybuds2.png', 2, 40, 1, 'Cancelamento de ruído, Ajuste confortável, Bateria duradoura', 0.050, 'Branco', 24, NOW(), NOW()),
+(31, 'Galaxy Buds FE', 'Galaxy Buds FE', 'Samsung', 599.00, 'Galaxy Buds FE com recursos essenciais e ótimo custo-benefício.', '/media/galaxybudsfe.png', 2, 50, 1, 'Som de qualidade, Design ergonômico, Bateria eficiente', 0.048, 'Azul', 24, NOW(), NOW()),
+(32, 'Galaxy Buds Live', 'Galaxy Buds Live', 'Samsung', 799.00, 'Galaxy Buds Live com design único em formato de feijão.', '/media/galaxybudslive.png', 2, 30, 1, 'Design único, Som AKG, Cancelamento de ruído', 0.057, 'Rosa', 24, NOW(), NOW()),
+
+-- TABLETS APPLE (Categoria ID: 3)
+(33, 'iPad Pro 13" (M4, 2024)', 'iPad Pro 13 M4', 'Apple', 9999.00, 'iPad Pro de 13 polegadas com chip M4 e tela Tandem OLED.', '/media/ipadpro13m4.png', 3, 15, 1, 'Tela Tandem OLED, Chip M4, Apple Pencil Pro compatível', 0.582, 'Prata', 12, NOW(), NOW()),
+(34, 'iPad Pro 11" (M4, 2024)', 'iPad Pro 11 M4', 'Apple', 7999.00, 'iPad Pro de 11 polegadas com chip M4 ultra-rápido.', '/media/ipadpro11m4.png', 3, 20, 1, 'Tela Liquid Retina, Chip M4, Apple Pencil Pro compatível', 0.444, 'Cinza Espacial', 12, NOW(), NOW()),
+(35, 'iPad Air 13" (M2, 2024)', 'iPad Air 13 M2', 'Apple', 6499.00, 'iPad Air de 13 polegadas com chip M2 e design fino.', '/media/ipadair13m2.png', 3, 25, 1, 'Tela Liquid Retina, Chip M2, Apple Pencil compatível', 0.617, 'Azul', 12, NOW(), NOW()),
+(36, 'iPad Air 11" (M2, 2024)', 'iPad Air 11 M2', 'Apple', 4999.00, 'iPad Air de 11 polegadas com performance do chip M2.', '/media/ipadair11m2.png', 3, 30, 1, 'Tela Liquid Retina, Chip M2, Apple Pencil compatível', 0.462, 'Roxo', 12, NOW(), NOW()),
+(37, 'iPad 10ª geração', 'iPad 10', 'Apple', 3499.00, 'iPad com tela de 10,9 polegadas e design colorido.', '/media/ipad10.png', 3, 35, 1, 'Tela Liquid Retina, Chip A14 Bionic, Apple Pencil compatível', 0.477, 'Rosa', 12, NOW(), NOW()),
+(38, 'iPad mini 6ª geração', 'iPad mini 6', 'Apple', 4199.00, 'iPad mini portátil com chip A15 Bionic.', '/media/ipadmini6.png', 3, 40, 1, 'Tela Liquid Retina, Chip A15 Bionic, Apple Pencil compatível', 0.293, 'Roxo', 12, NOW(), NOW()),
+
+-- TABLETS SAMSUNG (Categoria ID: 3)
+(39, 'Galaxy Tab S9 Ultra', 'Galaxy Tab S9 Ultra', 'Samsung', 7999.00, 'Galaxy Tab S9 Ultra com tela gigante de 14,6 polegadas.', '/media/galaxytabs9ultra.png', 3, 15, 1, 'Tela Dynamic AMOLED 2X, S Pen incluída, Processador Snapdragon', 0.732, 'Cinza', 24, NOW(), NOW()),
+(40, 'Galaxy Tab S9+', 'Galaxy Tab S9+', 'Samsung', 5999.00, 'Galaxy Tab S9+ com tela de 12,4 polegadas e S Pen.', '/media/galaxytabs9plus.png', 3, 20, 1, 'Tela Dynamic AMOLED 2X, S Pen incluída, Processador Snapdragon', 0.581, 'Bege', 24, NOW(), NOW()),
+(41, 'Galaxy Tab S9', 'Galaxy Tab S9', 'Samsung', 4499.00, 'Galaxy Tab S9 compacto com tela de 11 polegadas.', '/media/galaxytabs9.png', 3, 25, 1, 'Tela Dynamic AMOLED 2X, S Pen incluída, Processador Snapdragon', 0.498, 'Preto', 24, NOW(), NOW()),
+(42, 'Galaxy Tab S9 FE+', 'Galaxy Tab S9 FE+', 'Samsung', 3299.00, 'Galaxy Tab S9 FE+ com recursos premium acessíveis.', '/media/galaxytabs9feplus.png', 3, 30, 1, 'Tela grande, S Pen incluída, Bateria duradoura', 0.627, 'Prata', 24, NOW(), NOW()),
+(43, 'Galaxy Tab S9 FE', 'Galaxy Tab S9 FE', 'Samsung', 2499.00, 'Galaxy Tab S9 FE ideal para uso diário.', '/media/galaxytabs9fe.png', 3, 35, 1, 'Tela colorida, S Pen incluída, Performance confiável', 0.524, 'Verde', 24, NOW(), NOW()),
+(44, 'Galaxy Tab A9+', 'Galaxy Tab A9+', 'Samsung', 1599.00, 'Galaxy Tab A9+ para entretenimento familiar.', '/media/galaxytaba9plus.png', 3, 40, 1, 'Tela grande, Bateria duradoura, Design elegante', 0.480, 'Cinza', 24, NOW(), NOW()),
+(45, 'Galaxy Tab A9', 'Galaxy Tab A9', 'Samsung', 1199.00, 'Galaxy Tab A9 compacto e acessível.', '/media/galaxytaba9.png', 3, 50, 1, 'Tela compacta, Uso básico, Preço acessível', 0.332, 'Azul', 24, NOW(), NOW()),
+(46, 'Samsung Galaxy Tab S6', 'Galaxy Tab S6', 'Samsung', 1999.00, 'Produtividade em suas mãos. Tela Super AMOLED de 10.5 polegadas e S Pen inclusa.', '/media/Samsung Galaxy Tab S6.png', 3, 25, 1, 'Tela Super AMOLED, S Pen incluída, Produtividade móvel', 0.420, 'Azul', 24, NOW(), NOW()),
+
+-- RELÓGIOS APPLE (Categoria ID: 4)
+(47, 'Apple Watch Series 9 (41mm, 45mm)', 'Apple Watch S9', 'Apple', 3299.00, 'Apple Watch Series 9 com chip S9 e tela sempre ativa mais brilhante.', '/media/watchs9.png', 4, 30, 1, 'GPS, Monitor cardíaco, À prova d\'água, Bateria de 18h', 0.042, 'Meia-noite', 12, NOW(), NOW()),
+(48, 'Apple Watch SE (2022)', 'Apple Watch SE', 'Apple', 2299.00, 'Apple Watch SE com recursos essenciais para saúde e fitness.', '/media/watchse.png', 4, 40, 1, 'GPS, Monitor cardíaco, À prova d\'água, Bateria de 18h', 0.033, 'Estelar', 12, NOW(), NOW()),
+(49, 'Apple Watch Ultra 2', 'Apple Watch Ultra 2', 'Apple', 6999.00, 'Apple Watch Ultra 2 para aventuras extremas.', '/media/watchultra2.png', 4, 15, 1, 'Titânio, GPS duplo, À prova d\'água 100m, Bateria de 36h', 0.061, 'Titânio Natural', 12, NOW(), NOW()),
+(50, 'Apple Watch Series 8', 'Apple Watch Series 8', 'Apple', 2999.00, 'O futuro no seu pulso. Monitoramento avançado de saúde, GPS integrado e resistência à água.', '/media/Watch_Series8.png', 4, 25, 1, 'GPS, Monitor cardíaco, À prova d\'água, Bateria de 18h', 0.039, 'Meia-noite', 12, NOW(), NOW()),
+
+-- RELÓGIOS SAMSUNG (Categoria ID: 4)
+(51, 'Galaxy Watch 6 Classic', 'Galaxy Watch 6 Classic', 'Samsung', 2299.00, 'Galaxy Watch 6 Classic com moldura giratória e design premium.', '/media/galaxywatch6classic.png', 4, 25, 1, 'Moldura giratória, Monitor de saúde, GPS, À prova d\'água', 0.052, 'Preto', 24, NOW(), NOW()),
+(52, 'Galaxy Watch 6', 'Galaxy Watch 6', 'Samsung', 1899.00, 'Galaxy Watch 6 com monitoramento avançado de saúde.', '/media/galaxywatch6.png', 4, 30, 1, 'Monitor de saúde, GPS, À prova d\'água, Bateria duradoura', 0.034, 'Prata', 24, NOW(), NOW()),
+(53, 'Galaxy Watch 5 Pro', 'Galaxy Watch 5 Pro', 'Samsung', 2799.00, 'Galaxy Watch 5 Pro com caixa em titânio e bateria extendida.', '/media/galaxywatch5pro.png', 4, 20, 1, 'Caixa em titânio, Bateria extendida, GPS, À prova d\'água', 0.046, 'Cinza Titânio', 24, NOW(), NOW()),
+(54, 'Galaxy Watch 5', 'Galaxy Watch 5', 'Samsung', 1699.00, 'Galaxy Watch 5 com carregamento rápido e design moderno.', '/media/galaxywatch5.png', 4, 35, 1, 'Carregamento rápido, Monitor de saúde, GPS, À prova d\'água', 0.034, 'Azul', 24, NOW(), NOW()),
+
+-- NOTEBOOKS APPLE (Categoria ID: 5)
+(55, 'MacBook Air 15" (M3, 2024)', 'MacBook Air 15 M3', 'Apple', 12999.00, 'MacBook Air de 15 polegadas com chip M3 e tela Liquid Retina.', '/media/macbookair15m3.png', 5, 15, 1, 'Chip M3, Tela Liquid Retina, Bateria de até 18h', 1.510, 'Meia-noite', 12, NOW(), NOW()),
+(56, 'MacBook Air 13" (M3, 2024)', 'MacBook Air 13 M3', 'Apple', 9999.00, 'MacBook Air de 13 polegadas com chip M3 ultra-eficiente.', '/media/macbookair13m3.png', 5, 20, 1, 'Chip M3, Tela Liquid Retina, Bateria de até 18h', 1.240, 'Prata', 12, NOW(), NOW()),
+(57, 'MacBook Pro 14" (M3, 2023)', 'MacBook Pro 14 M3', 'Apple', 16999.00, 'MacBook Pro de 14 polegadas com chip M3 Pro para profissionais.', '/media/macbookpro14m3.png', 5, 10, 1, 'Chip M3 Pro, Tela Liquid Retina XDR, Bateria de até 22h', 1.550, 'Cinza Espacial', 12, NOW(), NOW()),
+(58, 'MacBook Pro 16" (M3, 2023)', 'MacBook Pro 16 M3', 'Apple', 21999.00, 'MacBook Pro de 16 polegadas com máximo desempenho M3 Max.', '/media/macbookpro16m3.png', 5, 8, 1, 'Chip M3 Max, Tela Liquid Retina XDR, Bateria de até 22h', 2.140, 'Preto Espacial', 12, NOW(), NOW()),
+
+-- NOTEBOOKS SAMSUNG (Categoria ID: 5)
+(59, 'Galaxy Book4 Ultra', 'Galaxy Book4 Ultra', 'Samsung', 12999.00, 'Galaxy Book4 Ultra com performance extrema para criadores.', '/media/galaxybook4ultra.png', 5, 10, 1, 'Processador Intel de última geração, Tela AMOLED, Design ultrafino', 1.850, 'Cinza', 24, NOW(), NOW()),
+(60, 'Galaxy Book4 Pro 360', 'Galaxy Book4 Pro 360', 'Samsung', 8999.00, 'Galaxy Book4 Pro 360 conversível com S Pen incluída.', '/media/galaxybook4pro360.png', 5, 15, 1, 'Conversível 2-em-1, S Pen incluída, Tela touchscreen', 1.650, 'Prata', 24, NOW(), NOW()),
+(61, 'Galaxy Book4 Pro', 'Galaxy Book4 Pro', 'Samsung', 6999.00, 'Galaxy Book4 Pro com tela AMOLED e design premium.', '/media/galaxybook4pro.png', 5, 20, 1, 'Tela AMOLED, Design premium, Performance profissional', 1.470, 'Grafite', 24, NOW(), NOW()),
+(62, 'Galaxy Book4 360', 'Galaxy Book4 360', 'Samsung', 5499.00, 'Galaxy Book4 360 conversível para uso versátil.', '/media/galaxybook4360.png', 5, 25, 1, 'Conversível 2-em-1, Tela touchscreen, Uso versátil', 1.580, 'Prata', 24, NOW(), NOW()),
+(63, 'Galaxy Book4', 'Galaxy Book4', 'Samsung', 3999.00, 'Performance profissional. Processador Intel de última geração e design ultrafino.', '/media/GalaxyBook4_Homepage.png', 5, 30, 1, 'Processador Intel de última geração e design ultrafino', 1.550, 'Cinza', 24, NOW(), NOW());
