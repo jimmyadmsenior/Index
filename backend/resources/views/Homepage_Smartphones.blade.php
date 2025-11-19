@@ -38,36 +38,60 @@
             <img class="imagem-bleed" src="{{ asset('media/frame (1).png') }}" alt="iPhone full bleed" />
             <!-- botão sobreposto dentro da imagem -->
             @auth
-                <form action="{{ route('carrinho.adicionar') }}" method="POST" style="position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%);">
+                <form action="{{ route('carrinho.adicionar') }}" method="POST" style="position: absolute; bottom: 450px; left: 50%; transform: translateX(-50%);">
                     @csrf
                     <input type="hidden" name="produto_id" value="4">
                     <input type="hidden" name="quantidade" value="1">
-                    <button type="submit" class="comprar-link-overlay" style="background: transparent; border: none; color: #0b78ff;">
+                    <button type="submit" class="comprar-link-overlay reativo-btn">
                         <i class="fas fa-shopping-cart"></i> Adicionar ao Carrinho
                     </button>
                 </form>
             @else
-                <a href="/Login" class="comprar-link-overlay" style="text-decoration: none;">Faça Login para Comprar</a>
+                <a href="/Login" class="comprar-link-overlay reativo-btn" style="text-decoration: none;">Faça Login para Comprar</a>
             @endauth
         </div>
     </div>
 
 </div>
+<style>
+.reativo-btn {
+    background: #000;
+    color: #fff;
+    border: none;
+    padding: 16px 48px;
+    min-width: 320px;
+    border-radius: 32px;
+    font-weight: 700;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 2px 8px rgba(11,120,255,0.08);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    justify-content: center;
+}
+
+</style>
     <!-- imagem adicional com botão na parte inferior -->
     <div class="extra-image-wrap" style="text-align:center; margin:36px 0 80px;">
         <div class="extra-image-inner" style="position:relative; display:inline-block;">
             <img class="extra-image" src="{{ asset('media/Galaxy_Smartphone.png') }}" alt="Galaxy S24 Ultra" />
             @auth
-                <form action="{{ route('carrinho.adicionar') }}" method="POST" style="position: absolute; bottom: 15px; left: 50%; transform: translateX(-50%);">
+                <form action="{{ route('carrinho.adicionar') }}" method="POST" style="position: absolute; left: 50%; bottom: 18px; transform: translateX(-50%); width: 100%; max-width: 320px;">
                     @csrf
                     <input type="hidden" name="produto_id" value="12">
                     <input type="hidden" name="quantidade" value="1">
-                    <button type="submit" class="extra-comprar-btn" style="background: #000; color: #fff; border: none; padding: 12px 24px; border-radius: 25px; font-weight: 700; cursor: pointer; font-size: 0.9rem;">
-                        <i class="fas fa-shopping-cart"></i> ADICIONAR AO CARRINHO
+                    <button type="submit" class="botao-galaxy-center" style="width: 100%; background: #000; color: #fff; border: none; border-radius: 32px; padding: 12px 0; font-size: 1.05rem; font-weight: bold; box-shadow: 0 2px 10px rgba(0,0,0,0.15); display: flex; align-items: center; justify-content: center; gap: 10px;">
+                        <i class="fas fa-shopping-cart" style="font-size: 1.15rem;"></i>
+                        <span style="font-size: 1.05rem; font-weight: bold; letter-spacing: 1px;">ADICIONAR AO CARRINHO</span>
                     </button>
                 </form>
             @else
-                <a href="/Login" class="extra-comprar-btn" style="position: absolute; bottom: 15px; left: 50%; transform: translateX(-50%); background: #000; color: #fff; text-decoration: none; padding: 12px 24px; border-radius: 25px; font-weight: 700; display: inline-block; font-size: 0.9rem; text-decoration: none;">FAÇA LOGIN PARA COMPRAR</a>
+                <a href="/Login" class="botao-galaxy-center" style="position: absolute; left: 50%; bottom: 18px; transform: translateX(-50%); width: 100%; max-width: 320px; text-decoration: none; background: #000; color: #fff; border-radius: 32px; padding: 12px 0; font-size: 1.05rem; font-weight: bold; box-shadow: 0 2px 10px rgba(0,0,0,0.15); display: flex; align-items: center; justify-content: center; gap: 10px;">
+                    <i class="fas fa-shopping-cart" style="font-size: 1.15rem;"></i>
+                    <span style="font-size: 1.05rem; font-weight: bold; letter-spacing: 1px;">FAÇA LOGIN PARA COMPRAR</span>
+                </a>
             @endauth
         </div>
     </div>
@@ -75,7 +99,7 @@
     <div class="video-wrap" id="videoWrap">
         <video id="heroVideo" class="hero-video" playsinline muted loop autoplay preload="auto">
             <source src="{{ asset('media/video_Galaxy.mov') }}" type="video/mp4">
-            Seu navegador n�e3o suporta o elemento de v�eddeo.
+            Seu navegador n e3o suporta o elemento de v eddeo.
         </video>
     </div>
 
@@ -202,7 +226,7 @@
     
     <!-- 🔹 Botão Galaxy S23 (embaixo do nome "Galaxy S23| S23+") -->
     @auth
-      <form action="{{ route('carrinho.adicionar') }}" method="POST" style="position: absolute; bottom: 70px; left: 34%; transform: translateX(-50%);">
+            <form action="{{ route('carrinho.adicionar') }}" method="POST" style="position: absolute; bottom: 70px; left: 30%; transform: translateX(-50%);">
           @csrf
           <input type="hidden" name="produto_id" value="15">
           <input type="hidden" name="quantidade" value="1">
