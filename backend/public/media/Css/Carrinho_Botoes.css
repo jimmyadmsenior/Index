@@ -34,6 +34,8 @@ button[type="submit"].featured-link {
     justify-content: center;
     gap: 8px;
     cursor: pointer;
+    min-width: 160px;
+    padding: 16px 24px;
 }
 
 .btn-adicionar-carrinho:hover,
@@ -52,22 +54,26 @@ button[type="submit"].featured-link:active {
 /* Botão Ver Produto */
 .featured-link:not([type="submit"]) {
     background: transparent !important;
-    border: 2px solid #fff !important;
-    color: #fff !important;
+    border: 2px solid #00ff41 !important;
+    color: #00ff41 !important;
     text-decoration: none;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 12px;
-    font-weight: 700;
+    font-weight: 600;
     transition: all 0.3s ease;
+    box-shadow: 0 0 8px rgba(0, 255, 65, 0.2);
+    min-width: 140px;
+    padding: 16px 20px;
 }
 
 .featured-link:not([type="submit"]):hover {
-    background: rgba(255, 255, 255, 0.1) !important;
-    border-color: #7fff7f !important;
-    color: #7fff7f !important;
+    background: rgba(0, 255, 65, 0.1) !important;
+    border-color: #00ff00 !important;
+    color: #00ff00 !important;
     transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(0, 255, 65, 0.4);
 }
 
 /* Botões para usuários não logados */
@@ -83,13 +89,26 @@ a[href="/Cadastro"].featured-link {
     color: #fff !important;
 }
 
+/* Regra específica para botões "Ver Produto" */
+a[href*="/produto/"].featured-link,
+a.featured-link[href*="/produto/"] {
+    background: transparent !important;
+    border: 2px solid #00ff41 !important;
+    color: #00ff41 !important;
+    text-decoration: none !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    font-weight: 600 !important;
+    box-shadow: 0 0 8px rgba(0, 255, 65, 0.2) !important;
+}
+
 /* Responsividade */
 @media (max-width: 768px) {
     .produto-acoes,
     .card-buttons {
         flex-direction: column;
-        gap: 8px;
-        max-width: 300px;
+        gap: 12px;
+        max-width: 350px;
         margin: 20px auto;
     }
     
@@ -97,7 +116,10 @@ a[href="/Cadastro"].featured-link {
     .btn-adicionar-carrinho {
         width: 100% !important;
         max-width: none !important;
-        padding: 12px 20px;
+        padding: 16px 24px;
+        min-width: 200px !important;
+        font-size: 0.95rem !important;
+    }
         font-size: 0.9rem;
     }
     

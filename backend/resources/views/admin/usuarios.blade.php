@@ -178,91 +178,108 @@ function verDetalhesUsuario(usuarioId) {
         </div>
     `;
     
-    // Simular carregamento de detalhes (implementar AJAX real aqui)
-    setTimeout(() => {
-        document.getElementById('conteudoDetalhesUsuario').innerHTML = `
-            <div class="space-y-6">
-                <div class="flex items-center space-x-4">
-                    <div class="h-16 w-16 rounded-full bg-gray-700 flex items-center justify-center">
-                        <span class="text-xl font-bold text-gray-100">U</span>
+    // Buscar dados reais do usuário
+    fetch(`/admin/usuarios/${usuarioId}/details`)
+        .then(response => response.json())
+        .then(data => {
+            const pedidosHtml = data.pedidos.length > 0 ? data.pedidos.map(pedido => `
+                <tr class="text-gray-100">
+                    <td class="p-3">${pedido.data}</td>
+                    <td class="p-3 font-mono">${pedido.codigo}</td>
+                    <td class="p-3 font-semibold">${pedido.valor}</td>
+                    <td class="p-3">
+                        <span class="px-2 py-1 text-xs rounded-full ${getStatusClass(pedido.status)} text-white">${pedido.status}</span>
+                    </td>
+                </tr>
+            `).join('') : '<tr class="text-gray-100"><td colspan="4" class="p-3 text-center">Nenhum pedido encontrado</td></tr>';
+
+            document.getElementById('conteudoDetalhesUsuario').innerHTML = `
+                <div class="space-y-6">
+                    <div class="flex items-center space-x-4">
+                        <div class="h-16 w-16 rounded-full bg-gray-700 flex items-center justify-center">
+                            <span class="text-xl font-bold text-gray-100">${data.name.charAt(0).toUpperCase()}</span>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-100">${data.name}</h3>
+                            <p class="text-gray-300">${data.email}</p>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-gray-800 p-4 rounded-lg">
+                            <h4 class="font-semibold text-gray-100 mb-2">Estatísticas</h4>
+                            <div class="space-y-2 text-sm">
+                                <div class="flex justify-between text-gray-200">
+                                    <span>Total de Pedidos:</span>
+                                    <span class="font-semibold">${data.total_pedidos}</span>
+                                </div>
+                                <div class="flex justify-between text-gray-200">
+                                    <span>Total Gasto:</span>
+                                    <span class="font-semibold">${data.total_gasto}</span>
+                                </div>
+                                <div class="flex justify-between text-gray-200">
+                                    <span>Último Pedido:</span>
+                                    <span class="font-semibold">${data.ultimo_pedido}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-gray-800 p-4 rounded-lg">
+                            <h4 class="font-semibold text-gray-100 mb-2">Informações</h4>
+                            <div class="space-y-2 text-sm">
+                                <div class="flex justify-between text-gray-200">
+                                    <span>Data Cadastro:</span>
+                                    <span>${data.created_at}</span>
+                                </div>
+                                <div class="flex justify-between text-gray-200">
+                                    <span>Status:</span>
+                                    <span class="px-2 py-1 text-xs rounded-full ${data.status === 'Ativo' ? 'bg-green-700' : 'bg-red-700'} text-white">${data.status}</span>
+                                </div>
+                                <div class="flex justify-between text-gray-200">
+                                    <span>Último Acesso:</span>
+                                    <span>${data.updated_at}</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div>
-                        <h3 class="text-lg font-semibold text-gray-100">Usuário #${usuarioId}</h3>
-                        <p class="text-gray-300">user${usuarioId}@example.com</p>
-                    </div>
-                </div>
-                <div class="grid grid-cols-2 gap-4">
-                    <div class="bg-gray-800 p-4 rounded-lg">
-                        <h4 class="font-semibold text-gray-100 mb-2">Estatísticas</h4>
-                        <div class="space-y-2 text-sm">
-                            <div class="flex justify-between text-gray-200">
-                                <span>Total de Pedidos:</span>
-                                <span class="font-semibold">5</span>
-                            </div>
-                            <div class="flex justify-between text-gray-200">
-                                <span>Total Gasto:</span>
-                                <span class="font-semibold">R$ 1.250,00</span>
-                            </div>
-                            <div class="flex justify-between text-gray-200">
-                                <span>Último Pedido:</span>
-                                <span class="font-semibold">15/12/2024</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="bg-gray-800 p-4 rounded-lg">
-                        <h4 class="font-semibold text-gray-100 mb-2">Informações</h4>
-                        <div class="space-y-2 text-sm">
-                            <div class="flex justify-between text-gray-200">
-                                <span>Data Cadastro:</span>
-                                <span>01/01/2024</span>
-                            </div>
-                            <div class="flex justify-between text-gray-200">
-                                <span>Status:</span>
-                                <span class="px-2 py-1 text-xs rounded-full bg-green-700 text-white">Ativo</span>
-                            </div>
-                            <div class="flex justify-between text-gray-200">
-                                <span>Último Acesso:</span>
-                                <span>Hoje</span>
-                            </div>
+                        <h4 class="font-semibold text-gray-100 mb-3">Histórico de Pedidos</h4>
+                        <div class="border rounded overflow-hidden">
+                            <table class="w-full text-sm">
+                                <thead class="bg-gray-800 text-gray-100">
+                                    <tr>
+                                        <th class="text-left p-3">Data</th>
+                                        <th class="text-left p-3">Código</th>
+                                        <th class="text-left p-3">Valor</th>
+                                        <th class="text-left p-3">Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-gray-700">
+                                    ${pedidosHtml}
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
-                <div>
-                    <h4 class="font-semibold text-gray-100 mb-3">Histórico de Pedidos</h4>
-                    <div class="border rounded overflow-hidden">
-                        <table class="w-full text-sm">
-                            <thead class="bg-gray-800 text-gray-100">
-                                <tr>
-                                    <th class="text-left p-3">Data</th>
-                                    <th class="text-left p-3">Código</th>
-                                    <th class="text-left p-3">Valor</th>
-                                    <th class="text-left p-3">Status</th>
-                                </tr>
-                            </thead>
-                            <tbody class="divide-y divide-gray-700">
-                                <tr class="text-gray-100">
-                                    <td class="p-3">15/12/2024</td>
-                                    <td class="p-3 font-mono">BR123456789</td>
-                                    <td class="p-3 font-semibold">R$ 299,90</td>
-                                    <td class="p-3">
-                                        <span class="px-2 py-1 text-xs rounded-full bg-green-700 text-white">Entregue</span>
-                                    </td>
-                                </tr>
-                                <tr class="text-gray-100">
-                                    <td class="p-3">10/12/2024</td>
-                                    <td class="p-3 font-mono">BR987654321</td>
-                                    <td class="p-3 font-semibold">R$ 150,00</td>
-                                    <td class="p-3">
-                                        <span class="px-2 py-1 text-xs rounded-full bg-blue-700 text-white">Enviado</span>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+            `;
+        })
+        .catch(error => {
+            console.error('Erro:', error);
+            document.getElementById('conteudoDetalhesUsuario').innerHTML = `
+                <div class="text-center py-8 text-red-400">
+                    <p>Erro ao carregar detalhes do usuário. Tente novamente.</p>
                 </div>
-            </div>
-        `;
-    }, 1000);
+            `;
+        });
+}
+
+function getStatusClass(status) {
+    const statusClasses = {
+        'Entregue': 'bg-green-700',
+        'Enviado': 'bg-blue-700',
+        'Pendente': 'bg-yellow-700',
+        'Cancelado': 'bg-red-700',
+        'Processando': 'bg-purple-700'
+    };
+    return statusClasses[status] || 'bg-gray-700';
 }
 
 function fecharModalUsuario() {
