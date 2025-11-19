@@ -20,21 +20,8 @@
         <div class="perfil-info">
             <p><strong>Nome:</strong> {{ $user->name }}</p>
             <p><strong>E-mail:</strong> {{ $user->email }}</p>
-            <p><strong>WhatsApp:</strong> {{ $user->telefone ?? 'Não informado' }}</p>
         </div>
         
-        <!-- Formulário para atualizar WhatsApp -->
-    <form action="{{ route('perfil.updateTelefone') }}" method="POST" class="perfil-telefone-form" style="width:100%; max-width:350px; margin: 0 auto 24px auto; background: #23272b; border-radius: 12px; box-shadow: 0 2px 12px 0 rgba(0,0,0,0.10); padding: 24px 20px 18px 20px; display: flex; flex-direction: column; align-items: center; gap: 10px;">
-      @csrf
-      <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
-        <i class="fab fa-whatsapp" style="font-size: 1.7rem; color: #25d366;"></i>
-        <h2 style="margin: 0; color: #25d366; font-size: 1.25rem; font-weight: 600; letter-spacing: 0.5px;">WhatsApp</h2>
-      </div>
-      <input type="text" name="telefone" placeholder="5511999999999" value="{{ $user->telefone }}" maxlength="13" style="width: 100%; padding: 12px 16px; border-radius: 8px; border: 1.5px solid #25d366; background: #232323; color: #fff; font-size: 1.1rem; outline: none; margin-bottom: 2px; text-align: center; transition: border 0.2s;">
-      <small style="color: #25d366; font-size: 0.92rem; margin-bottom: 4px; font-weight: 600;">📱 Formato: 5511999999999</small>
-      <small style="color: #aaa; font-size: 0.85rem; margin-bottom: 8px;">Código do país (55) + DDD + número (tudo junto)</small>
-      <button type="submit" style="background: linear-gradient(90deg, #25d366 60%, #128c7e 100%); color: #fff; border: none; border-radius: 8px; padding: 10px 0; width: 100%; font-size: 1.08rem; font-weight: 600; box-shadow: 0 2px 8px 0 rgba(37,211,102,0.10); transition: background 0.2s;">Atualizar WhatsApp</button>
-    </form>
         <form action="{{ route('perfil.updateSenha') }}" method="POST" class="perfil-senha-form">
             @csrf
             <h2>Alterar Senha</h2>

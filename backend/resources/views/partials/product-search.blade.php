@@ -179,8 +179,24 @@ document.addEventListener('DOMContentLoaded', function() {
     
     let searchTimeout;
     
+    // Função para adicionar event listeners aos resultados
+    function adicionarEventListeners() {
+        document.querySelectorAll('.search-result-item').forEach(item => {
+            item.addEventListener('click', function() {
+                const produtoId = this.getAttribute('data-produto-id');
+                const produtoNome = this.querySelector('.search-result-name').textContent;
+                
+                // Redireciona para a página do produto
+                window.location.href = `/produto/${produtoId}`;
+            });
+        });
+    }
+    
     // Função para buscar produtos
     function buscarProdutos(termo) {
+        console.log('Buscando produtos com termo:', termo);
+        console.log('Categoria:', categoria);
+        
         if (termo.length < 2) {
             searchResults.style.display = 'none';
             return;
@@ -197,10 +213,52 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         url += `?q=${encodeURIComponent(termo)}`;
         
+        console.log('URL da API:', url);
+        
         fetch(url)
-            .then(response => response.json())
+            .then(response => {
+                console.log('Resposta da API:', response);
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                }
+                return response.json();
+            })
             .then(produtos => {
-                if (produtos.length === 0) {
+                console.log('Produtos recebidos:', produtos);
+                if (produtos.length === 0 && categoria) {
+                    // Se não encontrou nada na categoria específica, tenta busca global
+                    console.log('Nenhum produto na categoria, tentando busca global...');
+                    const urlGlobal = `/api/produtos/buscar?q=${encodeURIComponent(termo)}`;
+                    console.log('URL global:', urlGlobal);
+                    
+                    fetch(urlGlobal)
+                        .then(response => response.json())
+                        .then(produtosGlobal => {
+                            console.log('Produtos globais recebidos:', produtosGlobal);
+                            if (produtosGlobal.length === 0) {
+                                searchResultsContent.innerHTML = '<div class="search-no-results">Nenhum produto encontrado</div>';
+                            } else {
+                                let html = '';
+                                produtosGlobal.forEach(produto => {
+                                    html += `
+                                        <div class="search-result-item" data-produto-id="${produto.id}">
+                                            <div>
+                                                <div class="search-result-name">${produto.nome}</div>
+                                                <div class="search-result-brand">${produto.marca}</div>
+                                            </div>
+                                            <div class="search-result-price">R$ ${parseFloat(produto.preco).toLocaleString('pt-BR', {minimumFractionDigits: 2})}</div>
+                                        </div>
+                                    `;
+                                });
+                                searchResultsContent.innerHTML = html;
+                                adicionarEventListeners();
+                            }
+                        })
+                        .catch(error => {
+                            console.error('Erro na busca global:', error);
+                            searchResultsContent.innerHTML = '<div class="search-no-results">Erro na busca. Tente novamente.</div>';
+                        });
+                } else if (produtos.length === 0) {
                     searchResultsContent.innerHTML = '<div class="search-no-results">Nenhum produto encontrado</div>';
                 } else {
                     let html = '';
@@ -216,22 +274,13 @@ document.addEventListener('DOMContentLoaded', function() {
                         `;
                     });
                     searchResultsContent.innerHTML = html;
-                    
-                    // Adiciona event listeners para os resultados
-                    document.querySelectorAll('.search-result-item').forEach(item => {
-                        item.addEventListener('click', function() {
-                            const produtoId = this.getAttribute('data-produto-id');
-                            const produtoNome = this.querySelector('.search-result-name').textContent;
-                            
-                            // Redireciona para a página do produto
-                            window.location.href = `/produto/${produtoId}`;
-                        });
-                    });
+                    adicionarEventListeners();
                 }
             })
             .catch(error => {
                 console.error('Erro na busca:', error);
-                searchResultsContent.innerHTML = '<div class="search-no-results">Erro na busca. Tente novamente.</div>';
+                console.error('URL tentada:', url);
+                searchResultsContent.innerHTML = `<div class="search-no-results">Erro na busca: ${error.message}<br>URL: ${url}</div>`;
             });
     }
     

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste da Busca Inteligente</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; }
+        .test-case { margin: 20px 0; padding: 15px; border: 1px solid #ddd; border-radius: 8px; }
+        .test-case h3 { margin-top: 0; color: #333; }
+        .search-input { width: 300px; padding: 8px; margin: 10px 0; border: 1px solid #ccc; border-radius: 4px; }
+        .test-button { padding: 8px 15px; background: #007aff; color: white; border: none; border-radius: 4px; cursor: pointer; }
+        .results { background: #f9f9f9; padding: 10px; margin: 10px 0; border-radius: 4px; min-height: 50px; }
+        .success { color: green; font-weight: bold; }
+        .error { color: red; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h1>🧠 Teste da Busca Inteligente</h1>
+    <p>Esta página testa se a busca funciona com erros de digitação, espaços extras e variações.</p>
+
+    <div class="test-case">
+        <h3>1. Busca com espaços: "air pods"</h3>
+        <input type="text" class="search-input" value="air pods" data-test="1">
+        <button class="test-button" onclick="testarBusca(1)">Buscar</button>
+        <div class="results" id="result-1">Clique em "Buscar" para testar</div>
+    </div>
+
+    <div class="test-case">
+        <h3>2. Busca incompleta: "airp"</h3>
+        <input type="text" class="search-input" value="airp" data-test="2">
+        <button class="test-button" onclick="testarBusca(2)">Buscar</button>
+        <div class="results" id="result-2">Clique em "Buscar" para testar</div>
+    </div>
+
+    <div class="test-case">
+        <h3>3. Busca com hífen: "air-pods"</h3>
+        <input type="text" class="search-input" value="air-pods" data-test="3">
+        <button class="test-button" onclick="testarBusca(3)">Buscar</button>
+        <div class="results" id="result-3">Clique em "Buscar" para testar</div>
+    </div>
+
+    <div class="test-case">
+        <h3>4. Busca por marca incompleta: "samsu"</h3>
+        <input type="text" class="search-input" value="samsu" data-test="4">
+        <button class="test-button" onclick="testarBusca(4)">Buscar</button>
+        <div class="results" id="result-4">Clique em "Buscar" para testar</div>
+    </div>
+
+    <div class="test-case">
+        <h3>5. Busca com espaços extras: "  apple  "</h3>
+        <input type="text" class="search-input" value="  apple  " data-test="5">
+        <button class="test-button" onclick="testarBusca(5)">Buscar</button>
+        <div class="results" id="result-5">Clique em "Buscar" para testar</div>
+    </div>
+
+    <div class="test-case">
+        <h3>6. Busca por marca Samsung (todas categorias)</h3>
+        <input type="text" class="search-input" value="Samsung" data-test="6">
+        <button class="test-button" onclick="testarBusca(6)">Buscar</button>
+        <div class="results" id="result-6">Deve encontrar celulares, tablets, relógios, notebooks...</div>
+    </div>
+
+    <div class="test-case">
+        <h3>7. Busca por marca Apple (todas categorias)</h3>
+        <input type="text" class="search-input" value="Apple" data-test="7">
+        <button class="test-button" onclick="testarBusca(7)">Buscar</button>
+        <div class="results" id="result-7">Deve encontrar iPhones, iPads, MacBooks, Apple Watch...</div>
+    </div>
+
+    <div class="test-case">
+        <h3>8. Teste personalizado</h3>
+        <input type="text" class="search-input" placeholder="Digite seu termo de busca..." data-test="8">
+        <button class="test-button" onclick="testarBusca(8)">Buscar</button>
+        <div class="results" id="result-8">Digite um termo e teste a busca inteligente</div>
+    </div>
+
+    <script>
+        async function testarBusca(testId) {
+            const input = document.querySelector(`input[data-test="${testId}"]`);
+            const resultDiv = document.getElementById(`result-${testId}`);
+            const termo = input.value;
+            
+            if (!termo.trim()) {
+                resultDiv.innerHTML = '<span class="error">❌ Digite um termo para buscar</span>';
+                return;
+            }
+            
+            resultDiv.innerHTML = '⏳ Buscando...';
+            
+            try {
+                const response = await fetch(`http://localhost:8000/api/produtos/buscar?q=${encodeURIComponent(termo)}`);
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                }
+                
+                const produtos = await response.json();
+                
+                if (produtos.length === 0) {
+                    resultDiv.innerHTML = '<span class="error">❌ Nenhum produto encontrado</span>';
+                } else {
+                    let html = `<span class="success">✅ ${produtos.length} produto(s) encontrado(s):</span><br><br>`;
+                    produtos.slice(0, 5).forEach(produto => { // Mostra apenas 5 primeiros
+                        const categoria = produto.categoria ? produto.categoria.nome : 'N/A';
+                        html += `🔹 <strong>${produto.nome}</strong> - ${produto.marca} - ${categoria} - R$ ${parseFloat(produto.preco).toFixed(2)}<br>`;
+                    });
+                    if (produtos.length > 5) {
+                        html += `<br><em>... e mais ${produtos.length - 5} produto(s)</em>`;
+                    }
+                    resultDiv.innerHTML = html;
+                }
+                
+            } catch (error) {
+                console.error('Erro na busca:', error);
+                resultDiv.innerHTML = `<span class="error">❌ Erro: ${error.message}</span>`;
+            }
+        }
+        
+        // Permite buscar com Enter
+        document.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter' && e.target.classList.contains('search-input')) {
+                const testId = e.target.getAttribute('data-test');
+                testarBusca(testId);
+            }
+        });
+    </script>
+</body>
+</html>
