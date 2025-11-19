@@ -640,7 +640,7 @@ main {
                                     <i class="fas fa-eye"></i> Ver Produto
                                 </a>
                             @else
-                                <a href="/Login" class="btn btn-blue">Faça Login para Comprar</a>
+                                <a href="/login" class="btn btn-blue">Faça Login para Comprar</a>
                             @endauth
                         </div>
                     </div>
