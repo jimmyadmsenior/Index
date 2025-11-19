@@ -618,25 +618,32 @@ nav, .navbar, header {
         <div style="max-width: 80rem; margin: 0 auto;">
             <div style="display: flex; align-items: center; justify-content: center; gap: 2rem; flex-wrap: wrap;">
                 <div>
-                    <h1 class="intro-title animate-fade-in-up">Apple Whatch</h1>
+                    <h1 class="intro-title animate-fade-in-up">Apple Watch</h1>
                     <p class="intro-subtitle animate-fade-in-up animate-delay-300" style="font-weight: 700;">Titânio. Tão forte. Tão leve. Tão Pro.</p>
                     <p class="intro-desc animate-fade-in-up animate-delay-600">
                         O design mais refinado que já criamos. Titânio de grau aeroespacial.
                         Chip S9 Pro
                     </p>
-                    <!-- Botão movido para baixo da escrita -->
+                    <!-- Botões movidos para baixo da escrita -->
                     <div class="button-container animate-zoom-in animate-delay-900" style="margin-bottom: 2rem; margin-top: 1.5rem;">
-                        <div style="width: 100%; display: flex; justify-content: center;">
+                        <div style="width: 100%; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
                             @auth
                                 <form action="{{ route('carrinho.adicionar') }}" method="POST" style="display: inline-block;">
                                     @csrf
-                                        <input type="hidden" name="produto_id" value="57">
+                                    <input type="hidden" name="produto_id" value="49">
                                     <input type="hidden" name="quantidade" value="1">
                                     <button type="submit" class="btn btn-blue">Compre agora</button>
                                 </form>
                             @else
                                 <a href="/Login" class="btn btn-blue">Faça Login para Comprar</a>
                             @endauth
+                            <a href="/produto/49" class="btn" style="background: linear-gradient(135deg, #00ff41 0%, #00cc33 100%); color: #000; padding: 1rem 2rem; border-radius: 2rem; font-size: 1.1rem; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: all 0.4s ease; box-shadow: 0 8px 32px rgba(0, 255, 65, 0.4);" onmouseover="this.style.transform='translateY(-3px) scale(1.02)'; this.style.boxShadow='0 12px 40px rgba(0, 255, 65, 0.6)';" onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='0 8px 32px rgba(0, 255, 65, 0.4)';">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                                    <circle cx="12" cy="12" r="3"/>
+                                </svg>
+                                Ver Produto
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -756,12 +763,13 @@ do monitoramento de atividades e saúde ao controle instantâneo de chamadas e m
         </div>
     </section>
 
-    {{-- Botão Final de Compra --}}
-    <section style="padding: 5rem 1.5rem; text-align: center;">
-        @auth
-            <form action="{{ route('carrinho.adicionar') }}" method="POST" style="display: inline-block;">
-                @csrf
-                    <input type="hidden" name="produto_id" value="125">
+    {{-- Botões Finais de Compra --}}
+    <section style="padding: 2rem 1.5rem; text-align: center;">
+        <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; align-items: center;">
+            @auth
+                <form action="{{ route('carrinho.adicionar') }}" method="POST" style="display: inline-block;">
+                    @csrf
+                    <input type="hidden" name="produto_id" value="47">
                     <input type="hidden" name="quantidade" value="1">
                     <button type="submit" id="btn-comprar-applewatch" style="background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%); color: white; padding: 1.2rem 4rem; border-radius: 3rem; font-size: 1.4rem; font-weight: 700; border: none; cursor: pointer; transition: all 0.4s ease; box-shadow: 0 8px 32px rgba(37, 99, 235, 0.4); position: relative; overflow: hidden;" onmouseover="this.style.transform='translateY(-3px) scale(1.02)'; this.style.boxShadow='0 12px 40px rgba(37, 99, 235, 0.6)';" onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='0 8px 32px rgba(37, 99, 235, 0.4)';">
                         <span style="position: relative; z-index: 2; display: flex; align-items: center; justify-content: center; gap: 8px;">
@@ -769,21 +777,32 @@ do monitoramento de atividades e saúde ao controle instantâneo de chamadas e m
                                 <path d="M9 12l2 2 4-4"/>
                                 <circle cx="12" cy="12" r="9"/>
                             </svg>
-                            Comprar Apple Watch
+                            Comprar Apple Watch Series 9
                         </span>
                     </button>
-            </form>
-        @else
-            <a href="/Login" style="background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%); color: white; padding: 1.2rem 4rem; border-radius: 3rem; font-size: 1.4rem; font-weight: 700; text-decoration: none; display: inline-block; transition: all 0.4s ease; box-shadow: 0 8px 32px rgba(220, 38, 38, 0.4); position: relative; overflow: hidden;" onmouseover="this.style.transform='translateY(-3px) scale(1.02)'; this.style.boxShadow='0 12px 40px rgba(220, 38, 38, 0.6)';" onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='0 8px 32px rgba(220, 38, 38, 0.4)';">
+                </form>
+            @else
+                <a href="/Login" style="background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%); color: white; padding: 1.2rem 4rem; border-radius: 3rem; font-size: 1.4rem; font-weight: 700; text-decoration: none; display: inline-block; transition: all 0.4s ease; box-shadow: 0 8px 32px rgba(220, 38, 38, 0.4); position: relative; overflow: hidden;" onmouseover="this.style.transform='translateY(-3px) scale(1.02)'; this.style.boxShadow='0 12px 40px rgba(220, 38, 38, 0.6)';" onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='0 8px 32px rgba(220, 38, 38, 0.4)';">
+                    <span style="position: relative; z-index: 2; display: flex; align-items: center; justify-content: center; gap: 8px;">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 8px;">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                            <circle cx="12" cy="7" r="4"/>
+                        </svg>
+                        Faça Login para Comprar
+                    </span>
+                </a>
+            @endauth
+            
+            <a href="/produto/47" style="background: linear-gradient(135deg, #00ff41 0%, #00cc33 100%); color: #000; padding: 1.2rem 4rem; border-radius: 3rem; font-size: 1.4rem; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: all 0.4s ease; box-shadow: 0 8px 32px rgba(0, 255, 65, 0.4);" onmouseover="this.style.transform='translateY(-3px) scale(1.02)'; this.style.boxShadow='0 12px 40px rgba(0, 255, 65, 0.6)';" onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='0 8px 32px rgba(0, 255, 65, 0.4)';">
                 <span style="position: relative; z-index: 2; display: flex; align-items: center; justify-content: center; gap: 8px;">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 8px;">
-                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
-                        <circle cx="12" cy="7" r="4"/>
+                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                        <circle cx="12" cy="12" r="3"/>
                     </svg>
-                    Faça Login para Comprar
+                    Ver Produto
                 </span>
             </a>
-        @endauth
+        </div>
     </section>
 </div>
 
@@ -869,7 +888,6 @@ document.addEventListener('DOMContentLoaded', function() {
     updateIndicator();
 });
 </script>
-    @include('components.apple-watch')
 
   <!-- Novo Chatbot Widget -->
   <link rel="stylesheet" href="/media/ChatBot/ModernChatBot.css">
