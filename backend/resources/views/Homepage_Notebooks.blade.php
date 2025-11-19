@@ -628,14 +628,17 @@ main {
                     </p>
                     <!-- Botão movido para baixo da escrita -->
                     <div class="button-container animate-zoom-in animate-delay-900" style="margin-bottom: 2rem; margin-top: 1.5rem;">
-                        <div style="width: 100%; display: flex; justify-content: center;">
+                        <div style="width: 100%; display: flex; justify-content: center; gap: 15px;">
                             @auth
                                 <form action="{{ route('carrinho.adicionar') }}" method="POST" style="display: inline-block;">
                                     @csrf
-                                        <input type="hidden" name="produto_id" value="6">
+                                        <input type="hidden" name="produto_id" value="58">
                                     <input type="hidden" name="quantidade" value="1">
                                     <button type="submit" class="btn btn-blue">Compre agora</button>
                                 </form>
+                                <a href="{{ route('produto.show', 58) }}" class="btn" style="background: rgba(255,255,255,0.2); color: #fff; text-decoration: none; backdrop-filter: blur(10px); border: 2px solid rgba(255,255,255,0.3);">
+                                    <i class="fas fa-eye"></i> Ver Produto
+                                </a>
                             @else
                                 <a href="/Login" class="btn btn-blue">Faça Login para Comprar</a>
                             @endauth
@@ -787,15 +790,20 @@ main {
         <h2 style="color: #fff; font-size: 2.5rem; font-weight: 700; margin-bottom: 1rem; background: linear-gradient(45deg, #2563eb, #ffffff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Experimente o Futuro da Performance</h2>
         <p style="color: #d1d5db; font-size: 1.25rem; margin-bottom: 3rem; max-width: 600px; margin-left: auto; margin-right: auto;">Uma combinação perfeita de potência, design e inteligência para acompanhar você em qualquer desafio.</p>
         @auth
-            <form action="{{ route('carrinho.adicionar') }}" method="POST" style="display: inline-block;">
-                @csrf
-                    <input type="hidden" name="produto_id" value="6">
-                    <input type="hidden" name="quantidade" value="1">
-                    <button type="submit" id="btn-comprar-fone" style="background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%); color: white; padding: 1.25rem 3rem; border-radius: 2rem; font-size: 1.25rem; font-weight: 600; border: none; cursor: pointer; transition: all 0.4s ease; box-shadow: 0 10px 30px rgba(37, 99, 235, 0.4); position: relative; overflow: hidden;" onmouseover="this.style.background='linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%)'; this.style.transform='translateY(-3px)'; this.style.boxShadow='0 15px 40px rgba(37, 99, 235, 0.6)'" onmouseout="this.style.background='linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%)'; this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 30px rgba(37, 99, 235, 0.4)'">
-                        Comprar Mac Agora
-                        <span style="position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent); transition: left 0.5s;"></span>
-                    </button>
-            </form>
+            <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+                <form action="{{ route('carrinho.adicionar') }}" method="POST" style="display: inline-block;">
+                    @csrf
+                        <input type="hidden" name="produto_id" value="55">
+                        <input type="hidden" name="quantidade" value="1">
+                        <button type="submit" id="btn-comprar-fone" style="background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%); color: white; padding: 1.25rem 3rem; border-radius: 2rem; font-size: 1.25rem; font-weight: 600; border: none; cursor: pointer; transition: all 0.4s ease; box-shadow: 0 10px 30px rgba(37, 99, 235, 0.4); position: relative; overflow: hidden;" onmouseover="this.style.background='linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%)'; this.style.transform='translateY(-3px)'; this.style.boxShadow='0 15px 40px rgba(37, 99, 235, 0.6)'" onmouseout="this.style.background='linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%)'; this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 30px rgba(37, 99, 235, 0.4)'">
+                            Comprar Mac Agora
+                            <span style="position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent); transition: left 0.5s;"></span>
+                        </button>
+                </form>
+                <a href="{{ route('produto.show', 55) }}" style="background: rgba(255,255,255,0.15); color: white; padding: 1.25rem 3rem; border-radius: 2rem; font-size: 1.25rem; font-weight: 600; text-decoration: none; cursor: pointer; transition: all 0.4s ease; box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1); border: 2px solid rgba(255,255,255,0.3); backdrop-filter: blur(10px); display: inline-flex; align-items: center; gap: 10px;" onmouseover="this.style.background='rgba(255,255,255,0.25)'; this.style.transform='translateY(-3px)'; this.style.boxShadow='0 15px 40px rgba(255, 255, 255, 0.2)'" onmouseout="this.style.background='rgba(255,255,255,0.15)'; this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 30px rgba(255, 255, 255, 0.1)'">
+                    <i class="fas fa-eye"></i> Ver Produto
+                </a>
+            </div>
         @else
             <a href="/login" style="background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%); color: white; padding: 1.25rem 3rem; border-radius: 2rem; font-size: 1.25rem; font-weight: 600; text-decoration: none; display: inline-block; transition: all 0.4s ease; box-shadow: 0 10px 30px rgba(220, 38, 38, 0.4); position: relative; overflow: hidden;" onmouseover="this.style.background='linear-gradient(135deg, #b91c1c 0%, #991b1b 100%)'; this.style.transform='translateY(-3px)'; this.style.boxShadow='0 15px 40px rgba(220, 38, 38, 0.6)'" onmouseout="this.style.background='linear-gradient(135deg, #dc2626 0%, #b91c1c 100%)'; this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 30px rgba(220, 38, 38, 0.4)'">
                 👤 Faça Login para Comprar
