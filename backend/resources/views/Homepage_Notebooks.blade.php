@@ -784,15 +784,15 @@ main {
 
     {{-- Botão Final de Compra --}}
     <section style="padding: 5rem 1.5rem; text-align: center; background: linear-gradient(135deg, rgba(37, 99, 235, 0.1) 0%, rgba(0, 0, 0, 0.9) 100%); border-radius: 2rem; margin: 2rem auto; max-width: 1200px;">
-        <h2 style="color: #fff; font-size: 2.5rem; font-weight: 700; margin-bottom: 1rem; background: linear-gradient(45deg, #2563eb, #ffffff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Experimente o Futuro do Som</h2>
-        <p style="color: #d1d5db; font-size: 1.25rem; margin-bottom: 3rem; max-width: 600px; margin-left: auto; margin-right: auto;">Revolucione sua experiência sonora com tecnologia de ponta que redefine os limites do possível.</p>
+        <h2 style="color: #fff; font-size: 2.5rem; font-weight: 700; margin-bottom: 1rem; background: linear-gradient(45deg, #2563eb, #ffffff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Experimente o Futuro da Performance</h2>
+        <p style="color: #d1d5db; font-size: 1.25rem; margin-bottom: 3rem; max-width: 600px; margin-left: auto; margin-right: auto;">Uma combinação perfeita de potência, design e inteligência para acompanhar você em qualquer desafio.</p>
         @auth
             <form action="{{ route('carrinho.adicionar') }}" method="POST" style="display: inline-block;">
                 @csrf
                     <input type="hidden" name="produto_id" value="6">
                     <input type="hidden" name="quantidade" value="1">
                     <button type="submit" id="btn-comprar-fone" style="background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%); color: white; padding: 1.25rem 3rem; border-radius: 2rem; font-size: 1.25rem; font-weight: 600; border: none; cursor: pointer; transition: all 0.4s ease; box-shadow: 0 10px 30px rgba(37, 99, 235, 0.4); position: relative; overflow: hidden;" onmouseover="this.style.background='linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%)'; this.style.transform='translateY(-3px)'; this.style.boxShadow='0 15px 40px rgba(37, 99, 235, 0.6)'" onmouseout="this.style.background='linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%)'; this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 30px rgba(37, 99, 235, 0.4)'">
-                        🎵 Comprar Fone Agora
+                        Comprar Mac Agora
                         <span style="position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent); transition: left 0.5s;"></span>
                     </button>
             </form>
