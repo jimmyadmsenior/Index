@@ -1,4 +1,4 @@
-<header class="navbar-index" style="background:#111; width:100%; min-width:0; box-shadow:none; border:none; margin:0; padding:0; position:relative; z-index:1001;">
+<header class="navbar-index" style="background:#111; width:100vw; min-width:100vw; box-shadow:none; border:none; margin:0 !important; padding:0 !important; position:relative; z-index:1001; top:0;">
   <div class="navbar-content" style="width:100%;padding:0;">
     <div style="display:grid;grid-template-columns:1.2fr auto 1fr;align-items:center;max-width:1300px;width:100%;margin:0 auto;padding:0 32px 0 32px;height:64px;box-sizing:border-box;">
       <div style="justify-self:start;">
@@ -20,9 +20,7 @@
             $carrinho = session()->get('carrinho', []);
             $cart_count = array_sum(array_column($carrinho, 'quantidade'));
           @endphp
-          @if($cart_count > 0)
-            <span class="cart-count" style="position:absolute;top:-2px;right:-2px;background:#ff4757;color:#fff;border-radius:50%;width:22px;height:22px;font-size:0.75rem;display:flex;align-items:center;justify-content:center;font-weight:bold;min-width:22px;font-family:'Geoform',Arial,sans-serif;">{{ $cart_count }}</span>
-          @endif
+          <span class="cart-count" style="position:absolute;top:-2px;right:-2px;background:#ff4757;color:#fff;border-radius:50%;width:22px;height:22px;font-size:0.75rem;display:flex;align-items:center;justify-content:center;font-weight:bold;min-width:22px;font-family:'Geoform',Arial,sans-serif;">{{ $cart_count }}</span>
         </a>
         @auth
           <a href="/perfil" class="navbar-btn navbar-btn-perfil" title="Meu perfil" style="display:flex;align-items:center;gap:8px;color:#fff;background:#111;border:none;">
@@ -51,7 +49,7 @@
   padding: 0 !important;
   border: none !important;
   box-shadow: none !important;
-  position: relative;
+  position: relative !important;
   z-index: 1001;
 }
 .navbar-index, .navbar-index * {
