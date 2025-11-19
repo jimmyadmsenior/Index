@@ -28,7 +28,7 @@
             <i class="fas fa-eye"></i> Ver Produto
         </a>
     @else
-    <a href="/Login" class="comprar-btn-preto" style="text-decoration: none;">Faça Login para Comprar</a>
+    <a href="/login" class="comprar-btn-preto" style="text-decoration: none;">Faça Login para Comprar</a>
     @endauth
 
     <div class="imagens" style="margin-top:28px;">
@@ -50,7 +50,7 @@
                     </button>
                 </form>
             @else
-                <a href="/Login" class="comprar-link-overlay reativo-btn" style="text-decoration: none;">Faça Login para Comprar</a>
+                <a href="/login" class="comprar-link-overlay reativo-btn" style="text-decoration: none;">Faça Login para Comprar</a>
             @endauth
         </div>
     </div>
@@ -97,7 +97,7 @@
                     </a>
                 </div>
             @else
-                <a href="/Login" class="botao-galaxy-center" style="position: absolute; left: 50%; bottom: 18px; transform: translateX(-50%); width: 100%; max-width: 320px; text-decoration: none; background: #000; color: #fff; border-radius: 32px; padding: 12px 0; font-size: 1.05rem; font-weight: bold; box-shadow: 0 2px 10px rgba(0,0,0,0.15); display: flex; align-items: center; justify-content: center; gap: 10px;">
+                <a href="/login" class="botao-galaxy-center" style="position: absolute; left: 50%; bottom: 18px; transform: translateX(-50%); width: 100%; max-width: 320px; text-decoration: none; background: #000; color: #fff; border-radius: 32px; padding: 12px 0; font-size: 1.05rem; font-weight: bold; box-shadow: 0 2px 10px rgba(0,0,0,0.15); display: flex; align-items: center; justify-content: center; gap: 10px;">
                     <i class="fas fa-shopping-cart" style="font-size: 1.15rem;"></i>
                     <span style="font-size: 1.05rem; font-weight: bold; letter-spacing: 1px;">FAÇA LOGIN PARA COMPRAR</span>
                 </a>
@@ -249,7 +249,7 @@
             </a>
         </div>
     @else
-      <a href="/Login" style="position: absolute; bottom: 70px; left: 34%; transform: translateX(-50%); background: #000; color: #fff; text-decoration: none; padding: 8px 16px; border-radius: 20px; font-weight: 700; display: inline-block; font-size: 0.75rem;">LOGIN PARA COMPRAR</a>
+      <a href="/login" style="position: absolute; bottom: 70px; left: 34%; transform: translateX(-50%); background: #000; color: #fff; text-decoration: none; padding: 8px 16px; border-radius: 20px; font-weight: 700; display: inline-block; font-size: 0.75rem;">LOGIN PARA COMPRAR</a>
     @endauth
 
     <!-- 🔹 Botões Galaxy S22 Ultra (embaixo do nome "Galaxy S22 Ultra") -->
@@ -268,7 +268,7 @@
             </a>
         </div>
     @else
-      <a href="/Login" style="position: absolute; bottom: 150px; right: 16%; transform: translateX(50%); background: #000; color: #fff; text-decoration: none; padding: 8px 16px; border-radius: 20px; font-weight: 700; display: inline-block; font-size: 0.75rem;">LOGIN PARA COMPRAR</a>
+      <a href="/login" style="position: absolute; bottom: 150px; right: 16%; transform: translateX(50%); background: #000; color: #fff; text-decoration: none; padding: 8px 16px; border-radius: 20px; font-weight: 700; display: inline-block; font-size: 0.75rem;">LOGIN PARA COMPRAR</a>
     @endauth
   </div>
 </div>
