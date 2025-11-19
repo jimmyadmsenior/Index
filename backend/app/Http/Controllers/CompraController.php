@@ -11,17 +11,13 @@ use App\Models\Pedido;
 use App\Services\PedidoService;
 use App\Http\Requests\CompraRequest;
 
-use App\Services\WhatsAppService;
-
 class CompraController extends Controller
 {
     protected $pedidoService;
-    protected $whatsappService;
 
-    public function __construct(PedidoService $pedidoService, WhatsAppService $whatsappService)
+    public function __construct(PedidoService $pedidoService)
     {
         $this->pedidoService = $pedidoService;
-        $this->whatsappService = $whatsappService;
     }
 
     public function finalizar(Request $request)
@@ -66,9 +62,6 @@ class CompraController extends Controller
             } catch (\Exception $mailError) {
                 \Log::warning('CompraController finalizar - Erro ao enviar email:', ['error' => $mailError->getMessage()]);
             }
-            
-            // Envia WhatsApp se o usuário tiver telefone cadastrado
-            $this->whatsappService->enviarConfirmacaoCompra($user, $pedido);
 
             \Log::info('CompraController finalizar - Redirecionando para compra finalizada');
             return redirect()->route('compra.finalizada', ['codigo' => $pedido->codigo_rastreamento])
@@ -197,8 +190,6 @@ class CompraController extends Controller
                 // Continua mesmo se o email falhar - pedido já foi salvo
             }
             
-            // Envia WhatsApp se o usuário tiver telefone cadastrado
-            $this->whatsappService->enviarConfirmacaoCompra($user, $pedido);
             
         } else {
             // Compra de produto individual
@@ -252,8 +243,6 @@ class CompraController extends Controller
                 // Continua mesmo se o email falhar - pedido já foi salvo
             }
             
-            // Envia WhatsApp se o usuário tiver telefone cadastrado
-            $this->whatsappService->enviarConfirmacaoCompra($user, $pedido);
         }
 
         // Redireciona para a página de compra finalizada

@@ -22,7 +22,6 @@ class User extends Authenticatable
         'email',
         'password',
         'foto', // permite salvar e atualizar a foto
-        'telefone', // permite salvar e atualizar o telefone para WhatsApp
     ];
 
     /**

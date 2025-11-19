@@ -8,7 +8,6 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\RecuperacaoSenhaMail;
-use App\Services\WhatsAppService;
 
 Route::get('/', function () {
     return Auth::check() 
@@ -209,7 +208,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/perfil', [App\Http\Controllers\PerfilController::class, 'show'])->name('perfil.show');
     Route::post('/perfil/foto', [App\Http\Controllers\PerfilController::class, 'updateFoto'])->name('perfil.updateFoto');
     Route::post('/perfil/senha', [App\Http\Controllers\PerfilController::class, 'updateSenha'])->name('perfil.updateSenha');
-    Route::post('/perfil/telefone', [App\Http\Controllers\PerfilController::class, 'updateTelefone'])->name('perfil.updateTelefone');
     Route::get('/perfil/pedidos', [App\Http\Controllers\PerfilController::class, 'pedidos'])->name('perfil.pedidos');
     Route::get('/rastrear/{codigo}', [App\Http\Controllers\PerfilController::class, 'rastrearPedido'])->name('pedido.rastrear');
     Route::post('/finalizar-compra', [CompraController::class, 'finalizar'])->name('compra.finalizar');
@@ -376,79 +374,6 @@ Route::prefix('admin')->name('admin.')->group(function () {
 
 Route::get('/health', function () {
     return response()->json(['status' => 'ok']);
-});
-
-// Rota de teste do WhatsApp (remover após teste)
-Route::get('/test-whatsapp', function () {
-    if (!Auth::check()) {
-        return 'Você precisa estar logado para testar.';
-    }
-    
-    $user = Auth::user();
-    if (!$user->telefone) {
-        return 'Você precisa ter um telefone cadastrado no perfil.';
-    }
-    
-    $whatsappService = app(App\Services\WhatsAppService::class);
-    
-    // Cria um pedido fake para teste
-    $pedidoFake = (object) [
-        'id' => 999,
-        'codigo_rastreamento' => 'TESTE' . rand(100000, 999999),
-        'valor_total' => 99.99,
-        'produtos' => [[
-            'nome' => 'Produto de Teste',
-            'quantidade' => 1,
-            'subtotal' => 99.99
-        ]],
-        'created_at' => now()
-    ];
-    
-    $resultado = $whatsappService->enviarConfirmacaoCompra($user, $pedidoFake);
-    
-    return $resultado ? 'Mensagem enviada com sucesso!' : 'Falha ao enviar mensagem. Verifique os logs.';
-});
-Route::get('/teste-whatsapp', function () {
-    $user = Auth::user();
-    if (!$user) {
-        return 'Usuário não autenticado';
-    }
-    
-    $debug = [];
-    $debug['user'] = [
-        'id' => $user->id,
-        'nome' => $user->name,
-        'telefone' => $user->telefone
-    ];
-    
-    if (!$user->telefone) {
-        return 'Usuário sem telefone cadastrado. Cadastre seu WhatsApp no perfil primeiro.';
-    }
-    
-    $pedido = \App\Models\Pedido::latest()->where('user_id', $user->id)->first();
-    if (!$pedido) {
-        return 'Nenhum pedido encontrado para o usuário';
-    }
-    
-    $debug['pedido'] = [
-        'id' => $pedido->id,
-        'codigo' => $pedido->codigo_rastreamento,
-        'valor' => $pedido->valor_total
-    ];
-    
-    $debug['config'] = [
-        'instance_id' => config('ultramsg.instance_id'),
-        'token' => substr(config('ultramsg.token'), 0, 8) . '...',
-        'base_url' => config('ultramsg.base_url')
-    ];
-    
-    $whats = app(WhatsAppService::class);
-    $ok = $whats->enviarConfirmacaoCompra($user, $pedido);
-    
-    $debug['resultado'] = $ok;
-    
-    return '<pre>' . json_encode($debug, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE) . '</pre>' . 
-           '<br><br><strong>Resultado:</strong> ' . ($ok ? 'Mensagem enviada com sucesso!' : 'Falha ao enviar mensagem.');
 });
 
 Route::get('/teste-email', function () {

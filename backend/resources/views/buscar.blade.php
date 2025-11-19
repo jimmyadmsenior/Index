@@ -219,8 +219,24 @@
             <h3><i class="fas fa-exclamation-triangle"></i> Produto não encontrado</h3>
             <p>{{ $mensagemErro }}</p>
             
+            @if(isset($sugestoes) && !empty($sugestoes))
+                <div class="sugestoes-dinamicas" style="margin-top: 15px;">
+                    <h4><i class="fas fa-search"></i> Você quis dizer:</h4>
+                    <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px;">
+                        @foreach($sugestoes as $sugestao)
+                            <a href="{{ route('buscar', ['q' => $sugestao]) }}" 
+                               style="background: #007bff; color: white; padding: 8px 15px; border-radius: 20px; text-decoration: none; font-size: 0.9rem; transition: background 0.2s;"
+                               onmouseover="this.style.background='#0056b3'" 
+                               onmouseout="this.style.background='#007bff'">
+                                {{ $sugestao }}
+                            </a>
+                        @endforeach
+                    </div>
+                </div>
+            @endif
+            
             <div class="sugestoes-busca">
-                <h4><i class="fas fa-lightbulb"></i> Sugestões:</h4>
+                <h4><i class="fas fa-lightbulb"></i> Dicas de busca:</h4>
                 <ul>
                     <li>• Verifique a ortografia das palavras</li>
                     <li>• Tente termos mais genéricos (ex: "iPhone" ao invés de "iPhone 15 Pro Max")</li>

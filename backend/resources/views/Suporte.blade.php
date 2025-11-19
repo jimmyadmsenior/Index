@@ -39,7 +39,7 @@
           </div>
           <div style="padding: 0 20px; max-height: 0; overflow: hidden; transition: all 0.3s ease;">
             <div style="padding: 20px 0;">
-              <p>Você pode acompanhar seu pedido através da sua conta no site ou pelo email de confirmação que enviamos. Também enviamos atualizações por WhatsApp se você forneceu seu número.</p>
+              <p>Você pode acompanhar seu pedido através da sua conta no site ou pelo email de confirmação que enviamos.</p>
             </div>
           </div>
         </div>
