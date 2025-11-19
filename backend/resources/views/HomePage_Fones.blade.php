@@ -30,36 +30,33 @@ main {
     padding-bottom: 48px !important;
 }
 
-/* Garantir que a navbar fique fixa no topo */
-.navbar-index {
-    position: fixed !important;
-    top: 0 !important;
-    left: 0 !important;
-    right: 0 !important;
-    width: 100% !important;
-    z-index: 1001 !important;
-    margin-right: 0 !important;
-}
+
 
 /* Forçar espaçamento entre navbar e conteúdo */
 
 /* Hero Section */
+
 .hero-section {
     position: relative;
     overflow: hidden;
-    height: 60vh;
-    min-height: 400px;
-    margin-top: 3rem !important;
-    padding-top: 2rem !important;
+    height: 80vh;
+    min-height: 500px;
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
 }
 
-@media (min-width: 768px) {
-    .hero-section {
-        height: 80vh;
-        min-height: 600px;
-        margin-top: 4rem !important;
-        padding-top: 3rem !important;
-    }
+.hero-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center 80%;
+    opacity: 0.95;
 }
 
 .hero-img {
@@ -157,14 +154,16 @@ main {
     animation-fill-mode: both;
 }
 
+
 .arrow-down {
     position: absolute;
-    bottom: 2rem;
+    bottom: 3.5rem;
     left: 50%;
     transform: translateX(-50%);
     color: white;
-    font-size: 2rem;
+    font-size: 2.5rem;
     animation: bounce 2s infinite;
+    z-index: 2;
 }
 
 @keyframes bounce {
@@ -527,9 +526,10 @@ main {
 }
 </style>
 
+@section('content')
 <div style="background: #000; min-height: 100vh; color: #fff;">
     {{-- Hero Section --}}
-    <section class="hero-section">
+    <section class="hero-section" style="background:#000;display:flex;flex-direction:column;align-items:center;justify-content:center;width:100vw;min-height:78vh;position:relative;overflow:hidden;">
         <!-- Imagem do banner principal (hero) -->
         <img src="{{ asset('media/air max.jpg') }}" alt="iPhone 17 Pro" class="hero-img" />
         <div class="hero-overlay"></div>
@@ -855,6 +855,7 @@ main {
         @endauth
     </section>
 </div>
+@endsection
 
 <script>
 // Funcionalidade de troca de cores
