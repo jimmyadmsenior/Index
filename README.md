@@ -96,6 +96,9 @@ Para clonar o repositório para sua máquina local, você deve enviar uma solici
 Aperte no botão **Fork** na parte de cima dos arquivos, ao lado esquerdo da seção de favoritar o repositório.
 
 # Como iniciar o servidor local
+
+## 🚀 Configuração Rápida (Recomendado)
+
 1. **Abra o terminal** no seu computador.
 2. **Navegue até a pasta "backend"** usando o comando:
 
@@ -118,22 +121,77 @@ Aperte no botão **Fork** na parte de cima dos arquivos, ao lado esquerdo da se�
 
 5. **Configure o arquivo `.env`** com suas próprias APIs e Tokens (copie `.env.example` para `.env` e edite conforme necessário).
 
-6. **Gere a chave da aplicação Laravel:**
+6. **Execute o comando de configuração completa:**
+
+  ```bash
+  php artisan projeto:setup
+  ```
+
+  Este comando irá:
+  - ✅ Executar as migrations do banco
+  - ✅ Popular com todos os 63 produtos
+  - ✅ Criar as categorias
+  - ✅ Configurar o administrador
+  - ✅ Criar storage link
+  - ✅ Limpar caches
+
+7. **Inicie o servidor Laravel:**
+
+  ```bash
+  php artisan serve --host=localhost --port=8000
+  ```
+
+## 🔧 Configuração Manual (Opcional)
+
+Se preferir fazer passo a passo:
+
+## 🔧 Configuração Manual (Opcional)
+
+Se preferir fazer passo a passo:
+
+1. **Navegue até a pasta "backend"** usando o comando:
+
+  ```bash
+  cd caminho/para/a/pasta/backend
+  ```
+  Substitua caminho/para/a/pasta pelo caminho real onde a pasta "backend" está localizada.
+
+2. **Instale as dependências do PHP** usando o Composer:
+
+  ```bash
+  composer install
+  ```
+
+3. **Instale as dependências do Node.js** usando o npm:
+
+  ```bash
+  npm install
+  ```
+
+4. **Configure o arquivo `.env`** com suas próprias APIs e Tokens (copie `.env.example` para `.env` e edite conforme necessário).
+
+5. **Gere a chave da aplicação Laravel:**
 
   ```bash
   php artisan key:generate
   ```
 
-7. **Execute as migrações do banco de dados:**
+6. **Execute as migrações do banco de dados:**
 
   ```bash
   php artisan migrate
   ```
 
-8. **Popule o banco de dados com dados iniciais (opcional):**
+7. **Popule o banco de dados com dados iniciais:**
 
   ```bash
   php artisan db:seed
+  ```
+
+8. **Criar administrador (se necessário):**
+
+  ```bash
+  php artisan admin:create
   ```
 
 9. **Crie o link simbólico para o storage (obrigatório para upload de fotos):**
@@ -149,6 +207,13 @@ Aperte no botão **Fork** na parte de cima dos arquivos, ao lado esquerdo da se�
   ```
 
 Agora o servidor estará rodando e você poderá acessá-lo através do seu navegador em http://localhost:8000.
+
+### Credenciais de Acesso Admin
+
+Após executar os comandos acima, você pode acessar o painel administrativo em:
+- **URL:** http://localhost:8000/admin/login
+- **Email:** admin@sistema.com
+- **Senha:** admin123456
 
 # Como clonar o repositório para seu perfil do GitHub
 Aperte no botão Fork na parte de cima dos arquivos,

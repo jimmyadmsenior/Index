@@ -13,33 +13,31 @@ class AdminSeeder extends Seeder
      */
     public function run(): void
     {
-        // Verifica se já existem administradores
-        if (Administrador::exists()) {
-            $this->command->info('Administradores já existem no sistema.');
-            return;
-        }
+        // Cria ou atualiza o administrador master (sempre garantir que existe)
+        $adminMaster = Administrador::updateOrCreate(
+            ['email' => 'admin@sistema.com'],
+            [
+                'nome' => 'Administrador Master',
+                'password' => Hash::make('admin123456'),
+                'nivel_acesso' => 'master',
+                'ativo' => true,
+                'email_verified_at' => now(),
+            ]
+        );
 
-        // Cria o primeiro administrador (Master)
-        Administrador::create([
-            'nome' => 'Administrador Master',
-            'email' => 'admin@sistema.com',
-            'password' => Hash::make('admin123456'),
-            'nivel_acesso' => 'master',
-            'ativo' => true,
-            'email_verified_at' => now(),
-        ]);
+        // Cria ou atualiza o administrador operador
+        $adminOperador = Administrador::updateOrCreate(
+            ['email' => 'operador@sistema.com'],
+            [
+                'nome' => 'Administrador Operador',
+                'password' => Hash::make('operador123'),
+                'nivel_acesso' => 'operador',
+                'ativo' => true,
+                'email_verified_at' => now(),
+            ]
+        );
 
-        // Cria o segundo administrador (Operador)
-        Administrador::create([
-            'nome' => 'Administrador Operador',
-            'email' => 'operador@sistema.com',
-            'password' => Hash::make('operador123'),
-            'nivel_acesso' => 'operador',
-            'ativo' => true,
-            'email_verified_at' => now(),
-        ]);
-
-        $this->command->info('Administradores criados com sucesso!');
+        $this->command->info('Administradores criados/atualizados com sucesso!');
         $this->command->info('');
         $this->command->info('=== CREDENCIAIS DE ACESSO ===');
         $this->command->info('');
