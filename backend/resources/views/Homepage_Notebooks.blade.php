@@ -268,7 +268,7 @@
     @auth
       <form action="{{ route('carrinho.adicionar') }}" method="POST" style="margin-top: 8px;">
         @csrf
-        <input type="hidden" name="produto_id" value="101">
+        <input type="hidden" name="produto_id" value="61">
         <input type="hidden" name="quantidade" value="1">
   <button type="submit" class="comprar-btn-efeito">COMPRAR</button>
       </form>
@@ -283,7 +283,7 @@
     @auth
       <form action="{{ route('carrinho.adicionar') }}" method="POST" style="margin-top: 4px;">
         @csrf
-        <input type="hidden" name="produto_id" value="102">
+        <input type="hidden" name="produto_id" value="62">
         <input type="hidden" name="quantidade" value="1">
   <button type="submit" class="comprar-btn-efeito">COMPRAR</button>
       </form>

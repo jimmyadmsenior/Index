@@ -275,16 +275,17 @@ document.getElementById('iphone17Popup').addEventListener('click', function(e) {
       <div class="featured-iphone14">
         <h2>iPhone 14</h2>
         <p class="featured-desc">A tecnologia encontra o conforto</p>
-        <div class="produto-acoes" style="display: flex; justify-content: center; margin: 20px auto; max-width: 300px;">
-          <form action="{{ route('carrinho.adicionar') }}" method="POST" style="width: 100%;">
+        <div class="produto-acoes" style="display: flex; gap: 15px; justify-content: center; margin: 20px auto; max-width: 450px;">
+          <form action="{{ route('carrinho.adicionar') }}" method="POST" style="flex: 1.5;">
             @csrf
-            <input type="hidden" name="produto_id" value="8">
+            <input type="hidden" name="produto_id" value="9">
             <input type="hidden" name="quantidade" value="1">
-            <button type="submit" class="featured-link" style="background: #000; color: #fff; border: none; border-radius: 12px; width: 100%; font-weight: 700; display: flex; align-items: center; justify-content: center; gap: 8px; padding: 12px 20px; text-decoration: none;">
+            <button type="submit" class="featured-link" style="background: linear-gradient(135deg, #00bfff, #4db5ff); color: #fff; border: none; border-radius: 12px; width: 100%; font-weight: 700; display: flex; align-items: center; justify-content: center; gap: 8px; padding: 16px 28px; text-decoration: none; min-width: 200px; line-height: 1.3;">
               <i class="fas fa-shopping-cart"></i>
-              Adicionar ao Carrinho
+              <span style="text-align: center;">Adicionar<br>Carrinho</span>
             </button>
           </form>
+          <a href="/produto/9" class="featured-link" style="flex: 1.2; font-size: 0.9rem; padding: 16px 24px; text-align: center; background: transparent; border: 2px solid #00ff41; color: #00ff41; display: flex; align-items: center; justify-content: center; border-radius: 12px; text-decoration: none; font-weight: 600; min-width: 150px;">Ver Produto</a>
         </div>
         <div class="featured-imgs">
           <img src="/media/Iphone_14_Capa_Homepage.png" alt="iPhone 14" class="iphone14-img"/>
@@ -298,32 +299,32 @@ document.getElementById('iphone17Popup').addEventListener('click', function(e) {
         <div class="product-card dark">
           <h3>iPhone 14 Pro</h3>
           <p>Faz jus ao nome</p>
-          <div class="card-buttons" style="display: flex; gap: 10px; margin: 10px 0;">
-            <form action="{{ route('carrinho.adicionar') }}" method="POST" style="flex: 1;">
+          <div class="card-buttons" style="display: flex; gap: 15px; margin: 15px 0;">
+            <form action="{{ route('carrinho.adicionar') }}" method="POST" style="flex: 1.5;">
               @csrf
               <input type="hidden" name="produto_id" value="7">
               <input type="hidden" name="quantidade" value="1">
-              <button type="submit" class="featured-link" style="background: #000; color: #fff; border: none; width: 100%; font-size: 0.9rem; padding: 10px; display: flex; align-items: center; justify-content: center; gap: 5px;">
-                <i class="fas fa-shopping-cart"></i> Carrinho
+              <button type="submit" class="featured-link" style="background: linear-gradient(135deg, #00bfff, #4db5ff); color: #fff; border: none; width: 100%; font-size: 0.9rem; padding: 16px 24px; display: flex; align-items: center; justify-content: center; gap: 8px; border-radius: 12px; font-weight: 600; min-width: 160px; line-height: 1.3;">
+                <i class="fas fa-shopping-cart"></i> <span style="text-align: center;">Adicionar<br>Carrinho</span>
               </button>
             </form>
-            <a href="/produto/7" class="featured-link" style="flex: 1; font-size: 0.9rem; padding: 10px; text-align: center; background: transparent; border: 2px solid #fff; color: #fff; display: flex; align-items: center; justify-content: center;">Ver Produto</a>
+            <a href="/produto/7" class="featured-link" style="flex: 1.2; font-size: 0.9rem; padding: 16px 24px; text-align: center; background: transparent; border: 2px solid #00ff41; color: #00ff41; display: flex; align-items: center; justify-content: center; text-decoration: none; border-radius: 12px; font-weight: 600; min-width: 140px;">Ver Produto</a>
           </div>
           <img src="/media/Iphone_14_Pro_Capa_Homepage.png" alt="iPhone 14 Pro"/>
         </div>
         <div class="product-card dark">
           <h3>Galaxy Book4</h3>
           <p>Desempenho nunca antes visto</p>
-          <div class="card-buttons" style="display: flex; gap: 10px; margin: 10px 0;">
-            <form action="{{ route('carrinho.adicionar') }}" method="POST" style="flex: 1;">
+          <div class="card-buttons" style="display: flex; gap: 15px; margin: 15px 0;">
+            <form action="{{ route('carrinho.adicionar') }}" method="POST" style="flex: 1.5;">
               @csrf
-              <input type="hidden" name="produto_id" value="60">
+              <input type="hidden" name="produto_id" value="63">
               <input type="hidden" name="quantidade" value="1">
-              <button type="submit" class="featured-link" style="background: #000; color: #fff; border: none; width: 100%; font-size: 0.9rem; padding: 10px; display: flex; align-items: center; justify-content: center; gap: 5px;">
-                <i class="fas fa-shopping-cart"></i> Carrinho
+              <button type="submit" class="featured-link" style="background: linear-gradient(135deg, #00bfff, #4db5ff); color: #fff; border: none; width: 100%; font-size: 0.9rem; padding: 16px 24px; display: flex; align-items: center; justify-content: center; gap: 8px; border-radius: 12px; font-weight: 600; min-width: 160px; line-height: 1.3;">
+                <i class="fas fa-shopping-cart"></i> <span style="text-align: center;">Adicionar<br>Carrinho</span>
               </button>
             </form>
-            <a href="/produto/60" class="featured-link" style="flex: 1; font-size: 0.9rem; padding: 10px; text-align: center; background: transparent; border: 2px solid #fff; color: #fff; display: flex; align-items: center; justify-content: center;">Ver Produto</a>
+            <a href="/produto/63" class="featured-link" style="flex: 1.2; font-size: 0.9rem; padding: 16px 24px; text-align: center; background: transparent; border: 2px solid #00ff41; color: #00ff41; display: flex; align-items: center; justify-content: center; text-decoration: none; border-radius: 12px; font-weight: 600; min-width: 140px;">Ver Produto</a>
           </div>
           <img src="/media/GalaxyBook4_Homepage.png" alt="Galaxy Book4"/>
         </div>
@@ -333,29 +334,29 @@ document.getElementById('iphone17Popup').addEventListener('click', function(e) {
           <div class="card-buttons" style="display: flex; gap: 10px; margin: 10px 0;">
             <form action="{{ route('carrinho.adicionar') }}" method="POST" style="flex: 1;">
               @csrf
-              <input type="hidden" name="produto_id" value="167">
+              <input type="hidden" name="produto_id" value="46">
               <input type="hidden" name="quantidade" value="1">
               <button type="submit" class="featured-link" style="background: #000; color: #fff; border: none; width: 100%; font-size: 0.9rem; padding: 10px; display: flex; align-items: center; justify-content: center; gap: 5px;">
                 <i class="fas fa-shopping-cart"></i> Carrinho
               </button>
             </form>
-            <a href="/produto/167" class="featured-link" style="flex: 1; font-size: 0.9rem; padding: 10px; text-align: center; background: transparent; border: 2px solid #fff; color: #fff; display: flex; align-items: center; justify-content: center;">Ver Produto</a>
+            <a href="/produto/46" class="featured-link" style="flex: 1.2; font-size: 0.9rem; padding: 16px 24px; text-align: center; background: transparent; border: 2px solid #00ff41; color: #00ff41; display: flex; align-items: center; justify-content: center; text-decoration: none; border-radius: 12px; font-weight: 600; min-width: 140px;">Ver Produto</a>
           </div>
           <img src="/media/Samsung Galaxy Tab S6.png" alt="Samsung Galaxy Tab S6"/>
         </div>
         <div class="product-card dark">
           <h3>Apple Watch Series 8</h3>
           <p>Um salto de tecnologia</p>
-          <div class="card-buttons" style="display: flex; gap: 10px; margin: 10px 0;">
-            <form action="{{ route('carrinho.adicionar') }}" method="POST" style="flex: 1;">
+          <div class="card-buttons" style="display: flex; gap: 15px; margin: 15px 0;">
+            <form action="{{ route('carrinho.adicionar') }}" method="POST" style="flex: 1.5;">
               @csrf
-              <input type="hidden" name="produto_id" value="109">
+              <input type="hidden" name="produto_id" value="50">
               <input type="hidden" name="quantidade" value="1">
-              <button type="submit" class="featured-link" style="background: #000; color: #fff; border: none; width: 100%; font-size: 0.9rem; padding: 10px; display: flex; align-items: center; justify-content: center; gap: 5px;">
-                <i class="fas fa-shopping-cart"></i> Carrinho
+              <button type="submit" class="featured-link" style="background: linear-gradient(135deg, #00bfff, #4db5ff); color: #fff; border: none; width: 100%; font-size: 0.9rem; padding: 16px 24px; display: flex; align-items: center; justify-content: center; gap: 8px; border-radius: 12px; font-weight: 600; min-width: 160px; line-height: 1.3;">
+                <i class="fas fa-shopping-cart"></i> <span style="text-align: center;">Adicionar<br>Carrinho</span>
               </button>
             </form>
-            <a href="/produto/109" class="featured-link" style="flex: 1; font-size: 0.9rem; padding: 10px; text-align: center; background: transparent; border: 2px solid #fff; color: #fff; display: flex; align-items: center; justify-content: center;">Ver Produto</a>
+            <a href="/produto/50" class="featured-link" style="flex: 1.2; font-size: 0.9rem; padding: 16px 24px; text-align: center; background: transparent; border: 2px solid #00ff41; color: #00ff41; display: flex; align-items: center; justify-content: center; text-decoration: none; border-radius: 12px; font-weight: 600; min-width: 140px;">Ver Produto</a>
           </div>
           <img src="/media/Watch_Series8.png" alt="Apple Watch Series 8"/>
         </div>

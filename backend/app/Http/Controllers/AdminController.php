@@ -100,6 +100,37 @@ class AdminController extends Controller
         return view('admin.usuarios', compact('usuarios', 'estatisticas'));
     }
 
+    public function getUserDetails($id)
+    {
+        $user = User::with(['pedidos' => function($query) {
+            $query->latest()->take(10);
+        }])->findOrFail($id);
+
+        $totalPedidos = $user->pedidos()->count();
+        $totalGasto = $user->pedidos()->sum('valor_total');
+        $ultimoPedido = $user->pedidos()->latest()->first();
+
+        return response()->json([
+            'id' => $user->id,
+            'name' => $user->name,
+            'email' => $user->email,
+            'created_at' => $user->created_at->format('d/m/Y'),
+            'updated_at' => $user->updated_at->format('d/m/Y'),
+            'status' => $user->email_verified_at ? 'Ativo' : 'Inativo',
+            'total_pedidos' => $totalPedidos,
+            'total_gasto' => 'R$ ' . number_format($totalGasto, 2, ',', '.'),
+            'ultimo_pedido' => $ultimoPedido ? $ultimoPedido->created_at->format('d/m/Y') : 'Nenhum',
+            'pedidos' => $user->pedidos->map(function($pedido) {
+                return [
+                    'data' => $pedido->created_at->format('d/m/Y'),
+                    'codigo' => 'BR' . str_pad($pedido->id, 9, '0', STR_PAD_LEFT),
+                    'valor' => 'R$ ' . number_format($pedido->valor_total, 2, ',', '.'),
+                    'status' => ucfirst($pedido->status)
+                ];
+            })
+        ]);
+    }
+
     public function produtos()
     {
         $produtos = Produto::with('categoria')
