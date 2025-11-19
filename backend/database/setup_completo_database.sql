@@ -1,7 +1,229 @@
--- Inserir TODOS os produtos reais do site (baseado no CategoriaProdutoSeeder.php)
+-- ============================================================================
+-- SCRIPT COMPLETO PARA SETUP DO BANCO DE DADOS - INDEX E-COMMERCE
+-- ============================================================================
+-- Execute este script completo no MySQL Workbench para criar toda a estrutura
+-- do banco de dados e inserir todos os produtos do sistema.
+--
+-- INSTRUÇÕES:
+-- 1. Abra o MySQL Workbench
+-- 2. Conecte-se ao seu servidor MySQL
+-- 3. Crie um novo banco de dados (ex: CREATE DATABASE index_ecommerce;)
+-- 4. Selecione o banco: USE index_ecommerce;
+-- 5. Execute este script completo
+-- ============================================================================
+
+-- Definir charset para evitar problemas de acentuação
+SET NAMES utf8mb4;
+SET FOREIGN_KEY_CHECKS = 0;
+
+-- ============================================================================
+-- PARTE 1: CRIAÇÃO DAS TABELAS
+-- ============================================================================
+
+-- 1. Tabela migrations (Laravel precisa dela para controlar migrações)
+CREATE TABLE IF NOT EXISTS `migrations` (
+    `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+    `migration` varchar(255) NOT NULL,
+    `batch` int(11) NOT NULL,
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- 2. Tabela users
+CREATE TABLE IF NOT EXISTS `users` (
+    `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+    `name` varchar(255) NOT NULL,
+    `email` varchar(255) NOT NULL,
+    `email_verified_at` timestamp NULL DEFAULT NULL,
+    `password` varchar(255) NOT NULL,
+    `foto` varchar(255) NULL DEFAULT NULL,
+    `remember_token` varchar(100) DEFAULT NULL,
+    `created_at` timestamp NULL DEFAULT NULL,
+    `updated_at` timestamp NULL DEFAULT NULL,
+    PRIMARY KEY (`id`),
+    UNIQUE KEY `users_email_unique` (`email`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- 3. Tabela password_reset_tokens
+CREATE TABLE IF NOT EXISTS `password_reset_tokens` (
+    `email` varchar(255) NOT NULL,
+    `token` varchar(255) NOT NULL,
+    `created_at` timestamp NULL DEFAULT NULL,
+    PRIMARY KEY (`email`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- 4. Tabela sessions
+CREATE TABLE IF NOT EXISTS `sessions` (
+    `id` varchar(255) NOT NULL,
+    `user_id` bigint(20) unsigned DEFAULT NULL,
+    `ip_address` varchar(45) DEFAULT NULL,
+    `user_agent` text,
+    `payload` longtext NOT NULL,
+    `last_activity` int(11) NOT NULL,
+    PRIMARY KEY (`id`),
+    KEY `sessions_user_id_index` (`user_id`),
+    KEY `sessions_last_activity_index` (`last_activity`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- 5. Tabela cache
+CREATE TABLE IF NOT EXISTS `cache` (
+    `key` varchar(255) NOT NULL,
+    `value` mediumtext NOT NULL,
+    `expiration` int(11) NOT NULL,
+    PRIMARY KEY (`key`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- 6. Tabela cache_locks
+CREATE TABLE IF NOT EXISTS `cache_locks` (
+    `key` varchar(255) NOT NULL,
+    `owner` varchar(255) NOT NULL,
+    `expiration` int(11) NOT NULL,
+    PRIMARY KEY (`key`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- 7. Tabela jobs
+CREATE TABLE IF NOT EXISTS `jobs` (
+    `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+    `queue` varchar(255) NOT NULL,
+    `payload` longtext NOT NULL,
+    `attempts` tinyint(3) unsigned NOT NULL,
+    `reserved_at` int(10) unsigned DEFAULT NULL,
+    `available_at` int(10) unsigned NOT NULL,
+    `created_at` int(10) unsigned NOT NULL,
+    PRIMARY KEY (`id`),
+    KEY `jobs_queue_index` (`queue`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- 8. Tabela job_batches
+CREATE TABLE IF NOT EXISTS `job_batches` (
+    `id` varchar(255) NOT NULL,
+    `name` varchar(255) NOT NULL,
+    `total_jobs` int(11) NOT NULL,
+    `pending_jobs` int(11) NOT NULL,
+    `failed_jobs` int(11) NOT NULL,
+    `failed_job_ids` longtext NOT NULL,
+    `options` mediumtext,
+    `cancelled_at` int(11) DEFAULT NULL,
+    `created_at` int(11) NOT NULL,
+    `finished_at` int(11) DEFAULT NULL,
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- 9. Tabela failed_jobs
+CREATE TABLE IF NOT EXISTS `failed_jobs` (
+    `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+    `uuid` varchar(255) NOT NULL,
+    `connection` text NOT NULL,
+    `queue` text NOT NULL,
+    `payload` longtext NOT NULL,
+    `exception` longtext NOT NULL,
+    `failed_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (`id`),
+    UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- 10. Tabela administradores
+CREATE TABLE IF NOT EXISTS `administradores` (
+    `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+    `nome` varchar(255) NOT NULL,
+    `email` varchar(255) NOT NULL,
+    `email_verified_at` timestamp NULL DEFAULT NULL,
+    `password` varchar(255) NOT NULL,
+    `nivel_acesso` enum('master','operador') NOT NULL DEFAULT 'operador',
+    `ativo` tinyint(1) NOT NULL DEFAULT '1',
+    `ultimo_acesso` timestamp NULL DEFAULT NULL,
+    `ip_ultimo_acesso` varchar(255) DEFAULT NULL,
+    `remember_token` varchar(100) DEFAULT NULL,
+    `created_at` timestamp NULL DEFAULT NULL,
+    `updated_at` timestamp NULL DEFAULT NULL,
+    PRIMARY KEY (`id`),
+    UNIQUE KEY `administradores_email_unique` (`email`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- 11. Tabela categorias
+CREATE TABLE IF NOT EXISTS `categorias` (
+    `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+    `nome` varchar(255) NOT NULL,
+    `created_at` timestamp NULL DEFAULT NULL,
+    `updated_at` timestamp NULL DEFAULT NULL,
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- 12. Tabela produtos (estrutura completa)
+CREATE TABLE IF NOT EXISTS `produtos` (
+    `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+    `nome` varchar(255) NOT NULL,
+    `modelo` varchar(255) DEFAULT NULL,
+    `marca` varchar(255) DEFAULT NULL,
+    `preco` decimal(10,2) NOT NULL DEFAULT '0.00',
+    `descricao` text,
+    `imagem` varchar(255) DEFAULT NULL,
+    `categoria_id` bigint(20) unsigned NOT NULL,
+    `estoque` int(11) DEFAULT '0',
+    `ativo` tinyint(1) DEFAULT '1',
+    `especificacoes` text,
+    `peso` decimal(8,3) DEFAULT NULL,
+    `cor` varchar(100) DEFAULT NULL,
+    `garantia_meses` int(11) DEFAULT '12',
+    `created_at` timestamp NULL DEFAULT NULL,
+    `updated_at` timestamp NULL DEFAULT NULL,
+    PRIMARY KEY (`id`),
+    KEY `produtos_categoria_id_foreign` (`categoria_id`),
+    CONSTRAINT `produtos_categoria_id_foreign` FOREIGN KEY (`categoria_id`) REFERENCES `categorias` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- 13. Tabela pedidos
+CREATE TABLE IF NOT EXISTS `pedidos` (
+    `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+    `user_id` bigint(20) unsigned NOT NULL,
+    `codigo_rastreamento` varchar(255) NOT NULL,
+    `valor_total` decimal(10,2) NOT NULL,
+    `produtos` json NOT NULL,
+    `status` enum('processando','separacao','transporte','entregue') NOT NULL DEFAULT 'processando',
+    `data_envio` timestamp NULL DEFAULT NULL,
+    `data_entrega` timestamp NULL DEFAULT NULL,
+    `transportadora` varchar(255) NOT NULL DEFAULT 'SEDEX',
+    `observacoes` text,
+    `created_at` timestamp NULL DEFAULT NULL,
+    `updated_at` timestamp NULL DEFAULT NULL,
+    PRIMARY KEY (`id`),
+    UNIQUE KEY `pedidos_codigo_rastreamento_unique` (`codigo_rastreamento`),
+    KEY `pedidos_user_id_foreign` (`user_id`),
+    CONSTRAINT `pedidos_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- ============================================================================
+-- PARTE 2: INSERÇÃO DOS DADOS INICIAIS
+-- ============================================================================
+
+-- Inserir registros na tabela migrations para indicar que as migrações foram executadas
+INSERT IGNORE INTO `migrations` (`migration`, `batch`) VALUES
+('0001_01_01_000000_create_users_table', 1),
+('0001_01_01_000001_create_cache_table', 1),
+('0001_01_01_000002_create_jobs_table', 1),
+('2024_12_17_000001_create_administradores_table', 1),
+('2025_05_20_235858_create_categorias_table', 1),
+('2025_05_20_235859_create_produtos_table', 1),
+('2025_06_03_211700_add_foto_to_users_table', 1),
+('2025_10_15_161039_create_pedidos_table', 1);
+
+-- Inserir categorias do sistema
+INSERT IGNORE INTO `categorias` (`id`, `nome`, `created_at`, `updated_at`) VALUES
+(1, 'Smartphones', NOW(), NOW()),
+(2, 'Fones de Ouvido', NOW(), NOW()),
+(3, 'Tablets', NOW(), NOW()),
+(4, 'Relógios', NOW(), NOW()),
+(5, 'Notebooks', NOW(), NOW());
+
+-- ============================================================================
+-- PARTE 3: INSERÇÃO DE TODOS OS PRODUTOS DO SISTEMA
+-- ============================================================================
+
+-- Inserir TODOS os produtos reais do site
 INSERT IGNORE INTO `produtos` (`id`, `nome`, `modelo`, `marca`, `preco`, `descricao`, `imagem`, `categoria_id`, `estoque`, `ativo`, `especificacoes`, `peso`, `cor`, `garantia_meses`, `created_at`, `updated_at`) VALUES
 
+-- ============================================================================
 -- SMARTPHONES APPLE (Categoria ID: 1)
+-- ============================================================================
 (1, 'iPhone 17 Pro', 'iPhone 17 Pro', 'Apple', 12999.00, 'O smartphone mais avançado da Apple, com titânio aeroespacial, chip A19 Pro, câmera profissional e design inovador. Três acabamentos em titânio lindos.', '/media/iPhone 17 Pro.png', 1, 25, 1, 'Tela Super Retina, Câmera Profissional, 5G, Face ID, Resistente à água', 0.210, 'Titânio Branco', 12, NOW(), NOW()),
 (2, 'iPhone 15 Pro Max', 'iPhone 15 Pro Max', 'Apple', 7899.00, 'iPhone 15 Pro Max com chip A17 Pro, sistema de câmera profissional e design em titânio premium.', '/media/iphone15promax.png', 1, 30, 1, 'Tela Super Retina, Câmera Profissional, 5G, Face ID, Resistente à água', 0.221, 'Titânio Natural', 12, NOW(), NOW()),
 (3, 'iPhone 15 Pro', 'iPhone 15 Pro', 'Apple', 6899.00, 'iPhone 15 Pro com chip A17 Pro e câmera profissional de 48MP.', '/media/iphone15pro.png', 1, 35, 1, 'Tela Super Retina, Câmera Profissional, 5G, Face ID, Resistente à água', 0.187, 'Titânio Azul', 12, NOW(), NOW()),
@@ -14,7 +236,9 @@ INSERT IGNORE INTO `produtos` (`id`, `nome`, `modelo`, `marca`, `preco`, `descri
 (10, 'iPhone 13', 'iPhone 13', 'Apple', 3899.00, 'iPhone 13 com chip A15 Bionic e sistema de câmera dupla avançado.', '/media/iphone13.png', 1, 40, 1, 'Tela Super Retina, Câmera Profissional, 5G, Face ID, Resistente à água', 0.174, 'Rosa', 12, NOW(), NOW()),
 (11, 'iPhone SE (3ª geração)', 'iPhone SE 3ª gen', 'Apple', 2899.00, 'iPhone SE com chip A15 Bionic no design clássico.', '/media/iphonese3.png', 1, 50, 1, 'Tela Retina, Touch ID, 5G, Câmera de 12MP', 0.144, 'Preto', 12, NOW(), NOW()),
 
--- SMARTPHONES SAMSUNG (Categoria ID: 1)  
+-- ============================================================================
+-- SMARTPHONES SAMSUNG (Categoria ID: 1)
+-- ============================================================================
 (12, 'Galaxy S24 Ultra', 'Galaxy S24 Ultra', 'Samsung', 6999.00, 'Galaxy S24 Ultra com S Pen integrada e câmeras profissionais.', '/media/galaxys24ultra.png', 1, 25, 1, 'Tela Dynamic AMOLED, S Pen, Câmera 200MP, 5G', 0.232, 'Preto', 24, NOW(), NOW()),
 (13, 'Galaxy S24+', 'Galaxy S24+', 'Samsung', 5499.00, 'Galaxy S24+ com tela grande e performance premium.', '/media/galaxys24plus.png', 1, 30, 1, 'Tela Dynamic AMOLED, Câmera tripla, 5G', 0.196, 'Verde', 24, NOW(), NOW()),
 (14, 'Galaxy S24', 'Galaxy S24', 'Samsung', 4299.00, 'Galaxy S24 compacto com tecnologia avançada.', '/media/galaxys24.png', 1, 35, 1, 'Tela Dynamic AMOLED, Câmera tripla, 5G', 0.167, 'Cinza', 24, NOW(), NOW()),
@@ -28,20 +252,31 @@ INSERT IGNORE INTO `produtos` (`id`, `nome`, `modelo`, `marca`, `preco`, `descri
 (22, 'Galaxy A35', 'Galaxy A35', 'Samsung', 1799.00, 'Galaxy A35 com recursos essenciais e design moderno.', '/media/galaxya35.png', 1, 50, 1, 'Tela Super AMOLED, Câmera tripla, 4G', 0.209, 'Preto', 24, NOW(), NOW()),
 (23, 'Galaxy A15', 'Galaxy A15', 'Samsung', 1299.00, 'Galaxy A15 com tela grande e bateria duradoura.', '/media/galaxya15.png', 1, 60, 1, 'Tela Super AMOLED, Câmera tripla, 4G', 0.200, 'Verde', 24, NOW(), NOW()),
 
+-- ============================================================================
+-- ADICIONANDO PRODUTO ESPECIAL PARA HOMEPAGE
+-- ============================================================================
+(170, 'Galaxy S22 Ultra', 'Galaxy S22 Ultra', 'Samsung', 4999.00, 'Galaxy S22 Ultra com S Pen integrada e câmeras profissionais de 108MP.', '/media/Galaxy S22 Ultra.png', 1, 20, 1, 'Tela Dynamic AMOLED, S Pen, Câmera 108MP, 5G', 0.229, 'Preto', 24, NOW(), NOW()),
+
+-- ============================================================================
 -- FONES DE OUVIDO APPLE (Categoria ID: 2)
-(24, 'AirPods Pro (2ª geração)', 'AirPods Pro 2', 'Apple', 2299.00, 'AirPods Pro com cancelamento ativo de ruído de próxima geração.', '/media/airpodspro2.png', 2, 40, 1, 'Cancelamento ativo de ruído, Áudio espacial, Bateria de longa duração', 0.056, 'Branco', 12, NOW(), NOW()),
+-- ============================================================================
+(24, 'AirPods Pro (2ª geração)', 'AirPods Pro 2', 'Apple', 2299.00, 'AirPods Pro com cancelamento ativo de ruído de próxima geração.', '/media/Airpods Pro.png', 2, 40, 1, 'Cancelamento ativo de ruído, Áudio espacial, Bateria de longa duração', 0.056, 'Branco', 12, NOW(), NOW()),
 (25, 'AirPods (3ª geração)', 'AirPods 3', 'Apple', 1799.00, 'AirPods com áudio espacial e design ergonômico.', '/media/airpods3.png', 2, 50, 1, 'Áudio espacial, Resistente à água, Bateria de longa duração', 0.043, 'Branco', 12, NOW(), NOW()),
 (26, 'AirPods (2ª geração)', 'AirPods 2', 'Apple', 1299.00, 'AirPods clássicos com qualidade de som excepcional.', '/media/airpods2.png', 2, 45, 1, 'Chip H1, Siri por voz, Bateria de longa duração', 0.040, 'Branco', 12, NOW(), NOW()),
-(27, 'AirPods Max', 'AirPods Max', 'Apple', 4999.00, 'Conecte-se ao que importa — som premium, design elegante e tecnologia Apple. Cancelamento ativo de ruído e áudio espacial.', '/media/hero.jpg', 2, 20, 1, 'Cancelamento ativo de ruído, Áudio espacial, Bateria de longa duração', 0.385, 'Prata', 12, NOW(), NOW()),
+(27, 'AirPods Max', 'AirPods Max', 'Apple', 4999.00, 'Conecte-se ao que importa — som premium, design elegante e tecnologia Apple. Cancelamento ativo de ruído e áudio espacial.', '/media/AirPods Max.png', 2, 20, 1, 'Cancelamento ativo de ruído, Áudio espacial, Bateria de longa duração', 0.385, 'Prata', 12, NOW(), NOW()),
 (28, 'EarPods com conector Lightning', 'EarPods Lightning', 'Apple', 199.00, 'EarPods com fio e conector Lightning para iPhone.', '/media/earpods.png', 2, 100, 1, 'Conector Lightning, Design ergonômico, Controles integrados', 0.015, 'Branco', 12, NOW(), NOW()),
 
+-- ============================================================================
 -- FONES DE OUVIDO SAMSUNG (Categoria ID: 2)
+-- ============================================================================
 (29, 'Galaxy Buds2 Pro', 'Galaxy Buds2 Pro', 'Samsung', 1299.00, 'Galaxy Buds2 Pro com cancelamento inteligente de ruído.', '/media/galaxybuds2pro.png', 2, 35, 1, 'Cancelamento ativo de ruído, Áudio 360, Bateria de longa duração', 0.052, 'Preto', 24, NOW(), NOW()),
 (30, 'Galaxy Buds2', 'Galaxy Buds2', 'Samsung', 899.00, 'Galaxy Buds2 com som de alta qualidade e design compacto.', '/media/galaxybuds2.png', 2, 40, 1, 'Cancelamento de ruído, Ajuste confortável, Bateria duradoura', 0.050, 'Branco', 24, NOW(), NOW()),
 (31, 'Galaxy Buds FE', 'Galaxy Buds FE', 'Samsung', 599.00, 'Galaxy Buds FE com recursos essenciais e ótimo custo-benefício.', '/media/galaxybudsfe.png', 2, 50, 1, 'Som de qualidade, Design ergonômico, Bateria eficiente', 0.048, 'Azul', 24, NOW(), NOW()),
 (32, 'Galaxy Buds Live', 'Galaxy Buds Live', 'Samsung', 799.00, 'Galaxy Buds Live com design único em formato de feijão.', '/media/galaxybudslive.png', 2, 30, 1, 'Design único, Som AKG, Cancelamento de ruído', 0.057, 'Rosa', 24, NOW(), NOW()),
 
+-- ============================================================================
 -- TABLETS APPLE (Categoria ID: 3)
+-- ============================================================================
 (33, 'iPad Pro 13" (M4, 2024)', 'iPad Pro 13 M4', 'Apple', 9999.00, 'iPad Pro de 13 polegadas com chip M4 e tela Tandem OLED.', '/media/ipadpro13m4.png', 3, 15, 1, 'Tela Tandem OLED, Chip M4, Apple Pencil Pro compatível', 0.582, 'Prata', 12, NOW(), NOW()),
 (34, 'iPad Pro 11" (M4, 2024)', 'iPad Pro 11 M4', 'Apple', 7999.00, 'iPad Pro de 11 polegadas com chip M4 ultra-rápido.', '/media/ipadpro11m4.png', 3, 20, 1, 'Tela Liquid Retina, Chip M4, Apple Pencil Pro compatível', 0.444, 'Cinza Espacial', 12, NOW(), NOW()),
 (35, 'iPad Air 13" (M2, 2024)', 'iPad Air 13 M2', 'Apple', 6499.00, 'iPad Air de 13 polegadas com chip M2 e design fino.', '/media/ipadair13m2.png', 3, 25, 1, 'Tela Liquid Retina, Chip M2, Apple Pencil compatível', 0.617, 'Azul', 12, NOW(), NOW()),
@@ -49,7 +284,9 @@ INSERT IGNORE INTO `produtos` (`id`, `nome`, `modelo`, `marca`, `preco`, `descri
 (37, 'iPad 10ª geração', 'iPad 10', 'Apple', 3499.00, 'iPad com tela de 10,9 polegadas e design colorido.', '/media/ipad10.png', 3, 35, 1, 'Tela Liquid Retina, Chip A14 Bionic, Apple Pencil compatível', 0.477, 'Rosa', 12, NOW(), NOW()),
 (38, 'iPad mini 6ª geração', 'iPad mini 6', 'Apple', 4199.00, 'iPad mini portátil com chip A15 Bionic.', '/media/ipadmini6.png', 3, 40, 1, 'Tela Liquid Retina, Chip A15 Bionic, Apple Pencil compatível', 0.293, 'Roxo', 12, NOW(), NOW()),
 
+-- ============================================================================
 -- TABLETS SAMSUNG (Categoria ID: 3)
+-- ============================================================================
 (39, 'Galaxy Tab S9 Ultra', 'Galaxy Tab S9 Ultra', 'Samsung', 7999.00, 'Galaxy Tab S9 Ultra com tela gigante de 14,6 polegadas.', '/media/galaxytabs9ultra.png', 3, 15, 1, 'Tela Dynamic AMOLED 2X, S Pen incluída, Processador Snapdragon', 0.732, 'Cinza', 24, NOW(), NOW()),
 (40, 'Galaxy Tab S9+', 'Galaxy Tab S9+', 'Samsung', 5999.00, 'Galaxy Tab S9+ com tela de 12,4 polegadas e S Pen.', '/media/galaxytabs9plus.png', 3, 20, 1, 'Tela Dynamic AMOLED 2X, S Pen incluída, Processador Snapdragon', 0.581, 'Bege', 24, NOW(), NOW()),
 (41, 'Galaxy Tab S9', 'Galaxy Tab S9', 'Samsung', 4499.00, 'Galaxy Tab S9 compacto com tela de 11 polegadas.', '/media/galaxytabs9.png', 3, 25, 1, 'Tela Dynamic AMOLED 2X, S Pen incluída, Processador Snapdragon', 0.498, 'Preto', 24, NOW(), NOW()),
@@ -59,27 +296,82 @@ INSERT IGNORE INTO `produtos` (`id`, `nome`, `modelo`, `marca`, `preco`, `descri
 (45, 'Galaxy Tab A9', 'Galaxy Tab A9', 'Samsung', 1199.00, 'Galaxy Tab A9 compacto e acessível.', '/media/galaxytaba9.png', 3, 50, 1, 'Tela compacta, Uso básico, Preço acessível', 0.332, 'Azul', 24, NOW(), NOW()),
 (46, 'Samsung Galaxy Tab S6', 'Galaxy Tab S6', 'Samsung', 1999.00, 'Produtividade em suas mãos. Tela Super AMOLED de 10.5 polegadas e S Pen inclusa.', '/media/Samsung Galaxy Tab S6.png', 3, 25, 1, 'Tela Super AMOLED, S Pen incluída, Produtividade móvel', 0.420, 'Azul', 24, NOW(), NOW()),
 
+-- ============================================================================
 -- RELÓGIOS APPLE (Categoria ID: 4)
+-- ============================================================================
 (47, 'Apple Watch Series 9 (41mm, 45mm)', 'Apple Watch S9', 'Apple', 3299.00, 'Apple Watch Series 9 com chip S9 e tela sempre ativa mais brilhante.', '/media/watchs9.png', 4, 30, 1, 'GPS, Monitor cardíaco, À prova d\'água, Bateria de 18h', 0.042, 'Meia-noite', 12, NOW(), NOW()),
 (48, 'Apple Watch SE (2022)', 'Apple Watch SE', 'Apple', 2299.00, 'Apple Watch SE com recursos essenciais para saúde e fitness.', '/media/watchse.png', 4, 40, 1, 'GPS, Monitor cardíaco, À prova d\'água, Bateria de 18h', 0.033, 'Estelar', 12, NOW(), NOW()),
 (49, 'Apple Watch Ultra 2', 'Apple Watch Ultra 2', 'Apple', 6999.00, 'Apple Watch Ultra 2 para aventuras extremas.', '/media/watchultra2.png', 4, 15, 1, 'Titânio, GPS duplo, À prova d\'água 100m, Bateria de 36h', 0.061, 'Titânio Natural', 12, NOW(), NOW()),
 (50, 'Apple Watch Series 8', 'Apple Watch Series 8', 'Apple', 2999.00, 'O futuro no seu pulso. Monitoramento avançado de saúde, GPS integrado e resistência à água.', '/media/Watch_Series8.png', 4, 25, 1, 'GPS, Monitor cardíaco, À prova d\'água, Bateria de 18h', 0.039, 'Meia-noite', 12, NOW(), NOW()),
 
+-- ============================================================================
 -- RELÓGIOS SAMSUNG (Categoria ID: 4)
+-- ============================================================================
 (51, 'Galaxy Watch 6 Classic', 'Galaxy Watch 6 Classic', 'Samsung', 2299.00, 'Galaxy Watch 6 Classic com moldura giratória e design premium.', '/media/galaxywatch6classic.png', 4, 25, 1, 'Moldura giratória, Monitor de saúde, GPS, À prova d\'água', 0.052, 'Preto', 24, NOW(), NOW()),
 (52, 'Galaxy Watch 6', 'Galaxy Watch 6', 'Samsung', 1899.00, 'Galaxy Watch 6 com monitoramento avançado de saúde.', '/media/galaxywatch6.png', 4, 30, 1, 'Monitor de saúde, GPS, À prova d\'água, Bateria duradoura', 0.034, 'Prata', 24, NOW(), NOW()),
 (53, 'Galaxy Watch 5 Pro', 'Galaxy Watch 5 Pro', 'Samsung', 2799.00, 'Galaxy Watch 5 Pro com caixa em titânio e bateria extendida.', '/media/galaxywatch5pro.png', 4, 20, 1, 'Caixa em titânio, Bateria extendida, GPS, À prova d\'água', 0.046, 'Cinza Titânio', 24, NOW(), NOW()),
 (54, 'Galaxy Watch 5', 'Galaxy Watch 5', 'Samsung', 1699.00, 'Galaxy Watch 5 com carregamento rápido e design moderno.', '/media/galaxywatch5.png', 4, 35, 1, 'Carregamento rápido, Monitor de saúde, GPS, À prova d\'água', 0.034, 'Azul', 24, NOW(), NOW()),
 
+-- ============================================================================
 -- NOTEBOOKS APPLE (Categoria ID: 5)
-(55, 'MacBook Air 15" (M3, 2024)', 'MacBook Air 15 M3', 'Apple', 12999.00, 'MacBook Air de 15 polegadas com chip M3 e tela Liquid Retina.', '/media/macbookair15m3.png', 5, 15, 1, 'Chip M3, Tela Liquid Retina, Bateria de até 18h', 1.510, 'Meia-noite', 12, NOW(), NOW()),
+-- ============================================================================
+(55, 'MacBook Air 15" (M3, 2024)', 'MacBook Air 15 M3', 'Apple', 12999.00, 'MacBook Air de 15 polegadas com chip M3 e tela Liquid Retina.', '/media/Macbook Air 15 M3.png', 5, 15, 1, 'Chip M3, Tela Liquid Retina, Bateria de até 18h', 1.510, 'Meia-noite', 12, NOW(), NOW()),
 (56, 'MacBook Air 13" (M3, 2024)', 'MacBook Air 13 M3', 'Apple', 9999.00, 'MacBook Air de 13 polegadas com chip M3 ultra-eficiente.', '/media/macbookair13m3.png', 5, 20, 1, 'Chip M3, Tela Liquid Retina, Bateria de até 18h', 1.240, 'Prata', 12, NOW(), NOW()),
 (57, 'MacBook Pro 14" (M3, 2023)', 'MacBook Pro 14 M3', 'Apple', 16999.00, 'MacBook Pro de 14 polegadas com chip M3 Pro para profissionais.', '/media/macbookpro14m3.png', 5, 10, 1, 'Chip M3 Pro, Tela Liquid Retina XDR, Bateria de até 22h', 1.550, 'Cinza Espacial', 12, NOW(), NOW()),
-(58, 'MacBook Pro 16" (M3, 2023)', 'MacBook Pro 16 M3', 'Apple', 21999.00, 'MacBook Pro de 16 polegadas com máximo desempenho M3 Max.', '/media/macbookpro16m3.png', 5, 8, 1, 'Chip M3 Max, Tela Liquid Retina XDR, Bateria de até 22h', 2.140, 'Preto Espacial', 12, NOW(), NOW()),
+(58, 'MacBook Pro 16" (M3, 2023)', 'MacBook Pro 16 M3', 'Apple', 21999.00, 'MacBook Pro de 16 polegadas com máximo desempenho M3 Max.', '/media/Macbook Pro 16.png', 5, 8, 1, 'Chip M3 Max, Tela Liquid Retina XDR, Bateria de até 22h', 2.140, 'Preto Espacial', 12, NOW(), NOW()),
 
+-- ============================================================================
 -- NOTEBOOKS SAMSUNG (Categoria ID: 5)
+-- ============================================================================
 (59, 'Galaxy Book4 Ultra', 'Galaxy Book4 Ultra', 'Samsung', 12999.00, 'Galaxy Book4 Ultra com performance extrema para criadores.', '/media/galaxybook4ultra.png', 5, 10, 1, 'Processador Intel de última geração, Tela AMOLED, Design ultrafino', 1.850, 'Cinza', 24, NOW(), NOW()),
 (60, 'Galaxy Book4 Pro 360', 'Galaxy Book4 Pro 360', 'Samsung', 8999.00, 'Galaxy Book4 Pro 360 conversível com S Pen incluída.', '/media/galaxybook4pro360.png', 5, 15, 1, 'Conversível 2-em-1, S Pen incluída, Tela touchscreen', 1.650, 'Prata', 24, NOW(), NOW()),
 (61, 'Galaxy Book4 Pro', 'Galaxy Book4 Pro', 'Samsung', 6999.00, 'Galaxy Book4 Pro com tela AMOLED e design premium.', '/media/galaxybook4pro.png', 5, 20, 1, 'Tela AMOLED, Design premium, Performance profissional', 1.470, 'Grafite', 24, NOW(), NOW()),
 (62, 'Galaxy Book4 360', 'Galaxy Book4 360', 'Samsung', 5499.00, 'Galaxy Book4 360 conversível para uso versátil.', '/media/galaxybook4360.png', 5, 25, 1, 'Conversível 2-em-1, Tela touchscreen, Uso versátil', 1.580, 'Prata', 24, NOW(), NOW()),
 (63, 'Galaxy Book4', 'Galaxy Book4', 'Samsung', 3999.00, 'Performance profissional. Processador Intel de última geração e design ultrafino.', '/media/GalaxyBook4_Homepage.png', 5, 30, 1, 'Processador Intel de última geração e design ultrafino', 1.550, 'Cinza', 24, NOW(), NOW());
+
+-- ============================================================================
+-- FINALIZAÇÃO DO SCRIPT
+-- ============================================================================
+
+-- Reativar verificação de chaves estrangeiras
+SET FOREIGN_KEY_CHECKS = 1;
+
+-- Verificar se tudo foi criado corretamente
+SELECT 
+    'TABELAS CRIADAS' as status,
+    COUNT(*) as total_tabelas
+FROM information_schema.tables 
+WHERE table_schema = DATABASE();
+
+SELECT 
+    'CATEGORIAS INSERIDAS' as status,
+    COUNT(*) as total_categorias
+FROM categorias;
+
+SELECT 
+    'PRODUTOS INSERIDOS' as status,
+    COUNT(*) as total_produtos
+FROM produtos;
+
+-- ============================================================================
+-- SCRIPT CONCLUÍDO COM SUCESSO!
+-- ============================================================================
+-- 
+-- RESUMO DO QUE FOI CRIADO:
+-- ✓ 13 tabelas do sistema (users, produtos, categorias, pedidos, etc.)
+-- ✓ 5 categorias de produtos
+-- ✓ 65+ produtos completos com todas as informações
+-- ✓ Estrutura completa para o e-commerce Index
+-- 
+-- PRÓXIMOS PASSOS:
+-- 1. Configure o arquivo .env do Laravel com as credenciais do banco
+-- 2. Execute: php artisan migrate:status (para verificar migrations)
+-- 3. Execute: php artisan serve (para iniciar a aplicação)
+-- 4. Acesse http://localhost:8000 para ver o site funcionando
+-- 
+-- EM CASO DE PROBLEMAS:
+-- - Verifique se o MySQL está rodando
+-- - Confirme se o banco foi selecionado antes de executar o script
+-- - Verifique se o usuário MySQL tem permissões de criação
+-- 
+-- ============================================================================
