@@ -31,27 +31,12 @@
         <br>
         <span style="color:#7fff7f;font-size:1em;font-weight:600;">à vista: R$ {{ number_format($produto->preco * 0.95, 2, ',', '.') }} (5% OFF)</span>
       </p>
-      <div class="produto-entrega">
-        <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
-          <span style="font-size:1.5em;">
-            <i class="fas fa-truck" style="color:#fff;"></i>
-          </span>
-          <span style="font-weight:600;color:#fff;">Entrega:</span>
-        </div>
-  <div style="margin-bottom:6px;color:#fff;">Em estoque<br>Frete grátis</div>
-        <div style="margin-bottom:8px;">
-          <label for="cep-input" style="font-weight:500;color:#fff;">Calcule o prazo e valor de entrega:</label><br>
-          <input type="text" id="cep-input" maxlength="9" placeholder="Digite seu CEP" style="padding:6px 12px;border-radius:8px;border:1px solid #fff;width:140px;margin-top:6px;background:#222;color:#fff;">
-          <button onclick="calcularFrete()" style="padding:6px 16px;border-radius:8px;border:none;background:#222;color:#fff;font-weight:600;margin-left:8px;cursor:pointer;">Calcular</button>
-        </div>
-    <div id="frete-resultado" style="margin-top:8px;font-size:1.08em;color:#fff;"></div>
-      </div>
       <div class="produto-acoes" style="display: flex; gap: 15px; align-items: center;">
         <form action="{{ route('carrinho.adicionar') }}" method="POST" style="flex: 1;">
           @csrf
           <input type="hidden" name="produto_id" value="{{ $produto->id }}">
           <input type="hidden" name="quantidade" value="1">
-          <button type="submit" class="btn-adicionar-carrinho" style="width: 100%; padding: 15px 20px; background: #000; color: #fff; border: none; border-radius: 12px; font-size: 1.1rem; font-weight: 700; cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; gap: 8px;">
+          <button type="submit" class="btn-adicionar-carrinho" style="width: 100%; padding: 15px 20px; background: linear-gradient(135deg, #007bff, #0056b3); color: #fff; border: none; border-radius: 12px; font-size: 1.1rem; font-weight: 700; cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 15px rgba(0, 123, 255, 0.4);">
               <i class="fas fa-shopping-cart"></i>
               Adicionar ao Carrinho
           </button>
@@ -62,36 +47,6 @@
     </div>
   </div>
 <script>
-// Função para consultar ViaCEP e Correios (exemplo de simulação de frete)
-function calcularFrete() {
-  const cep = document.getElementById('cep-input').value.replace(/\D/g, '');
-  const resultado = document.getElementById('frete-resultado');
-  resultado.innerHTML = '';
-  if (cep.length !== 8) {
-    resultado.innerHTML = '<span style="color:#ff5252;">CEP inválido. Digite 8 dígitos.</span>';
-    return;
-  }
-  resultado.innerHTML = 'Consultando...';
-  // Consulta ViaCEP para validar CEP
-  fetch('https://viacep.com.br/ws/' + cep + '/json/')
-    .then(res => res.json())
-    .then(data => {
-      if (data.erro) {
-        resultado.innerHTML = '<span style="color:#ff5252;">CEP não encontrado.</span>';
-        return;
-      }
-      // Simulação de consulta Correios (substitua por API real se desejar)
-      // Exemplo: prazo 3-7 dias úteis, valor R$ 29,90 (pode variar por estado)
-      let prazo = Math.floor(Math.random() * 5) + 3; // 3 a 7 dias
-      let valor = 0; // Frete grátis
-      resultado.innerHTML = `<span style="color:#fff;font-weight:600;">Entrega para ${data.localidade} - ${data.uf}</span><br>
-        <span style="color:#fff;">Prazo estimado: <strong>${prazo} dias úteis</strong></span><br>
-        <span style="color:#7fff7f;font-weight:600;">Frete: <strong>Grátis</strong></span>`;
-    })
-    .catch(() => {
-      resultado.innerHTML = '<span style="color:#ff5252;">Erro ao consultar CEP.</span>';
-    });
-}
 function toggleDescricao(id) {
   const desc = document.getElementById(id);
   const button = document.querySelector(`[onclick="toggleDescricao('${id}')"]`);

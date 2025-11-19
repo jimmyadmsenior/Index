@@ -367,6 +367,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('/pedidos', [App\Http\Controllers\AdminController::class, 'pedidos'])->name('pedidos');
         Route::patch('/pedidos/{id}/status', [App\Http\Controllers\AdminController::class, 'atualizarStatusPedido'])->name('pedidos.status');
         Route::get('/usuarios', [App\Http\Controllers\AdminController::class, 'usuarios'])->name('usuarios');
+        Route::get('/usuarios/{id}/details', [App\Http\Controllers\AdminController::class, 'getUserDetails'])->name('usuarios.details');
         Route::delete('/usuarios/{id}', [App\Http\Controllers\AdminController::class, 'excluirUsuario'])->name('usuarios.excluir');
         Route::get('/produtos', [App\Http\Controllers\AdminController::class, 'produtos'])->name('produtos');
         Route::get('/logs', [App\Http\Controllers\AdminController::class, 'logs'])->name('logs');

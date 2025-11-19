@@ -260,10 +260,11 @@ document.getElementById('iphone17Popup').addEventListener('click', function(e) {
       <div class="featured-iphone14">
         <h2>iPhone 14</h2>
         <p class="featured-desc">A tecnologia encontra o conforto</p>
-        <div class="produto-acoes" style="display: flex; justify-content: center; margin: 20px auto; max-width: 300px;">
-          <a href="/Login" class="featured-link" style="width: 100%; background: linear-gradient(135deg, #00bfff, #4db5ff); color: #fff; text-align: center; display: flex; align-items: center; justify-content: center; padding: 12px 20px; border-radius: 12px; font-weight: 700; gap: 8px; text-decoration: none;">
+        <div class="produto-acoes" style="display: flex; gap: 10px; justify-content: center; margin: 20px auto; max-width: 350px;">
+          <a href="/Login" class="featured-link" style="flex: 1; background: linear-gradient(135deg, #00bfff, #4db5ff); color: #fff; text-align: center; display: flex; align-items: center; justify-content: center; padding: 12px 20px; border-radius: 12px; font-weight: 700; gap: 8px; text-decoration: none;">
             <i class="fas fa-shopping-cart"></i> Faça Login para Comprar
           </a>
+          <a href="/produto/9" class="featured-link" style="flex: 1.2; font-size: 0.9rem; padding: 18px 32px; text-align: center; background: transparent; border: 2px solid #00ff41; color: #00ff41; display: flex; align-items: center; justify-content: center; border-radius: 12px; text-decoration: none; font-weight: 600; min-width: 160px;">Ver Produto</a>
         </div>
         <div class="featured-imgs">
           <img src="/media/Iphone_14_Capa_Homepage.png" alt="Two hands holding a light blue iPhone 14, one showing the back with the Apple logo and dual cameras, the other displaying the lock screen with the time 941 and colorful abstract wallpaper, set against a clean white background, conveying a modern and premium feel" class="iphone14-img"/>
@@ -278,44 +279,48 @@ document.getElementById('iphone17Popup').addEventListener('click', function(e) {
         <div class="product-card dark">
           <h3>iPhone 14 Pro</h3>
           <p>Faz jus ao nome</p>
-          <div class="card-buttons" style="display: flex; gap: 10px; margin: 10px 0;">
-            <a href="/Login" class="featured-link" style="flex: 1; background: linear-gradient(135deg, #00bfff, #4db5ff); color: #fff; font-size: 0.8rem; padding: 10px; text-align: center; display: flex; align-items: center; justify-content: center; gap: 5px; border-radius: 8px;">
+          <div class="card-buttons" style="display: flex; gap: 15px; margin: 15px 0;">
+            <a href="/Login" class="featured-link" style="flex: 1.3; background: linear-gradient(135deg, #00bfff, #4db5ff); color: #fff; font-size: 0.85rem; padding: 16px 20px; text-align: center; display: flex; align-items: center; justify-content: center; gap: 8px; border-radius: 10px; font-weight: 600; min-width: 120px;">
               <i class="fas fa-shopping-cart"></i> Login
             </a>
-            <a href="/Cadastro" class="featured-link" style="flex: 1; font-size: 0.8rem; padding: 10px; text-align: center; background: transparent; border: 2px solid #fff; color: #fff; display: flex; align-items: center; justify-content: center; border-radius: 8px;">Cadastrar</a>
+            <a href="/Cadastro" class="featured-link" style="flex: 1.2; font-size: 0.85rem; padding: 16px 18px; text-align: center; background: transparent; border: 2px solid #fff; color: #fff; display: flex; align-items: center; justify-content: center; border-radius: 10px; font-weight: 600; min-width: 110px;">Cadastrar</a>
+            <a href="/produto/7" class="featured-link" style="flex: 1.2; font-size: 0.85rem; padding: 16px 18px; text-align: center; background: transparent; border: 2px solid #00ff41; color: #00ff41; display: flex; align-items: center; justify-content: center; border-radius: 10px; text-decoration: none; font-weight: 600; min-width: 120px;">Ver Produto</a>
           </div>
           <img src="/media/Iphone_14_Pro_Capa_Homepage.png" alt="iPhone 14 Pro"/>
         </div>
         <div class="product-card dark">
           <h3>Galaxy Book4</h3>
           <p>Desempenho nunca antes visto</p>
-          <div class="card-buttons" style="display: flex; gap: 10px; margin: 10px 0;">
-            <a href="/Login" class="featured-link" style="flex: 1; background: linear-gradient(135deg, #00bfff, #4db5ff); color: #fff; font-size: 0.8rem; padding: 10px; text-align: center; display: flex; align-items: center; justify-content: center; gap: 5px; border-radius: 8px;">
+          <div class="card-buttons" style="display: flex; gap: 8px; margin: 10px 0;">
+            <a href="/Login" class="featured-link" style="flex: 1; background: linear-gradient(135deg, #00bfff, #4db5ff); color: #fff; font-size: 0.75rem; padding: 8px; text-align: center; display: flex; align-items: center; justify-content: center; gap: 5px; border-radius: 8px;">
               <i class="fas fa-shopping-cart"></i> Login
             </a>
-            <a href="/Cadastro" class="featured-link" style="flex: 1; font-size: 0.8rem; padding: 10px; text-align: center; background: transparent; border: 2px solid #fff; color: #fff; display: flex; align-items: center; justify-content: center; border-radius: 8px;">Cadastrar</a>
+            <a href="/Cadastro" class="featured-link" style="flex: 1; font-size: 0.75rem; padding: 8px; text-align: center; background: transparent; border: 2px solid #fff; color: #fff; display: flex; align-items: center; justify-content: center; border-radius: 8px;">Cadastrar</a>
+            <a href="/produto/63" class="featured-link" style="flex: 1.2; font-size: 0.85rem; padding: 16px 18px; text-align: center; background: transparent; border: 2px solid #00ff41; color: #00ff41; display: flex; align-items: center; justify-content: center; border-radius: 10px; text-decoration: none; font-weight: 600; min-width: 120px;">Ver Produto</a>
           </div>
           <img src="/media/GalaxyBook4_Homepage.png" alt="Galaxy Book4"/>
         </div>
         <div class="product-card dark">
           <h3>Samsung Galaxy Tab S6</h3>
           <p>Profissionalismo e elegância</p>
-          <div class="card-buttons" style="display: flex; gap: 10px; margin: 10px 0;">
-            <a href="/Login" class="featured-link" style="flex: 1; background: linear-gradient(135deg, #00bfff, #4db5ff); color: #fff; font-size: 0.8rem; padding: 10px; text-align: center; display: flex; align-items: center; justify-content: center; gap: 5px; border-radius: 8px;">
+          <div class="card-buttons" style="display: flex; gap: 8px; margin: 10px 0;">
+            <a href="/Login" class="featured-link" style="flex: 1; background: linear-gradient(135deg, #00bfff, #4db5ff); color: #fff; font-size: 0.75rem; padding: 8px; text-align: center; display: flex; align-items: center; justify-content: center; gap: 5px; border-radius: 8px;">
               <i class="fas fa-shopping-cart"></i> Login
             </a>
-            <a href="/Cadastro" class="featured-link" style="flex: 1; font-size: 0.8rem; padding: 10px; text-align: center; background: transparent; border: 2px solid #fff; color: #fff; display: flex; align-items: center; justify-content: center; border-radius: 8px;">Cadastrar</a>
+            <a href="/Cadastro" class="featured-link" style="flex: 1; font-size: 0.75rem; padding: 8px; text-align: center; background: transparent; border: 2px solid #fff; color: #fff; display: flex; align-items: center; justify-content: center; border-radius: 8px;">Cadastrar</a>
+            <a href="/produto/46" class="featured-link" style="flex: 1.2; font-size: 0.85rem; padding: 16px 18px; text-align: center; background: transparent; border: 2px solid #00ff41; color: #00ff41; display: flex; align-items: center; justify-content: center; border-radius: 10px; text-decoration: none; font-weight: 600; min-width: 120px;">Ver Produto</a>
           </div>
           <img src="/media/Samsung Galaxy Tab S6.png" alt="Samsung Galaxy Tab S6"/>
         </div>
         <div class="product-card dark">
           <h3><i class="fab fa-apple"></i> WATCH <span style="font-size:12px;">SERIES 8</span></h3>
           <p>Um salto de tecnologia</p>
-          <div class="card-buttons" style="display: flex; gap: 10px; margin: 10px 0;">
-            <a href="/Login" class="featured-link" style="flex: 1; background: linear-gradient(135deg, #00bfff, #4db5ff); color: #fff; font-size: 0.8rem; padding: 10px; text-align: center; display: flex; align-items: center; justify-content: center; gap: 5px; border-radius: 8px;">
+          <div class="card-buttons" style="display: flex; gap: 8px; margin: 10px 0;">
+            <a href="/Login" class="featured-link" style="flex: 1; background: linear-gradient(135deg, #00bfff, #4db5ff); color: #fff; font-size: 0.75rem; padding: 8px; text-align: center; display: flex; align-items: center; justify-content: center; gap: 5px; border-radius: 8px;">
               <i class="fas fa-shopping-cart"></i> Login
             </a>
-            <a href="/Cadastro" class="featured-link" style="flex: 1; font-size: 0.8rem; padding: 10px; text-align: center; background: transparent; border: 2px solid #fff; color: #fff; display: flex; align-items: center; justify-content: center; border-radius: 8px;">Cadastrar</a>
+            <a href="/Cadastro" class="featured-link" style="flex: 1; font-size: 0.75rem; padding: 8px; text-align: center; background: transparent; border: 2px solid #fff; color: #fff; display: flex; align-items: center; justify-content: center; border-radius: 8px;">Cadastrar</a>
+            <a href="/produto/50" class="featured-link" style="flex: 1; font-size: 0.75rem; padding: 8px; text-align: center; background: rgba(255,255,255,0.1); border: 1px solid #ccc; color: #fff; display: flex; align-items: center; justify-content: center; border-radius: 8px; text-decoration: none;">Ver</a>
           </div>
           <img src="/media/Watch_Series8.png" alt="Apple Watch Series 8"/>
         </div>
