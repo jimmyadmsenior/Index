@@ -301,13 +301,13 @@ document.getElementById('iphone17Popup').addEventListener('click', function(e) {
           <div class="card-buttons" style="display: flex; gap: 10px; margin: 10px 0;">
             <form action="{{ route('carrinho.adicionar') }}" method="POST" style="flex: 1;">
               @csrf
-              <input type="hidden" name="produto_id" value="6">
+              <input type="hidden" name="produto_id" value="7">
               <input type="hidden" name="quantidade" value="1">
               <button type="submit" class="featured-link" style="background: #000; color: #fff; border: none; width: 100%; font-size: 0.9rem; padding: 10px; display: flex; align-items: center; justify-content: center; gap: 5px;">
                 <i class="fas fa-shopping-cart"></i> Carrinho
               </button>
             </form>
-            <a href="/produto/6" class="featured-link" style="flex: 1; font-size: 0.9rem; padding: 10px; text-align: center; background: transparent; border: 2px solid #fff; color: #fff; display: flex; align-items: center; justify-content: center;">Ver Produto</a>
+            <a href="/produto/7" class="featured-link" style="flex: 1; font-size: 0.9rem; padding: 10px; text-align: center; background: transparent; border: 2px solid #fff; color: #fff; display: flex; align-items: center; justify-content: center;">Ver Produto</a>
           </div>
           <img src="/media/Iphone_14_Pro_Capa_Homepage.png" alt="iPhone 14 Pro"/>
         </div>
