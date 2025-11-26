@@ -17,11 +17,11 @@
                 <p class="popup-features">✨ Chip A19 Pro • 📱 Display 6.3" • 📸 Câmera 48MP</p>
                 <div class="popup-buttons">
                     <a href="{{ route('iphone17pro') }}" class="popup-btn primary">
-                        <i class="fas fa-eye"></i> Ver Detalhes
+                      <i class="fas fa-eye"></i> Ver Detalhes
                     </a>
-          <a href="/Login" class="popup-btn secondary" style="text-decoration: none;">
-            <i class="fas fa-user"></i> Faça Login para Comprar
-          </a>
+                    <a href="{{ route('login') }}" class="popup-btn secondary" style="text-decoration: none;">
+                      <i class="fas fa-user"></i> Faça Login para Comprar
+                    </a>
                 </div>
             </div>
         </div>
