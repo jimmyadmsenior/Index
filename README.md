@@ -77,7 +77,18 @@ Esse projeto está sob licença. Veja o arquivo [LICENÇA](LICENSE) para mais de
 
 
 ## Como clonar o repositório para sua máquina local
-Para clonar o repositório para sua máquina local, você deve enviar uma solicitação para nós (Pull Request) propondo ser um afiliado ou ajudante para o nosso projeto. Lembre-se de enviar uma mensagem relatando o porquê você gostaria de ajudar e como pode contribuir para o nosso projeto.
+
+Para clonar o repositório, execute o seguinte comando no terminal:
+
+```bash
+git clone https://github.com/jimmyadmsenior/Index.git
+```
+
+Depois, navegue até a pasta clonada:
+
+```bash
+cd Index
+```
 
 # Como clonar o repositório para seu perfil do GitHub
 Aperte no botão **Fork** na parte de cima dos arquivos, ao lado esquerdo da seção de favoritar o repositório.
@@ -95,7 +106,7 @@ Aperte no botão **Fork** na parte de cima dos arquivos, ao lado esquerdo da se�
   Substitua caminho/para/a/pasta pelo caminho real onde a pasta "backend" está localizada.
 
 
-6. **Execute o comando de configuração completa:**
+**Execute o comando de configuração completa:**
 
   ```bash
   php artisan projeto:setup
