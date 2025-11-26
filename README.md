@@ -6,21 +6,21 @@
 
 > Nosso site realiza a venda de eletrônicos, mais especificamente smartphones, fones de ouvido, relógios, tablets e notebooks. Ele foi criado com o intuito de simplicar a escolha de eletrônicos, utilizando de recursos gráficos e apresentações intuitivas.
 
-
 ### Status do Projeto
-O projeto está em desenvolvimento contínuo. As principais funcionalidades já implementadas incluem:
+O projeto está pronto. Todas as principais funcionalidades foram implementadas:
 
 - [X] Design e Elementos Gráficos
 - [X] ChatBot
 - [X] Layout Base
 - [X] Publicação dos produtos
 - [X] Páginas Iniciais
-- [X] BackEnd (CRUD)(cadastro, login, confirmação de cadastro, painel admin)
+- [X] BackEnd (CRUD) (cadastro, login, confirmação de cadastro, painel admin)
 
 #### Melhorias recentes
-- Página de confirmação de cadastro com ícone centralizado e efeito visual aprimorado
-- Correção de duplicidade do efeito de cursor
-- Ajustes no fluxo de autenticação e cadastro de usuários
+- Implementação de feedback visual aprimorado em diversas telas
+- Otimização do desempenho do carregamento das páginas
+- Ajustes finais na responsividade para dispositivos móveis
+- Correções de bugs menores identificados durante os testes finais
 
 ## 📫 Contribuindo para o Index
 
