@@ -295,27 +295,80 @@ function alternarStatusUsuario(usuarioId) {
 }
 
 function confirmarExclusaoUsuario(usuarioId) {
-    if (confirm('Tem certeza que deseja excluir este usuário? Esta ação não pode ser desfeita.')) {
+    console.log('=== INICIANDO EXCLUSÃO ===');
+    console.log('ID do usuário:', usuarioId);
+    console.log('URL da requisição:', `/admin/usuarios/${usuarioId}`);
+    
+    if (confirm('⚠️ ATENÇÃO: Tem certeza que deseja excluir este usuário?\n\n🚨 IMPORTANTE: Esta ação irá:\n• Excluir o usuário permanentemente\n• Excluir TODOS os pedidos associados a ele\n• Esta ação NÃO PODE ser desfeita!\n\nDeseja continuar?')) {
+        // Mostrar loading
+        const button = event.target;
+        const originalText = button.textContent;
+        button.textContent = 'Excluindo...';
+        button.disabled = true;
+        
+        // Verificar se o CSRF token existe
+        const csrfToken = document.querySelector('meta[name="csrf-token"]');
+        if (!csrfToken) {
+            console.error('❌ CSRF Token não encontrado!');
+            alert('❌ Erro de configuração: Token de segurança não encontrado.');
+            button.textContent = originalText;
+            button.disabled = false;
+            return;
+        }
+        
+        console.log('✅ CSRF Token encontrado:', csrfToken.getAttribute('content').substring(0, 10) + '...');
+        
+        console.log('📤 Enviando requisição...');
         fetch(`/admin/usuarios/${usuarioId}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',
-                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+                'X-CSRF-TOKEN': csrfToken.getAttribute('content'),
+                'Accept': 'application/json',
+                'X-Requested-With': 'XMLHttpRequest'
             }
         })
-        .then(response => response.json())
+        .then(response => {
+            console.log('📡 Resposta recebida. Status:', response.status);
+            console.log('📡 Status Text:', response.statusText);
+            console.log('📡 Headers:', [...response.headers.entries()]);
+            
+            if (!response.ok) {
+                console.warn(`⚠️ Status não-ok: ${response.status}`);
+            }
+            
+            return response.text().then(text => {
+                console.log('📄 Texto da resposta:', text);
+                try {
+                    return JSON.parse(text);
+                } catch (e) {
+                    console.error('❌ Erro ao parsear JSON:', e);
+                    throw new Error(`Resposta inválida do servidor: ${text.substring(0, 100)}...`);
+                }
+            });
+        })
         .then(data => {
+            console.log('✅ Dados JSON processados:', data);
             if (data.success) {
-                alert(data.message);
+                alert('✅ ' + data.message);
                 location.reload();
             } else {
-                alert('Erro: ' + data.message);
+                alert('❌ ' + data.message);
             }
         })
         .catch(error => {
-            console.error('Erro:', error);
-            alert('Erro ao excluir usuário. Tente novamente.');
+            console.error('❌ Erro na requisição:', error);
+            console.error('❌ Stack trace:', error.stack);
+            alert('❌ Erro de conexão: ' + error.message + '\n\nVerifique o console do navegador para mais detalhes.');
+        })
+        .finally(() => {
+            // Restaurar botão
+            console.log('🔄 Restaurando botão...');
+            button.textContent = originalText;
+            button.disabled = false;
         });
+    } else {
+        console.log('❌ Exclusão cancelada pelo usuário');
     }
 }
 
