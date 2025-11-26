@@ -1,10 +1,6 @@
 # INDEX
 
 ![GitHub repo size](https://img.shields.io/github/repo-size/jimmyadmsenior/Index?style=for-the-badge)
-![GitHub language count](https://img.shields.io/github/languages/count/jimmyadmsenior/Index?style=for-the-badge)
-![GitHub forks](https://img.shields.io/github/forks/jimmyadmsenior/Index?style=for-the-badge)
-![Bitbucket open issues](https://img.shields.io/bitbucket/issues/jimmyadmsenior/Index?style=for-the-badge)
-![Bitbucket open pull requests](https://img.shields.io/bitbucket/pr-raw/jimmyadmsenior/Index?style=for-the-badge)
 
 <img src="https://github.com/user-attachments/assets/b518b347-90f9-4936-918b-443cdacc9197" alt="Logo do site">
 
