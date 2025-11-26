@@ -54,7 +54,8 @@
               </div>
               
               <div class="item-preco">
-                R$ {{ number_format($item['produto']->preco, 2, ',', '.') }}
+                <div style="color: #aaa; font-size: 0.85rem;">R$ {{ number_format($item['produto']->preco, 2, ',', '.') }} cada</div>
+                <div style="font-weight: 600; font-size: 1.1rem;">R$ {{ number_format($item['produto']->preco * $item['quantidade'], 2, ',', '.') }}</div>
               </div>
               
               <div class="quantidade-controle">
@@ -94,7 +95,7 @@
           <h3 style="margin-bottom: 20px; color: #fff;">Resumo do Pedido</h3>
           
           <div class="resumo-linha">
-            <span>Subtotal ({{ count($itens) }} {{ count($itens) > 1 ? 'itens' : 'item' }}):</span>
+            <span>Subtotal ({{ array_sum(array_column($itens, 'quantidade')) }} {{ array_sum(array_column($itens, 'quantidade')) > 1 ? 'itens' : 'item' }}):</span>
             <span>R$ {{ number_format($total, 2, ',', '.') }}</span>
           </div>
           

@@ -188,23 +188,33 @@ class AdminController extends Controller
     public function excluirUsuario($id)
     {
         try {
+            \Log::info("=== TENTATIVA DE EXCLUSÃO DE USUÁRIO ===");
+            \Log::info("ID do usuário: {$id}");
+            
             $usuario = User::findOrFail($id);
+            \Log::info("Usuário encontrado: {$usuario->name} ({$usuario->email})");
             
-            // Verifica se o usuário tem pedidos
-            if ($usuario->pedidos()->count() > 0) {
-                return response()->json([
-                    'success' => false, 
-                    'message' => 'Não é possível excluir usuário com pedidos associados.'
-                ], 400);
-            }
+            // Conta quantos pedidos serão excluídos junto
+            $numeroPedidos = $usuario->pedidos()->count();
+            \Log::info("Número de pedidos que serão excluídos: {$numeroPedidos}");
             
+            $nomeUsuario = $usuario->name;
+            
+            // Excluir o usuário (CASCADE DELETE vai remover os pedidos automaticamente)
             $usuario->delete();
+            
+            \Log::info("✅ Usuário '{$nomeUsuario}' excluído com sucesso (CASCADE DELETE removeu {$numeroPedidos} pedidos)");
             
             return response()->json([
                 'success' => true, 
-                'message' => 'Usuário excluído com sucesso!'
+                'message' => $numeroPedidos > 0 
+                    ? "Usuário '{$nomeUsuario}' e {$numeroPedidos} pedidos associados excluídos com sucesso!" 
+                    : "Usuário '{$nomeUsuario}' excluído com sucesso!"
             ]);
         } catch (\Exception $e) {
+            \Log::error("❌ Erro ao excluir usuário: " . $e->getMessage());
+            \Log::error("Stack trace: " . $e->getTraceAsString());
+            
             return response()->json([
                 'success' => false, 
                 'message' => 'Erro ao excluir usuário: ' . $e->getMessage()
