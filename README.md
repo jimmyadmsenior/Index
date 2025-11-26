@@ -19,7 +19,7 @@ O projeto está em desenvolvimento contínuo. As principais funcionalidades já 
 - [X] Layout Base
 - [X] Publicação dos produtos
 - [X] Páginas Iniciais
-- [X] BackEnd (cadastro, login, confirmação de cadastro, painel admin)
+- [X] BackEnd (CRUD)(cadastro, login, confirmação de cadastro, painel admin)
 
 #### Melhorias recentes
 - Página de confirmação de cadastro com ícone centralizado e efeito visual aprimorado
@@ -98,19 +98,6 @@ Aperte no botão **Fork** na parte de cima dos arquivos, ao lado esquerdo da se�
   ```
   Substitua caminho/para/a/pasta pelo caminho real onde a pasta "backend" está localizada.
 
-3. **Instale as dependências do PHP** usando o Composer:
-
-  ```bash
-  composer install
-  ```
-
-4. **Instale as dependências do Node.js** usando o npm:
-
-  ```bash
-  npm install
-  ```
-
-5. **Configure o arquivo `.env`** com suas próprias APIs e Tokens (copie `.env.example` para `.env` e edite conforme necessário).
 
 6. **Execute o comando de configuração completa:**
 
@@ -126,15 +113,7 @@ Aperte no botão **Fork** na parte de cima dos arquivos, ao lado esquerdo da se�
   - ✅ Criar storage link
   - ✅ Limpar caches
 
-7. **Inicie o servidor Laravel:**
-
-  ```bash
-  php artisan serve --host=localhost --port=8000
-  ```
-
-## 🔧 Configuração Manual (Opcional)
-
-Se preferir fazer passo a passo:
+---
 
 ## 🔧 Configuração Manual (Opcional)
 
@@ -193,9 +172,9 @@ Se preferir fazer passo a passo:
 
 10. **Inicie o servidor Laravel:**
 
-  ```bash
-  php artisan serve --host=localhost --port=8000
-  ```
+   ```bash
+   php artisan serve --host=localhost --port=8000
+   ```
 
 Agora o servidor estará rodando e você poderá acessá-lo através do seu navegador em http://localhost:8000.
 
@@ -205,7 +184,3 @@ Após executar os comandos acima, você pode acessar o painel administrativo em:
 - **URL:** http://localhost:8000/admin/login
 - **Email:** admin@sistema.com
 - **Senha:** admin123456
-
-# Como clonar o repositório para seu perfil do GitHub
-Aperte no botão Fork na parte de cima dos arquivos,
-ao lado esquerdo da seção de favoritar o repositório.
